@@ -1,6 +1,6 @@
 # Open Learn Core
 
-Open Learn Core is an open-source framework for building reproducible, auditable learning resources from structured educational source and publishing them across web, print, and video. V2.1 adds an exact-30 learner-facing Core Concept layer while preserving the legacy knowledge dataset for migration and provenance.
+Open Learn Core is an open-source framework for building reproducible, auditable learning resources from structured educational source and publishing them across web, print, and video. V2.2 adds a first-class Learning Experience layer while preserving the legacy knowledge dataset for migration and provenance.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ Core owns the reusable engine. A domain owns its knowledge, sources, visuals, cu
 
 ## Current domain
 
-`linear-algebra` is the first reference domain. Its public map contains exactly 30 Core Concepts; the former 57 Concept records remain internal and are mapped in [the compression design](docs/design/linear-algebra-30-concept-compression.md). `basis` is the first Gold Concept with an inspectable motivation-to-transfer learning flow. The other 29 Core Concepts are intentionally marked `scaffold` until their editorial content passes the same gate. The existing 8 Modules and 52 Learning Units remain available as internal migration material.
+`linear-algebra` is the first reference domain. Its public map contains exactly 30 Core Concepts; the former 57 Concept records remain internal and are mapped in [the compression design](docs/design/linear-algebra-30-concept-compression.md). `basis` is the first Gold Concept with a 21-block Learning Experience, worked reasoning, misconception challenges, assessment alignment, and transfer. The other 29 Core Concepts are intentionally marked `scaffold` until their editorial content passes the same gate. The existing 8 Modules and 52 Learning Units remain available as internal migration material.
 
 ## Commands
 
@@ -29,6 +29,7 @@ npm run validate:all
 npm test
 npm run course:audit -- linear-algebra
 npm run audit:core -- linear-algebra
+npm run audit:learning -- linear-algebra
 npm run build -- linear-algebra
 npm run build:pdf -- linear-algebra
 npm run build:video -- linear-algebra
@@ -55,4 +56,4 @@ Create `domains/<domain>/domain.yaml`, place the domain data and assets below th
 
 ## Roadmap
 
-The v2.0 non-blocking roadmap includes learner accounts, adaptive grading, multilingual expansion, additional domains, and hosted analytics. The basic course remains static, inspectable, and usable without a proprietary service.
+The v2.2 follow-up work is to author Gold Learning Experiences for the remaining 29 Core Concepts and then connect learner accounts, adaptive grading, multilingual expansion, additional domains, and hosted analytics. The basic course remains static, inspectable, and usable without a proprietary service.

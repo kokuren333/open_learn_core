@@ -20,12 +20,18 @@ export async function loadDomain(repoRoot, domainId) {
     const coreDocument = JSON.parse(await readFile(corePath, "utf8"));
     coreConcepts = coreDocument.core_concepts ?? [];
   }
+  let learningExperiences = [];
+  if (manifest.learning_experiences_file) {
+    const experiencePath = path.resolve(found.root, manifest.learning_experiences_file);
+    const experienceDocument = JSON.parse(await readFile(experiencePath, "utf8"));
+    learningExperiences = experienceDocument.experiences ?? [];
+  }
   dataset.courses = courseData.courses;
   dataset.modules = courseData.modules;
   dataset.units = courseData.units;
   dataset.moduleExercises = courseData.moduleExercises;
   dataset.cumulativeReviews = courseData.cumulativeReviews;
-  return { ...found, manifest, dataset, courseData, coreConcepts, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
+  return { ...found, manifest, dataset, courseData, coreConcepts, learningExperiences, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
 }
 
 export async function loadAllDomains(repoRoot = process.cwd()) {

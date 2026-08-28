@@ -26,7 +26,8 @@ const profiles = {
   optimization_approximation: { abstraction: 4, procedural: 5, visual: 4, prerequisite_load: 5, misconception_risk: 5, representation_switching: 4, symbolic_density: 5 }
 };
 const item = (value, prefix, index) => ({ id: `${prefix}-${value.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || Array.from(value).map((char) => char.codePointAt(0).toString(16)).join("")}-${index + 1}`, title: value, description: `${value}を具体例・形式化・転移課題で扱う。` });
-const contract = (title, misconceptions, representations, examples) => ({
+const contract = (id, title, misconceptions, representations, examples) => ({
+  learning_outcome_ids: [`${id}-explain`, `${id}-apply`, `${id}-transfer`],
   learner_should_be_able_to: [`${title}を自分の言葉と式で説明する。`, `${title}を二つ以上の表現で判定・計算する。`, `${title}を未知の問題へ転移し、結果を検算する。`],
   must_not_leave_with_misconceptions: misconceptions,
   required_representations: representations,
@@ -71,12 +72,14 @@ const definitions = [
 
 const concepts = definitions.map(([id, ja, en, model, pattern, facets, procedures, properties, representations, misconceptions, applications, source, prerequisites]) => ({
   id, title: { ja, en }, central_mental_model: model, cognitive_types: [pattern, ...(pattern === "representation" ? ["transformation_process"] : [])], cognitive_profile: profiles[pattern],
+  cognitive_analysis: { primary_type: pattern, dimensions: Object.fromEntries(Object.entries(profiles[pattern]).map(([dimension, score]) => [dimension, { score, rationale: `${ja}では${dimension}の負荷を${score}/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。` }])) },
+  instructional_budget: { minimum_concrete_scenarios: profiles[pattern].abstraction >= 4 ? 2 : 1, minimum_worked_examples: profiles[pattern].procedural >= 4 ? 4 : 2, minimum_counterexamples: profiles[pattern].misconception_risk >= 4 ? 3 : 2, minimum_guided_questions: profiles[pattern].abstraction >= 4 ? 5 : 3, minimum_independent_questions: profiles[pattern].procedural >= 4 ? 4 : 2, minimum_misconception_challenges: profiles[pattern].misconception_risk >= 4 ? 2 : 1, minimum_representation_switches: profiles[pattern].representation_switching >= 4 ? 2 : 1, minimum_transfer_tasks: 1 },
   facets: facets.map((value, index) => item(value, "facet", index)), procedures: procedures.map((value, index) => item(value, "procedure", index)), properties, representations: representations.map((value, index) => item(value, "representation", index)), misconceptions, applications,
-  external_relations: [], learning_contract: contract(ja, misconceptions, representations, [representations[0], representations[1]]),
+  external_relations: [], learning_contract: contract(id, ja, misconceptions, representations, [representations[0], representations[1]]),
   pedagogical_plan: { pattern, reason: `${ja}の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。`, stages: patterns[pattern], profile_driven_requirements: [`抽象度${profiles[pattern].abstraction}/5に応じて具体例と形式化を往復する。`, `誤解リスク${profiles[pattern].misconception_risk}/5と表現切替${profiles[pattern].representation_switching}/5に応じて対比・翻訳課題を置く。`] },
   editorial_status: id === "basis" ? "gold" : "scaffold", source_concept_ids: source, prerequisites
 }));
 if (concepts.length !== 30) throw new Error(`expected 30 core concepts, found ${concepts.length}`);
 await mkdir(path.dirname(output), { recursive: true });
-await writeFile(output, JSON.stringify({ schema_version: "2.1", domain: "linear-algebra", core_concepts: concepts }, null, 2) + "\n", "utf8");
+await writeFile(output, JSON.stringify({ schema_version: "2.2", domain: "linear-algebra", core_concepts: concepts }, null, 2) + "\n", "utf8");
 console.log(`Wrote ${concepts.length} Core Concepts to ${path.relative(root, output)}`);

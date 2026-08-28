@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/learning-experience.schema.json",
+  "title": "Open Learn Learning Experience v2.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "concept_id", "sequence", "assessments", "instructional_budget", "editorial_status"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "concept_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "sequence": { "type": "array", "minItems": 5, "items": { "$ref": "learning-block.schema.json" } },
+    "assessments": { "type": "array", "minItems": 1, "items": { "$ref": "assessment.schema.json" } },
+    "instructional_budget": { "$ref": "#/$defs/budget" },
+    "editorial_status": { "enum": ["scaffold", "draft", "reviewed", "gold"] }
+  },
+  "$defs": {
+    "budget": { "type": "object", "additionalProperties": false, "required": ["minimum_concrete_scenarios", "minimum_worked_examples", "minimum_counterexamples", "minimum_guided_questions", "minimum_independent_questions", "minimum_misconception_challenges", "minimum_representation_switches", "minimum_transfer_tasks"], "properties": { "minimum_concrete_scenarios": { "type": "integer", "minimum": 1 }, "minimum_worked_examples": { "type": "integer", "minimum": 1 }, "minimum_counterexamples": { "type": "integer", "minimum": 1 }, "minimum_guided_questions": { "type": "integer", "minimum": 1 }, "minimum_independent_questions": { "type": "integer", "minimum": 1 }, "minimum_misconception_challenges": { "type": "integer", "minimum": 1 }, "minimum_representation_switches": { "type": "integer", "minimum": 1 }, "minimum_transfer_tasks": { "type": "integer", "minimum": 1 } } }
+  }
+}

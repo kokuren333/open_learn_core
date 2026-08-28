@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "domain": "linear-algebra",
   "core_concepts": [
     {
@@ -20,6 +20,49 @@
         "misconception_risk": 3,
         "representation_switching": 3,
         "symbolic_density": 2
+      },
+      "cognitive_analysis": {
+        "primary_type": "concrete_object",
+        "dimensions": {
+          "abstraction": {
+            "score": 2,
+            "rationale": "ベクトルではabstractionの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 2,
+            "rationale": "ベクトルではproceduralの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "ベクトルではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 1,
+            "rationale": "ベクトルではprerequisite_loadの負荷を1/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "ベクトルではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 3,
+            "rationale": "ベクトルではrepresentation_switchingの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 2,
+            "rationale": "ベクトルではsymbolic_densityの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 2,
+        "minimum_guided_questions": 3,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
       },
       "facets": [
         {
@@ -82,6 +125,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "vector-explain",
+          "vector-apply",
+          "vector-transfer"
+        ],
         "learner_should_be_able_to": [
           "ベクトルを自分の言葉と式で説明する。",
           "ベクトルを二つ以上の表現で判定・計算する。",
@@ -165,6 +213,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "abstraction",
+        "dimensions": {
+          "abstraction": {
+            "score": 5,
+            "rationale": "線形結合ではabstractionの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 2,
+            "rationale": "線形結合ではproceduralの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "線形結合ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "線形結合ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "線形結合ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "線形結合ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "線形結合ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-4fc26570-1",
@@ -226,6 +317,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "linear-combination-explain",
+          "linear-combination-apply",
+          "linear-combination-transfer"
+        ],
         "learner_should_be_able_to": [
           "線形結合を自分の言葉と式で説明する。",
           "線形結合を二つ以上の表現で判定・計算する。",
@@ -305,6 +401,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "線形方程式系ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "線形方程式系ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "線形方程式系ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "線形方程式系ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "線形方程式系ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "線形方程式系ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "線形方程式系ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-672a77e591cf-1",
@@ -366,6 +505,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "linear-system-explain",
+          "linear-system-apply",
+          "linear-system-transfer"
+        ],
         "learner_should_be_able_to": [
           "線形方程式系を自分の言葉と式で説明する。",
           "線形方程式系を二つ以上の表現で判定・計算する。",
@@ -446,6 +590,49 @@
         "representation_switching": 5,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "行列ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "行列ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "行列ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "行列ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "行列ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 5,
+            "rationale": "行列ではrepresentation_switchingの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "行列ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-884c30685217-1",
@@ -512,6 +699,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "matrix-explain",
+          "matrix-apply",
+          "matrix-transfer"
+        ],
         "learner_should_be_able_to": [
           "行列を自分の言葉と式で説明する。",
           "行列を二つ以上の表現で判定・計算する。",
@@ -595,6 +787,49 @@
         "representation_switching": 3,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "procedure",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "消去法ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 5,
+            "rationale": "消去法ではproceduralの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 2,
+            "rationale": "消去法ではvisualの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "消去法ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "消去法ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 3,
+            "rationale": "消去法ではrepresentation_switchingの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "消去法ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 3,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-884c64cd4f5c-1",
@@ -661,6 +896,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "elimination-explain",
+          "elimination-apply",
+          "elimination-transfer"
+        ],
         "learner_should_be_able_to": [
           "消去法を自分の言葉と式で説明する。",
           "消去法を二つ以上の表現で判定・計算する。",
@@ -743,6 +983,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "abstraction",
+        "dimensions": {
+          "abstraction": {
+            "score": 5,
+            "rationale": "ベクトル空間ではabstractionの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 2,
+            "rationale": "ベクトル空間ではproceduralの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "ベクトル空間ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "ベクトル空間ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "ベクトル空間ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "ベクトル空間ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "ベクトル空間ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-516c7406-1",
@@ -804,6 +1087,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "vector-space-explain",
+          "vector-space-apply",
+          "vector-space-transfer"
+        ],
         "learner_should_be_able_to": [
           "ベクトル空間を自分の言葉と式で説明する。",
           "ベクトル空間を二つ以上の表現で判定・計算する。",
@@ -883,6 +1171,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "部分空間ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "部分空間ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "部分空間ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "部分空間ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "部分空間ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "部分空間ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "部分空間ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-539f70b93092542b308076f47dda-1",
@@ -944,6 +1275,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "subspace-explain",
+          "subspace-apply",
+          "subspace-transfer"
+        ],
         "learner_should_be_able_to": [
           "部分空間を自分の言葉と式で説明する。",
           "部分空間を二つ以上の表現で判定・計算する。",
@@ -1023,6 +1359,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "線形独立性ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "線形独立性ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "線形独立性ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "線形独立性ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "線形独立性ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "線形独立性ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "線形独立性ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-96f6306e95a24fc2-1",
@@ -1084,6 +1463,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "linear-independence-explain",
+          "linear-independence-apply",
+          "linear-independence-transfer"
+        ],
         "learner_should_be_able_to": [
           "線形独立性を自分の言葉と式で説明する。",
           "線形独立性を二つ以上の表現で判定・計算する。",
@@ -1164,6 +1548,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "基底ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "基底ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "基底ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "基底ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "基底ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "基底ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "基底ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-span-1",
@@ -1239,6 +1666,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "basis-explain",
+          "basis-apply",
+          "basis-transfer"
+        ],
         "learner_should_be_able_to": [
           "基底を自分の言葉と式で説明する。",
           "基底を二つ以上の表現で判定・計算する。",
@@ -1324,6 +1756,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "次元ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 4,
+            "rationale": "次元ではproceduralの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "次元ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "次元ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "次元ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "次元ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "次元ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-81ea75315ea6-1",
@@ -1385,6 +1860,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "dimension-explain",
+          "dimension-apply",
+          "dimension-transfer"
+        ],
         "learner_should_be_able_to": [
           "次元を自分の言葉と式で説明する。",
           "次元を二つ以上の表現で判定・計算する。",
@@ -1465,6 +1945,49 @@
         "representation_switching": 4,
         "symbolic_density": 3
       },
+      "cognitive_analysis": {
+        "primary_type": "transformation_process",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "線形写像ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "線形写像ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 5,
+            "rationale": "線形写像ではvisualの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "線形写像ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "線形写像ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "線形写像ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "線形写像ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-5165529b306851fa529b-1",
@@ -1526,6 +2049,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "linear-transformation-explain",
+          "linear-transformation-apply",
+          "linear-transformation-transfer"
+        ],
         "learner_should_be_able_to": [
           "線形写像を自分の言葉と式で説明する。",
           "線形写像を二つ以上の表現で判定・計算する。",
@@ -1608,6 +2136,49 @@
         "representation_switching": 5,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "座標と基底変換ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "座標と基底変換ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "座標と基底変換ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "座標と基底変換ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "座標と基底変換ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 5,
+            "rationale": "座標と基底変換ではrepresentation_switchingの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "座標と基底変換ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-5ea76a19306830d930af30c830eb-1",
@@ -1679,6 +2250,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "coordinates-change-of-basis-explain",
+          "coordinates-change-of-basis-apply",
+          "coordinates-change-of-basis-transfer"
+        ],
         "learner_should_be_able_to": [
           "座標と基底変換を自分の言葉と式で説明する。",
           "座標と基底変換を二つ以上の表現で判定・計算する。",
@@ -1762,6 +2338,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 5,
+            "rationale": "階数と零化度ではabstractionの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "階数と零化度ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "階数と零化度ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "階数と零化度ではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "階数と零化度ではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "階数と零化度ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "階数と零化度ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-60c55831306e4fdd630130686d885931-1",
@@ -1828,6 +2447,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "rank-nullity-explain",
+          "rank-nullity-apply",
+          "rank-nullity-transfer"
+        ],
         "learner_should_be_able_to": [
           "階数と零化度を自分の言葉と式で説明する。",
           "階数と零化度を二つ以上の表現で判定・計算する。",
@@ -1911,6 +2535,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "行列式ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 4,
+            "rationale": "行列式ではproceduralの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "行列式ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "行列式ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "行列式ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "行列式ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "行列式ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-7b2653f74ed8304d4f537a4d-1",
@@ -1977,6 +2644,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "determinant-explain",
+          "determinant-apply",
+          "determinant-transfer"
+        ],
         "learner_should_be_able_to": [
           "行列式を自分の言葉と式で説明する。",
           "行列式を二つ以上の表現で判定・計算する。",
@@ -2063,6 +2735,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 5,
+            "rationale": "固有値と固有ベクトルではabstractionの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "固有値と固有ベクトルではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "固有値と固有ベクトルではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "固有値と固有ベクトルではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "固有値と固有ベクトルではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "固有値と固有ベクトルではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "固有値と固有ベクトルではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-4e0d590965b95411-1",
@@ -2124,6 +2839,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "eigenvalue-eigenvector-explain",
+          "eigenvalue-eigenvector-apply",
+          "eigenvalue-eigenvector-transfer"
+        ],
         "learner_should_be_able_to": [
           "固有値と固有ベクトルを自分の言葉と式で説明する。",
           "固有値と固有ベクトルを二つ以上の表現で判定・計算する。",
@@ -2207,6 +2927,49 @@
         "representation_switching": 5,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "対角化ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "対角化ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "対角化ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "対角化ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "対角化ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 5,
+            "rationale": "対角化ではrepresentation_switchingの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "対角化ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-56fa670957fa5e95-1",
@@ -2273,6 +3036,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "diagonalization-explain",
+          "diagonalization-apply",
+          "diagonalization-transfer"
+        ],
         "learner_should_be_able_to": [
           "対角化を自分の言葉と式で説明する。",
           "対角化を二つ以上の表現で判定・計算する。",
@@ -2354,6 +3122,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "内積ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "内積ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "内積ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "内積ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "内積ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "内積ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "内積ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-95773055-1",
@@ -2421,6 +3232,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "inner-product-explain",
+          "inner-product-apply",
+          "inner-product-transfer"
+        ],
         "learner_should_be_able_to": [
           "内積を自分の言葉と式で説明する。",
           "内積を二つ以上の表現で判定・計算する。",
@@ -2500,6 +3316,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 5,
+            "rationale": "直交性ではabstractionの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "直交性ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "直交性ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "直交性ではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "直交性ではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "直交性ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "直交性ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-51857a4d30bc30ed-1",
@@ -2566,6 +3425,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "orthogonality-explain",
+          "orthogonality-apply",
+          "orthogonality-transfer"
+        ],
         "learner_should_be_able_to": [
           "直交性を自分の言葉と式で説明する。",
           "直交性を二つ以上の表現で判定・計算する。",
@@ -2649,6 +3513,49 @@
         "representation_switching": 4,
         "symbolic_density": 3
       },
+      "cognitive_analysis": {
+        "primary_type": "transformation_process",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "射影ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "射影ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 5,
+            "rationale": "射影ではvisualの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "射影ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "射影ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "射影ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "射影ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-5f71-1",
@@ -2715,6 +3622,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "projection-explain",
+          "projection-apply",
+          "projection-transfer"
+        ],
         "learner_should_be_able_to": [
           "射影を自分の言葉と式で説明する。",
           "射影を二つ以上の表現で判定・計算する。",
@@ -2796,6 +3708,49 @@
         "representation_switching": 4,
         "symbolic_density": 5
       },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "最小二乗ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 5,
+            "rationale": "最小二乗ではproceduralの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "最小二乗ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "最小二乗ではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "最小二乗ではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "最小二乗ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 5,
+            "rationale": "最小二乗ではsymbolic_densityの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-4e0d65745408306a65b97a0b5f0f-1",
@@ -2862,6 +3817,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "least-squares-explain",
+          "least-squares-apply",
+          "least-squares-transfer"
+        ],
         "learner_should_be_able_to": [
           "最小二乗を自分の言葉と式で説明する。",
           "最小二乗を二つ以上の表現で判定・計算する。",
@@ -2943,6 +3903,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 5,
+            "rationale": "対称行列ではabstractionの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "対称行列ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "対称行列ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "対称行列ではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "対称行列ではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "対称行列ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "対称行列ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-8ee27f6e5bfe79f0-1",
@@ -3009,6 +4012,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "symmetric-matrix-explain",
+          "symmetric-matrix-apply",
+          "symmetric-matrix-transfer"
+        ],
         "learner_should_be_able_to": [
           "対称行列を自分の言葉と式で説明する。",
           "対称行列を二つ以上の表現で判定・計算する。",
@@ -3090,6 +4098,49 @@
         "representation_switching": 5,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "二次形式ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "二次形式ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "二次形式ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "二次形式ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "二次形式ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 5,
+            "rationale": "二次形式ではrepresentation_switchingの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "二次形式ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-x-tax-1",
@@ -3156,6 +4207,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "quadratic-form-explain",
+          "quadratic-form-apply",
+          "quadratic-form-transfer"
+        ],
         "learner_should_be_able_to": [
           "二次形式を自分の言葉と式で説明する。",
           "二次形式を二つ以上の表現で判定・計算する。",
@@ -3237,6 +4293,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "正定値性ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "正定値性ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "正定値性ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "正定値性ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "正定値性ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "正定値性ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "正定値性ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-516865b95411306e6b63-1",
@@ -3303,6 +4402,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "positive-definiteness-explain",
+          "positive-definiteness-apply",
+          "positive-definiteness-transfer"
+        ],
         "learner_should_be_able_to": [
           "正定値性を自分の言葉と式で説明する。",
           "正定値性を二つ以上の表現で判定・計算する。",
@@ -3384,6 +4488,49 @@
         "representation_switching": 5,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "特異値分解ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "特異値分解ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "特異値分解ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "特異値分解ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "特異値分解ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 5,
+            "rationale": "特異値分解ではrepresentation_switchingの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "特異値分解ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-4e096bb5968e306e590963db-1",
@@ -3450,6 +4597,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "singular-value-decomposition-explain",
+          "singular-value-decomposition-apply",
+          "singular-value-decomposition-transfer"
+        ],
         "learner_should_be_able_to": [
           "特異値分解を自分の言葉と式で説明する。",
           "特異値分解を二つ以上の表現で判定・計算する。",
@@ -3531,6 +4683,49 @@
         "representation_switching": 4,
         "symbolic_density": 5
       },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "低ランク近似ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 5,
+            "rationale": "低ランク近似ではproceduralの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "低ランク近似ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "低ランク近似ではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "低ランク近似ではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "低ランク近似ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 5,
+            "rationale": "低ランク近似ではsymbolic_densityの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-60c5583157277e2e-1",
@@ -3597,6 +4792,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "low-rank-approximation-explain",
+          "low-rank-approximation-apply",
+          "low-rank-approximation-transfer"
+        ],
         "learner_should_be_able_to": [
           "低ランク近似を自分の言葉と式で説明する。",
           "低ランク近似を二つ以上の表現で判定・計算する。",
@@ -3677,6 +4877,49 @@
         "representation_switching": 4,
         "symbolic_density": 5
       },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "主成分分析ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 5,
+            "rationale": "主成分分析ではproceduralの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "主成分分析ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 5,
+            "rationale": "主成分分析ではprerequisite_loadの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 5,
+            "rationale": "主成分分析ではmisconception_riskの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "主成分分析ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 5,
+            "rationale": "主成分分析ではsymbolic_densityの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-52066563-1",
@@ -3743,6 +4986,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "principal-component-analysis-explain",
+          "principal-component-analysis-apply",
+          "principal-component-analysis-transfer"
+        ],
         "learner_should_be_able_to": [
           "主成分分析を自分の言葉と式で説明する。",
           "主成分分析を二つ以上の表現で判定・計算する。",
@@ -3824,6 +5072,49 @@
         "representation_switching": 3,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "procedure",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "行列分解ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 5,
+            "rationale": "行列分解ではproceduralの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 2,
+            "rationale": "行列分解ではvisualの負荷を2/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "行列分解ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "行列分解ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 3,
+            "rationale": "行列分解ではrepresentation_switchingの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "行列分解ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 3,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-56e05b50-1",
@@ -3890,6 +5181,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "matrix-factorization-explain",
+          "matrix-factorization-apply",
+          "matrix-factorization-transfer"
+        ],
         "learner_should_be_able_to": [
           "行列分解を自分の言葉と式で説明する。",
           "行列分解を二つ以上の表現で判定・計算する。",
@@ -3972,6 +5268,49 @@
         "representation_switching": 4,
         "symbolic_density": 3
       },
+      "cognitive_analysis": {
+        "primary_type": "transformation_process",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "行列力学ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "行列力学ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 5,
+            "rationale": "行列力学ではvisualの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "行列力学ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "行列力学ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "行列力学ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "行列力学ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-72b6614b-1",
@@ -4038,6 +5377,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "matrix-dynamics-explain",
+          "matrix-dynamics-apply",
+          "matrix-dynamics-transfer"
+        ],
         "learner_should_be_able_to": [
           "行列力学を自分の言葉と式で説明する。",
           "行列力学を二つ以上の表現で判定・計算する。",
@@ -4121,6 +5465,49 @@
         "representation_switching": 5,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "グラフとネットワーク表現ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "グラフとネットワーク表現ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "グラフとネットワーク表現ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "グラフとネットワーク表現ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "グラフとネットワーク表現ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 5,
+            "rationale": "グラフとネットワーク表現ではrepresentation_switchingの負荷を5/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "グラフとネットワーク表現ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 2,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 2,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-980270b930688fba-1",
@@ -4187,6 +5574,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "graph-network-representation-explain",
+          "graph-network-representation-apply",
+          "graph-network-representation-transfer"
+        ],
         "learner_should_be_able_to": [
           "グラフとネットワーク表現を自分の言葉と式で説明する。",
           "グラフとネットワーク表現を二つ以上の表現で判定・計算する。",
@@ -4267,6 +5659,49 @@
         "representation_switching": 4,
         "symbolic_density": 4
       },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 4,
+            "rationale": "数値安定性ではabstractionの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "procedural": {
+            "score": 4,
+            "rationale": "数値安定性ではproceduralの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "visual": {
+            "score": 3,
+            "rationale": "数値安定性ではvisualの負荷を3/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 4,
+            "rationale": "数値安定性ではprerequisite_loadの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 4,
+            "rationale": "数値安定性ではmisconception_riskの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "数値安定性ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 4,
+            "rationale": "数値安定性ではsymbolic_densityの負荷を4/5と見積もる。具体例・対比・形式化を組み合わせる必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 2,
+        "minimum_worked_examples": 4,
+        "minimum_counterexamples": 3,
+        "minimum_guided_questions": 5,
+        "minimum_independent_questions": 4,
+        "minimum_misconception_challenges": 2,
+        "minimum_representation_switches": 2,
+        "minimum_transfer_tasks": 1
+      },
       "facets": [
         {
           "id": "facet-4e3830818aa45dee-1",
@@ -4333,6 +5768,11 @@
       ],
       "external_relations": [],
       "learning_contract": {
+        "learning_outcome_ids": [
+          "numerical-stability-explain",
+          "numerical-stability-apply",
+          "numerical-stability-transfer"
+        ],
         "learner_should_be_able_to": [
           "数値安定性を自分の言葉と式で説明する。",
           "数値安定性を二つ以上の表現で判定・計算する。",

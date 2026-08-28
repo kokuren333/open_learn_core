@@ -8,7 +8,7 @@ import { auditVideoSource } from "../video/audit.mjs";
 
 export async function validateDomain(domain, { schema } = {}) {
   const manifestSchema = schema ?? JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "domain-manifest.schema.json"), "utf8"));
-  const schemaNames = ["concept", "core-concept", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
+  const schemaNames = ["concept", "core-concept", "learning-block", "learning-experience", "assessment", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
   const schemas = Object.fromEntries(await Promise.all(schemaNames.map(async (name) => [`${name}.schema.json`, JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, `${name}.schema.json`), "utf8"))])));
   const issues = [...validateJsonSchema(domain.manifest, manifestSchema, { schemas, path: `${domain.root}/domain.yaml` })];
   const coreConcepts = domain.coreConcepts ?? [];
@@ -22,6 +22,26 @@ export async function validateDomain(domain, { schema } = {}) {
     for (const relation of core.external_relations ?? []) if (!["requires", "extends", "applied_in", "analogous_to", "special_case_of", "generalized_by"].includes(relation.relation)) issues.push(`Core Concept '${core.id}' has invalid external relation '${relation.relation}'`);
     const sourceConceptIds = new Set((domain.dataset.concepts ?? []).map((record) => record.value.id));
     for (const sourceId of core.source_concept_ids ?? []) if (!sourceConceptIds.has(sourceId)) issues.push(`Core Concept '${core.id}' references missing source Concept '${sourceId}'`);
+  }
+  const learningExperiences = domain.learningExperiences ?? [];
+  const experienceIds = new Set();
+  for (const experience of learningExperiences) {
+    issues.push(...validateJsonSchema(experience, schemas["learning-experience.schema.json"], { schemas, path: `${domain.manifest.learning_experiences_file ?? "learning-experiences"}:${experience.id}` }));
+    if (experienceIds.has(experience.id)) issues.push(`Learning Experience IDs must be unique: '${experience.id}'`);
+    experienceIds.add(experience.id);
+    if (!coreIds.has(experience.concept_id)) issues.push(`Learning Experience '${experience.id}' references missing Core Concept '${experience.concept_id}'`);
+    const target = coreConcepts.find((core) => core.id === experience.concept_id);
+    const outcomeIds = new Set(target?.learning_contract?.learning_outcome_ids ?? []);
+    for (const block of experience.sequence ?? []) {
+      for (const outcomeId of block.learning_outcome_ids ?? []) if (!outcomeIds.has(outcomeId)) issues.push(`Learning Block '${block.id}' references outcome '${outcomeId}' not declared by Core Concept '${experience.concept_id}'`);
+    }
+    for (const assessment of experience.assessments ?? []) {
+      for (const outcomeId of assessment.tests_learning_outcome_ids ?? []) if (!outcomeIds.has(outcomeId)) issues.push(`Assessment '${assessment.id}' references outcome '${outcomeId}' not declared by Core Concept '${experience.concept_id}'`);
+    }
+  }
+  for (const core of coreConcepts) {
+    const experience = learningExperiences.find((item) => item.concept_id === core.id);
+    if (core.editorial_status === "gold" && (!experience || experience.editorial_status !== "gold")) issues.push(`Gold Core Concept '${core.id}' must have a Gold Learning Experience`);
   }
   if (domain.manifest.id !== path.basename(domain.root)) issues.push("domain manifest id must match directory name");
   const datasetValidation = await (await import("../validation/index.mjs")).validateDataset(domain.dataset);

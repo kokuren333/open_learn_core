@@ -5,7 +5,7 @@ title:
 description:
   ja: ベクトル、線形結合、span、線形独立、基底、次元、座標、線形写像、行列表現を扱う大学初年級向け教材。
   en: An introductory course in vectors, linear combinations, bases, coordinates, maps, and matrix representations.
-version: 2.1.0
+version: 2.2.0
 status: in_progress
 language:
   default: ja
@@ -22,10 +22,11 @@ entry_concepts:
 quality_gate_concepts:
   - basis
 core_compatibility:
-  min_version: "2.1"
+  min_version: "2.2"
 content_root: ./data
 asset_root: ./assets
 core_concepts_file: ./data/core-concepts/core-concepts.json
+learning_experiences_file: ./data/learning-experiences/learning-experiences.json
 core_concepts:
   - vector
   - linear-combination

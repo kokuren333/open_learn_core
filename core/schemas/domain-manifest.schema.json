@@ -4,7 +4,7 @@
   "title": "Open Learn Domain Manifest",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "title", "description", "version", "status", "language", "level", "entry_curriculum", "entry_concepts", "core_compatibility", "content_root", "asset_root", "publish", "core_concepts_file", "core_concepts"],
+  "required": ["id", "title", "description", "version", "status", "language", "level", "entry_curriculum", "entry_concepts", "core_compatibility", "content_root", "asset_root", "publish", "core_concepts_file", "core_concepts", "learning_experiences_file"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "title": { "$ref": "concept.schema.json#/$defs/localized" },
@@ -17,6 +17,7 @@
     "entry_concepts": { "type": "array", "items": { "type": "string" } },
     "core_concepts_file": { "type": "string", "minLength": 1 },
     "core_concepts": { "type": "array", "minItems": 30, "maxItems": 30, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" } },
+    "learning_experiences_file": { "type": "string", "minLength": 1 },
     "quality_gate_concepts": { "type": "array", "items": { "type": "string" } },
     "core_compatibility": { "type": "object", "additionalProperties": false, "required": ["min_version"], "properties": { "min_version": { "type": "string" } } },
     "content_root": { "type": "string", "minLength": 1 },

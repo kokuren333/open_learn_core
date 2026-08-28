@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/assessment.schema.json",
+  "title": "Open Learn Learning Experience Assessment v2.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "prompt", "expected_answer", "reasoning_rubric", "tests_learning_outcome_ids", "representation", "difficulty"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "type": { "enum": ["prediction", "classification", "calculation", "explanation", "representation_switch", "misconception", "transfer"] },
+    "prompt": { "type": "string", "minLength": 20 },
+    "expected_answer": { "type": "string", "minLength": 10 },
+    "reasoning_rubric": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 } },
+    "tests_learning_outcome_ids": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "representation": { "type": "string", "minLength": 1 },
+    "difficulty": { "enum": ["basic", "standard", "challenge"] }
+  }
+}

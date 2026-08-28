@@ -7,7 +7,7 @@ import { renderIndex } from "../../core/src/renderer/render.mjs";
 
 const root = process.cwd();
 
-test("v2.1 exposes exactly 30 learner-facing Core Concepts while retaining legacy sources", async () => {
+test("v2.2 exposes exactly 30 learner-facing Core Concepts while retaining legacy sources", async () => {
   const domain = await loadDomain(root, "linear-algebra");
   const validation = await validateDomain(domain);
   assert.equal(validation.valid, true, validation.issues.join("\n"));
@@ -16,7 +16,7 @@ test("v2.1 exposes exactly 30 learner-facing Core Concepts while retaining legac
   assert.equal(domain.dataset.concepts.length, 57);
   const html = renderIndex({ concepts: domain.dataset.concepts.map((record) => record.value), coreConcepts: domain.coreConcepts, conceptsById: new Map(domain.coreConcepts.map((concept) => [concept.id, concept])), curricula: [], domainTitle: domain.manifest.title });
   assert.equal((html.match(/class="concept-card"/g) ?? []).length, 30);
-  assert.match(html, /CORE CONCEPTS \/ V2\.1\.0/);
+  assert.match(html, /CORE CONCEPTS \/ V2\.2\.0/);
   assert.doesNotMatch(html, /connected concepts/);
 });
 

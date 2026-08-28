@@ -1,0 +1,65 @@
+{
+  "schema_version": "2.2",
+  "domain": "linear-algebra",
+  "review_type": "automated_learning_experience_audit",
+  "independent_review": false,
+  "status": "pass",
+  "summary": {
+    "experiences": 1,
+    "gold_experiences": 1,
+    "scaffold_concepts_without_experience": 29
+  },
+  "experiences": [
+    {
+      "id": "basis-learning-experience",
+      "concept_id": "basis",
+      "editorial_status": "gold",
+      "block_count": 21,
+      "assessment_count": 8,
+      "counts": {
+        "concrete_scenarios": 2,
+        "worked_examples": 3,
+        "counterexamples": 4,
+        "guided_questions": 16,
+        "independent_questions": 4,
+        "misconception_challenges": 2,
+        "representation_switches": 3,
+        "transfer_tasks": 1
+      },
+      "status": "pass",
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "warnings": [
+    "scaffold concept 'vector' has no Learning Experience yet",
+    "scaffold concept 'linear-combination' has no Learning Experience yet",
+    "scaffold concept 'linear-system' has no Learning Experience yet",
+    "scaffold concept 'matrix' has no Learning Experience yet",
+    "scaffold concept 'elimination' has no Learning Experience yet",
+    "scaffold concept 'vector-space' has no Learning Experience yet",
+    "scaffold concept 'subspace' has no Learning Experience yet",
+    "scaffold concept 'linear-independence' has no Learning Experience yet",
+    "scaffold concept 'dimension' has no Learning Experience yet",
+    "scaffold concept 'linear-transformation' has no Learning Experience yet",
+    "scaffold concept 'coordinates-change-of-basis' has no Learning Experience yet",
+    "scaffold concept 'rank-nullity' has no Learning Experience yet",
+    "scaffold concept 'determinant' has no Learning Experience yet",
+    "scaffold concept 'eigenvalue-eigenvector' has no Learning Experience yet",
+    "scaffold concept 'diagonalization' has no Learning Experience yet",
+    "scaffold concept 'inner-product' has no Learning Experience yet",
+    "scaffold concept 'orthogonality' has no Learning Experience yet",
+    "scaffold concept 'projection' has no Learning Experience yet",
+    "scaffold concept 'least-squares' has no Learning Experience yet",
+    "scaffold concept 'symmetric-matrix' has no Learning Experience yet",
+    "scaffold concept 'quadratic-form' has no Learning Experience yet",
+    "scaffold concept 'positive-definiteness' has no Learning Experience yet",
+    "scaffold concept 'singular-value-decomposition' has no Learning Experience yet",
+    "scaffold concept 'low-rank-approximation' has no Learning Experience yet",
+    "scaffold concept 'principal-component-analysis' has no Learning Experience yet",
+    "scaffold concept 'matrix-factorization' has no Learning Experience yet",
+    "scaffold concept 'matrix-dynamics' has no Learning Experience yet",
+    "scaffold concept 'graph-network-representation' has no Learning Experience yet",
+    "scaffold concept 'numerical-stability' has no Learning Experience yet"
+  ]
+}
