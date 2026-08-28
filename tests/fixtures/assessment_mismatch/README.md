@@ -1,0 +1,3 @@
+# assessment_mismatch
+
+Learning objectiveとexerciseを接続しない教材。Completeness/Pedagogy auditはobjective coverage不足としてfailさせる。

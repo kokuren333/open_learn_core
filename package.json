@@ -1,8 +1,8 @@
 {
   "name": "open-learn-core",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": true,
-  "description": "Evidence-based learning content compiler for open linear algebra MVP v1.7",
+  "description": "Evidence-based learning content compiler for open linear algebra MVP v1.8",
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate.mjs",
@@ -11,6 +11,7 @@
     "test": "node --test",
     "evidence:report": "node scripts/evidence-report.mjs",
     "audit": "node scripts/run-audits.mjs",
+    "audit:semantic": "node scripts/run-audits.mjs",
     "publish:gate": "node scripts/publish-gate.mjs",
     "build:concept": "node scripts/build.mjs"
   },

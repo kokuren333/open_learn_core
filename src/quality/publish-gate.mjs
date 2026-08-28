@@ -1,17 +1,17 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { evidenceCoverage } from "../evidence/coverage.mjs";
-import { computeAudits } from "./audits.mjs";
+import { computeAudits, auditNames, issueText } from "./audits.mjs";
+import { artifactHash } from "./artifact-hash.mjs";
 
-const requiredAuditNames = ["math", "evidence", "pedagogy", "visual", "completeness"];
-
-async function auditStatus(auditDir, name) {
+async function auditArtifact(auditDir, name, currentHash) {
   try {
     const content = await readFile(path.join(auditDir, `${name}.yaml`), "utf8");
-    const match = content.match(/^status:\s*(pass|fail)\s*$/m);
-    return match?.[1] ?? "fail";
+    const status = content.match(/^status:\s*(pass|fail)\s*$/m)?.[1] ?? "fail";
+    const hash = content.match(/^artifact_hash:\s*(sha256:[a-f0-9]+)\s*$/m)?.[1] ?? "";
+    return { status, hash, fresh: hash === currentHash };
   } catch {
-    return "fail";
+    return { status: "fail", hash: "", fresh: false };
   }
 }
 
@@ -19,23 +19,30 @@ export async function evaluatePublishGate({ dataset, validation, conceptId = "ba
   const concept = validation.conceptsById.get(conceptId);
   const coverage = evidenceCoverage(dataset, validation, conceptId);
   const computed = computeAudits({ dataset, validation, conceptId });
-  const auditStatuses = Object.fromEntries(await Promise.all(requiredAuditNames.map(async (name) => [name, await auditStatus(auditDir, name)])));
+  const currentHash = artifactHash({ dataset, validation, conceptId });
+  const artifactResults = Object.fromEntries(await Promise.all(auditNames.map(async (name) => [name, await auditArtifact(auditDir, name, currentHash)])));
+  const auditStatuses = Object.fromEntries(Object.entries(artifactResults).map(([name, value]) => [name, value.status]));
+  const freshness = Object.fromEntries(Object.entries(artifactResults).map(([name, value]) => [name, value.fresh]));
   const gates = {
     structure: validation.valid,
+    deterministic: validation.valid && computed.deterministic.references,
     evidence: validation.valid && coverage.claims.withEvidence === coverage.claims.total && coverage.prerequisiteEdges.withEvidence === coverage.prerequisiteEdges.total,
     mathematics: auditStatuses.math === "pass" && computed.results.math.status === "pass",
     pedagogy: auditStatuses.pedagogy === "pass" && computed.results.pedagogy.status === "pass",
-    visual: auditStatuses.visual === "pass" && computed.results.visual.status === "pass" && coverage.visuals.published >= 2,
-    completeness: auditStatuses.completeness === "pass" && computed.results.completeness.status === "pass" && coverage.layers.motivation >= 1 && coverage.layers.intuition >= 1 && coverage.layers.prerequisite_recall >= 2 && coverage.layers.formal_definition >= 1 && coverage.examples.positive >= 3 && coverage.examples.counterexample >= 3 && coverage.examples.worked >= 4 && coverage.connections.total >= 3 && coverage.misconceptions.total >= 5 && coverage.exercises.total >= 15 && coverage.diagnostics.total >= 4,
-    assessment: coverage.exercises.linkedToClaims >= 1 && coverage.diagnostics.total >= 4
+    explanation: auditStatuses.explanation === "pass" && computed.results.explanation.status === "pass",
+    visual: auditStatuses.visual === "pass" && computed.results.visual.status === "pass",
+    completeness: auditStatuses.completeness === "pass" && computed.results.completeness.status === "pass",
+    freshness: auditNames.every((name) => freshness[name]),
+    assessment: coverage.exercises.linkedToClaims >= 1 && coverage.diagnostics.total >= 5
   };
   const issues = [];
   if (!concept) issues.push(`missing concept '${conceptId}'`);
   if (!validation.valid) issues.push(...validation.issues);
-  for (const [name, status] of Object.entries(auditStatuses)) if (status !== "pass") issues.push(`${name} audit did not pass`);
-  if (coverage.visuals.total < 2) issues.push("basis requires at least 2 visual artifacts");
-  if (coverage.exercises.total < 15) issues.push("basis requires at least 15 exercises");
-  if (coverage.diagnostics.total < 4) issues.push("basis requires at least 4 diagnostics");
-  for (const [name, result] of Object.entries(computed.results)) if (result.status !== "pass") issues.push(...result.issues.map((issue) => `${name}: ${issue}`));
-  return { allowed: Object.values(gates).every(Boolean), status: Object.values(gates).every(Boolean) ? "published" : "blocked", gates, audits: auditStatuses, computedAudits: computed.results, coverage, issues };
+  for (const name of auditNames) {
+    if (auditStatuses[name] !== "pass") issues.push(`${name} audit did not pass`);
+    if (!freshness[name]) issues.push(`${name} audit is missing or stale`);
+  }
+  for (const [name, current] of Object.entries(computed.results)) if (current.status !== "pass") issues.push(...current.issues.map((item) => `${name}: ${issueText(item)}`));
+  const allowed = Object.values(gates).every(Boolean);
+  return { allowed, status: allowed ? "published" : "blocked", gates, audits: auditStatuses, freshness, artifactHash: currentHash, computedAudits: computed.results, coverage, issues };
 }

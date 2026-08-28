@@ -1,0 +1,3 @@
+# shallow_explanation
+
+定義と短い言い換えだけの教材。Explanation/Completeness auditはmotivation、intuition、unpacking、worked reasoningの不足としてfailさせる。

@@ -1,0 +1,3 @@
+# misleading_visual
+
+直交性がbasisの必須条件に見える図。Visual auditはgeometryと定義の矛盾としてfailさせる。

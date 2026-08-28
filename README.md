@@ -1,10 +1,10 @@
 # Open Learn Core
 
-線形代数の概念を、前提関係とEvidence付きの教材コンテンツとして管理し、信頼できる資料から再現可能に静的Web教材へcompileする教育OSSのMVP v1.7です。
+線形代数の概念を、前提関係とEvidence付きの教材コンテンツとして管理し、信頼できる資料から再現可能に静的Web教材へcompileする教育OSSのMVP v1.8です。
 
 ## What
 
-スカラー、ベクトル、線形結合、span、線形独立、基底、次元、線形写像、行列など12個のConceptを収録しています。ConceptページではLesson単位の説明、例、難易度別演習、解答、理解度セルフチェック、誤解しやすい点、出典、前提Conceptを確認できます。特に`linear-independence`と`basis`は5 Lesson・13 Exercise・3 Diagnostic・5 Claim以上で構成し、`basis`にはEvidenceItem、前提エッジの根拠、CurriculumDecisionを接続しています。
+スカラー、ベクトル、線形結合、span、線形独立、基底、次元、線形写像、行列など12個のConceptを収録しています。ConceptページではLesson単位の説明、例、難易度別演習、解答、理解度セルフチェック、誤解しやすい点、出典、前提Conceptを確認できます。`basis`は6 Lesson・16 Example・22 Exercise・6 Diagnostic・6 Misconception・3 Visualで構成し、EvidenceItem、前提エッジの根拠、CurriculumDecisionを接続しています。
 
 ## v1.6 Evidence Layer
 
@@ -12,7 +12,11 @@
 
 ## v1.7 Evidence-Based Learning Content Compiler
 
-Open Learn Coreは「AIで教材文章を大量生成するプロジェクト」ではありません。Evidence / Knowledge Graph / Pedagogy / Assessment / Visual / Auditを分離し、高品質な教材を再現可能にbuildするOSS基盤です。`npm run build:concept`はschema検証、Evidenceカバレッジ、5種類の独立監査、Publish Gate、renderer、build reportを順に実行します。Gateを通過しない教材は`dist/`へ公開されません。
+Open Learn Coreは「AIで教材文章を大量生成するプロジェクト」ではありません。Evidence / Knowledge Graph / Pedagogy / Assessment / Visual / Auditを分離し、高品質な教材を再現可能にbuildするOSS基盤です。v1.7でauthoring pipelineを整え、v1.8で説明の深さと独立したsemantic auditを追加しました。`npm run build:concept`はdeterministic validation、Evidenceカバレッジ、6種類のsemantic audit、freshness付きPublish Gate、renderer、build reportを順に実行します。Gateを通過しない教材は`dist/`へ公開されません。
+
+## v1.8 Deep Explanation & Semantic Quality
+
+Deterministic validationはschema、参照、循環、必須アーティファクト、件数を機械的に確認します。Semantic auditは別Skillとして、数学的意味、Evidenceの解釈、具体から抽象への橋、説明の明瞭さ、図解の意味、教材の深さをレビューします。人間レビューを必須ゲートにしないのは、MVPで再現可能なローカル検証を優先するためです。ただし、semantic auditはwriterとは独立して再実行し、artifact hashが古ければpublishを拒否します。詳細は[`docs/deep-explanation.md`](docs/deep-explanation.md)、[`docs/semantic-audit.md`](docs/semantic-audit.md)、[`docs/lesson-architecture.md`](docs/lesson-architecture.md)を参照してください。
 
 ## Why
 
@@ -82,6 +86,8 @@ npm run dev
 - **MVP v1**: 線形代数の狭い範囲、Conceptデータ、検証、静的教材、prerequisite graph
 - **MVP v1.5**: Lesson / Claim / Exerciseの責務分離、2 Conceptの実用的な教材密度、claim-level provenance（現在地）
 - **MVP v1.6**: Evidence Layer、Evidence Review、根拠付き前提エッジ、CurriculumDecision、basisの監査可能な教材データ
+- **MVP v1.7**: Evidence-based authoring pipeline、独立Skill群、監査・publish gate・静的出力
+- **MVP v1.8**: basisの6 Lesson化、深い説明、semantic audit、audit freshness、Visual/Assessmentの意味的品質
 - **v2**: 小学算数から大学初年級までのConcept DAGと学習経路
 - **v3**: 理解度診断、adaptive learning、問題推薦、AI tutorなど
 

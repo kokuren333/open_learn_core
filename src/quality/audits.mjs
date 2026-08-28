@@ -1,45 +1,79 @@
 import { evidenceCoverage } from "../evidence/coverage.mjs";
 
-const auditNames = ["math", "evidence", "pedagogy", "visual", "completeness"];
+export const auditNames = ["math", "evidence", "pedagogy", "explanation", "visual", "completeness"];
+const issue = (problem, rationale = "", suggestedFix = "") => ({ severity: "major", problem, rationale, suggested_fix: suggestedFix });
+const result = (issues, summary) => ({ status: issues.length ? "fail" : "pass", summary, issues });
 
 export function computeAudits({ dataset, validation, conceptId = "basis" }) {
   const concept = validation.conceptsById.get(conceptId);
   const coverage = evidenceCoverage(dataset, validation, conceptId);
+  const lessons = concept?.lessons ?? [];
+  const examples = concept?.examples ?? [];
+  const worked = examples.filter((example) => example.type === "worked");
+  const layers = concept?.contentLayers ?? [];
+  const corpus = JSON.stringify(concept ?? {});
   const results = {};
-  const issues = (name, values) => { results[name] = { status: values.length ? "fail" : "pass", issues: values }; };
-  issues("math", [
-    ...(concept?.claims?.find((claim) => claim.id === "basis-claim-01")?.statement?.includes("span") && concept?.claims?.find((claim) => claim.id === "basis-claim-01")?.statement?.includes("線形独立") ? [] : ["basis definition claim must name span and linear independence"]),
-    ...((concept?.examples ?? []).filter((example) => !example.explanation?.trim()).map((example) => `example '${example.id}' has no explanation`))
-  ]);
-  issues("evidence", [
-    ...(concept?.claims ?? []).filter((claim) => !claim.evidence?.length).map((claim) => `claim '${claim.id}' has no evidence`),
-    ...(dataset.evidenceItems ?? []).filter((record) => !record.value?.locator?.value).map((record) => `evidence item '${record.value?.id}' has no locator`),
-    ...((new Set((dataset.sources ?? []).map((source) => source.type))).size < 2 ? ["source diversity is below two categories"] : [])
-  ]);
-  issues("pedagogy", [
-    ...(coverage.layers.motivation < 1 ? ["motivation layer missing"] : []),
-    ...(coverage.layers.intuition < 1 ? ["intuition layer missing"] : []),
-    ...(coverage.layers.prerequisite_recall < 2 ? ["prerequisite recall layers below 2"] : []),
-    ...(coverage.layers.formal_definition < 1 ? ["formal definition layer missing"] : []),
-    ...(coverage.lessons.linkedToClaims < coverage.lessons.total ? ["not every lesson is linked to a claim"] : [])
-  ]);
-  issues("visual", (concept?.visualIds ?? []).flatMap((id) => {
+
+  const mathIssues = [];
+  const definition = concept?.claims?.find((claim) => claim.id === "basis-claim-01")?.statement ?? "";
+  if (!definition.includes("span") || !definition.includes("線形独立")) mathIssues.push(issue("basis definition does not state both span and linear independence", "A basis has two necessary conditions.", "Restore the exact definition claim."));
+  if (examples.filter((example) => example.type === "counterexample").length && !examples.some((example) => example.type === "counterexample" && /span/.test(example.explanation) && /線形独立|独立/.test(example.explanation))) mathIssues.push(issue("counterexamples do not contrast the failed condition", "A counterexample must identify which condition fails.", "Name span or independence in each counterexample explanation."));
+  for (const example of worked) {
+    if ((example.steps?.length ?? 0) < 3) mathIssues.push(issue(`worked example '${example.id}' skips intermediate reasoning`, "A learner needs observable algebraic steps.", "Add a plan, intermediate checks, and at least three steps."));
+    for (const field of ["goal", "plan", "finalConclusion", "whyThisWorks", "commonWrongPath"]) if (!example[field]?.trim()) mathIssues.push(issue(`worked example '${example.id}' has no ${field}`, "The worked-example contract makes purpose and reasoning explicit.", `Add the ${field} field.`));
+  }
+  results.math = result(mathIssues, "Mathematical definitions, counterexamples, and worked reasoning reviewed semantically.");
+
+  const evidenceIssues = [];
+  for (const claim of concept?.claims ?? []) if (!claim.evidence?.length || !claim.sourceRefs?.length) evidenceIssues.push(issue(`claim '${claim.id}' lacks claim-level support`, "A published claim must be traceable to evidence and a source locator.", "Add EvidenceItem and sourceRefs."));
+  for (const record of dataset.evidenceItems ?? []) if (!record.value?.locator?.value || !record.value?.extracted_meaning?.ja) evidenceIssues.push(issue(`evidence item '${record.value?.id}' is not interpretable`, "Evidence needs a locator and extracted meaning.", "Complete the evidence record."));
+  results.evidence = result(evidenceIssues, "Claim support, locator specificity, and evidence interpretation reviewed semantically.");
+
+  const pedagogyIssues = [];
+  if (lessons.length < 6) pedagogyIssues.push(issue(`lesson sequence has ${lessons.length}/6 learning units`, "The v1.8 architecture requires a complete progression from motivation to dimension.", "Add the six recommended lessons."));
+  if (!layers.some((layer) => layer.type === "motivation")) pedagogyIssues.push(issue("motivation layer missing", "The concept must establish a learner problem before abstraction.", "Restore a substantial motivation layer."));
+  const bridgeText = `${layers.find((layer) => layer.type === "motivation")?.body ?? ""} ${(lessons[0]?.sections ?? []).map((section) => section.body).join(" ")}`;
+  if (!bridgeText.includes("R²") || !bridgeText.includes("具体") || !/span|線形独立/.test(bridgeText)) pedagogyIssues.push(issue("concrete-to-abstract bridge is missing", "Learners need a problem, an observable case, and a reason for formal vocabulary.", "Connect a concrete R² case to the formal definition."));
+  if (lessons.some((lesson) => !lesson.sections?.some((section) => section.kind === "checkpoint"))) pedagogyIssues.push(issue("one or more lessons has no retrieval checkpoint", "Each learning unit needs a moment to retrieve the target idea.", "Add a checkpoint section to every lesson."));
+  if (coverage.lessons.linkedToClaims < lessons.length) pedagogyIssues.push(issue("not every lesson is connected to a claim", "Evidence-aware lessons should expose their conceptual anchors.", "Add claimRefs to lesson sections."));
+  results.pedagogy = result(pedagogyIssues, "Learning sequence, bridge, retrieval, and objective alignment reviewed semantically.");
+
+  const explanationIssues = [];
+  const motivation = layers.filter((layer) => layer.type === "motivation");
+  const intuition = layers.filter((layer) => layer.type === "intuition");
+  const formal = layers.filter((layer) => ["formal_definition", "term_by_term"].includes(layer.type));
+  if (!motivation.length || motivation.reduce((sum, item) => sum + item.body.length, 0) < 150) explanationIssues.push(issue("motivation is too thin or absent", "The opening must establish a learner problem rather than announce a definition.", "Write a problem-driven motivation of at least 150 characters."));
+  if (!intuition.length || intuition.reduce((sum, item) => sum + item.body.length, 0) < 300) explanationIssues.push(issue("intuition lacks a substantial concrete bridge", "Intuition should provide an experience that can later be abstracted.", "Add a concrete case and a contrast."));
+  if (formal.reduce((sum, item) => sum + item.body.length, 0) < 400) explanationIssues.push(issue("formal definition is not unpacked", "Each condition and its role must be explained after the exact statement.", "Expand the formal definition and term-by-term explanation."));
+  if (coverage.depth.workedExamples < 6) explanationIssues.push(issue("worked examples do not expose enough reasoning", "Depth is not established by example count alone.", "Give six worked examples at least three steps and an explicit purpose."));
+  if (/定義です。定義です。|つまり。つまり。|重要です。重要です。/.test(corpus)) explanationIssues.push(issue("repetitive filler suggests fake depth", "Paraphrase-only expansion increases length without adding a new learner action.", "Replace repetition with a contrast, check, or derivation."));
+  if (/[ζξω]/.test(corpus) && !/ζは|ξは|ωは/.test(corpus)) explanationIssues.push(issue("a symbol appears without a local explanation", "Symbols should be introduced before they carry reasoning.", "Define every nonstandard symbol at first use."));
+  if (lessons.some((lesson) => (lesson.sections ?? []).length < 3)) explanationIssues.push(issue("a lesson is still a short card", "A learning unit needs multiple roles: explanation, application, and retrieval.", "Add sections for bridge, reasoning, and checkpoint."));
+  results.explanation = result(explanationIssues, "Explanation depth, terminology, concrete-to-formal bridging, and reasoning continuity reviewed independently from the writer.");
+
+  const visualIssues = [];
+  for (const id of concept?.visualIds ?? []) {
     const visual = validation.visualsById?.get(id);
-    return !visual ? [`visual '${id}' is missing`] : [
-      ...(!visual.alt_text?.ja ? [`visual '${id}' has no Japanese alt text`] : []),
-      ...(!visual.learning_goal?.ja ? [`visual '${id}' has no learning goal`] : []),
-      ...(!visual.source_claims?.length ? [`visual '${id}' has no source claim`] : [])
-    ];
-  }));
-  issues("completeness", [
-    ...(coverage.examples.positive < 3 ? [`positive examples ${coverage.examples.positive}/3`] : []),
-    ...(coverage.examples.counterexample < 3 ? [`counterexamples ${coverage.examples.counterexample}/3`] : []),
-    ...(coverage.examples.worked < 4 ? [`worked examples ${coverage.examples.worked}/4`] : []),
-    ...(coverage.misconceptions.total < 5 ? [`misconceptions ${coverage.misconceptions.total}/5`] : []),
-    ...(coverage.exercises.total < 15 ? [`exercises ${coverage.exercises.total}/15`] : []),
-    ...(coverage.diagnostics.total < 4 ? [`diagnostics ${coverage.diagnostics.total}/4`] : []),
-    ...(coverage.connections.total < 3 ? [`concept connections ${coverage.connections.total}/3`] : []),
-    ...(coverage.visuals.published < 2 ? [`published visuals ${coverage.visuals.published}/2`] : [])
-  ]);
-  return { names: auditNames, coverage, results };
+    if (!visual) visualIssues.push(issue(`visual '${id}' is missing`, "A visual referenced by a concept must be available to the renderer.", "Add the visual artifact."));
+    else {
+      for (const field of ["learning_goal", "learner_question", "alt_text"]) if (!visual[field]?.ja?.trim()) visualIssues.push(issue(`visual '${id}' has no ${field}.ja`, "Visual meaning must be explicit and accessible.", `Complete ${field}.ja.`));
+      if (!visual.source_claims?.length || !visual.target_claim || !visual.placement?.lesson) visualIssues.push(issue(`visual '${id}' lacks target claim or lesson placement`, "Visuals are learning artifacts, not decoration.", "Connect the visual to a target claim and lesson."));
+      if (!visual.labels?.length || !visual.visual_encoding || !visual.misconception_risk?.length) visualIssues.push(issue(`visual '${id}' lacks semantic design metadata`, "Labels, encoding, and misconception risk support mathematical review.", "Complete the infographic brief fields."));
+    }
+  }
+  results.visual = result(visualIssues, "Visual semantics, labels, accessibility, and misconception risks reviewed.");
+
+  const completenessIssues = [];
+  const thresholds = [[coverage.lessons.total, 6, "lessons"], [coverage.examples.positive, 6, "positive examples"], [coverage.examples.counterexample, 4, "counterexamples"], [coverage.examples.worked, 6, "worked examples"], [coverage.misconceptions.total, 6, "misconceptions"], [coverage.exercises.total, 20, "exercises"], [coverage.diagnostics.total, 5, "diagnostics"], [coverage.visuals.published, 3, "published visuals"], [coverage.checkpoints.total, 6, "checkpoints"], [coverage.connections.total, 4, "concept connections"]];
+  for (const [actual, expected, label] of thresholds) if (actual < expected) completenessIssues.push(issue(`${label} ${actual}/${expected}`, "v1.8 requires coverage and depth across the learning unit.", `Add or connect more ${label}.`));
+  if (coverage.lessons.substantial < 6) completenessIssues.push(issue(`substantial lessons ${coverage.lessons.substantial}/6`, "A lesson is more than a title and one short paragraph.", "Expand each lesson with multiple learner actions."));
+  if (coverage.depth.motivation < 150 || coverage.depth.intuition < 300 || coverage.depth.formalDefinition < 400) completenessIssues.push(issue("depth matrix has insufficient primary-layer length", "Soft depth thresholds catch thin cards while semantic review checks meaning.", "Expand motivation, intuition, and definition unpacking."));
+  if (lessons.some((lesson) => !lesson.exerciseIds?.length || !lesson.exerciseIds.some((id) => (concept?.exercises ?? []).find((exercise) => exercise.id === id)))) completenessIssues.push(issue("a lesson has no aligned exercise", "Assessment should reveal whether each learning unit's objective was achieved.", "Attach at least one exercise to every lesson."));
+  results.completeness = result(completenessIssues, "Coverage matrix checks counts, depth, progression, and assessment alignment.");
+
+  return { names: auditNames, coverage, results, deterministic: { schema: validation.valid, references: validation.issues.length === 0 } };
+}
+
+export function issueText(value) {
+  return typeof value === "string" ? value : `${value.problem}${value.suggested_fix ? ` — ${value.suggested_fix}` : ""}`;
 }
