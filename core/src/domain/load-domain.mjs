@@ -14,12 +14,18 @@ export async function loadDomain(repoRoot, domainId) {
   dataset.domainRoot = found.root;
   dataset.domainId = manifest.id;
   const courseData = await loadCourseData(found.root);
+  let coreConcepts = [];
+  if (manifest.core_concepts_file) {
+    const corePath = path.resolve(found.root, manifest.core_concepts_file);
+    const coreDocument = JSON.parse(await readFile(corePath, "utf8"));
+    coreConcepts = coreDocument.core_concepts ?? [];
+  }
   dataset.courses = courseData.courses;
   dataset.modules = courseData.modules;
   dataset.units = courseData.units;
   dataset.moduleExercises = courseData.moduleExercises;
   dataset.cumulativeReviews = courseData.cumulativeReviews;
-  return { ...found, manifest, dataset, courseData, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
+  return { ...found, manifest, dataset, courseData, coreConcepts, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
 }
 
 export async function loadAllDomains(repoRoot = process.cwd()) {

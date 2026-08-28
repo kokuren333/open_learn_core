@@ -1,8 +1,9 @@
 status: pass
 auditor: openlearn-explanation-auditor
-independent_review: true
+review_type: automated_semantic_review
+independent_review: false
 artifact_hash: sha256:0612a8a95fbd8c85675d6b5f4721f480a8add1fd11cf0f47e3c05b7ac1650f1f
-evaluated_at: 2026-08-28T16:51:53.627Z
+evaluated_at: 2026-08-28T17:38:51.214Z
 summary: Explanation depth, terminology, concrete-to-formal bridging, and reasoning continuity reviewed independently from the writer.
 issues:
   - none

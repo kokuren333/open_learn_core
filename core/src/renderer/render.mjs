@@ -22,7 +22,9 @@ function layout({ title, description, body, active = "", version = "2.0.0" }) {
 
 function conceptCard(concept, { nested = false, order = null } = {}) {
   const step = order === null ? "" : `<span class="step">${String(order + 1).padStart(2, "0")}</span>`;
-  return `<a class="concept-card" href="${conceptPath(concept.id, nested)}"><div class="card-top">${step}<span class="eyebrow">${escapeHtml(concept.title.en)}</span></div><h3>${escapeHtml(concept.title.ja)}</h3><p>${text(concept.summary.ja)}</p><span class="card-link">学ぶ <span aria-hidden="true">→</span></span></a>`;
+  const title = typeof concept.title === "string" ? { ja: concept.title, en: concept.title } : concept.title;
+  const summary = concept.summary?.ja ?? concept.central_mental_model ?? "Learner-facing Core Concept";
+  return `<a class="concept-card" href="${conceptPath(concept.id, nested)}"><div class="card-top">${step}<span class="eyebrow">${escapeHtml(title.en)}</span></div><h3>${escapeHtml(title.ja)}</h3><p>${text(summary)}</p><span class="card-link">学ぶ <span aria-hidden="true">→</span></span></a>`;
 }
 
 function conceptList(concepts, { nested = false } = {}) {
@@ -37,20 +39,18 @@ function referenceList(ids, conceptsById, { nested = false, empty = "なし" } =
   }).join("")}</ul>`;
 }
 
-function renderIndex({ concepts, curricula, conceptsById, domainTitle = {}, course = null, courseUnits = [] }) {
+function renderIndex({ concepts, coreConcepts = [], curricula, conceptsById, domainTitle = {}, course = null, courseUnits = [] }) {
+  const learnerConcepts = coreConcepts.length ? coreConcepts : concepts;
+  const learnerConceptsById = coreConcepts.length ? new Map(coreConcepts.map((concept) => [concept.id, concept])) : conceptsById;
   const curriculum = curricula[0]?.value;
-  const sequence = curriculum?.sequence ?? concepts.map((concept) => concept.id);
-  const courseSequence = course && courseUnits.length
-    ? [...new Set(courseUnits.flatMap((unit) => [...(unit.concepts?.primary ?? []), ...(unit.concepts?.supporting ?? [])]))]
-    : [];
-  const preferredSequence = courseSequence.length ? courseSequence : sequence;
-  const ordered = [...preferredSequence.map((id) => conceptsById.get(id)).filter(Boolean), ...concepts.filter((concept) => !preferredSequence.includes(concept.id))];
+  const sequence = coreConcepts.length ? coreConcepts.map((concept) => concept.id) : (curriculum?.sequence ?? concepts.map((concept) => concept.id));
+  const ordered = sequence.map((id) => learnerConceptsById.get(id)).filter(Boolean);
   const titleJa = domainTitle.ja ?? "知識を、概念のつながりから学ぶ";
   const titleEn = domainTitle.en ?? "Concept-based learning";
   const courseLink = course ? `<a class="button primary" href="course.html">Courseを始める <span>↓</span></a>` : `<a class="button primary" href="#concepts">学習を始める <span>↓</span></a>`;
-  const body = `<section class="hero"><div class="container hero-grid"><div><p class="kicker">CONCEPT-BASED LEARNING / V2.0.0</p><h1>${escapeHtml(titleJa)}</h1><p class="hero-lede">Open Learn Coreは、説明文をページに固定するのではなく、Concept・Evidence・Learning Unitから教材を生成するオープンな学習基盤です。</p><div class="hero-actions">${courseLink}<a class="button secondary" href="graph.html">関係を眺める <span>↗</span></a></div></div><div class="hero-art" aria-label="概念グラフの装飾図"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="wire wire-a"></div><div class="wire wire-b"></div><div class="floating-node node-a">concept</div><div class="floating-node node-b">unit</div><div class="floating-node node-c">claim</div><div class="floating-node node-d">evidence</div><div class="hero-caption"><strong>${ordered.length}</strong><span>connected concepts</span></div></div></div></section>
+  const body = `<section class="hero"><div class="container hero-grid"><div><p class="kicker">CORE CONCEPTS / V2.1.0</p><h1>${escapeHtml(titleJa)}</h1><p class="hero-lede">学習者向けのCore Conceptを30件に固定し、各概念の中心モデル・前提・表現・誤解・学習契約を一つの地図へまとめています。</p><div class="hero-actions">${courseLink}<a class="button secondary" href="graph.html">関係を眺める <span>↗</span></a></div></div><div class="hero-art" aria-label="概念グラフの装飾図"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="wire wire-a"></div><div class="wire wire-b"></div><div class="floating-node node-a">model</div><div class="floating-node node-b">lesson</div><div class="floating-node node-c">practice</div><div class="floating-node node-d">transfer</div><div class="hero-caption"><strong>${ordered.length}</strong><span>core concepts</span></div></div></div></section>
 <section class="section intro"><div class="container split"><div><p class="kicker">THE MODEL</p><h2>Conceptを、<br><em>Lesson</em>で学ぶ。</h2></div><p>Conceptは知識グラフの単位。Lessonは直観・定義・方法・関係へと学びを分け、Exerciseで確認し、Claimから主張の根拠まで辿れる構造です。</p></div></section>
-<section class="section concepts-section" id="concepts"><div class="container"><div class="section-heading"><div><p class="kicker">${course ? "COURSE CONCEPTS / " + escapeHtml(course.title.en) : "CURRICULUM / " + escapeHtml(curriculum?.title?.en ?? titleEn)}</p><h2>${escapeHtml(course?.title?.ja ?? curriculum?.title?.ja ?? titleJa)}</h2></div><span class="count">${ordered.length} concepts</span></div><p class="section-lede">${course ? "CourseのLearning Unit順を軸に、57件のConceptへアクセスできます。各カードから教材ページへ進めます。" : "前提関係に沿った学習順序です。各カードから教材ページへ進めます。"}</p><div class="concept-grid">${conceptList(ordered)}</div></div></section>
+<section class="section concepts-section" id="concepts"><div class="container"><div class="section-heading"><div><p class="kicker">${course ? "CORE CONCEPTS / " + escapeHtml(course.title.en) : "CORE CONCEPT MAP / " + escapeHtml(curriculum?.title?.en ?? titleEn)}</p><h2>${escapeHtml(course?.title?.ja ?? curriculum?.title?.ja ?? titleJa)}</h2></div><span class="count">${ordered.length} core concepts</span></div><p class="section-lede">公開される学習地図は常に30件です。従来の知識は各ページの移行情報と内部データへ追跡できます。</p><div class="concept-grid">${conceptList(ordered)}</div></div></section>
 <section class="section callout-section"><div class="container callout"><div><p class="kicker">EXPLORE THE GRAPH</p><h2>知識は、一本道ではない。</h2><p>Conceptのprerequisiteを有向グラフとして可視化しています。別の経路から同じ概念へ到達できる構造を確認できます。</p></div><a class="button dark" href="graph.html">グラフを見る <span>↗</span></a></div></section>`;
   return layout({ title: titleJa, description: `${titleEn} learning site`, body });
 }
@@ -104,10 +104,25 @@ function renderConcept({ concept, conceptsById, sourceById, evidenceById = new M
   return layout({ title: concept.title.ja, description: concept.summary.ja, body, active: "concept" });
 }
 
+function renderCoreConcept({ concept, conceptsById, content = null }) {
+  const title = concept.title;
+  const sections = content?.sections?.length ? content.sections : [
+    { title: "中心モデル", kind: "mental-model", body: concept.central_mental_model },
+    { title: "この概念を構成する観点", kind: "facets", body: concept.facets.map((item) => `${item.title}: ${item.description}`).join("\n") },
+    { title: "形式化と手続き", kind: "procedure", body: [...concept.properties, ...concept.procedures.map((item) => item.title)].join("\n") }
+  ];
+  const sectionHtml = sections.map((section, index) => `<section class="lesson-section ${section.kind === "checkpoint" ? "checkpoint" : ""}"><p class="kicker">${String(index + 1).padStart(2, "0")} / ${escapeHtml(section.kind ?? "LESSON")}</p><h2>${escapeHtml(section.title)}</h2><p class="explanation">${text(section.body)}</p>${section.prompt ? `<p class="section-note"><strong>考えてから開く：</strong>${text(section.prompt)}</p>` : ""}${section.answer ? `<details><summary>考え方を見る</summary><p>${text(section.answer)}</p></details>` : ""}</section>`).join("");
+  const list = (values) => `<ul class="check-list">${values.map((value) => `<li>${text(typeof value === "string" ? value : value.title)}</li>`).join("")}</ul>`;
+  const body = `<section class="concept-hero"><div class="container"><a class="back-link" href="../">← Core Concept一覧</a><div class="concept-title-row"><div><p class="kicker">CORE CONCEPT / ${escapeHtml(title.en)}</p><h1>${escapeHtml(title.ja)}</h1><p class="concept-summary">${text(concept.central_mental_model)}</p></div><div class="concept-id">${escapeHtml(concept.id)} · ${escapeHtml(concept.editorial_status)}</div></div></div></section>
+<section class="section concept-content"><div class="container content-layout"><article class="lesson"><section class="lesson-section"><p class="kicker">LEARNING CONTRACT</p><h2>このConceptでできるようになること</h2>${list(concept.learning_contract.learner_should_be_able_to)}</section>${sectionHtml}<section class="lesson-section"><p class="kicker">REPRESENTATION SWITCHING</p><h2>同じ対象を別の表現で見る</h2>${list(concept.representations)}</section><section class="lesson-section"><p class="kicker">WATCH OUT</p><h2>よくある誤解</h2>${list(concept.misconceptions)}</section><section class="lesson-section"><p class="kicker">TRANSFER</p><h2>使われる場面</h2>${list(concept.applications)}</section></article><aside class="lesson-sidebar"><section class="sidebar-block"><p class="kicker">STATUS</p><h2>${escapeHtml(concept.editorial_status)}</h2><p>scaffoldは構造設計済み、goldは教材本文と監査を通過した概念です。</p></section><section class="sidebar-block"><p class="kicker">PREREQUISITES</p><h2>先に理解するCore Concept</h2>${referenceList(concept.prerequisites, conceptsById, { nested: true })}</section><section class="sidebar-block"><p class="kicker">COGNITIVE PROFILE</p><h2>認知プロファイル</h2>${list(Object.entries(concept.cognitive_profile).map(([key, value]) => `${key}: ${value}/5`))}</section><section class="sidebar-block"><p class="kicker">LEARNING ELEMENTS</p><h2>必要な要素</h2>${list(Object.entries(concept.learning_contract.required_learning_elements).filter(([key]) => key !== "practice").map(([key, value]) => `${key}: ${value}`))}</section></aside></div></section>`;
+  return layout({ title: title.ja, description: concept.central_mental_model, body, active: "concept", version: "2.1.0" });
+}
+
 function renderGraph({ concepts, conceptsById, curricula }) {
   const sequence = curricula[0]?.value?.sequence ?? concepts.map((concept) => concept.id);
   const ordered = sequence.map((id) => conceptsById.get(id)).filter(Boolean);
   const positions = new Map(ordered.map((concept, index) => [concept.id, { x: 170 + (index % 3) * 350, y: 105 + Math.floor(index / 3) * 145 }]));
+  const graphHeight = Math.max(700, 180 + Math.ceil(ordered.length / 3) * 145);
   const edges = ordered.flatMap((concept) => (concept.prerequisites ?? []).map((prerequisite) => {
     const from = positions.get(prerequisite);
     const to = positions.get(concept.id);
@@ -115,7 +130,7 @@ function renderGraph({ concepts, conceptsById, curricula }) {
   })).join("");
   const nodes = ordered.map((concept) => { const position = positions.get(concept.id); return `<a href="concepts/${concept.id}.html"><g class="graph-node" transform="translate(${position.x - 120},${position.y - 28})"><rect width="240" height="56" rx="14"></rect><text x="120" y="23" text-anchor="middle">${escapeHtml(concept.title.ja)}</text><text class="graph-node-en" x="120" y="42" text-anchor="middle">${escapeHtml(concept.title.en)}</text></g></a>`; }).join("");
   const rows = ordered.map((concept, index) => `<tr><td>${String(index + 1).padStart(2, "0")}</td><td><a href="concepts/${concept.id}.html">${escapeHtml(concept.title.ja)}</a></td><td>${(concept.prerequisites ?? []).map((id) => conceptsById.get(id)?.title.ja ?? id).join("、") || "—"}</td></tr>`).join("");
-  const body = `<section class="graph-hero"><div class="container"><p class="kicker">CONCEPT GRAPH / PREREQUISITE RELATIONSHIPS</p><h1>つながりを、<em>地図</em>として見る。</h1><p>矢印は「先に理解しておくとよいConcept」から、次のConceptへ向かっています。ノードをクリックすると教材へ移動できます。</p></div></section><section class="section"><div class="container"><div class="graph-frame"><svg viewBox="0 0 1000 700" role="img" aria-label="Conceptのprerequisite graph"><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>${edges}${nodes}</svg></div><div class="graph-table-wrap"><h2>Curriculum sequence</h2><table><thead><tr><th>順</th><th>Concept</th><th>Prerequisites</th></tr></thead><tbody>${rows}</tbody></table></div></div></section>`;
+  const body = `<section class="graph-hero"><div class="container"><p class="kicker">CORE CONCEPT GRAPH / PREREQUISITE RELATIONSHIPS</p><h1>つながりを、<em>地図</em>として見る。</h1><p>矢印は「先に理解しておくとよいCore Concept」から、次のCore Conceptへ向かっています。ノードをクリックすると教材へ移動できます。</p></div></section><section class="section"><div class="container"><div class="graph-frame"><svg viewBox="0 0 1000 ${graphHeight}" role="img" aria-label="Core Conceptのprerequisite graph"><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>${edges}${nodes}</svg></div><div class="graph-table-wrap"><h2>Core Concept sequence</h2><table><thead><tr><th>順</th><th>Concept</th><th>Prerequisites</th></tr></thead><tbody>${rows}</tbody></table></div></div></section>`;
   return layout({ title: "Concept graph", description: "Prerequisite graph", body });
 }
 
@@ -126,4 +141,4 @@ function renderCurriculum({ curriculum, conceptsById, decisions = [], evidenceBy
   return layout({ title: curriculum.title.ja, description: curriculum.description, body });
 }
 
-export { renderIndex, renderConcept, renderGraph, renderCurriculum };
+export { renderIndex, renderConcept, renderCoreConcept, renderGraph, renderCurriculum };

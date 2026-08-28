@@ -4,7 +4,7 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { loadAllDomains, loadDomain } from "../core/src/domain/load-domain.mjs";
 import { validateDomain } from "../core/src/domain/validate-domain.mjs";
-import { renderConcept, renderCurriculum, renderGraph, renderIndex } from "../core/src/renderer/render.mjs";
+import { renderConcept, renderCoreConcept, renderCurriculum, renderGraph, renderIndex } from "../core/src/renderer/render.mjs";
 import { renderCourse, renderModule, renderReview, renderUnit } from "../core/src/renderer/course-render.mjs";
 import { auditCourse } from "../core/src/course/audit.mjs";
 import { runAudits } from "./run-audits.mjs";
@@ -47,15 +47,23 @@ for (const domain of domains) {
   const output = path.join(dist, "domains", publishPath);
   await mkdir(path.join(output, "concepts"), { recursive: true });
   const concepts = dataset.concepts.map((record) => record.value);
+  const coreConcepts = domain.coreConcepts ?? [];
   const conceptsById = validation.conceptsById;
+  const coreConceptsById = new Map(coreConcepts.map((concept) => [concept.id, concept]));
   const sourceById = validation.sourceById;
   const evidenceById = validation.evidenceById;
   const visualsById = validation.visualsById;
   const courseData = domain.courseData;
-  await writeFile(path.join(output, "index.html"), renderIndex({ concepts, conceptsById, curricula: dataset.curricula, domainTitle: domain.manifest.title, course: dataset.courses?.[0]?.value, courseUnits: courseData.units.map((record) => record.value) }), "utf8");
-  await writeFile(path.join(output, "graph.html"), renderGraph({ concepts, conceptsById, curricula: dataset.curricula }), "utf8");
-  for (const concept of concepts) await writeFile(path.join(output, "concepts", `${concept.id}.html`), renderConcept({ concept, conceptsById, sourceById, evidenceById, visualsById }), "utf8");
-  if (dataset.curricula[0]?.value) await writeFile(path.join(output, "curriculum.html"), renderCurriculum({ curriculum: dataset.curricula[0].value, conceptsById, sourceById, evidenceById, decisions: dataset.curriculumDecisions.map((record) => record.value) }), "utf8");
+  const coreContentById = new Map();
+  try {
+    const coreContent = JSON.parse(await readFile(path.join(domain.root, "data", "core-content", "core-content.json"), "utf8"));
+    for (const content of coreContent.concepts ?? []) coreContentById.set(content.core_concept, content);
+  } catch (error) { if (error.code !== "ENOENT") throw error; }
+  const coreCurriculum = dataset.curricula[0]?.value ? { ...dataset.curricula[0].value, sequence: coreConcepts.map((concept) => concept.id), title: { ja: "線形代数 Core Concept 30", en: "Linear Algebra Core Concepts 30" }, description: "学習者向けに30件へ圧縮した線形代数の中心概念マップ。" } : null;
+  await writeFile(path.join(output, "index.html"), renderIndex({ concepts, coreConcepts, conceptsById: coreConceptsById, curricula: coreCurriculum ? [{ value: coreCurriculum }] : [], domainTitle: domain.manifest.title, course: dataset.courses?.[0]?.value, courseUnits: courseData.units.map((record) => record.value) }), "utf8");
+  await writeFile(path.join(output, "graph.html"), renderGraph({ concepts: coreConcepts, conceptsById: coreConceptsById, curricula: coreCurriculum ? [{ value: coreCurriculum }] : [] }), "utf8");
+  for (const concept of coreConcepts) await writeFile(path.join(output, "concepts", `${concept.id}.html`), renderCoreConcept({ concept, conceptsById: coreConceptsById, content: coreContentById.get(concept.id) }), "utf8");
+  if (coreCurriculum) await writeFile(path.join(output, "curriculum.html"), renderCurriculum({ curriculum: coreCurriculum, conceptsById: coreConceptsById, sourceById, evidenceById, decisions: dataset.curriculumDecisions.map((record) => record.value) }), "utf8");
   await writeFile(path.join(output, "styles.css"), await readFile(path.join(root, "core", "src", "renderer", "styles.css"), "utf8"), "utf8");
   const course = dataset.courses?.[0]?.value;
   if (course) {
@@ -83,18 +91,20 @@ for (const domain of domains) {
     for (const unit of units) {
       const module = modules.find((item) => item.id === unit.module);
       const relatedIds = [...new Set([...(unit.concepts?.primary ?? []), ...(unit.concepts?.supporting ?? [])])];
-      const relatedConcepts = relatedIds.map((id) => conceptsById.get(id)).filter(Boolean);
+      const publicCoreIdBySourceId = new Map(coreConcepts.flatMap((concept) => (concept.source_concept_ids ?? []).map((sourceId) => [sourceId, concept.id])));
+      const relatedConcepts = relatedIds.map((id) => coreConceptsById.get(id) ?? coreConceptsById.get(publicCoreIdBySourceId.get(id))).filter(Boolean);
       const publication = await readVideoPublication(domain.root, unit.id);
       await writeFile(path.join(output, "units", `${unit.id}.html`), renderUnit({ unit, module, course, units, relatedConcepts, video: publication?.status === "published" ? publication : null }), "utf8");
     }
     for (const review of courseData.cumulativeReviews.map((record) => record.value)) await writeFile(path.join(output, "reviews", `${review.id}.html`), renderReview({ review, exerciseSets: courseData.moduleExercises.map((record) => record.value) }), "utf8");
+    await exec(process.execPath, [path.join(root, "scripts", "build-video-index.mjs"), domain.id], { cwd: root });
   }
   await writeFile(path.join(output, ".nojekyll"), "", "utf8");
   await mkdir(path.join(output, "assets"), { recursive: true });
   await cp(domain.assetRoot, path.join(output, "assets"), { recursive: true, force: true });
-  const manifest = { ...domain.manifest, url: `/domains/${publishPath}/`, course_id: course?.id, curricula: dataset.curricula.map((record) => ({ id: record.value.id, title: record.value.title })), conceptCount: concepts.length, courseVersion: course?.version ?? "2.0.0", source_commit: sourceCommit, license: course?.license ?? { code: "MIT", content: "CC BY-SA 4.0" }, asset_base_url: process.env.ASSET_BASE_URL ?? "" };
+  const manifest = { ...domain.manifest, url: `/domains/${publishPath}/`, course_id: course?.id, curricula: coreCurriculum ? [{ id: coreCurriculum.id, title: coreCurriculum.title }] : dataset.curricula.map((record) => ({ id: record.value.id, title: record.value.title })), conceptCount: coreConcepts.length || concepts.length, legacyConceptCount: concepts.length, coreConcepts: coreConcepts.map((concept) => concept.id), courseVersion: course?.version ?? "2.1.0", source_commit: sourceCommit, license: course?.license ?? { code: "MIT", content: "CC BY-SA 4.0" }, asset_base_url: process.env.ASSET_BASE_URL ?? "" };
   await writeFile(path.join(output, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n", "utf8");
-  const report = { release_version: "2.0.0", concept: conceptId, domain: domain.id, version: "2.0.0", status: gate.status, course_status: course?.status ?? "unknown", semanticAudits: Object.fromEntries(Object.entries(gate.computedAudits).map(([name, result]) => [name, result.status])), content: { concepts: concepts.length, modules: course?.modules?.length ?? 0, units: course?.units?.length ?? 0, lessons: gate.coverage.lessons.total, workedExamples: gate.coverage.examples.worked, counterexamples: gate.coverage.examples.counterexample, exercises: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.length, 0) : gate.coverage.exercises.total, solutions: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.filter((exercise) => exercise.solution).length, 0) : 0, cumulativeReviews: courseData?.cumulativeReviews?.length ?? 0, diagnostics: gate.coverage.diagnostics.total, visuals: gate.coverage.visuals.published }, audits: Object.fromEntries(Object.entries(gate.gates).map(([name, pass]) => [name, pass ? "pass" : "fail"])), counts: { claims: gate.coverage.claims.total, evidenceItems: dataset.evidenceItems.length, examples: gate.coverage.examples.total, exercises: gate.coverage.exercises.total, diagnostics: gate.coverage.diagnostics.total, misconceptions: gate.coverage.misconceptions.total, visuals: gate.coverage.visuals.total } };
+  const report = { release_version: "2.1.0", concept: conceptId, domain: domain.id, version: "2.1.0", status: gate.status, course_status: course?.status ?? "unknown", semanticAudits: Object.fromEntries(Object.entries(gate.computedAudits).map(([name, result]) => [name, result.status])), content: { concepts: coreConcepts.length || concepts.length, legacyConcepts: concepts.length, modules: course?.modules?.length ?? 0, units: course?.units?.length ?? 0, lessons: gate.coverage.lessons.total, workedExamples: gate.coverage.examples.worked, counterexamples: gate.coverage.examples.counterexample, exercises: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.length, 0) : gate.coverage.exercises.total, solutions: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.filter((exercise) => exercise.solution).length, 0) : 0, cumulativeReviews: courseData?.cumulativeReviews?.length ?? 0, diagnostics: gate.coverage.diagnostics.total, visuals: gate.coverage.visuals.published }, audits: Object.fromEntries(Object.entries(gate.gates).map(([name, pass]) => [name, pass ? "pass" : "fail"])), counts: { claims: gate.coverage.claims.total, evidenceItems: dataset.evidenceItems.length, examples: gate.coverage.examples.total, exercises: gate.coverage.exercises.total, diagnostics: gate.coverage.diagnostics.total, misconceptions: gate.coverage.misconceptions.total, visuals: gate.coverage.visuals.total } };
   await writeFile(path.join(output, "build-report.json"), JSON.stringify(report, null, 2) + "\n", "utf8");
   await writeFile(path.join(domain.root, "working", conceptId, "build-report.json"), JSON.stringify(report, null, 2) + "\n", "utf8");
   portalEntries.push({ id: domain.id, title: domain.manifest.title, description: domain.manifest.description, url: `/domains/${publishPath}/`, curricula: manifest.curricula, conceptCount: concepts.length, status: domain.manifest.status });

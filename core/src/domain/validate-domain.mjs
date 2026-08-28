@@ -8,9 +8,21 @@ import { auditVideoSource } from "../video/audit.mjs";
 
 export async function validateDomain(domain, { schema } = {}) {
   const manifestSchema = schema ?? JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "domain-manifest.schema.json"), "utf8"));
-  const schemaNames = ["concept", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
+  const schemaNames = ["concept", "core-concept", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
   const schemas = Object.fromEntries(await Promise.all(schemaNames.map(async (name) => [`${name}.schema.json`, JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, `${name}.schema.json`), "utf8"))])));
   const issues = [...validateJsonSchema(domain.manifest, manifestSchema, { schemas, path: `${domain.root}/domain.yaml` })];
+  const coreConcepts = domain.coreConcepts ?? [];
+  const coreIds = new Set(coreConcepts.map((concept) => concept.id));
+  if (coreConcepts.length !== 30) issues.push(`Domain '${domain.manifest.id}' must contain exactly 30 Core Concepts (found ${coreConcepts.length})`);
+  if (domain.manifest.core_concepts?.length !== 30) issues.push(`Domain '${domain.manifest.id}' manifest must declare exactly 30 Core Concepts`);
+  if (domain.manifest.core_concepts && JSON.stringify([...domain.manifest.core_concepts].sort()) !== JSON.stringify([...coreIds].sort())) issues.push("domain manifest core_concepts must match the loaded Core Concept IDs");
+  for (const core of coreConcepts) issues.push(...validateJsonSchema(core, schemas["core-concept.schema.json"], { schemas, path: `${domain.manifest.core_concepts_file}:${core.id}` }));
+  for (const core of coreConcepts) {
+    for (const prerequisite of core.prerequisites ?? []) if (!coreIds.has(prerequisite)) issues.push(`Core Concept '${core.id}' references missing Core Concept prerequisite '${prerequisite}'`);
+    for (const relation of core.external_relations ?? []) if (!["requires", "extends", "applied_in", "analogous_to", "special_case_of", "generalized_by"].includes(relation.relation)) issues.push(`Core Concept '${core.id}' has invalid external relation '${relation.relation}'`);
+    const sourceConceptIds = new Set((domain.dataset.concepts ?? []).map((record) => record.value.id));
+    for (const sourceId of core.source_concept_ids ?? []) if (!sourceConceptIds.has(sourceId)) issues.push(`Core Concept '${core.id}' references missing source Concept '${sourceId}'`);
+  }
   if (domain.manifest.id !== path.basename(domain.root)) issues.push("domain manifest id must match directory name");
   const datasetValidation = await (await import("../validation/index.mjs")).validateDataset(domain.dataset);
   issues.push(...datasetValidation.issues);

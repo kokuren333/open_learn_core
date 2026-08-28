@@ -1,5 +1,9 @@
 # Course Content Status
 
+## Core Concept status
+
+The learner-facing inventory is exactly 30 Core Concepts. `basis` is the first `gold` Concept and is rendered from `data/core-content/core-content.json`; the remaining 29 Concepts are structured `scaffold` records. The 57 legacy Concept records and 52 Learning Units remain internal migration material and are not presented as a second public Concept map. Run `npm run audit:core -- linear-algebra` to check the exact-30, cognitive-pattern, semantic-element, and Basis Gold gates.
+
 V2.0 course source status: 52 Learning Unit records are present and structurally authored, but the forensic content audit currently classifies them as a scaffold pending substantive editorial expansion. Generated PDF/video binaries remain build artifacts; their reproducible source indexes are produced by the documented commands.
 
 | Unit | Module | HTML | PDF | Video Source | YouTube | Status |

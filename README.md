@@ -1,6 +1,6 @@
 # Open Learn Core
 
-Open Learn Core is an open-source framework for building reproducible, auditable learning resources from structured educational source and publishing them across web, print, and video. V2.0 dogfoods the framework with a complete introductory linear algebra course.
+Open Learn Core is an open-source framework for building reproducible, auditable learning resources from structured educational source and publishing them across web, print, and video. V2.1 adds an exact-30 learner-facing Core Concept layer while preserving the legacy knowledge dataset for migration and provenance.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ Core owns the reusable engine. A domain owns its knowledge, sources, visuals, cu
 
 ## Current domain
 
-`linear-algebra` is the first reference domain. It contains 8 ordered Modules, 52 structurally authored Learning Units, Module exercises with complete solutions, five cumulative reviews, three video source pilots, and reproducible web/PDF/video publication adapters. The deterministic forensic audit currently treats the Unit prose as a scaffold pending deeper editorial review; the Knowledge Layer (Concepts, Relations, Evidence) remains separate from the Learning Layer (Course → Module → Unit).
+`linear-algebra` is the first reference domain. Its public map contains exactly 30 Core Concepts; the former 57 Concept records remain internal and are mapped in [the compression design](docs/design/linear-algebra-30-concept-compression.md). `basis` is the first Gold Concept with an inspectable motivation-to-transfer learning flow. The other 29 Core Concepts are intentionally marked `scaffold` until their editorial content passes the same gate. The existing 8 Modules and 52 Learning Units remain available as internal migration material.
 
 ## Commands
 
@@ -28,6 +28,7 @@ npm run test:domain -- linear-algebra
 npm run validate:all
 npm test
 npm run course:audit -- linear-algebra
+npm run audit:core -- linear-algebra
 npm run build -- linear-algebra
 npm run build:pdf -- linear-algebra
 npm run build:video -- linear-algebra

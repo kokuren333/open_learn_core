@@ -1,0 +1,4399 @@
+{
+  "schema_version": "2.1",
+  "domain": "linear-algebra",
+  "core_concepts": [
+    {
+      "id": "vector",
+      "title": {
+        "ja": "ベクトル",
+        "en": "Vector"
+      },
+      "central_mental_model": "ベクトルは、成分や矢印の見た目に依存せず、加法とスカラー倍によって方向・変化・状態を運ぶ対象である。",
+      "cognitive_types": [
+        "concrete_object"
+      ],
+      "cognitive_profile": {
+        "abstraction": 2,
+        "procedural": 2,
+        "visual": 4,
+        "prerequisite_load": 1,
+        "misconception_risk": 3,
+        "representation_switching": 3,
+        "symbolic_density": 2
+      },
+      "facets": [
+        {
+          "id": "facet-77e25370306862105206-1",
+          "title": "矢印と成分",
+          "description": "矢印と成分を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-81ea753130d930af30c830eb-2",
+          "title": "自由ベクトル",
+          "description": "自由ベクトルを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-30d930af30c830eb6f147b97-3",
+          "title": "ベクトル演算",
+          "description": "ベクトル演算を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-621052068a087b97-1",
+          "title": "成分計算",
+          "description": "成分計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-5e7e4f5564cd4f5c-2",
+          "title": "幾何操作",
+          "description": "幾何操作を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "加法とスカラー倍が閉じている",
+        "同じ対象に複数の表現がある"
+      ],
+      "representations": [
+        {
+          "id": "representation-77e25370-1",
+          "title": "矢印",
+          "description": "矢印を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-621052067d44-2",
+          "title": "成分組",
+          "description": "成分組を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-59094f4d-3",
+          "title": "変位",
+          "description": "変位を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "ベクトルは始点に固定される",
+        "大きさだけでベクトルは決まる",
+        "矢印で描けないものはベクトルでない"
+      ],
+      "applications": [
+        "力と変位",
+        "データ特徴量"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "ベクトルを自分の言葉と式で説明する。",
+          "ベクトルを二つ以上の表現で判定・計算する。",
+          "ベクトルを未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "ベクトルは始点に固定される",
+          "大きさだけでベクトルは決まる",
+          "矢印で描けないものはベクトルでない"
+        ],
+        "required_representations": [
+          "矢印",
+          "成分組",
+          "変位"
+        ],
+        "required_examples": [
+          "矢印",
+          "成分組"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "concrete_object",
+        "reason": "ベクトルの認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "encounter",
+          "manipulate examples",
+          "compare cases",
+          "name the object",
+          "formalize",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度2/5に応じて具体例と形式化を往復する。",
+          "誤解リスク3/5と表現切替3/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "vector",
+        "vector-introduction",
+        "vector-notation",
+        "vector-addition",
+        "scalar",
+        "scalar-introduction",
+        "scalar-multiplication"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "linear-combination",
+      "title": {
+        "ja": "線形結合",
+        "en": "Linear Combination"
+      },
+      "central_mental_model": "線形結合は、複数の対象を係数で調整して一つの対象を作る共通言語であり、span・座標・方程式をつなぐ。",
+      "cognitive_types": [
+        "abstraction"
+      ],
+      "cognitive_profile": {
+        "abstraction": 5,
+        "procedural": 2,
+        "visual": 3,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-4fc26570-1",
+          "title": "係数",
+          "description": "係数を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-751f6210-2",
+          "title": "生成",
+          "description": "生成を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4fc265706bd48f03-3",
+          "title": "係数比較",
+          "description": "係数比較を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-7d50540830927acb3066308b-1",
+          "title": "結合を立てる",
+          "description": "結合を立てるを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4fc26570309289e3304f-2",
+          "title": "係数を解く",
+          "description": "係数を解くを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "係数はスカラー",
+        "順序を変えても和は同じ"
+      ],
+      "representations": [
+        {
+          "id": "representation-5f0f-1",
+          "title": "式",
+          "description": "式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-77e25370306e54086210-2",
+          "title": "矢印の合成",
+          "description": "矢印の合成を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217306e5217-3",
+          "title": "行列の列",
+          "description": "行列の列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "係数は1だけ",
+        "係数は自然数だけ",
+        "元の材料しか作れない"
+      ],
+      "applications": [
+        "座標表示",
+        "信号混合"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "線形結合を自分の言葉と式で説明する。",
+          "線形結合を二つ以上の表現で判定・計算する。",
+          "線形結合を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "係数は1だけ",
+          "係数は自然数だけ",
+          "元の材料しか作れない"
+        ],
+        "required_representations": [
+          "式",
+          "矢印の合成",
+          "行列の列"
+        ],
+        "required_examples": [
+          "式",
+          "矢印の合成"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "abstraction",
+        "reason": "線形結合の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "concrete cases",
+          "common structure",
+          "abstract object",
+          "formalize",
+          "new example",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度5/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "linear-combination"
+      ],
+      "prerequisites": [
+        "vector"
+      ]
+    },
+    {
+      "id": "linear-system",
+      "title": {
+        "ja": "線形方程式系",
+        "en": "Linear System"
+      },
+      "central_mental_model": "線形方程式系は、未知量の組が複数の線形条件を同時に満たすかを問う問題で、幾何・行列・解空間を統一する。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-672a77e591cf-1",
+          "title": "未知量",
+          "description": "未知量を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-5171901a67614ef6-2",
+          "title": "共通条件",
+          "description": "共通条件を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-89e396c65408-3",
+          "title": "解集合",
+          "description": "解集合を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-4fc26570884c521730924f5c308b-1",
+          "title": "係数行列を作る",
+          "description": "係数行列を作るを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-89e330925206985e3059308b-2",
+          "title": "解を分類する",
+          "description": "解を分類するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "解は0個・1個・無限個",
+        "同次系は零解を持つ"
+      ],
+      "representations": [
+        {
+          "id": "representation-65b97a0b5f0f-1",
+          "title": "方程式",
+          "description": "方程式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-62e15927884c5217-2",
+          "title": "拡大行列",
+          "description": "拡大行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5e7e4f5576844ea470b9-3",
+          "title": "幾何的交点",
+          "description": "幾何的交点を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "解は常に一つ",
+        "係数行列だけで右辺も表す",
+        "自由変数は失敗"
+      ],
+      "applications": [
+        "回路方程式",
+        "資源配分"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "線形方程式系を自分の言葉と式で説明する。",
+          "線形方程式系を二つ以上の表現で判定・計算する。",
+          "線形方程式系を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "解は常に一つ",
+          "係数行列だけで右辺も表す",
+          "自由変数は失敗"
+        ],
+        "required_representations": [
+          "方程式",
+          "拡大行列",
+          "幾何的交点"
+        ],
+        "required_examples": [
+          "方程式",
+          "拡大行列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "線形方程式系の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "need",
+          "positive and negative cases",
+          "formal definition",
+          "test membership",
+          "classify",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "linear-equations"
+      ],
+      "prerequisites": [
+        "linear-combination"
+      ]
+    },
+    {
+      "id": "matrix",
+      "title": {
+        "ja": "行列",
+        "en": "Matrix"
+      },
+      "central_mental_model": "行列は数表ではなく、線形な入力を出力へ移す操作を計算可能な形で表す構造である。",
+      "cognitive_types": [
+        "representation",
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 5,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-884c30685217-1",
+          "title": "行と列",
+          "description": "行と列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-7a4d306e610f5473-2",
+          "title": "積の意味",
+          "description": "積の意味を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-519950cf306e886873fe-3",
+          "title": "写像の表現",
+          "description": "写像の表現を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-884c52177a4d-1",
+          "title": "行列積",
+          "description": "行列積を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-8ee27f6e-2",
+          "title": "転置",
+          "description": "転置を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-884c521730d930af30c830eb7a4d-3",
+          "title": "行列ベクトル積",
+          "description": "行列ベクトル積を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "積は一般に非可換",
+        "形状が積の可否を決める"
+      ],
+      "representations": [
+        {
+          "id": "representation-65708868-1",
+          "title": "数表",
+          "description": "数表を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-519950cf-2",
+          "title": "写像",
+          "description": "写像を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-521730d930af30c830eb306e7d505408-3",
+          "title": "列ベクトルの結合",
+          "description": "列ベクトルの結合を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "行列は単なる表",
+        "AB=BAが常に成り立つ",
+        "サイズは無関係"
+      ],
+      "applications": [
+        "画像変換",
+        "連立方程式"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "行列を自分の言葉と式で説明する。",
+          "行列を二つ以上の表現で判定・計算する。",
+          "行列を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "行列は単なる表",
+          "AB=BAが常に成り立つ",
+          "サイズは無関係"
+        ],
+        "required_representations": [
+          "数表",
+          "写像",
+          "列ベクトルの結合"
+        ],
+        "required_examples": [
+          "数表",
+          "写像"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "行列の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "same object",
+          "representation A",
+          "representation B",
+          "translate",
+          "what changes",
+          "what remains",
+          "translation task"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替5/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "matrix",
+        "matrix-introduction",
+        "matrix-operations",
+        "matrix-representation"
+      ],
+      "prerequisites": [
+        "vector"
+      ]
+    },
+    {
+      "id": "elimination",
+      "title": {
+        "ja": "消去法",
+        "en": "Elimination"
+      },
+      "central_mental_model": "消去法は、解集合を変えない操作で条件を見通しのよい形へ変え、構造と計算を同時に明らかにする手続きである。",
+      "cognitive_types": [
+        "procedure"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 5,
+        "visual": 2,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 3,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-884c64cd4f5c-1",
+          "title": "行操作",
+          "description": "行操作を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-30d430dc30c330c8-2",
+          "title": "ピボット",
+          "description": "ピボットを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-5f8c90004ee35165-3",
+          "title": "後退代入",
+          "description": "後退代入を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-524d90326d8853bb-1",
+          "title": "前進消去",
+          "description": "前進消去を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-5f8c90004ee35165-2",
+          "title": "後退代入",
+          "description": "後退代入を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-30d430dc30c330c89078629e-3",
+          "title": "ピボット選択",
+          "description": "ピボット選択を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "基本行操作は解を保つ",
+        "零行は自由変数を示す"
+      ],
+      "representations": [
+        {
+          "id": "representation-62e159274fc26570884c5217-1",
+          "title": "拡大係数行列",
+          "description": "拡大係数行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-65b97a0b5f0f-2",
+          "title": "方程式",
+          "description": "方程式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-64cd4f5c5217-3",
+          "title": "操作列",
+          "description": "操作列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "行を列のように操作する",
+        "ピボットなしは解なし",
+        "手順だけ暗記する"
+      ],
+      "applications": [
+        "ガウス消去",
+        "LU分解"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "消去法を自分の言葉と式で説明する。",
+          "消去法を二つ以上の表現で判定・計算する。",
+          "消去法を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "行を列のように操作する",
+          "ピボットなしは解なし",
+          "手順だけ暗記する"
+        ],
+        "required_representations": [
+          "拡大係数行列",
+          "方程式",
+          "操作列"
+        ],
+        "required_examples": [
+          "拡大係数行列",
+          "方程式"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "procedure",
+        "reason": "消去法の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "goal",
+          "why the method",
+          "algorithm",
+          "worked example",
+          "attempt",
+          "diagnose errors",
+          "limits"
+        ],
+        "profile_driven_requirements": [
+          "抽象度3/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替3/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "gaussian-elimination",
+        "rref-and-pivots"
+      ],
+      "prerequisites": [
+        "linear-system",
+        "matrix"
+      ]
+    },
+    {
+      "id": "vector-space",
+      "title": {
+        "ja": "ベクトル空間",
+        "en": "Vector Space"
+      },
+      "central_mental_model": "ベクトル空間は、対象の見た目ではなく加法とスカラー倍の規則が整合することで、同じ線形推論を再利用できる抽象的な舞台である。",
+      "cognitive_types": [
+        "abstraction"
+      ],
+      "cognitive_profile": {
+        "abstraction": 5,
+        "procedural": 2,
+        "visual": 3,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-516c7406-1",
+          "title": "公理",
+          "description": "公理を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4f8b306e5171901a69cb9020-2",
+          "title": "例の共通構造",
+          "description": "例の共通構造を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-62bd8c615316-3",
+          "title": "抽象化",
+          "description": "抽象化を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-516c74063092691c67fb3059308b-1",
+          "title": "公理を検査する",
+          "description": "公理を検査するを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-95896027309278ba8a8d3059308b-2",
+          "title": "閉性を確認する",
+          "description": "閉性を確認するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "零元がある",
+        "演算が閉じる"
+      ],
+      "representations": [
+        {
+          "id": "representation-657030d930af30c830eb-1",
+          "title": "数ベクトル",
+          "description": "数ベクトルを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-591a98055f0f-2",
+          "title": "多項式",
+          "description": "多項式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-3",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "要素は必ず矢印",
+        "公理は検査不要",
+        "部分集合なら自動的に空間"
+      ],
+      "applications": [
+        "多項式空間",
+        "行列空間"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "ベクトル空間を自分の言葉と式で説明する。",
+          "ベクトル空間を二つ以上の表現で判定・計算する。",
+          "ベクトル空間を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "要素は必ず矢印",
+          "公理は検査不要",
+          "部分集合なら自動的に空間"
+        ],
+        "required_representations": [
+          "数ベクトル",
+          "多項式",
+          "行列"
+        ],
+        "required_examples": [
+          "数ベクトル",
+          "多項式"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "abstraction",
+        "reason": "ベクトル空間の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "concrete cases",
+          "common structure",
+          "abstract object",
+          "formalize",
+          "new example",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度5/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "vector-spaces"
+      ],
+      "prerequisites": [
+        "vector"
+      ]
+    },
+    {
+      "id": "subspace",
+      "title": {
+        "ja": "部分空間",
+        "en": "Subspace"
+      },
+      "central_mental_model": "部分空間は、より大きな空間の中で線形演算に閉じた小さな空間であり、解集合・核・像を同じ言葉で捉える。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-539f70b93092542b308076f47dda-1",
+          "title": "原点を含む直線",
+          "description": "原点を含む直線を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-95896027-2",
+          "title": "閉性",
+          "description": "閉性を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-52367d0496c65408-3",
+          "title": "制約集合",
+          "description": "制約集合を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-90e852067a7a959352245b9a-1",
+          "title": "部分空間判定",
+          "description": "部分空間判定を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-751f6210514330678a188ff03059308b-2",
+          "title": "生成元で記述する",
+          "description": "生成元で記述するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "零元を含む",
+        "加法とスカラー倍に閉じる"
+      ],
+      "representations": [
+        {
+          "id": "representation-5e7e4f55-1",
+          "title": "幾何",
+          "description": "幾何を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-65b97a0b5f0f-2",
+          "title": "方程式",
+          "description": "方程式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-751f621096c65408-3",
+          "title": "生成集合",
+          "description": "生成集合を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "曲線も部分空間",
+        "原点を通らない直線も部分空間",
+        "spanと集合は同じ"
+      ],
+      "applications": [
+        "解空間",
+        "核と像"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "部分空間を自分の言葉と式で説明する。",
+          "部分空間を二つ以上の表現で判定・計算する。",
+          "部分空間を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "曲線も部分空間",
+          "原点を通らない直線も部分空間",
+          "spanと集合は同じ"
+        ],
+        "required_representations": [
+          "幾何",
+          "方程式",
+          "生成集合"
+        ],
+        "required_examples": [
+          "幾何",
+          "方程式"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "部分空間の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "need",
+          "positive and negative cases",
+          "formal definition",
+          "test membership",
+          "classify",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "subspaces"
+      ],
+      "prerequisites": [
+        "vector-space"
+      ]
+    },
+    {
+      "id": "linear-independence",
+      "title": {
+        "ja": "線形独立性",
+        "en": "Linear Independence"
+      },
+      "central_mental_model": "線形独立性は、与えた材料の間に隠れた重複がなく、零を作る方法が自明なものだけであることを表す。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-96f6306e95a24fc2-1",
+          "title": "零の関係",
+          "description": "零の関係を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-519795776027-2",
+          "title": "冗長性",
+          "description": "冗長性を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4e00610f6027-3",
+          "title": "一意性",
+          "description": "一意性を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-4fc2657065b97a0b5f0f309289e3304f-1",
+          "title": "係数方程式を解く",
+          "description": "係数方程式を解くを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-rank-2",
+          "title": "rankで判定する",
+          "description": "rankで判定するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "零ベクトルを含めば従属",
+        "独立集合の部分集合は独立"
+      ],
+      "representations": [
+        {
+          "id": "representation-4fc2657065b97a0b5f0f-1",
+          "title": "係数方程式",
+          "description": "係数方程式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-65b9541156f3-2",
+          "title": "方向図",
+          "description": "方向図を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5217884c5217-3",
+          "title": "列行列",
+          "description": "列行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "本数が少なければ独立",
+        "直交性と独立性は同じ",
+        "spanすれば独立"
+      ],
+      "applications": [
+        "基底判定",
+        "特徴量の重複除去"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "線形独立性を自分の言葉と式で説明する。",
+          "線形独立性を二つ以上の表現で判定・計算する。",
+          "線形独立性を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "本数が少なければ独立",
+          "直交性と独立性は同じ",
+          "spanすれば独立"
+        ],
+        "required_representations": [
+          "係数方程式",
+          "方向図",
+          "列行列"
+        ],
+        "required_examples": [
+          "係数方程式",
+          "方向図"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "線形独立性の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "need",
+          "positive and negative cases",
+          "formal definition",
+          "test membership",
+          "classify",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "linear-independence"
+      ],
+      "prerequisites": [
+        "linear-combination",
+        "vector-space"
+      ]
+    },
+    {
+      "id": "basis",
+      "title": {
+        "ja": "基底",
+        "en": "Basis"
+      },
+      "central_mental_model": "基底は、空間のすべてを作れる十分性と、余分な重複がない独立性を同時に満たし、各ベクトルへ一意な座標を与えるものさしである。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-span-1",
+          "title": "spanと独立の統合",
+          "description": "spanと独立の統合を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4e00610f306a5ea76a19-2",
+          "title": "一意な座標",
+          "description": "一意な座標を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6a196e9630fb975e6a196e9657fa5e95-3",
+          "title": "標準・非標準基底",
+          "description": "標準・非標準基底を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-57fa5e9530c630b930c8-1",
+          "title": "基底テスト",
+          "description": "基底テストを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4fc26570309289e3304f-2",
+          "title": "係数を解く",
+          "description": "係数を解くを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-51979577602730929664304f-3",
+          "title": "冗長性を除く",
+          "description": "冗長性を除くを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "spanが必要",
+        "独立性が必要",
+        "直交性は必須でない"
+      ],
+      "representations": [
+        {
+          "id": "representation-5e7e4f5565b95411-1",
+          "title": "幾何方向",
+          "description": "幾何方向を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-4ee3657067614ef6-2",
+          "title": "代数条件",
+          "description": "代数条件を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5ea76a198868793a-3",
+          "title": "座標表示",
+          "description": "座標表示を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-4",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "基底は一意",
+        "直交必須",
+        "長さ1必須",
+        "spanだけで十分",
+        "独立だけで十分"
+      ],
+      "applications": [
+        "座標系",
+        "数値計算",
+        "関数空間"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "基底を自分の言葉と式で説明する。",
+          "基底を二つ以上の表現で判定・計算する。",
+          "基底を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "基底は一意",
+          "直交必須",
+          "長さ1必須",
+          "spanだけで十分",
+          "独立だけで十分"
+        ],
+        "required_representations": [
+          "幾何方向",
+          "代数条件",
+          "座標表示",
+          "行列"
+        ],
+        "required_examples": [
+          "幾何方向",
+          "代数条件"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "基底の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "need",
+          "positive and negative cases",
+          "formal definition",
+          "test membership",
+          "classify",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "gold",
+      "source_concept_ids": [
+        "basis",
+        "span"
+      ],
+      "prerequisites": [
+        "linear-combination",
+        "subspace",
+        "linear-independence"
+      ]
+    },
+    {
+      "id": "dimension",
+      "title": {
+        "ja": "次元",
+        "en": "Dimension"
+      },
+      "central_mental_model": "次元は、空間を重複なく記述するために必要な独立方向の数であり、見た目ではなく基底の不変量である。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 4,
+        "visual": 3,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-81ea75315ea6-1",
+          "title": "自由度",
+          "description": "自由度を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-57fa5e95306e672c6570-2",
+          "title": "基底の本数",
+          "description": "基底の本数を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4e0d590991cf-3",
+          "title": "不変量",
+          "description": "不変量を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-57fa5e95306e672c6570309265703048308b-1",
+          "title": "基底の本数を数える",
+          "description": "基底の本数を数えるを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-rank-2",
+          "title": "rankから求める",
+          "description": "rankから求めるを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "すべての基底は同じ本数",
+        "部分空間の次元は包含で増えない"
+      ],
+      "representations": [
+        {
+          "id": "representation-81ea75315ea6-1",
+          "title": "自由度",
+          "description": "自由度を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-57fa5e95306e672c6570-2",
+          "title": "基底の本数",
+          "description": "基底の本数を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-rank-3",
+          "title": "rank",
+          "description": "rankを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "生成元の本数が必ず次元",
+        "図の見た目だけが次元",
+        "基底で次元が変わる"
+      ],
+      "applications": [
+        "自由度分析",
+        "解空間"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "次元を自分の言葉と式で説明する。",
+          "次元を二つ以上の表現で判定・計算する。",
+          "次元を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "生成元の本数が必ず次元",
+          "図の見た目だけが次元",
+          "基底で次元が変わる"
+        ],
+        "required_representations": [
+          "自由度",
+          "基底の本数",
+          "rank"
+        ],
+        "required_examples": [
+          "自由度",
+          "基底の本数"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "次元の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "phenomenon",
+          "quantity",
+          "compute",
+          "interpret",
+          "invariance",
+          "limits",
+          "application"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "dimension"
+      ],
+      "prerequisites": [
+        "basis"
+      ]
+    },
+    {
+      "id": "linear-transformation",
+      "title": {
+        "ja": "線形写像",
+        "en": "Linear Transformation"
+      },
+      "central_mental_model": "線形写像は、加法とスカラー倍を保ちながら一つの空間の構造を別の空間へ運び、核・像・行列表示を生む。",
+      "cognitive_types": [
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 5,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "facets": [
+        {
+          "id": "facet-5165529b306851fa529b-1",
+          "title": "入力と出力",
+          "description": "入力と出力を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-69cb90204fdd5b58-2",
+          "title": "構造保存",
+          "description": "構造保存を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6838306850cf-3",
+          "title": "核と像",
+          "description": "核と像を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-7dda5f62602730c630b930c8-1",
+          "title": "線形性テスト",
+          "description": "線形性テストを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-57fa5e95306e50cf304b3089884c521730924f5c308b-2",
+          "title": "基底の像から行列を作る",
+          "description": "基底の像から行列を作るを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "零を零へ写す",
+        "和とスカラー倍を保存"
+      ],
+      "representations": [
+        {
+          "id": "representation-519950cf-1",
+          "title": "写像",
+          "description": "写像を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5e7e4f5559095f62-2",
+          "title": "幾何変形",
+          "description": "幾何変形を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-3",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "原点を通るだけで線形",
+        "全写像は行列",
+        "線形写像は必ず可逆"
+      ],
+      "applications": [
+        "画像変換",
+        "微分作用素"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "線形写像を自分の言葉と式で説明する。",
+          "線形写像を二つ以上の表現で判定・計算する。",
+          "線形写像を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "原点を通るだけで線形",
+          "全写像は行列",
+          "線形写像は必ず可逆"
+        ],
+        "required_representations": [
+          "写像",
+          "幾何変形",
+          "行列"
+        ],
+        "required_examples": [
+          "写像",
+          "幾何変形"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "transformation_process",
+        "reason": "線形写像の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "input/output",
+          "observable behavior",
+          "visual model",
+          "algebraic model",
+          "composition",
+          "invariants",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "linear-map",
+        "linear-transformations"
+      ],
+      "prerequisites": [
+        "vector-space"
+      ]
+    },
+    {
+      "id": "coordinates-change-of-basis",
+      "title": {
+        "ja": "座標と基底変換",
+        "en": "Coordinates and Change of Basis"
+      },
+      "central_mental_model": "座標はベクトルそのものではなく選んだ基底に対する係数であり、基底変換は同じ対象の表現を翻訳する操作である。",
+      "cognitive_types": [
+        "representation",
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 5,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-5ea76a19306830d930af30c830eb-1",
+          "title": "座標とベクトル",
+          "description": "座標とベクトルを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-907779fb884c5217-2",
+          "title": "遷移行列",
+          "description": "遷移行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-540c30585bfe8c61306e52258868793a-3",
+          "title": "同じ対象の別表示",
+          "description": "同じ対象の別表示を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-4fc26570309289e3304f-1",
+          "title": "係数を解く",
+          "description": "係数を解くを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-57fa5e95884c52173092639b3051308b-2",
+          "title": "基底行列を掛ける",
+          "description": "基底行列を掛けるを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-590963db3092540862103059308b-3",
+          "title": "変換を合成する",
+          "description": "変換を合成するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "ベクトルは基底に依存しない",
+        "座標は基底に依存する"
+      ],
+      "representations": [
+        {
+          "id": "representation-5e7e4f5530d930af30c830eb-1",
+          "title": "幾何ベクトル",
+          "description": "幾何ベクトルを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-6a196e965ea76a19-2",
+          "title": "標準座標",
+          "description": "標準座標を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-975e6a196e965ea76a19-3",
+          "title": "非標準座標",
+          "description": "非標準座標を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-4",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "座標が対象そのもの",
+        "変換行列の向きは任意",
+        "標準基底が常に正しい"
+      ],
+      "applications": [
+        "物理座標系",
+        "CG"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "座標と基底変換を自分の言葉と式で説明する。",
+          "座標と基底変換を二つ以上の表現で判定・計算する。",
+          "座標と基底変換を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "座標が対象そのもの",
+          "変換行列の向きは任意",
+          "標準基底が常に正しい"
+        ],
+        "required_representations": [
+          "幾何ベクトル",
+          "標準座標",
+          "非標準座標",
+          "行列"
+        ],
+        "required_examples": [
+          "幾何ベクトル",
+          "標準座標"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "座標と基底変換の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "same object",
+          "representation A",
+          "representation B",
+          "translate",
+          "what changes",
+          "what remains",
+          "translation task"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替5/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "coordinates",
+        "coordinate-maps",
+        "change-of-basis"
+      ],
+      "prerequisites": [
+        "basis"
+      ]
+    },
+    {
+      "id": "rank-nullity",
+      "title": {
+        "ja": "階数と零化度",
+        "en": "Rank and Nullity"
+      },
+      "central_mental_model": "rank-nullityは、写像が保つ独立な情報の数と失う自由度の数が、入力空間の次元を分割するという保存則である。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 5,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-60c55831306e4fdd630130686d885931-1",
+          "title": "情報の保持と消失",
+          "description": "情報の保持と消失を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6838306850cf-2",
+          "title": "核と像",
+          "description": "核と像を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6b215143306e52065272-3",
+          "title": "次元の分割",
+          "description": "次元の分割を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-rank-1",
+          "title": "rank計算",
+          "description": "rank計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-nullity-2",
+          "title": "nullity計算",
+          "description": "nullity計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-6b215143516c5f0f3092906975283059308b-3",
+          "title": "次元公式を適用する",
+          "description": "次元公式を適用するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "rank+nullity=domain dimension",
+        "核と像は異なる空間"
+      ],
+      "representations": [
+        {
+          "id": "representation-519950cf-1",
+          "title": "写像",
+          "description": "写像を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-pivot-2",
+          "title": "pivot",
+          "description": "pivotを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-90e852067a7a9593306e6b215143-3",
+          "title": "部分空間の次元",
+          "description": "部分空間の次元を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "rankは要素数",
+        "nullityは零行数",
+        "rankは常に行数"
+      ],
+      "applications": [
+        "回帰",
+        "情報量"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "階数と零化度を自分の言葉と式で説明する。",
+          "階数と零化度を二つ以上の表現で判定・計算する。",
+          "階数と零化度を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "rankは要素数",
+          "nullityは零行数",
+          "rankは常に行数"
+        ],
+        "required_representations": [
+          "写像",
+          "pivot",
+          "部分空間の次元"
+        ],
+        "required_examples": [
+          "写像",
+          "pivot"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "階数と零化度の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "known concepts",
+          "pattern",
+          "formal statement",
+          "hypotheses",
+          "example",
+          "counterexample",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度5/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "rank",
+        "kernel-and-image",
+        "dimension"
+      ],
+      "prerequisites": [
+        "dimension",
+        "linear-transformation"
+      ]
+    },
+    {
+      "id": "determinant",
+      "title": {
+        "ja": "行列式",
+        "en": "Determinant"
+      },
+      "central_mental_model": "行列式は、線形変換が向き付き体積をどれだけ拡大縮小し、可逆性を失っていないかを一つの量で示す。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 4,
+        "visual": 3,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-7b2653f74ed8304d4f537a4d-1",
+          "title": "符号付き体積",
+          "description": "符号付き体積を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-591a91cd7dda5f626027-2",
+          "title": "多重線形性",
+          "description": "多重線形性を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-53ef90066027-3",
+          "title": "可逆性",
+          "description": "可逆性を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-5c0f884c52175f0f8a087b97-1",
+          "title": "小行列式計算",
+          "description": "小行列式計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4f5956e05b505c55958b-2",
+          "title": "余因子展開",
+          "description": "余因子展開を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-884c64cd4f5c30678a087b97-3",
+          "title": "行操作で計算",
+          "description": "行操作で計算を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "det(AB)=det(A)det(B)",
+        "det=0 iff 非可逆"
+      ],
+      "representations": [
+        {
+          "id": "representation-97627a4d30fb4f537a4d-1",
+          "title": "面積・体積",
+          "description": "面積・体積を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-7f6e63db306e5f0f-2",
+          "title": "置換の式",
+          "description": "置換の式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-3",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "detは要素の積",
+        "det=0なら零行列",
+        "行列積のdetは和"
+      ],
+      "applications": [
+        "体積変換",
+        "連立方程式"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "行列式を自分の言葉と式で説明する。",
+          "行列式を二つ以上の表現で判定・計算する。",
+          "行列式を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "detは要素の積",
+          "det=0なら零行列",
+          "行列積のdetは和"
+        ],
+        "required_representations": [
+          "面積・体積",
+          "置換の式",
+          "行列"
+        ],
+        "required_examples": [
+          "面積・体積",
+          "置換の式"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "行列式の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "phenomenon",
+          "quantity",
+          "compute",
+          "interpret",
+          "invariance",
+          "limits",
+          "application"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "determinant-definition",
+        "determinant-computation",
+        "determinant-invertibility",
+        "determinant-properties",
+        "determinant-volume",
+        "determinant-intuition"
+      ],
+      "prerequisites": [
+        "matrix",
+        "elimination"
+      ]
+    },
+    {
+      "id": "eigenvalue-eigenvector",
+      "title": {
+        "ja": "固有値と固有ベクトル",
+        "en": "Eigenvalue and Eigenvector"
+      },
+      "central_mental_model": "固有ベクトルは、変換しても方向が変わらず、固有値がその方向の伸縮率として変換の隠れた軸を示す。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 5,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-4e0d590965b95411-1",
+          "title": "不変方向",
+          "description": "不変方向を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4f387e2e7387-2",
+          "title": "伸縮率",
+          "description": "伸縮率を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-56fa67097a7a9593-3",
+          "title": "固有空間",
+          "description": "固有空間を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-56fa670965b97a0b5f0f309289e3304f-1",
+          "title": "固有方程式を解く",
+          "description": "固有方程式を解くを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-56fa67097a7a959330926c423081308b-2",
+          "title": "固有空間を求める",
+          "description": "固有空間を求めるを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "固有ベクトルは零でない",
+        "異なる固有値の固有ベクトルは独立"
+      ],
+      "representations": [
+        {
+          "id": "representation-77e25370306e59095f62-1",
+          "title": "矢印の変形",
+          "description": "矢印の変形を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-av-v-2",
+          "title": "Av=λv",
+          "description": "Av=λvを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-72796027591a98055f0f-3",
+          "title": "特性多項式",
+          "description": "特性多項式を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "零ベクトルも固有ベクトル",
+        "固有値は常に実数",
+        "固有ベクトルは一つだけ"
+      ],
+      "applications": [
+        "振動",
+        "安定性分析"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "固有値と固有ベクトルを自分の言葉と式で説明する。",
+          "固有値と固有ベクトルを二つ以上の表現で判定・計算する。",
+          "固有値と固有ベクトルを未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "零ベクトルも固有ベクトル",
+          "固有値は常に実数",
+          "固有ベクトルは一つだけ"
+        ],
+        "required_representations": [
+          "矢印の変形",
+          "Av=λv",
+          "特性多項式"
+        ],
+        "required_examples": [
+          "矢印の変形",
+          "Av=λv"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "固有値と固有ベクトルの認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "known concepts",
+          "pattern",
+          "formal statement",
+          "hypotheses",
+          "example",
+          "counterexample",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度5/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "eigenvalue-eigenvector",
+        "characteristic-polynomial",
+        "eigenspace-and-multiplicity"
+      ],
+      "prerequisites": [
+        "matrix"
+      ]
+    },
+    {
+      "id": "diagonalization",
+      "title": {
+        "ja": "対角化",
+        "en": "Diagonalization"
+      },
+      "central_mental_model": "対角化は、適切な基底で変換を独立な方向ごとの単純な伸縮として表し、反復計算と構造理解を容易にする。",
+      "cognitive_types": [
+        "representation",
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 5,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-56fa670957fa5e95-1",
+          "title": "固有基底",
+          "description": "固有基底を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-pdp-1-2",
+          "title": "PDP^-1",
+          "description": "PDP^-1を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-53cd5fa9-3",
+          "title": "反復",
+          "description": "反復を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-56fa670930d930af30c830eb30924e263079308b-1",
+          "title": "固有ベクトルを並べる",
+          "description": "固有ベクトルを並べるを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-p-1ap-2",
+          "title": "P^-1APを計算",
+          "description": "P^-1APを計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-53ef5426309252245b9a-3",
+          "title": "可否を判定",
+          "description": "可否を判定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "固有ベクトルが基底を作る必要",
+        "全行列が対角化可能ではない"
+      ],
+      "representations": [
+        {
+          "id": "representation-6a196e9657fa5e95-1",
+          "title": "標準基底",
+          "description": "標準基底を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-56fa670957fa5e95-2",
+          "title": "固有基底",
+          "description": "固有基底を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5bfe89d2884c5217-3",
+          "title": "対角行列",
+          "description": "対角行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "固有値があれば必ず対角化",
+        "Pの順序を無視",
+        "対角化は行操作"
+      ],
+      "applications": [
+        "漸化式",
+        "力学系"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "対角化を自分の言葉と式で説明する。",
+          "対角化を二つ以上の表現で判定・計算する。",
+          "対角化を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "固有値があれば必ず対角化",
+          "Pの順序を無視",
+          "対角化は行操作"
+        ],
+        "required_representations": [
+          "標準基底",
+          "固有基底",
+          "対角行列"
+        ],
+        "required_examples": [
+          "標準基底",
+          "固有基底"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "対角化の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "same object",
+          "representation A",
+          "representation B",
+          "translate",
+          "what changes",
+          "what remains",
+          "translation task"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替5/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "diagonalization",
+        "composition-and-similarity"
+      ],
+      "prerequisites": [
+        "eigenvalue-eigenvector"
+      ]
+    },
+    {
+      "id": "inner-product",
+      "title": {
+        "ja": "内積",
+        "en": "Inner Product"
+      },
+      "central_mental_model": "内積は二つのベクトルを一つのスカラーへ対応させ、長さ・角度・直交性を同じ計算から引き出す構造である。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-95773055-1",
+          "title": "長さ",
+          "description": "長さを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-89d25ea6-2",
+          "title": "角度",
+          "description": "角度を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6b635b9a50246027-3",
+          "title": "正定値性",
+          "description": "正定値性を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-51857a4d8a087b97-1",
+          "title": "内積計算",
+          "description": "内積計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-30ce30eb30e08a087b97-2",
+          "title": "ノルム計算",
+          "description": "ノルム計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4e0d7b495f0f309290697528-3",
+          "title": "不等式を適用",
+          "description": "不等式を適用を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "対称性",
+        "線形性",
+        "正値性"
+      ],
+      "representations": [
+        {
+          "id": "representation-5e7e4f5589d25ea6-1",
+          "title": "幾何角度",
+          "description": "幾何角度を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-621052067a4d-2",
+          "title": "成分積",
+          "description": "成分積を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-95a26570306e7a4d5206-3",
+          "title": "関数の積分",
+          "description": "関数の積分を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "内積は要素積の和だけ",
+        "直交は見た目で決まる",
+        "自己内積は負でもよい"
+      ],
+      "applications": [
+        "信号処理",
+        "関数空間"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "内積を自分の言葉と式で説明する。",
+          "内積を二つ以上の表現で判定・計算する。",
+          "内積を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "内積は要素積の和だけ",
+          "直交は見た目で決まる",
+          "自己内積は負でもよい"
+        ],
+        "required_representations": [
+          "幾何角度",
+          "成分積",
+          "関数の積分"
+        ],
+        "required_examples": [
+          "幾何角度",
+          "成分積"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "内積の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "need",
+          "positive and negative cases",
+          "formal definition",
+          "test membership",
+          "classify",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "dot-product-and-norm"
+      ],
+      "prerequisites": [
+        "vector"
+      ]
+    },
+    {
+      "id": "orthogonality",
+      "title": {
+        "ja": "直交性",
+        "en": "Orthogonality"
+      },
+      "central_mental_model": "直交性は、内積がゼロになることで相互の成分が干渉しない関係を表し、分解・補空間・近似の基準になる。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 5,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-51857a4d30bc30ed-1",
+          "title": "内積ゼロ",
+          "description": "内積ゼロを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-76f44ea488dc7a7a9593-2",
+          "title": "直交補空間",
+          "description": "直交補空間を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-520689e3-3",
+          "title": "分解",
+          "description": "分解を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-51857a4d52245b9a-1",
+          "title": "内積判定",
+          "description": "内積判定を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-88dc7a7a95938a087b97-2",
+          "title": "補空間計算",
+          "description": "補空間計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-6b63898f76f44ea45316-3",
+          "title": "正規直交化",
+          "description": "正規直交化を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "非零直交ベクトルは独立",
+        "直交補空間は部分空間"
+      ],
+      "representations": [
+        {
+          "id": "representation-89d25ea6-1",
+          "title": "角度",
+          "description": "角度を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-51857a4d-2",
+          "title": "内積",
+          "description": "内積を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5e73976230fb9ad86b215143-3",
+          "title": "平面・高次元",
+          "description": "平面・高次元を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "直交は軸に平行",
+        "直交なら単位ベクトル",
+        "見た目だけで判定"
+      ],
+      "applications": [
+        "信号分離",
+        "フーリエ級数"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "直交性を自分の言葉と式で説明する。",
+          "直交性を二つ以上の表現で判定・計算する。",
+          "直交性を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "直交は軸に平行",
+          "直交なら単位ベクトル",
+          "見た目だけで判定"
+        ],
+        "required_representations": [
+          "角度",
+          "内積",
+          "平面・高次元"
+        ],
+        "required_examples": [
+          "角度",
+          "内積"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "直交性の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "known concepts",
+          "pattern",
+          "formal statement",
+          "hypotheses",
+          "example",
+          "counterexample",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度5/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "orthogonality",
+        "orthogonal-complement",
+        "orthonormal-bases",
+        "gram-schmidt"
+      ],
+      "prerequisites": [
+        "inner-product"
+      ]
+    },
+    {
+      "id": "projection",
+      "title": {
+        "ja": "射影",
+        "en": "Projection"
+      },
+      "central_mental_model": "射影は、対象をある部分空間へ落とし、残差を直交にすることで、複雑なベクトルを意味のある成分と誤差へ分ける操作である。",
+      "cognitive_types": [
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 5,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "facets": [
+        {
+          "id": "facet-5f71-1",
+          "title": "影",
+          "description": "影を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-67008fd170b9-2",
+          "title": "最近点",
+          "description": "最近点を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6b8b5dee-3",
+          "title": "残差",
+          "description": "残差を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-5c045f71516c5f0f-1",
+          "title": "射影公式",
+          "description": "射影公式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-5c045f71884c5217-2",
+          "title": "射影行列",
+          "description": "射影行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-76f44ea4520689e3-3",
+          "title": "直交分解",
+          "description": "直交分解を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "残差は直交",
+        "同じ部分空間への射影は冪等"
+      ],
+      "representations": [
+        {
+          "id": "representation-5e7e4f5576845f71-1",
+          "title": "幾何的影",
+          "description": "幾何的影を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-51857a4d516c5f0f-2",
+          "title": "内積公式",
+          "description": "内積公式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-3",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "射影は任意の近い点",
+        "残差は射影そのもの",
+        "斜め射影も直交射影"
+      ],
+      "applications": [
+        "信号除去",
+        "最小二乗"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "射影を自分の言葉と式で説明する。",
+          "射影を二つ以上の表現で判定・計算する。",
+          "射影を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "射影は任意の近い点",
+          "残差は射影そのもの",
+          "斜め射影も直交射影"
+        ],
+        "required_representations": [
+          "幾何的影",
+          "内積公式",
+          "行列"
+        ],
+        "required_examples": [
+          "幾何的影",
+          "内積公式"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "transformation_process",
+        "reason": "射影の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "input/output",
+          "observable behavior",
+          "visual model",
+          "algebraic model",
+          "composition",
+          "invariants",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "projection"
+      ],
+      "prerequisites": [
+        "orthogonality",
+        "subspace"
+      ]
+    },
+    {
+      "id": "least-squares",
+      "title": {
+        "ja": "最小二乗",
+        "en": "Least Squares"
+      },
+      "central_mental_model": "最小二乗は、完全には満たせない条件に対して残差の二乗和を最小化し、最も整合する近似解を直交性で特徴付ける。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 5,
+        "visual": 4,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 5
+      },
+      "facets": [
+        {
+          "id": "facet-4e0d65745408306a65b97a0b5f0f-1",
+          "title": "不整合な方程式",
+          "description": "不整合な方程式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-6b8b5dee-2",
+          "title": "残差",
+          "description": "残差を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-76ee768495a26570-3",
+          "title": "目的関数",
+          "description": "目的関数を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-6b63898f65b97a0b5f0f-1",
+          "title": "正規方程式",
+          "description": "正規方程式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-qr-2",
+          "title": "QR法",
+          "description": "QR法を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-6b8b5dee8a554fa1-3",
+          "title": "残差評価",
+          "description": "残差評価を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "残差は列空間に直交",
+        "外れ値は二乗和に強く影響"
+      ],
+      "representations": [
+        {
+          "id": "representation-70b93078306e76f47dda-1",
+          "title": "点への直線",
+          "description": "点への直線を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-ax-b-2",
+          "title": "Ax≈b",
+          "description": "Ax≈bを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5c045f71-3",
+          "title": "射影",
+          "description": "射影を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "近似解は誤差ゼロ",
+        "各誤差が個別に最小",
+        "正規方程式は常に安定"
+      ],
+      "applications": [
+        "回帰",
+        "データフィッティング"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "最小二乗を自分の言葉と式で説明する。",
+          "最小二乗を二つ以上の表現で判定・計算する。",
+          "最小二乗を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "近似解は誤差ゼロ",
+          "各誤差が個別に最小",
+          "正規方程式は常に安定"
+        ],
+        "required_representations": [
+          "点への直線",
+          "Ax≈b",
+          "射影"
+        ],
+        "required_examples": [
+          "点への直線",
+          "Ax≈b"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "最小二乗の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "inexact problem",
+          "objective",
+          "geometric intuition",
+          "formal objective",
+          "solve",
+          "interpret",
+          "limitations"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "qr-least-squares"
+      ],
+      "prerequisites": [
+        "projection",
+        "matrix-factorization"
+      ]
+    },
+    {
+      "id": "symmetric-matrix",
+      "title": {
+        "ja": "対称行列",
+        "en": "Symmetric Matrix"
+      },
+      "central_mental_model": "対称行列は転置しても変わらない構造を持ち、直交する固有方向と実固有値によって幾何と計算を整える。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 5,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-8ee27f6e5bfe79f0-1",
+          "title": "転置対称",
+          "description": "転置対称を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-56fa670965b95411-2",
+          "title": "固有方向",
+          "description": "固有方向を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-76f44ea45bfe89d25316-3",
+          "title": "直交対角化",
+          "description": "直交対角化を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-5bfe79f0602752245b9a-1",
+          "title": "対称性判定",
+          "description": "対称性判定を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-56fa6709520689e3-2",
+          "title": "固有分解",
+          "description": "固有分解を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4e8c6b215f625f0f52245b9a-3",
+          "title": "二次形式判定",
+          "description": "二次形式判定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "固有値は実数",
+        "直交行列で対角化可能"
+      ],
+      "representations": [
+        {
+          "id": "representation-621052065bfe79f0-1",
+          "title": "成分対称",
+          "description": "成分対称を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-4e8c6b215f625f0f-2",
+          "title": "二次形式",
+          "description": "二次形式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-4e3b8ef8-3",
+          "title": "主軸",
+          "description": "主軸を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "対称なら対角行列",
+        "固有値は必ず異なる",
+        "固有ベクトルは任意"
+      ],
+      "applications": [
+        "PCA",
+        "エネルギー形式"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "対称行列を自分の言葉と式で説明する。",
+          "対称行列を二つ以上の表現で判定・計算する。",
+          "対称行列を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "対称なら対角行列",
+          "固有値は必ず異なる",
+          "固有ベクトルは任意"
+        ],
+        "required_representations": [
+          "成分対称",
+          "二次形式",
+          "主軸"
+        ],
+        "required_examples": [
+          "成分対称",
+          "二次形式"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "対称行列の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "known concepts",
+          "pattern",
+          "formal statement",
+          "hypotheses",
+          "example",
+          "counterexample",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度5/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "symmetric-spectral-theorem"
+      ],
+      "prerequisites": [
+        "eigenvalue-eigenvector"
+      ]
+    },
+    {
+      "id": "quadratic-form",
+      "title": {
+        "ja": "二次形式",
+        "en": "Quadratic Form"
+      },
+      "central_mental_model": "二次形式は、ベクトルを同じベクトルの両側から行列で測り、形状・曲率・エネルギーを一つの式で表現する。",
+      "cognitive_types": [
+        "representation",
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 5,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-x-tax-1",
+          "title": "x^TAx",
+          "description": "x^TAxを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-7b499ad87dda-2",
+          "title": "等高線",
+          "description": "等高線を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4e3b8ef8-3",
+          "title": "主軸",
+          "description": "主軸を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-884c5217304b30895f0f3078-1",
+          "title": "行列から式へ",
+          "description": "行列から式へを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-5e7365b95b8c6210-2",
+          "title": "平方完成",
+          "description": "平方完成を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-56fa670957fa5e953078590963db-3",
+          "title": "固有基底へ変換",
+          "description": "固有基底へ変換を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "対称部分だけが値を決める",
+        "符号は曲率を表す"
+      ],
+      "representations": [
+        {
+          "id": "representation-591a98055f0f-1",
+          "title": "多項式",
+          "description": "多項式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-884c5217-2",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-5e7e4f5566f27dda-3",
+          "title": "幾何曲線",
+          "description": "幾何曲線を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "x^TAxは線形",
+        "交差項係数をそのまま読む",
+        "反対称部分も値に影響"
+      ],
+      "applications": [
+        "最適化",
+        "物理エネルギー"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "二次形式を自分の言葉と式で説明する。",
+          "二次形式を二つ以上の表現で判定・計算する。",
+          "二次形式を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "x^TAxは線形",
+          "交差項係数をそのまま読む",
+          "反対称部分も値に影響"
+        ],
+        "required_representations": [
+          "多項式",
+          "行列",
+          "幾何曲線"
+        ],
+        "required_examples": [
+          "多項式",
+          "行列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "二次形式の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "same object",
+          "representation A",
+          "representation B",
+          "translate",
+          "what changes",
+          "what remains",
+          "translation task"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替5/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "quadratic-forms"
+      ],
+      "prerequisites": [
+        "matrix",
+        "inner-product"
+      ]
+    },
+    {
+      "id": "positive-definiteness",
+      "title": {
+        "ja": "正定値性",
+        "en": "Positive Definiteness"
+      },
+      "central_mental_model": "正定値性は、二次形式が零でない方向に常に正の値を返すことで、曲率・安定性・一意な最小値を保証する。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 3,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-516865b95411306e6b63-1",
+          "title": "全方向の正",
+          "description": "全方向の正を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-66f27387-2",
+          "title": "曲率",
+          "description": "曲率を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-5b895b9a6027-3",
+          "title": "安定性",
+          "description": "安定性を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-56fa6709502452245b9a-1",
+          "title": "固有値判定",
+          "description": "固有値判定を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4e3b5ea75c0f884c521752245b9a-2",
+          "title": "主座小行列判定",
+          "description": "主座小行列判定を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-4e8c6b215f625f0f8a554fa1-3",
+          "title": "二次形式評価",
+          "description": "二次形式評価を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "対称行列では固有値正と同値",
+        "正定値は可逆を含意"
+      ],
+      "representations": [
+        {
+          "id": "representation-4e8c6b215f625f0f-1",
+          "title": "二次形式",
+          "description": "二次形式を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-56fa67095024-2",
+          "title": "固有値",
+          "description": "固有値を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-7b499ad87dda-3",
+          "title": "等高線",
+          "description": "等高線を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "対称であれば正定値",
+        "非負と正を同一視",
+        "対角成分だけで判定"
+      ],
+      "applications": [
+        "凸最適化",
+        "エネルギー安定性"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "正定値性を自分の言葉と式で説明する。",
+          "正定値性を二つ以上の表現で判定・計算する。",
+          "正定値性を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "対称であれば正定値",
+          "非負と正を同一視",
+          "対角成分だけで判定"
+        ],
+        "required_representations": [
+          "二次形式",
+          "固有値",
+          "等高線"
+        ],
+        "required_examples": [
+          "二次形式",
+          "固有値"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "正定値性の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "need",
+          "positive and negative cases",
+          "formal definition",
+          "test membership",
+          "classify",
+          "transfer"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "positive-definite-matrices"
+      ],
+      "prerequisites": [
+        "quadratic-form",
+        "symmetric-matrix"
+      ]
+    },
+    {
+      "id": "singular-value-decomposition",
+      "title": {
+        "ja": "特異値分解",
+        "en": "Singular Value Decomposition"
+      },
+      "central_mental_model": "特異値分解は、任意の行列を入力側の直交基底・方向別の伸縮・出力側の直交基底へ分解し、情報の大きさを並べ替える。",
+      "cognitive_types": [
+        "representation",
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 5,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-4e096bb5968e306e590963db-1",
+          "title": "三段階の変換",
+          "description": "三段階の変換を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-7279757065b95411-2",
+          "title": "特異方向",
+          "description": "特異方向を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-727975705024-3",
+          "title": "特異値",
+          "description": "特異値を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-a-ta-1",
+          "title": "A^TAの固有分解",
+          "description": "A^TAの固有分解を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-7279757050248a087b97-2",
+          "title": "特異値計算",
+          "description": "特異値計算を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-518d69cb6210-3",
+          "title": "再構成",
+          "description": "再構成を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "特異値は非負",
+        "左右の特異ベクトルは別空間"
+      ],
+      "representations": [
+        {
+          "id": "representation-5e7e4f55590963db-1",
+          "title": "幾何変換",
+          "description": "幾何変換を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-a-u-v-t-2",
+          "title": "A=UΣV^T",
+          "description": "A=UΣV^Tを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-30b930da30af30c830eb-3",
+          "title": "スペクトル",
+          "description": "スペクトルを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "SVDは固有分解そのもの",
+        "左右の基底を同一視",
+        "矩形行列にはSVDがない"
+      ],
+      "applications": [
+        "画像圧縮",
+        "逆問題"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "特異値分解を自分の言葉と式で説明する。",
+          "特異値分解を二つ以上の表現で判定・計算する。",
+          "特異値分解を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "SVDは固有分解そのもの",
+          "左右の基底を同一視",
+          "矩形行列にはSVDがない"
+        ],
+        "required_representations": [
+          "幾何変換",
+          "A=UΣV^T",
+          "スペクトル"
+        ],
+        "required_examples": [
+          "幾何変換",
+          "A=UΣV^T"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "特異値分解の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "same object",
+          "representation A",
+          "representation B",
+          "translate",
+          "what changes",
+          "what remains",
+          "translation task"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替5/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "svd-intuition"
+      ],
+      "prerequisites": [
+        "eigenvalue-eigenvector",
+        "orthogonality"
+      ]
+    },
+    {
+      "id": "low-rank-approximation",
+      "title": {
+        "ja": "低ランク近似",
+        "en": "Low-Rank Approximation"
+      },
+      "central_mental_model": "低ランク近似は、保持したい構造を少数の特異方向へ圧縮し、再現誤差とのトレードオフを制御する方法である。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 5,
+        "visual": 4,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 5
+      },
+      "facets": [
+        {
+          "id": "facet-60c5583157277e2e-1",
+          "title": "情報圧縮",
+          "description": "情報圧縮を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-30e930f330af52367d04-2",
+          "title": "ランク制約",
+          "description": "ランク制約を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-8aa45dee-3",
+          "title": "誤差",
+          "description": "誤差を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-4e0a4f4d72797570502430925207308b-1",
+          "title": "上位特異値を切る",
+          "description": "上位特異値を切るを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-8aa45dee30928a554fa1-2",
+          "title": "誤差を評価",
+          "description": "誤差を評価を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-30e930f330af309290783076-3",
+          "title": "ランクを選ぶ",
+          "description": "ランクを選ぶを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "特異値順に保持する",
+        "ランクを下げると誤差は一般に増える"
+      ],
+      "representations": [
+        {
+          "id": "representation-884c5217-1",
+          "title": "行列",
+          "description": "行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-7279757050245217-2",
+          "title": "特異値列",
+          "description": "特異値列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-753b50cf-3",
+          "title": "画像",
+          "description": "画像を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "小さい要素だけ残す",
+        "近似は厳密",
+        "ランクと次元は同じ"
+      ],
+      "applications": [
+        "画像圧縮",
+        "推薦"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "低ランク近似を自分の言葉と式で説明する。",
+          "低ランク近似を二つ以上の表現で判定・計算する。",
+          "低ランク近似を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "小さい要素だけ残す",
+          "近似は厳密",
+          "ランクと次元は同じ"
+        ],
+        "required_representations": [
+          "行列",
+          "特異値列",
+          "画像"
+        ],
+        "required_examples": [
+          "行列",
+          "特異値列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "低ランク近似の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "inexact problem",
+          "objective",
+          "geometric intuition",
+          "formal objective",
+          "solve",
+          "interpret",
+          "limitations"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "low-rank-approximation"
+      ],
+      "prerequisites": [
+        "singular-value-decomposition"
+      ]
+    },
+    {
+      "id": "principal-component-analysis",
+      "title": {
+        "ja": "主成分分析",
+        "en": "Principal Component Analysis"
+      },
+      "central_mental_model": "主成分分析は、データのばらつきを最もよく説明する直交方向を選び、次元削減と解釈可能な座標を同時に行う。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 5,
+        "visual": 4,
+        "prerequisite_load": 5,
+        "misconception_risk": 5,
+        "representation_switching": 4,
+        "symbolic_density": 5
+      },
+      "facets": [
+        {
+          "id": "facet-52066563-1",
+          "title": "分散",
+          "description": "分散を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4e3b8ef8-2",
+          "title": "主軸",
+          "description": "主軸を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-4e2d5fc35316-3",
+          "title": "中心化",
+          "description": "中心化を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-4e2d5fc35316-1",
+          "title": "中心化",
+          "description": "中心化を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-517152066563884c5217-2",
+          "title": "共分散行列",
+          "description": "共分散行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-56fa670965b95411309290783076-3",
+          "title": "固有方向を選ぶ",
+          "description": "固有方向を選ぶを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "主成分は直交",
+        "分散最大化と再構成誤差最小が対応"
+      ],
+      "representations": [
+        {
+          "id": "representation-65635e0356f3-1",
+          "title": "散布図",
+          "description": "散布図を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-517152066563884c5217-2",
+          "title": "共分散行列",
+          "description": "共分散行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-56fa670930d930af30c830eb-3",
+          "title": "固有ベクトル",
+          "description": "固有ベクトルを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "主成分は元変数そのもの",
+        "最大分散は予測保証",
+        "中心化は不要"
+      ],
+      "applications": [
+        "可視化",
+        "特徴量圧縮"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "主成分分析を自分の言葉と式で説明する。",
+          "主成分分析を二つ以上の表現で判定・計算する。",
+          "主成分分析を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "主成分は元変数そのもの",
+          "最大分散は予測保証",
+          "中心化は不要"
+        ],
+        "required_representations": [
+          "散布図",
+          "共分散行列",
+          "固有ベクトル"
+        ],
+        "required_examples": [
+          "散布図",
+          "共分散行列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "主成分分析の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "inexact problem",
+          "objective",
+          "geometric intuition",
+          "formal objective",
+          "solve",
+          "interpret",
+          "limitations"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク5/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "pca-connection"
+      ],
+      "prerequisites": [
+        "symmetric-matrix",
+        "eigenvalue-eigenvector"
+      ]
+    },
+    {
+      "id": "matrix-factorization",
+      "title": {
+        "ja": "行列分解",
+        "en": "Matrix Factorization"
+      },
+      "central_mental_model": "行列分解は、複雑な線形操作を意味の異なる単純な因子へ分け、計算・解釈・安定性の目的に応じた表現を選ぶ考え方である。",
+      "cognitive_types": [
+        "procedure"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 5,
+        "visual": 2,
+        "prerequisite_load": 3,
+        "misconception_risk": 4,
+        "representation_switching": 3,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-56e05b50-1",
+          "title": "因子",
+          "description": "因子を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-76ee76845225520689e3-2",
+          "title": "目的別分解",
+          "description": "目的別分解を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-8a087b977d4c8def-3",
+          "title": "計算経路",
+          "description": "計算経路を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-lu-1",
+          "title": "LU",
+          "description": "LUを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-qr-2",
+          "title": "QR",
+          "description": "QRを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-9069752867614ef630926bd48f03-3",
+          "title": "適用条件を比較",
+          "description": "適用条件を比較を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "因子分解は一意とは限らない",
+        "条件により使える分解が異なる"
+      ],
+      "representations": [
+        {
+          "id": "representation-7a4d-1",
+          "title": "積",
+          "description": "積を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-4e0989d2884c5217-2",
+          "title": "三角行列",
+          "description": "三角行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-76f44ea456e05b50-3",
+          "title": "直交因子",
+          "description": "直交因子を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "全行列に同じ分解",
+        "因子は常に対称",
+        "分解できれば安定"
+      ],
+      "applications": [
+        "連立方程式",
+        "最小二乗"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "行列分解を自分の言葉と式で説明する。",
+          "行列分解を二つ以上の表現で判定・計算する。",
+          "行列分解を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "全行列に同じ分解",
+          "因子は常に対称",
+          "分解できれば安定"
+        ],
+        "required_representations": [
+          "積",
+          "三角行列",
+          "直交因子"
+        ],
+        "required_examples": [
+          "積",
+          "三角行列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "procedure",
+        "reason": "行列分解の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "goal",
+          "why the method",
+          "algorithm",
+          "worked example",
+          "attempt",
+          "diagnose errors",
+          "limits"
+        ],
+        "profile_driven_requirements": [
+          "抽象度3/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替3/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "inverse-and-lu",
+        "qr-least-squares"
+      ],
+      "prerequisites": [
+        "matrix",
+        "elimination"
+      ]
+    },
+    {
+      "id": "matrix-dynamics",
+      "title": {
+        "ja": "行列力学",
+        "en": "Matrix Dynamics"
+      },
+      "central_mental_model": "行列力学は、行列の反復作用を時間発展として読み、固有構造・安定性・長期挙動を結び付ける見方である。",
+      "cognitive_types": [
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 5,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "facets": [
+        {
+          "id": "facet-72b6614b-1",
+          "title": "状態",
+          "description": "状態を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-53cd5fa9-2",
+          "title": "反復",
+          "description": "反復を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-9577671f631952d5-3",
+          "title": "長期挙動",
+          "description": "長期挙動を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-884c52173079304d-1",
+          "title": "行列べき",
+          "description": "行列べきを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-56fa6709502430676210957752245b9a-2",
+          "title": "固有値で成長判定",
+          "description": "固有値で成長判定を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-5b9a5e3872b6614b8a087b97-3",
+          "title": "定常状態計算",
+          "description": "定常状態計算を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "固有値の絶対値が成長率を支配",
+        "初期状態で過程が変わる"
+      ],
+      "representations": [
+        {
+          "id": "representation-72b6614b30d930af30c830eb-1",
+          "title": "状態ベクトル",
+          "description": "状態ベクトルを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-907779fb884c5217-2",
+          "title": "遷移行列",
+          "description": "遷移行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-66427cfb5217-3",
+          "title": "時系列",
+          "description": "時系列を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "一回の変換で長期挙動が分かる",
+        "行列積の順番は自由",
+        "全初期状態が同じ極限"
+      ],
+      "applications": [
+        "Markov連鎖",
+        "人口モデル"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "行列力学を自分の言葉と式で説明する。",
+          "行列力学を二つ以上の表現で判定・計算する。",
+          "行列力学を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "一回の変換で長期挙動が分かる",
+          "行列積の順番は自由",
+          "全初期状態が同じ極限"
+        ],
+        "required_representations": [
+          "状態ベクトル",
+          "遷移行列",
+          "時系列"
+        ],
+        "required_examples": [
+          "状態ベクトル",
+          "遷移行列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "transformation_process",
+        "reason": "行列力学の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "input/output",
+          "observable behavior",
+          "visual model",
+          "algebraic model",
+          "composition",
+          "invariants",
+          "consequences"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "markov-matrices",
+        "differential-and-fourier"
+      ],
+      "prerequisites": [
+        "eigenvalue-eigenvector",
+        "matrix"
+      ]
+    },
+    {
+      "id": "graph-network-representation",
+      "title": {
+        "ja": "グラフとネットワーク表現",
+        "en": "Graph and Network Representation"
+      },
+      "central_mental_model": "グラフとネットワーク表現は、関係を行列へ符号化し、接続・流れ・クラスタ構造を線形代数の計算対象へ変換する。",
+      "cognitive_types": [
+        "representation",
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 5,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-980270b930688fba-1",
+          "title": "頂点と辺",
+          "description": "頂点と辺を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-96a363a5884c5217-2",
+          "title": "隣接行列",
+          "description": "隣接行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-884c5217304b308930b030e930d5-3",
+          "title": "行列からグラフ",
+          "description": "行列からグラフを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-96a363a5884c521730924f5c308b-1",
+          "title": "隣接行列を作る",
+          "description": "隣接行列を作るを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-6b216570884c521730928aad3080-2",
+          "title": "次数行列を読む",
+          "description": "次数行列を読むを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-886873fe30927ffb8a333059308b-3",
+          "title": "表現を翻訳する",
+          "description": "表現を翻訳するを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "表現は情報を符号化する",
+        "対称性は無向性と関係する"
+      ],
+      "representations": [
+        {
+          "id": "representation-56f3-1",
+          "title": "図",
+          "description": "図を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-96a363a5884c5217-2",
+          "title": "隣接行列",
+          "description": "隣接行列を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-laplacian-3",
+          "title": "Laplacian",
+          "description": "Laplacianを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "隣接行列は必ず対称",
+        "向きは無関係",
+        "行列表示がグラフそのもの"
+      ],
+      "applications": [
+        "PageRank",
+        "ネットワーク分析"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "グラフとネットワーク表現を自分の言葉と式で説明する。",
+          "グラフとネットワーク表現を二つ以上の表現で判定・計算する。",
+          "グラフとネットワーク表現を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "隣接行列は必ず対称",
+          "向きは無関係",
+          "行列表示がグラフそのもの"
+        ],
+        "required_representations": [
+          "図",
+          "隣接行列",
+          "Laplacian"
+        ],
+        "required_examples": [
+          "図",
+          "隣接行列"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "グラフとネットワーク表現の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "same object",
+          "representation A",
+          "representation B",
+          "translate",
+          "what changes",
+          "what remains",
+          "translation task"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替5/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "graph-network-matrices"
+      ],
+      "prerequisites": [
+        "matrix"
+      ]
+    },
+    {
+      "id": "numerical-stability",
+      "title": {
+        "ja": "数値安定性",
+        "en": "Numerical Stability"
+      },
+      "central_mental_model": "数値安定性は、有限精度で計算しても入力の小さな誤差が答えを壊さないかを、条件数・アルゴリズム・誤差伝播で評価する視点である。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 4,
+        "procedural": 4,
+        "visual": 3,
+        "prerequisite_load": 4,
+        "misconception_risk": 4,
+        "representation_switching": 4,
+        "symbolic_density": 4
+      },
+      "facets": [
+        {
+          "id": "facet-4e3830818aa45dee-1",
+          "title": "丸め誤差",
+          "description": "丸め誤差を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-67614ef66570-2",
+          "title": "条件数",
+          "description": "条件数を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "facet-5b895b9a306a65b96cd5-3",
+          "title": "安定な方法",
+          "description": "安定な方法を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "procedure-67614ef6657030928a554fa1-1",
+          "title": "条件数を評価",
+          "description": "条件数を評価を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-30d430dc30c330c8309290783076-2",
+          "title": "ピボットを選ぶ",
+          "description": "ピボットを選ぶを具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "procedure-8aa45dee30926bd48f03-3",
+          "title": "誤差を比較",
+          "description": "誤差を比較を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "properties": [
+        "条件の悪さとアルゴリズムの安定性は別",
+        "残差が小さくても解の誤差は大きい"
+      ],
+      "representations": [
+        {
+          "id": "representation-6d6e52d55c0f657070b9-1",
+          "title": "浮動小数点",
+          "description": "浮動小数点を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-67614ef66570-2",
+          "title": "条件数",
+          "description": "条件数を具体例・形式化・転移課題で扱う。"
+        },
+        {
+          "id": "representation-8aa45dee30b030e930d5-3",
+          "title": "誤差グラフ",
+          "description": "誤差グラフを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "misconceptions": [
+        "高精度なら必ず正しい",
+        "残差ゼロなら解も正確",
+        "理論上同値なら数値上も同じ"
+      ],
+      "applications": [
+        "科学計算",
+        "工学シミュレーション"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learner_should_be_able_to": [
+          "数値安定性を自分の言葉と式で説明する。",
+          "数値安定性を二つ以上の表現で判定・計算する。",
+          "数値安定性を未知の問題へ転移し、結果を検算する。"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "高精度なら必ず正しい",
+          "残差ゼロなら解も正確",
+          "理論上同値なら数値上も同じ"
+        ],
+        "required_representations": [
+          "浮動小数点",
+          "条件数",
+          "誤差グラフ"
+        ],
+        "required_examples": [
+          "浮動小数点",
+          "条件数"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 2,
+          "contrasting_nonexamples": 2,
+          "worked_examples": 2,
+          "learner_predictions": 2,
+          "misconceptions": 3,
+          "practice": {
+            "basic": 2,
+            "conceptual": 2,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "数値安定性の認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
+        "stages": [
+          "phenomenon",
+          "quantity",
+          "compute",
+          "interpret",
+          "invariance",
+          "limits",
+          "application"
+        ],
+        "profile_driven_requirements": [
+          "抽象度4/5に応じて具体例と形式化を往復する。",
+          "誤解リスク4/5と表現切替4/5に応じて対比・翻訳課題を置く。"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "numerical-stability"
+      ],
+      "prerequisites": [
+        "matrix-factorization",
+        "elimination"
+      ]
+    }
+  ]
+}

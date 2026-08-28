@@ -16,7 +16,7 @@ export async function runAudits(root = process.cwd(), conceptId = null, datasetA
   await mkdir(auditDir, { recursive: true });
   for (const name of audit.names) {
     const result = audit.results[name];
-    const lines = [`status: ${result.status}`, `auditor: openlearn-${name}-auditor`, "independent_review: true", `artifact_hash: ${hash}`, `evaluated_at: ${new Date().toISOString()}`, `summary: ${result.summary}`, "issues:", ...(result.issues.length ? result.issues.flatMap((item) => typeof item === "string" ? [`  - ${item}`] : [`  - severity: ${item.severity}`, `    problem: ${item.problem}`, `    rationale: ${item.rationale}`, `    suggested_fix: ${item.suggested_fix}`]) : ["  - none"])];
+    const lines = [`status: ${result.status}`, `auditor: openlearn-${name}-auditor`, "review_type: automated_semantic_review", "independent_review: false", `artifact_hash: ${hash}`, `evaluated_at: ${new Date().toISOString()}`, `summary: ${result.summary}`, "issues:", ...(result.issues.length ? result.issues.flatMap((item) => typeof item === "string" ? [`  - ${item}`] : [`  - severity: ${item.severity}`, `    problem: ${item.problem}`, `    rationale: ${item.rationale}`, `    suggested_fix: ${item.suggested_fix}`]) : ["  - none"])];
     await writeFile(path.join(auditDir, `${name}.yaml`), `${lines.join("\n")}\n`, "utf8");
   }
   const matrix = [

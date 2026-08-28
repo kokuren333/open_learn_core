@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.1",
+  "domain": "linear-algebra",
+  "review_type": "automated_semantic_review",
+  "independent_review": false,
+  "status": "pass",
+  "summary": {
+    "core_concepts": 30,
+    "gold": 1,
+    "scaffold": 29,
+    "basis_sections": 18,
+    "legacy_concepts": 57
+  },
+  "audits": {
+    "exact_30": true,
+    "cognitive_pattern": true,
+    "semantic_coverage": true,
+    "ai_slop": true,
+    "migration_traceability": true
+  },
+  "issues": [],
+  "warnings": []
+}

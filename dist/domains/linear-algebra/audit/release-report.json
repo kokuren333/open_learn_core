@@ -1,8 +1,10 @@
 {
-  "release_version": "2.0.0",
-  "source_commit": "39439fd3611a3027c95479bdac1e3bdebc0b70b7",
+  "release_version": "2.1.0",
+  "source_commit": "b7c25f03a334abf1d8f0ef43c3ae0cb6883d8b50",
   "domain": "linear-algebra",
   "course_id": "linear-algebra-foundations-to-applications",
+  "core_concepts": 30,
+  "legacy_concepts": 57,
   "modules": 8,
   "units": 52,
   "exercises": 168,
@@ -18,11 +20,13 @@
     "visual": "pass",
     "video": "pass",
     "publication": "pass",
-    "content_forensic": "fail"
+    "content_forensic": "fail",
+    "core_concepts": "pass"
   },
   "deployment": "not_run: credentials intentionally not required for local/CI audit",
   "known_limitations": [
     "Only three video source packages are production pilots; video binaries are optional build artifacts.",
+    "The public learner map is exact-30 while legacy Learning Units remain internal during migration.",
     "Cloudflare Pages/R2 deployment requires user-provided production credentials.",
     "Judgment-based pedagogy findings are scoped and not presented as objective learner guarantees."
   ],

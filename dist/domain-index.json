@@ -17,13 +17,13 @@
         {
           "id": "linear-algebra-basic",
           "title": {
-            "ja": "線形代数入門",
-            "en": "Linear Algebra Basics"
+            "ja": "線形代数 Core Concept 30",
+            "en": "Linear Algebra Core Concepts 30"
           }
         }
       ],
       "conceptCount": 57,
-      "status": "stable"
+      "status": "in_progress"
     }
   ]
 }
