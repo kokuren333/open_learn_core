@@ -34,5 +34,33 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "language": "en",
     "accessed_at": "2026-08-28"
+  },
+  {
+    "id": "threeblue1brown-span",
+    "title": "The linear algebra chapter: Span",
+    "provider": "3Blue1Brown",
+    "type": "video",
+    "url": "https://www.3blue1brown.com/lessons/span/",
+    "authors": ["Grant Sanderson"],
+    "license": "See website terms; link-only reference",
+    "language": "en",
+    "accessed_at": "2026-08-29",
+    "roles": ["supplementary_learning"],
+    "quality": { "authority": "medium", "accessibility": "high", "pedagogical_value": "high" },
+    "reuse": "link_only"
+  },
+  {
+    "id": "libretexts-span-bases",
+    "title": "Span and Bases",
+    "provider": "Mathematics LibreTexts",
+    "type": "oer",
+    "url": "https://math.libretexts.org/Bookshelves/Linear_Algebra/Book%3A_Linear_Algebra_%28Schilling_Nachtergaele_and_Lankham%29/05%3A_Span_and_Bases",
+    "authors": ["Anne Schilling", "D. Nachtergaele", "Lankham"],
+    "license": "See page license and attribution; link-only reference",
+    "language": "en",
+    "accessed_at": "2026-08-29",
+    "roles": ["supplementary_learning"],
+    "quality": { "authority": "medium", "accessibility": "high", "pedagogical_value": "medium" },
+    "reuse": "link_only"
   }
 ]

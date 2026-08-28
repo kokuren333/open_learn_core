@@ -26,12 +26,22 @@ export async function loadDomain(repoRoot, domainId) {
     const experienceDocument = JSON.parse(await readFile(experiencePath, "utf8"));
     learningExperiences = experienceDocument.experiences ?? [];
   }
+  let conceptResources = [];
+  if (manifest.concept_resources_file) {
+    const resourcesPath = path.resolve(found.root, manifest.concept_resources_file);
+    try {
+      const resourcesDocument = JSON.parse(await readFile(resourcesPath, "utf8"));
+      conceptResources = Array.isArray(resourcesDocument) ? resourcesDocument : resourcesDocument.resources ?? [];
+    } catch (error) {
+      if (error.code !== "ENOENT") throw new Error(`could not load concept resources '${resourcesPath}': ${error.message}`);
+    }
+  }
   dataset.courses = courseData.courses;
   dataset.modules = courseData.modules;
   dataset.units = courseData.units;
   dataset.moduleExercises = courseData.moduleExercises;
   dataset.cumulativeReviews = courseData.cumulativeReviews;
-  return { ...found, manifest, dataset, courseData, coreConcepts, learningExperiences, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
+  return { ...found, manifest, dataset, courseData, coreConcepts, learningExperiences, conceptResources, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
 }
 
 export async function loadAllDomains(repoRoot = process.cwd()) {

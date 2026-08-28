@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Concept learning resources",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["concept_id", "sources", "claims", "further_learning", "representations", "visual_plan", "outputs"],
+  "properties": {
+    "concept_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "roles"],
+        "properties": {
+          "source_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "roles": { "type": "array", "minItems": 1, "items": { "type": "string", "enum": ["evidence", "supplementary_learning"] }, "uniqueItems": true },
+          "locator": { "type": "string" }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "source_refs"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "statement": { "type": "string", "minLength": 1 },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["source_id"],
+              "properties": { "source_id": { "type": "string" }, "locator": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "further_learning": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "role", "description"],
+        "properties": {
+          "source_id": { "type": "string" },
+          "role": { "type": "string", "enum": ["evidence", "supplementary_learning"] },
+          "description": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "representations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "role"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["text", "diagram", "image", "video", "pdf", "interactive"] },
+          "role": { "type": "string", "enum": ["primary", "intuition", "explanation", "example", "summary", "printable", "supplementary"] },
+          "visual_id": { "type": "string" },
+          "source_id": { "type": "string" },
+          "href": { "type": "string" },
+          "after_block_id": { "type": "string" },
+          "title": { "type": "string" },
+          "caption": { "type": "string" },
+          "alt": { "type": "string" }
+        }
+      }
+    },
+    "visual_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["needed", "type", "assets"],
+      "properties": {
+        "needed": { "type": "boolean" },
+        "type": { "type": "string", "enum": ["exact_diagram", "conceptual_illustration", "mixed"] },
+        "assets": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["html", "pdf", "video"],
+      "properties": {
+        "html": { "type": "string", "enum": ["ready", "draft", "missing"] },
+        "pdf": { "type": "string", "enum": ["ready", "draft", "missing"] },
+        "video": { "type": "string", "enum": ["ready", "draft", "missing"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "concept_id": "basis",
+    "sources": [
+      { "source_id": "mit-ocw-linear-algebra", "roles": ["evidence", "supplementary_learning"], "locator": "Independence, Basis and Dimension" },
+      { "source_id": "openstax-linear-algebra", "roles": ["evidence", "supplementary_learning"], "locator": "Basis and Dimension" },
+      { "source_id": "threeblue1brown-span", "roles": ["supplementary_learning"] },
+      { "source_id": "libretexts-span-bases", "roles": ["supplementary_learning"], "locator": "Span and Bases" }
+    ],
+    "claims": [
+      {
+        "id": "basis-definition",
+        "statement": "A basis is a linearly independent set that spans the vector space.",
+        "source_refs": [
+          { "source_id": "mit-ocw-linear-algebra", "locator": "Independence, Basis and Dimension" },
+          { "source_id": "openstax-linear-algebra", "locator": "Basis and Dimension" }
+        ]
+      },
+      {
+        "id": "basis-linear-independence",
+        "statement": "Linear independence rules out a non-trivial linear combination that equals the zero vector.",
+        "source_refs": [
+          { "source_id": "mit-ocw-linear-algebra", "locator": "Independence, Basis and Dimension" }
+        ]
+      },
+      {
+        "id": "basis-span",
+        "statement": "The span of a set is the collection of all linear combinations of its vectors.",
+        "source_refs": [
+          { "source_id": "threeblue1brown-span", "locator": "Span" },
+          { "source_id": "libretexts-span-bases", "locator": "Span and Bases" }
+        ]
+      },
+      {
+        "id": "basis-coordinates",
+        "statement": "The coefficients in the unique basis expansion of a vector are its coordinates relative to that basis.",
+        "source_refs": [
+          { "source_id": "openstax-linear-algebra", "locator": "Basis and Dimension" },
+          { "source_id": "mit-ocw-linear-algebra", "locator": "Independence, Basis and Dimension" }
+        ]
+      }
+    ],
+    "further_learning": [
+      { "source_id": "threeblue1brown-span", "role": "supplementary_learning", "description": "動く図でspanの広がりを直観的に確認する。" },
+      { "source_id": "libretexts-span-bases", "role": "supplementary_learning", "description": "spanとbasisの定義・例を別の教科書で読み直す。" },
+      { "source_id": "mit-ocw-linear-algebra", "role": "supplementary_learning", "description": "大学講義の文脈で独立性・基底・次元を復習する。" }
+    ],
+    "representations": [
+      { "id": "basis-span-independence-figure", "type": "diagram", "role": "intuition", "visual_id": "visual-basis-span-independence", "after_block_id": "basis-contrast", "title": "基底の二条件", "caption": "spanと線形独立の両方を満たす組だけが基底です。" },
+      { "id": "basis-r2-figure", "type": "diagram", "role": "example", "visual_id": "visual-basis-r2-bases", "after_block_id": "basis-emergence", "title": "R²の二つの基底", "caption": "標準基底でなくても、二条件を満たせば基底になります。" },
+      { "id": "basis-coordinate-figure", "type": "diagram", "role": "explanation", "visual_id": "visual-basis-coordinate-frames", "after_block_id": "basis-representation-switch", "title": "同じベクトル、異なる座標", "caption": "基底を変えると座標は変わりますが、ベクトルは変わりません。" },
+      { "id": "basis-video", "type": "video", "role": "supplementary", "source_id": "threeblue1brown-span", "title": "動画で復習する" },
+      { "id": "basis-pdf", "type": "pdf", "role": "printable", "href": "pdf/basis.pdf", "title": "このConceptをPDFで読む" }
+    ],
+    "visual_plan": {
+      "needed": true,
+      "type": "mixed",
+      "assets": ["visual-basis-span-independence", "visual-basis-r2-bases", "visual-basis-coordinate-frames"]
+    },
+    "outputs": { "html": "ready", "pdf": "ready", "video": "draft" }
+  }
+]

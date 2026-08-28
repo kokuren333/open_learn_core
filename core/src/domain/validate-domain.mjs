@@ -8,7 +8,7 @@ import { auditVideoSource } from "../video/audit.mjs";
 
 export async function validateDomain(domain, { schema } = {}) {
   const manifestSchema = schema ?? JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "domain-manifest.schema.json"), "utf8"));
-  const schemaNames = ["concept", "core-concept", "learning-block", "learning-experience", "lesson-content", "assessment", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
+  const schemaNames = ["concept", "core-concept", "learning-block", "learning-experience", "lesson-content", "assessment", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config", "concept-resources"];
   const schemas = Object.fromEntries(await Promise.all(schemaNames.map(async (name) => [`${name}.schema.json`, JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, `${name}.schema.json`), "utf8"))])));
   const issues = [...validateJsonSchema(domain.manifest, manifestSchema, { schemas, path: `${domain.root}/domain.yaml` })];
   const coreConcepts = domain.coreConcepts ?? [];
@@ -22,6 +22,32 @@ export async function validateDomain(domain, { schema } = {}) {
     for (const relation of core.external_relations ?? []) if (!["requires", "extends", "applied_in", "analogous_to", "special_case_of", "generalized_by"].includes(relation.relation)) issues.push(`Core Concept '${core.id}' has invalid external relation '${relation.relation}'`);
     const sourceConceptIds = new Set((domain.dataset.concepts ?? []).map((record) => record.value.id));
     for (const sourceId of core.source_concept_ids ?? []) if (!sourceConceptIds.has(sourceId)) issues.push(`Core Concept '${core.id}' references missing source Concept '${sourceId}'`);
+  }
+  const resourcesByConcept = new Map();
+  for (const resources of domain.conceptResources ?? []) {
+    issues.push(...validateJsonSchema(resources, schemas["concept-resources.schema.json"], { schemas, path: `${domain.manifest.concept_resources_file ?? "concept-resources"}:${resources.concept_id}` }));
+    if (resourcesByConcept.has(resources.concept_id)) issues.push(`Concept resources must be unique: '${resources.concept_id}'`);
+    resourcesByConcept.set(resources.concept_id, resources);
+    if (!coreIds.has(resources.concept_id)) issues.push(`Concept resources reference missing Core Concept '${resources.concept_id}'`);
+    const resourceSourceIds = new Set();
+    for (const source of resources.sources ?? []) {
+      if (resourceSourceIds.has(source.source_id)) issues.push(`Concept resources '${resources.concept_id}': duplicate source '${source.source_id}'`);
+      resourceSourceIds.add(source.source_id);
+      if (!domain.dataset.sources.some((item) => item.id === source.source_id)) issues.push(`Concept resources '${resources.concept_id}': unknown source '${source.source_id}'`);
+    }
+    const claimIds = new Set();
+    for (const claim of resources.claims ?? []) {
+      if (claimIds.has(claim.id)) issues.push(`Concept resources '${resources.concept_id}': duplicate claim '${claim.id}'`);
+      claimIds.add(claim.id);
+      for (const sourceRef of claim.source_refs ?? []) if (!domain.dataset.sources.some((item) => item.id === sourceRef.source_id)) issues.push(`Resource claim '${claim.id}': unknown source '${sourceRef.source_id}'`);
+    }
+    for (const item of resources.further_learning ?? []) if (!domain.dataset.sources.some((source) => source.id === item.source_id)) issues.push(`Further learning '${resources.concept_id}': unknown source '${item.source_id}'`);
+    for (const representation of resources.representations ?? []) {
+      if (representation.source_id && !domain.dataset.sources.some((source) => source.id === representation.source_id)) issues.push(`Representation '${representation.id}': unknown source '${representation.source_id}'`);
+      if (representation.visual_id && !domain.dataset.visuals.some((record) => record.value?.id === representation.visual_id)) issues.push(`Representation '${representation.id}': unknown visual '${representation.visual_id}'`);
+      if (representation.after_block_id && !(domain.learningExperiences.find((experience) => experience.concept_id === resources.concept_id)?.sequence ?? []).some((block) => block.id === representation.after_block_id)) issues.push(`Representation '${representation.id}': unknown block '${representation.after_block_id}'`);
+    }
+    for (const visualId of resources.visual_plan?.assets ?? []) if (!domain.dataset.visuals.some((record) => record.value?.id === visualId)) issues.push(`Visual plan '${resources.concept_id}': unknown visual '${visualId}'`);
   }
   const learningExperiences = domain.learningExperiences ?? [];
   const experienceIds = new Set();
@@ -155,7 +181,7 @@ export async function validateDomain(domain, { schema } = {}) {
       } catch (error) { issues.push(`video '${unitId}' could not be loaded: ${error.message}`); }
     }
   } catch (error) { if (error.code !== "ENOENT") issues.push(`video discovery failed: ${error.message}`); }
-  return { valid: issues.length === 0, issues, datasetValidation };
+  return { valid: issues.length === 0, issues, datasetValidation, resourcesByConcept };
 }
 
 export async function loadAndValidateDomain(repoRoot, domainId) {

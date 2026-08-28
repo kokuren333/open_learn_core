@@ -1,6 +1,6 @@
 {
   "name": "open-learn-core",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "private": true,
   "description": "Domain-independent evidence-based learning content compiler",
   "type": "module",
@@ -28,6 +28,7 @@
     "course:status": "node scripts/course-status.mjs",
     "build:web": "node scripts/build-web.mjs",
     "build:pdf": "node scripts/build-pdf-course.mjs",
+    "build:pdf:concept": "node scripts/build-pdf-concept.mjs",
     "build:video": "node scripts/build-video-index.mjs",
     "publish:manifest": "node scripts/publish-manifest.mjs",
     "publication:audit": "node scripts/publication-audit.mjs",

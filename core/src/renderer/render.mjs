@@ -14,7 +14,7 @@ function nav(active = "") {
   return `<header class="site-header"><div class="container nav-wrap"><a class="brand" href="${active === "concept" ? "../" : "./"}"><span class="brand-mark">∑</span><span>Open Learn Core</span></a><nav aria-label="メインナビゲーション"><a href="${active === "concept" ? "../" : "./"}">Concepts</a><a href="${active === "concept" ? "../graph.html" : "graph.html"}">Concept graph</a><a href="${active === "concept" ? "../curriculum.html" : "curriculum.html"}">Curriculum</a></nav></div></header>`;
 }
 
-function layout({ title, description, body, active = "", version = "2.4.0" }) {
+function layout({ title, description, body, active = "", version = "2.5.0" }) {
   return `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="${escapeHtml(description)}"><title>${escapeHtml(title)} | Open Learn Core</title>
@@ -106,39 +106,63 @@ function renderConcept({ concept, conceptsById, sourceById, evidenceById = new M
   return layout({ title: concept.title.ja, description: concept.summary.ja, body, active: "concept" });
 }
 
-function renderLearnerBlock(block, lesson, index) {
-  const list = (values) => values?.length ? `<ul>${values.map((value) => `<li>${text(value)}</li>`).join("")}</ul>` : "";
-  const answer = block.answer ? `<details class="learner-answer"><summary>答えと解説を見る</summary>${renderRichText(block.answer)}</details>` : "";
+function renderLearnerBlock(block, lesson, index, options = {}) {
+  const answer = block.answer ? `<details class="learner-answer"><summary>答えと解説を見る</summary>${renderRichText(block.answer, options)}</details>` : "";
   const prompt = block.question ?? lesson?.learner_prompt;
-  const promptHtml = prompt ? `<div class="learner-checkpoint"><strong>考えてみよう</strong>${renderRichText(prompt)}${block.hint ? `<div class="learner-hint"><strong>ヒント：</strong>${renderRichText(block.hint)}</div>` : ""}${answer}</div>` : "";
+  const promptHtml = prompt ? `<div class="learner-checkpoint"><strong>考えてみよう</strong>${renderRichText(prompt, options)}${block.hint ? `<div class="learner-hint"><strong>ヒント：</strong>${renderRichText(block.hint, options)}</div>` : ""}${answer}</div>` : "";
   const worked = block.worked_example;
-  const workedHtml = worked ? `<details class="learner-reveal worked-detail"><summary>解法と理由を見る</summary>${renderRichText(worked.problem)}<ol>${worked.reasoning_steps.map((step) => `<li>${renderRichText(step)}</li>`).join("")}</ol><div><strong>計算：</strong>${renderRichText(worked.calculations)}</div><div><strong>解釈：</strong>${renderRichText(worked.interpretation)}</div><div><strong>一般化：</strong>${renderRichText(worked.generalizable_takeaway)}</div></details>` : "";
+  const workedHtml = worked ? `<details class="learner-reveal worked-detail"><summary>解法と理由を見る</summary>${renderRichText(worked.problem, options)}<ol>${worked.reasoning_steps.map((step) => `<li>${renderRichText(step, options)}</li>`).join("")}</ol><div><strong>計算：</strong>${renderRichText(worked.calculations, options)}</div><div><strong>解釈：</strong>${renderRichText(worked.interpretation, options)}</div><div><strong>一般化：</strong>${renderRichText(worked.generalizable_takeaway, options)}</div></details>` : "";
   const challenge = block.misconception_challenge;
-  const challengeHtml = challenge ? `<details class="learner-reveal misconception-detail"><summary>よくある勘違いを見る</summary><div><strong>ありがちな道筋：</strong>${renderRichText(challenge.expected_wrong_path)}</div><div><strong>修正：</strong>${renderRichText(challenge.correction)}</div>${renderRichText(challenge.explanation)}<div><strong>別の例で確認：</strong>${renderRichText(challenge.transfer_check)}</div></details>` : "";
-  const equations = lesson?.equations?.length ? `<div class="learner-equations">${lesson.equations.map((equation) => renderRichText(`$$\n${equation}\n$$`)).join("")}</div>` : "";
+  const challengeHtml = challenge ? `<details class="learner-reveal misconception-detail"><summary>よくある勘違いを見る</summary><div><strong>ありがちな道筋：</strong>${renderRichText(challenge.expected_wrong_path, options)}</div><div><strong>修正：</strong>${renderRichText(challenge.correction, options)}</div>${renderRichText(challenge.explanation, options)}<div><strong>別の例で確認：</strong>${renderRichText(challenge.transfer_check, options)}</div></details>` : "";
+  const equations = lesson?.equations?.length ? `<div class="learner-equations">${lesson.equations.map((equation) => renderRichText(`$$\n${equation}\n$$`, options)).join("")}</div>` : "";
   const transition = block.representation ? `<p class="learner-transition">視点を切り替える：${text(block.representation)}</p>` : "";
-  return `<article class="learner-block" id="learner-block-${index + 1}"><div class="learner-body">${renderRichText(lesson?.body ?? lesson?.explanation ?? "")}</div>${transition}${equations}${promptHtml}${workedHtml}${challengeHtml}${lesson?.takeaway ? `<aside class="learner-takeaway">${renderRichText(lesson.takeaway)}</aside>` : ""}</article>`;
+  return `<article class="learner-block" id="learner-block-${index + 1}"><div class="learner-body">${renderRichText(lesson?.body ?? lesson?.explanation ?? "", options)}</div>${transition}${equations}${promptHtml}${workedHtml}${challengeHtml}${lesson?.takeaway ? `<aside class="learner-takeaway">${renderRichText(lesson.takeaway, options)}</aside>` : ""}</article>`;
 }
 
-function renderLearnerSection(section, sequence, contentByBlock, sectionIndex) {
+function renderLearnerMedia(representation, visualsById) {
+  if (representation.type !== "diagram" && representation.type !== "image") return "";
+  const visual = representation.visual_id ? visualsById.get(representation.visual_id) : null;
+  if (!visual?.svg) return `<aside class="media-fallback"><span>図は準備中です。</span></aside>`;
+  return `<figure class="learner-figure" id="${escapeHtml(representation.id)}">${visual.svg}<figcaption>${escapeHtml(representation.caption ?? visual.alt_text?.ja ?? representation.title ?? "図")}</figcaption></figure>`;
+}
+
+function renderLearnerSection(section, sequence, contentByBlock, sectionIndex, mediaByBlock, visualsById, options) {
   const blocks = section.block_ids.map((id) => sequence.find((block) => block.id === id)).filter(Boolean);
-  return `<section class="learner-section" id="learner-section-${escapeHtml(section.id)}"><div class="learner-section-heading"><span class="section-number">PART ${String(sectionIndex + 1).padStart(2, "0")}</span><h3>${escapeHtml(section.title)}</h3></div>${section.description ? `<p class="learner-section-description">${text(section.description)}</p>` : ""}<div class="learner-block-stack">${blocks.map((block) => renderLearnerBlock(block, contentByBlock.get(block.id), sequence.indexOf(block))).join("")}</div></section>`;
+  const blockHtml = blocks.map((block) => `${renderLearnerBlock(block, contentByBlock.get(block.id), sequence.indexOf(block), options)}${(mediaByBlock.get(block.id) ?? []).map((representation) => renderLearnerMedia(representation, visualsById)).join("")}`).join("");
+  return `<section class="learner-section" id="learner-section-${escapeHtml(section.id)}"><div class="learner-section-heading"><span class="section-number">PART ${String(sectionIndex + 1).padStart(2, "0")}</span><h3>${escapeHtml(section.title)}</h3></div>${section.description ? `<p class="learner-section-description">${text(section.description)}</p>` : ""}<div class="learner-block-stack">${blockHtml}</div></section>`;
 }
 
-function renderCoreConcept({ concept, conceptsById, experience = null }) {
+function renderCoreConcept({ concept, conceptsById, experience = null, resources = null, sourceById = new Map(), visualsById = new Map(), print = false }) {
   const title = concept.title;
   const list = (values) => `<ul class="check-list">${values.map((value) => `<li>${text(typeof value === "string" ? value : value.title)}</li>`).join("")}</ul>`;
+  const resourceClaims = resources?.claims ?? [];
+  const citationMap = new Map(resourceClaims.map((claim, index) => [claim.id, index + 1]));
+  const renderOptions = { citations: citationMap };
   const assessments = experience?.assessments?.map((assessment) => `<article class="assessment-card"><h3>${text(assessment.prompt)}</h3><details><summary>答えと評価の観点を見る</summary><p><strong>期待される答え：</strong>${text(assessment.expected_answer)}</p>${list(assessment.reasoning_rubric)}</details></article>`).join("") ?? "";
   const contentByBlock = new Map((experience?.lesson_content ?? []).map((contentItem) => [contentItem.block_id, contentItem]));
   const learnerSections = experience?.learner_sections ?? [];
+  const mediaByBlock = new Map();
+  for (const representation of resources?.representations ?? []) if (representation.after_block_id) mediaByBlock.set(representation.after_block_id, [...(mediaByBlock.get(representation.after_block_id) ?? []), representation]);
   const tocItems = learnerSections.map((section, index) => `<li><a href="#learner-section-${escapeHtml(section.id)}"><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(section.title)}</a></li>`).join("");
-  const mobileToc = experience ? `<details class="mobile-toc"><summary>このページの目次</summary><ol>${tocItems}<li><a href="#learner-assessment"><span>07</span>理解度チェック</a></li></ol></details>` : "";
-  const desktopToc = experience ? `<nav class="desktop-toc" aria-label="このページの目次"><p class="kicker">ON THIS PAGE</p><h2>${escapeHtml(title.ja)}</h2><ol>${tocItems}<li><a href="#learner-assessment"><span>07</span>理解度チェック</a></li></ol></nav>` : "";
-  const experienceHtml = experience ? `<section class="lesson-section learning-experience"><div class="lesson-heading-row"><div><p class="kicker">LEARNING PATH</p><h2>やってみながら理解する</h2></div><span class="path-note">${learnerSections.length} parts</span></div><p class="section-note">必要な場面から考え、定義・計算・応用へ進みます。</p><div class="learner-section-stack">${learnerSections.map((section, index) => renderLearnerSection(section, experience.sequence, contentByBlock, index)).join("")}</div></section>${assessments ? `<section class="lesson-section" id="learner-assessment"><p class="kicker">CHECK YOUR UNDERSTANDING</p><h2>できるようになったか確かめる</h2><div class="assessment-stack">${assessments}</div></section>` : ""}` : "";
+  const resourceLinks = (resources?.representations ?? []).filter((item) => ["video", "pdf", "interactive"].includes(item.type)).map((item) => {
+    const source = item.source_id ? sourceById.get(item.source_id) : null;
+    const href = item.href ?? source?.url;
+    return href ? `<a class="resource-chip resource-${escapeHtml(item.type)}" href="${escapeHtml(href)}"${source?.url === href ? ` target="_blank" rel="noreferrer"` : ""}>${escapeHtml(item.title ?? item.type)} <span aria-hidden="true">↗</span></a>` : "";
+  }).join("");
+  const mediaLinks = resourceLinks ? `<div class="learner-resource-links" aria-label="追加の学習形式">${resourceLinks}</div>` : "";
+  const assessmentNumber = learnerSections.length + 1;
+  const furtherNumber = assessmentNumber + (assessments ? 1 : 0);
+  const referenceNumber = furtherNumber + (resources?.further_learning?.length ? 1 : 0);
+  const tocExtras = `${assessments ? `<li><a href="#learner-assessment"><span>${String(assessmentNumber).padStart(2, "0")}</span>理解度チェック</a></li>` : ""}${resources?.further_learning?.length ? `<li><a href="#learner-further"><span>${String(furtherNumber).padStart(2, "0")}</span>さらに学ぶ</a></li>` : ""}${resources?.claims?.length ? `<li><a href="#learner-references"><span>${String(referenceNumber).padStart(2, "0")}</span>参考資料</a></li>` : ""}`;
+  const mobileToc = experience ? `<details class="mobile-toc"><summary>このページの目次</summary><ol>${tocItems}${tocExtras}</ol></details>` : "";
+  const desktopToc = experience ? `<nav class="desktop-toc" aria-label="このページの目次"><p class="kicker">ON THIS PAGE</p><h2>${escapeHtml(title.ja)}</h2><ol>${tocItems}${tocExtras}</ol></nav>` : "";
+  const furtherLearning = resources?.further_learning?.length ? `<section class="lesson-section learner-resources" id="learner-further"><p class="kicker">FURTHER LEARNING</p><h2>さらに学ぶ</h2><ul class="resource-list">${resources.further_learning.map((item) => { const source = sourceById.get(item.source_id); return source ? `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(source.title)}</strong> <span aria-hidden="true">↗</span></a><p>${text(item.description)}</p></li>` : `<li class="broken-ref">${escapeHtml(item.source_id)}</li>`; }).join("")}</ul></section>` : "";
+  const references = resources?.claims?.length ? `<section class="lesson-section learner-resources" id="learner-references"><p class="kicker">REFERENCES</p><h2>参考資料</h2><ol class="reference-list learner-reference-list">${resources.claims.map((claim) => { const refs = claim.source_refs.map((sourceRef) => { const source = sourceById.get(sourceRef.source_id); return source ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a>${sourceRef.locator ? ` <small>${escapeHtml(sourceRef.locator)}</small>` : ""}` : `<span class="broken-ref">${escapeHtml(sourceRef.source_id)}</span>`; }).join("<br>"); return `<li id="reference-${escapeHtml(claim.id)}"><span class="reference-marker">[${citationMap.get(claim.id)}]</span>${refs}</li>`; }).join("")}</ol></section>` : "";
+  const experienceHtml = experience ? `<section class="lesson-section learning-experience"><div class="lesson-heading-row"><div><p class="kicker">LEARNING PATH</p><h2>やってみながら理解する</h2></div><span class="path-note">${learnerSections.length} parts</span></div><p class="section-note">必要な場面から考え、定義・計算・応用へ進みます。</p>${mediaLinks}<div class="learner-section-stack">${learnerSections.map((section, index) => renderLearnerSection(section, experience.sequence, contentByBlock, index, mediaByBlock, visualsById, renderOptions)).join("")}</div></section>${assessments ? `<section class="lesson-section" id="learner-assessment"><p class="kicker">CHECK YOUR UNDERSTANDING</p><h2>できるようになったか確かめる</h2><div class="assessment-stack">${assessments}</div></section>` : ""}${furtherLearning}${references}` : "";
   const scaffoldHtml = `<section class="lesson-section learning-experience learning-experience-pending"><p class="kicker">LEARNING EXPERIENCE / NOT READY</p><h2>学習体験を準備中です</h2><p class="explanation">このCore ConceptにはまだLearning Experienceがありません。定義や設計情報だけを教材として公開せず、学習者が実際に考え、試し、説明し、転移できるブロックを整えてからGoldとして公開します。</p></section>`;
   const body = `<section class="concept-hero"><div class="container"><a class="back-link" href="../">← Core Concept一覧</a><div class="concept-title-row"><div><p class="kicker">CORE CONCEPT / ${escapeHtml(title.en)}</p><h1>${escapeHtml(title.ja)}</h1><p class="concept-summary">${text(concept.central_mental_model)}</p></div><div class="concept-id">${escapeHtml(concept.id)}</div></div></div></section>
 <section class="section concept-content"><div class="container content-layout"><article class="lesson">${mobileToc}<section class="lesson-section"><p class="kicker">LEARNING CONTRACT</p><h2>このConceptでできるようになること</h2>${list(concept.learning_contract.learner_should_be_able_to)}</section>${experienceHtml || scaffoldHtml}<section class="lesson-section"><p class="kicker">REPRESENTATION SWITCHING</p><h2>同じ対象を別の表現で見る</h2>${list(concept.representations)}</section><section class="lesson-section"><p class="kicker">WATCH OUT</p><h2>よくある誤解</h2>${list(concept.misconceptions)}</section><section class="lesson-section"><p class="kicker">TRANSFER</p><h2>使われる場面</h2>${list(concept.applications)}</section></article><aside class="lesson-sidebar">${desktopToc}<section class="sidebar-block"><p class="kicker">YOUR ROUTE</p><h2>このページの進み方</h2><p>各Partの本文を読み、問いは自分で考えてから、必要なときだけヒントや解法を開いてください。</p></section><section class="sidebar-block"><p class="kicker">PREREQUISITES</p><h2>先に理解するCore Concept</h2>${referenceList(concept.prerequisites, conceptsById, { nested: true })}</section></aside></div></section>`;
-  return layout({ title: title.ja, description: concept.central_mental_model, body, active: "concept", version: "2.4.0" });
+  return layout({ title: title.ja, description: concept.central_mental_model, body, active: "concept", version: print ? "2.5.0-print" : "2.5.0" });
 }
 
 function renderGraph({ concepts, conceptsById, curricula }) {
