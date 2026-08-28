@@ -1,10 +1,11 @@
 {
-  "release_version": "2.2.0",
-  "source_commit": "15dbed6e74a49a1d25d6efdd55e657af4c36bc3f",
+  "release_version": "2.3.0",
+  "source_commit": "219a5c9796de44f4834532f6427864613b53f746",
   "domain": "linear-algebra",
   "course_id": "linear-algebra-foundations-to-applications",
   "core_concepts": 30,
   "learning_experiences": 1,
+  "lesson_content_blocks": 21,
   "legacy_concepts": 57,
   "modules": 8,
   "units": 52,

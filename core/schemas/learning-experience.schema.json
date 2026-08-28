@@ -1,14 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/learning-experience.schema.json",
-  "title": "Open Learn Learning Experience v2.2",
+  "title": "Open Learn Learning Experience v2.3",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "concept_id", "sequence", "assessments", "instructional_budget", "editorial_status"],
+  "required": ["id", "concept_id", "sequence", "lesson_content", "assessments", "instructional_budget", "editorial_status"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "concept_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "sequence": { "type": "array", "minItems": 5, "items": { "$ref": "learning-block.schema.json" } },
+    "lesson_content": { "type": "array", "minItems": 5, "items": { "$ref": "lesson-content.schema.json" } },
     "assessments": { "type": "array", "minItems": 1, "items": { "$ref": "assessment.schema.json" } },
     "instructional_budget": { "$ref": "#/$defs/budget" },
     "editorial_status": { "enum": ["scaffold", "draft", "reviewed", "gold"] }

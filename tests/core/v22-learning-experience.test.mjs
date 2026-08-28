@@ -13,8 +13,14 @@ test("Basis is backed by a first-class Gold Learning Experience", async () => {
   const experience = domain.learningExperiences.find((item) => item.concept_id === "basis");
   assert.equal(experience?.editorial_status, "gold");
   assert.equal(experience.sequence.length, 21);
+  assert.equal(experience.lesson_content.length, 21);
+  assert.ok(experience.sequence.every((block, index) => block.internal_block_dependencies.every((dependency) => dependency === experience.sequence[index - 1]?.id)));
+  assert.ok(experience.sequence.every((block) => !block.external_prerequisite_concept_ids.includes("basis")));
   for (const type of ["hook", "concrete_problem", "learner_prediction", "formalization", "worked_example", "misconception_challenge", "independent_practice", "representation", "transfer", "synthesis"]) assert.ok(experience.sequence.some((block) => block.type === type), type);
   assert.equal(experience.sequence.filter((block) => block.type === "worked_example").length, 3);
+  assert.ok(experience.lesson_content.every((lesson) => lesson.equations.length >= 1 && lesson.guided_reasoning.length >= 2));
+  assert.ok(!JSON.stringify(experience).toLowerCase().includes("determinant"));
+  assert.equal(experience.sequence.find((block) => block.id === "basis-worked-coordinates").representation, "平面ベクトル・非標準座標");
   assert.ok(experience.sequence.filter((block) => block.type === "worked_example").every((block) => block.worked_example.reasoning_steps.length >= 3));
   assert.ok(experience.sequence.filter((block) => block.type === "misconception_challenge").every((block) => Object.values(block.misconception_challenge).every((value) => typeof value === "string" && value.length > 0)));
   const assessed = new Set(experience.assessments.flatMap((item) => item.tests_learning_outcome_ids));
@@ -29,6 +35,8 @@ test("Basis renderer exposes interaction type and block metadata", async () => {
   assert.equal((html.match(/class="learning-block /g) ?? []).length, 21);
   assert.match(html, /data-learning-block-type="worked_example"/);
   assert.match(html, /推論ステップ/);
+  assert.match(html, /lesson-content/);
+  assert.match(html, /式で確認/);
   assert.match(html, /誤解をほどく/);
   assert.match(html, /このブロックの設計情報/);
   assert.match(html, /ASSESSMENT \/ 8 ITEMS/);

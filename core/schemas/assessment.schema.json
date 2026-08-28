@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/assessment.schema.json",
-  "title": "Open Learn Learning Experience Assessment v2.2",
+  "title": "Open Learn Learning Experience Assessment v2.3",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "type", "prompt", "expected_answer", "reasoning_rubric", "tests_learning_outcome_ids", "representation", "difficulty"],

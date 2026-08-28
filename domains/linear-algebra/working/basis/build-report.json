@@ -1,8 +1,8 @@
 {
-  "release_version": "2.2.0",
+  "release_version": "2.3.0",
   "concept": "basis",
   "domain": "linear-algebra",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "status": "published",
   "course_status": "course_ready",
   "semanticAudits": {
@@ -17,6 +17,7 @@
     "concepts": 30,
     "legacyConcepts": 57,
     "learningExperiences": 1,
+    "lessonContentBlocks": 21,
     "modules": 8,
     "units": 52,
     "lessons": 6,

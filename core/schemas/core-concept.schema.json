@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/core-concept.schema.json",
-  "title": "Open Learn Core Concept v2.2",
+  "title": "Open Learn Core Concept v2.3",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "title", "central_mental_model", "cognitive_types", "cognitive_profile", "cognitive_analysis", "instructional_budget", "facets", "procedures", "properties", "representations", "misconceptions", "applications", "external_relations", "learning_contract", "pedagogical_plan", "editorial_status", "source_concept_ids", "prerequisites"],

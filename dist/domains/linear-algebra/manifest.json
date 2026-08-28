@@ -8,7 +8,7 @@
     "ja": "ベクトル、線形結合、span、線形独立、基底、次元、座標、線形写像、行列表現を扱う大学初年級向け教材。",
     "en": "An introductory course in vectors, linear combinations, bases, coordinates, maps, and matrix representations."
   },
-  "version": "2.2.0",
+  "version": "2.3.0",
   "status": "in_progress",
   "language": {
     "default": "ja",
@@ -31,7 +31,7 @@
     "basis"
   ],
   "core_compatibility": {
-    "min_version": "2.2"
+    "min_version": "2.3"
   },
   "content_root": "./data",
   "asset_root": "./assets",
@@ -128,7 +128,7 @@
     }
   ],
   "courseVersion": "2.0.0",
-  "source_commit": "15dbed6e74a49a1d25d6efdd55e657af4c36bc3f",
+  "source_commit": "219a5c9796de44f4834532f6427864613b53f746",
   "license": {
     "code": "MIT",
     "content": "CC BY-SA 4.0",

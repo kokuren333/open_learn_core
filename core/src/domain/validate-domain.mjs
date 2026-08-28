@@ -8,7 +8,7 @@ import { auditVideoSource } from "../video/audit.mjs";
 
 export async function validateDomain(domain, { schema } = {}) {
   const manifestSchema = schema ?? JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "domain-manifest.schema.json"), "utf8"));
-  const schemaNames = ["concept", "core-concept", "learning-block", "learning-experience", "assessment", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
+  const schemaNames = ["concept", "core-concept", "learning-block", "learning-experience", "lesson-content", "assessment", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
   const schemas = Object.fromEntries(await Promise.all(schemaNames.map(async (name) => [`${name}.schema.json`, JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, `${name}.schema.json`), "utf8"))])));
   const issues = [...validateJsonSchema(domain.manifest, manifestSchema, { schemas, path: `${domain.root}/domain.yaml` })];
   const coreConcepts = domain.coreConcepts ?? [];
@@ -34,10 +34,27 @@ export async function validateDomain(domain, { schema } = {}) {
     const outcomeIds = new Set(target?.learning_contract?.learning_outcome_ids ?? []);
     for (const block of experience.sequence ?? []) {
       for (const outcomeId of block.learning_outcome_ids ?? []) if (!outcomeIds.has(outcomeId)) issues.push(`Learning Block '${block.id}' references outcome '${outcomeId}' not declared by Core Concept '${experience.concept_id}'`);
+      for (const prerequisite of block.external_prerequisite_concept_ids ?? []) {
+        if (!coreIds.has(prerequisite)) issues.push(`Learning Block '${block.id}' references missing external prerequisite Core Concept '${prerequisite}'`);
+        if (prerequisite === experience.concept_id) issues.push(`Learning Block '${block.id}' cannot require its own Core Concept '${prerequisite}'`);
+      }
+    }
+    const blockIndex = new Map((experience.sequence ?? []).map((block, index) => [block.id, index]));
+    for (const [index, block] of (experience.sequence ?? []).entries()) for (const dependency of block.internal_block_dependencies ?? []) {
+      if (!blockIndex.has(dependency)) issues.push(`Learning Block '${block.id}' references missing internal block dependency '${dependency}'`);
+      else if (blockIndex.get(dependency) >= index) issues.push(`Learning Block '${block.id}' has a forward/self internal dependency '${dependency}'`);
     }
     for (const assessment of experience.assessments ?? []) {
       for (const outcomeId of assessment.tests_learning_outcome_ids ?? []) if (!outcomeIds.has(outcomeId)) issues.push(`Assessment '${assessment.id}' references outcome '${outcomeId}' not declared by Core Concept '${experience.concept_id}'`);
     }
+    const contentIds = new Set();
+    for (const content of experience.lesson_content ?? []) {
+      issues.push(...validateJsonSchema(content, schemas["lesson-content.schema.json"], { schemas, path: `${domain.manifest.learning_experiences_file ?? "learning-experiences"}:${experience.id}.lesson_content:${content.block_id}` }));
+      if (contentIds.has(content.block_id)) issues.push(`Lesson content IDs must be unique: '${content.block_id}'`);
+      contentIds.add(content.block_id);
+    }
+    for (const block of experience.sequence ?? []) if (!contentIds.has(block.id)) issues.push(`Learning Block '${block.id}' has no lesson_content`);
+    for (const contentId of contentIds) if (!(experience.sequence ?? []).some((block) => block.id === contentId)) issues.push(`Lesson content '${contentId}' references a missing Learning Block`);
   }
   for (const core of coreConcepts) {
     const experience = learningExperiences.find((item) => item.concept_id === core.id);
