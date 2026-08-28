@@ -30,6 +30,13 @@ try {
 } catch (error) {
   try { publication = JSON.parse(error.stdout); } catch { publication = { status: "fail", issues: [error.message] }; }
 }
+let forensic = { status: "fail", issues: ["content forensic audit was not run"] };
+try {
+  const result = await exec(process.execPath, [path.join(root, "scripts", "content-forensic-audit.mjs"), domainId], { cwd: root, maxBuffer: 1024 * 1024 * 16 });
+  forensic = JSON.parse(result.stdout);
+} catch (error) {
+  try { forensic = JSON.parse(error.stdout); } catch { forensic = { status: "fail", issues: [error.message] }; }
+}
 const reports = {
   structural: { status: validation.valid ? "pass" : "fail", severity: validation.valid ? "information" : "error", issues: validation.issues },
   completeness: { status: courseResult.status, severity: courseResult.status === "pass" ? "information" : "error", issues: courseResult.issues },
@@ -39,7 +46,8 @@ const reports = {
   explanation: { status: basisAudits.explanation.status, severity: basisAudits.explanation.status === "pass" ? "information" : "error", issues: basisAudits.explanation.issues, scope: "basis semantic audit plus Unit completeness contract" },
   visual: { status: basisAudits.visual.status, severity: basisAudits.visual.status === "pass" ? "information" : "error", issues: basisAudits.visual.issues },
   video: { status: validation.valid ? "pass" : "fail", severity: validation.valid ? "information" : "error", issues: validation.issues.filter((issue) => issue.includes("video") || issue.includes("TTS")) },
-  publication: { status: publication.status, severity: publication.status === "pass" ? "information" : "error", issues: publication.issues ?? [] }
+  publication: { status: publication.status, severity: publication.status === "pass" ? "information" : "error", issues: publication.issues ?? [] },
+  content_forensic: { status: forensic.summary?.status ?? forensic.status, severity: (forensic.summary?.status ?? forensic.status) === "pass" ? "information" : "error", issues: forensic.issues ?? [], summary: forensic.summary }
 };
 const blocking = Object.entries(reports).filter(([, report]) => report.status !== "pass").map(([name, report]) => ({ audit: name, issues: report.issues }));
 const output = path.join(root, "dist", "domains", domainId, "audit");

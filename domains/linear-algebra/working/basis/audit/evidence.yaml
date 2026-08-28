@@ -2,7 +2,7 @@ status: pass
 auditor: openlearn-evidence-auditor
 independent_review: true
 artifact_hash: sha256:0612a8a95fbd8c85675d6b5f4721f480a8add1fd11cf0f47e3c05b7ac1650f1f
-evaluated_at: 2026-08-28T16:39:28.490Z
+evaluated_at: 2026-08-28T16:51:19.704Z
 summary: Claim support, locator specificity, and evidence interpretation reviewed semantically.
 issues:
   - none

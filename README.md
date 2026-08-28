@@ -17,7 +17,7 @@ Core owns the reusable engine. A domain owns its knowledge, sources, visuals, cu
 
 ## Current domain
 
-`linear-algebra` is the first reference domain. It contains 8 ordered Modules, 52 authored Learning Units, Module exercises with complete solutions, five cumulative reviews, three video source pilots, and reproducible web/PDF/video publication adapters. The Knowledge Layer (Concepts, Relations, Evidence) remains separate from the Learning Layer (Course → Module → Unit); the graph never silently determines the learner sequence.
+`linear-algebra` is the first reference domain. It contains 8 ordered Modules, 52 structurally authored Learning Units, Module exercises with complete solutions, five cumulative reviews, three video source pilots, and reproducible web/PDF/video publication adapters. The deterministic forensic audit currently treats the Unit prose as a scaffold pending deeper editorial review; the Knowledge Layer (Concepts, Relations, Evidence) remains separate from the Learning Layer (Course → Module → Unit).
 
 ## Commands
 

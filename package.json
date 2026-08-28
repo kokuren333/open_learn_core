@@ -16,6 +16,7 @@
     "test:domain": "node scripts/test-domain.mjs",
     "evidence:report": "node scripts/evidence-report.mjs",
     "audit": "node scripts/release-audit.mjs",
+    "audit:forensic": "node scripts/content-forensic-audit.mjs",
     "audit:semantic": "node scripts/run-audits.mjs",
     "publish:gate": "node scripts/publish-gate.mjs",
     "build:concept": "node scripts/build.mjs",

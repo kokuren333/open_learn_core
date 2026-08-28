@@ -1,0 +1,344 @@
+{
+  "status": "fail",
+  "severity": "error",
+  "issues": [
+    {
+      "unit": "scalar-introduction",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "vector-introduction",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "vector-notation",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "vector-addition",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "scalar-multiplication",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "dot-product-and-norm",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "linear-equations",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "matrix-introduction",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "matrix-operations",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "gaussian-elimination",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "rref-and-pivots",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "inverse-and-lu",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "vector-spaces",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "subspaces",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "linear-combination",
+      "flags": [
+        "body_chars_below_1500",
+        "exercises_below_3"
+      ]
+    },
+    {
+      "unit": "span",
+      "flags": [
+        "body_chars_below_1500",
+        "exercises_below_3"
+      ]
+    },
+    {
+      "unit": "linear-independence",
+      "flags": [
+        "body_chars_below_1500",
+        "exercises_below_3"
+      ]
+    },
+    {
+      "unit": "basis-definition",
+      "flags": [
+        "body_chars_below_1500",
+        "exercises_below_3"
+      ]
+    },
+    {
+      "unit": "dimension-and-rank",
+      "flags": [
+        "body_chars_below_1500",
+        "exercises_below_3"
+      ]
+    },
+    {
+      "unit": "coordinate-vectors",
+      "flags": [
+        "body_chars_below_1500",
+        "exercises_below_3"
+      ]
+    },
+    {
+      "unit": "linear-transformations",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "kernel-and-image",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "matrix-representation",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "coordinate-maps",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "change-of-basis",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "composition-and-similarity",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "orthogonality",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "orthogonal-complement",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "projection",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "orthonormal-bases",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "gram-schmidt",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "qr-least-squares",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "determinant-intuition",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "determinant-definition",
+      "flags": [
+        "body_chars_below_1500",
+        "repeated_sentences"
+      ]
+    },
+    {
+      "unit": "determinant-properties",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "determinant-computation",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "determinant-invertibility",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "determinant-volume",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "eigenvalue-eigenvector",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "characteristic-polynomial",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "eigenspace-and-multiplicity",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "diagonalization",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "symmetric-spectral-theorem",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "positive-definite-matrices",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "quadratic-forms",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "svd-intuition",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "low-rank-approximation",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "pca-connection",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "markov-matrices",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "graph-network-matrices",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "differential-and-fourier",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    },
+    {
+      "unit": "numerical-stability",
+      "flags": [
+        "body_chars_below_1500"
+      ]
+    }
+  ],
+  "summary": {
+    "status": "fail",
+    "failures": 52,
+    "body_chars": {
+      "min": 461,
+      "max": 929,
+      "average": 812
+    },
+    "under_body_threshold": 52,
+    "missing_visuals": 52,
+    "missing_citations": 6
+  }
+}

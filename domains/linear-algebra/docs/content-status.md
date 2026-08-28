@@ -1,6 +1,6 @@
 # Course Content Status
 
-V2.0 course source status: all 52 Learning Units are authored and audited. Generated PDF/video binaries remain build artifacts; their reproducible source indexes are produced by the documented commands.
+V2.0 course source status: 52 Learning Unit records are present and structurally authored, but the forensic content audit currently classifies them as a scaffold pending substantive editorial expansion. Generated PDF/video binaries remain build artifacts; their reproducible source indexes are produced by the documented commands.
 
 | Unit | Module | HTML | PDF | Video Source | YouTube | Status |
 |---|---|---|---|---|---|---|
@@ -60,3 +60,5 @@ V2.0 course source status: all 52 Learning Units are authored and audited. Gener
 ## Course Gate
 
 The course gate requires authored Units, complete solutions, Module exercise sets, five cumulative reviews, valid navigation, and source-backed publication metadata. Run `npm run audit -- linear-algebra` for the release audit.
+
+The forensic audit is deliberately stricter and deterministic: `npm run audit:forensic -- linear-algebra` reports body length, sections, worked examples, exercises, solutions, visuals, citations, repeated sentences, and placeholder markers. A `pass` from the course gate does not override a forensic failure.

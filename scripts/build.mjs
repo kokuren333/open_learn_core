@@ -52,7 +52,7 @@ for (const domain of domains) {
   const evidenceById = validation.evidenceById;
   const visualsById = validation.visualsById;
   const courseData = domain.courseData;
-  await writeFile(path.join(output, "index.html"), renderIndex({ concepts, conceptsById, curricula: dataset.curricula, domainTitle: domain.manifest.title, course: dataset.courses?.[0]?.value }), "utf8");
+  await writeFile(path.join(output, "index.html"), renderIndex({ concepts, conceptsById, curricula: dataset.curricula, domainTitle: domain.manifest.title, course: dataset.courses?.[0]?.value, courseUnits: courseData.units.map((record) => record.value) }), "utf8");
   await writeFile(path.join(output, "graph.html"), renderGraph({ concepts, conceptsById, curricula: dataset.curricula }), "utf8");
   for (const concept of concepts) await writeFile(path.join(output, "concepts", `${concept.id}.html`), renderConcept({ concept, conceptsById, sourceById, evidenceById, visualsById }), "utf8");
   if (dataset.curricula[0]?.value) await writeFile(path.join(output, "curriculum.html"), renderCurriculum({ curriculum: dataset.curricula[0].value, conceptsById, sourceById, evidenceById, decisions: dataset.curriculumDecisions.map((record) => record.value) }), "utf8");

@@ -6,7 +6,7 @@
 
 ## Current status
 
-V2.0では52 Learning Unitsをauthored/audited状態にし、8 Module exercise sets、完全解答、5つの累積レビュー、HTML/PDF/video sourceを揃えています。詳細は[`docs/content-status.md`](docs/content-status.md)を参照してください。
+V2.0では52 Learning Unitレコード、8 Module exercise sets、完全解答、5つの累積レビュー、HTML/PDF/video sourceを揃えています。ただし、deterministic forensic auditでは本文密度を含む実質品質を別途検査しており、現時点では教材のscaffoldとして扱います。詳細は[`docs/content-status.md`](docs/content-status.md)を参照してください。
 
 ## Curriculum and entry point
 

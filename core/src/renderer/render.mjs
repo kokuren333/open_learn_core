@@ -12,12 +12,12 @@ function nav(active = "") {
   return `<header class="site-header"><div class="container nav-wrap"><a class="brand" href="${active === "concept" ? "../" : "./"}"><span class="brand-mark">∑</span><span>Open Learn Core</span></a><nav aria-label="メインナビゲーション"><a href="${active === "concept" ? "../" : "./"}">Concepts</a><a href="${active === "concept" ? "../graph.html" : "graph.html"}">Concept graph</a><a href="${active === "concept" ? "../curriculum.html" : "curriculum.html"}">Curriculum</a></nav></div></header>`;
 }
 
-function layout({ title, description, body, active = "" }) {
+function layout({ title, description, body, active = "", version = "2.0.0" }) {
   return `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="${escapeHtml(description)}"><title>${escapeHtml(title)} | Open Learn Core</title>
 <link rel="stylesheet" href="${active === "concept" ? "../styles.css" : "styles.css"}"></head><body>${nav(active)}<main>${body}</main>
-<footer class="site-footer"><div class="container"><span>Open Learn Core · Domain learning engine v1.9</span><a href="https://github.com/kokuren333/open_learn_core" rel="noreferrer">Open source learning infrastructure</a></div></footer></body></html>`;
+<footer class="site-footer"><div class="container"><span>Open Learn Core · Domain learning engine v${escapeHtml(version)}</span><a href="https://github.com/kokuren333/open_learn_core" rel="noreferrer">Open source learning infrastructure</a></div></footer></body></html>`;
 }
 
 function conceptCard(concept, { nested = false, order = null } = {}) {
@@ -37,16 +37,20 @@ function referenceList(ids, conceptsById, { nested = false, empty = "なし" } =
   }).join("")}</ul>`;
 }
 
-function renderIndex({ concepts, curricula, conceptsById, domainTitle = {}, course = null }) {
+function renderIndex({ concepts, curricula, conceptsById, domainTitle = {}, course = null, courseUnits = [] }) {
   const curriculum = curricula[0]?.value;
   const sequence = curriculum?.sequence ?? concepts.map((concept) => concept.id);
-  const ordered = sequence.map((id) => conceptsById.get(id)).filter(Boolean);
+  const courseSequence = course && courseUnits.length
+    ? [...new Set(courseUnits.flatMap((unit) => [...(unit.concepts?.primary ?? []), ...(unit.concepts?.supporting ?? [])]))]
+    : [];
+  const preferredSequence = courseSequence.length ? courseSequence : sequence;
+  const ordered = [...preferredSequence.map((id) => conceptsById.get(id)).filter(Boolean), ...concepts.filter((concept) => !preferredSequence.includes(concept.id))];
   const titleJa = domainTitle.ja ?? "知識を、概念のつながりから学ぶ";
   const titleEn = domainTitle.en ?? "Concept-based learning";
   const courseLink = course ? `<a class="button primary" href="course.html">Courseを始める <span>↓</span></a>` : `<a class="button primary" href="#concepts">学習を始める <span>↓</span></a>`;
-  const body = `<section class="hero"><div class="container hero-grid"><div><p class="kicker">CONCEPT-BASED LEARNING / MVP v1.9</p><h1>${escapeHtml(titleJa)}</h1><p class="hero-lede">Open Learn Coreは、説明文をページに固定するのではなく、Concept・Evidence・Lessonから教材を生成するオープンな学習基盤です。</p><div class="hero-actions">${courseLink}<a class="button secondary" href="graph.html">関係を眺める <span>↗</span></a></div></div><div class="hero-art" aria-label="概念グラフの装飾図"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="wire wire-a"></div><div class="wire wire-b"></div><div class="floating-node node-a">concept</div><div class="floating-node node-b">lesson</div><div class="floating-node node-c">claim</div><div class="floating-node node-d">evidence</div><div class="hero-caption"><strong>${ordered.length}</strong><span>connected concepts</span></div></div></div></section>
+  const body = `<section class="hero"><div class="container hero-grid"><div><p class="kicker">CONCEPT-BASED LEARNING / V2.0.0</p><h1>${escapeHtml(titleJa)}</h1><p class="hero-lede">Open Learn Coreは、説明文をページに固定するのではなく、Concept・Evidence・Learning Unitから教材を生成するオープンな学習基盤です。</p><div class="hero-actions">${courseLink}<a class="button secondary" href="graph.html">関係を眺める <span>↗</span></a></div></div><div class="hero-art" aria-label="概念グラフの装飾図"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="wire wire-a"></div><div class="wire wire-b"></div><div class="floating-node node-a">concept</div><div class="floating-node node-b">unit</div><div class="floating-node node-c">claim</div><div class="floating-node node-d">evidence</div><div class="hero-caption"><strong>${ordered.length}</strong><span>connected concepts</span></div></div></div></section>
 <section class="section intro"><div class="container split"><div><p class="kicker">THE MODEL</p><h2>Conceptを、<br><em>Lesson</em>で学ぶ。</h2></div><p>Conceptは知識グラフの単位。Lessonは直観・定義・方法・関係へと学びを分け、Exerciseで確認し、Claimから主張の根拠まで辿れる構造です。</p></div></section>
-<section class="section concepts-section" id="concepts"><div class="container"><div class="section-heading"><div><p class="kicker">CURRICULUM / ${escapeHtml(curriculum?.title?.en ?? titleEn)}</p><h2>${escapeHtml(curriculum?.title?.ja ?? titleJa)}</h2></div><span class="count">${ordered.length} concepts</span></div><p class="section-lede">前提関係に沿った学習順序です。各カードから教材ページへ進めます。</p><div class="concept-grid">${conceptList(ordered)}</div></div></section>
+<section class="section concepts-section" id="concepts"><div class="container"><div class="section-heading"><div><p class="kicker">${course ? "COURSE CONCEPTS / " + escapeHtml(course.title.en) : "CURRICULUM / " + escapeHtml(curriculum?.title?.en ?? titleEn)}</p><h2>${escapeHtml(course?.title?.ja ?? curriculum?.title?.ja ?? titleJa)}</h2></div><span class="count">${ordered.length} concepts</span></div><p class="section-lede">${course ? "CourseのLearning Unit順を軸に、57件のConceptへアクセスできます。各カードから教材ページへ進めます。" : "前提関係に沿った学習順序です。各カードから教材ページへ進めます。"}</p><div class="concept-grid">${conceptList(ordered)}</div></div></section>
 <section class="section callout-section"><div class="container callout"><div><p class="kicker">EXPLORE THE GRAPH</p><h2>知識は、一本道ではない。</h2><p>Conceptのprerequisiteを有向グラフとして可視化しています。別の経路から同じ概念へ到達できる構造を確認できます。</p></div><a class="button dark" href="graph.html">グラフを見る <span>↗</span></a></div></section>`;
   return layout({ title: titleJa, description: `${titleEn} learning site`, body });
 }
