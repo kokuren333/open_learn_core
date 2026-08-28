@@ -1,0 +1,5 @@
+# Domain System
+
+Domainは`domain.yaml`を入口にdiscoverされます。manifestをschema検証した後、`content_root`のJSONデータをCore validatorへ渡します。buildはDomainごとの公開ディレクトリとPortal向けmanifestを生成します。
+
+Domain側はCore実装を持たず、Core側はDomain IDやConcept IDをハードコードしません。将来Domainを別repoへ移す場合も、manifestと公開manifestの契約を保てば切り出せます。

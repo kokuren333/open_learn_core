@@ -1,94 +1,41 @@
 # Open Learn Core
 
-線形代数の概念を、前提関係とEvidence付きの教材コンテンツとして管理し、信頼できる資料から再現可能に静的Web教材へcompileする教育OSSのMVP v1.8です。
-
-## What
-
-スカラー、ベクトル、線形結合、span、線形独立、基底、次元、線形写像、行列など12個のConceptを収録しています。ConceptページではLesson単位の説明、例、難易度別演習、解答、理解度セルフチェック、誤解しやすい点、出典、前提Conceptを確認できます。`basis`は6 Lesson・16 Example・22 Exercise・6 Diagnostic・6 Misconception・3 Visualで構成し、EvidenceItem、前提エッジの根拠、CurriculumDecisionを接続しています。
-
-## v1.6 Evidence Layer
-
-`Source → EvidenceItem → Claim → Concept → Lesson → Exercise / Diagnostic`の連鎖で、教材の主張を出典のlocatorまで追跡できます。学習順序の判断は`Evidence → CurriculumDecision → Curriculum / prerequisite graph`として記録します。`npm run evidence:report`でbasisの根拠カバレッジを確認し、`curriculum.html`で順序の理由を確認できます。詳細は[`docs/evidence-model.md`](docs/evidence-model.md)と[`docs/authoring-workflow.md`](docs/authoring-workflow.md)を参照してください。
-
-## v1.7 Evidence-Based Learning Content Compiler
-
-Open Learn Coreは「AIで教材文章を大量生成するプロジェクト」ではありません。Evidence / Knowledge Graph / Pedagogy / Assessment / Visual / Auditを分離し、高品質な教材を再現可能にbuildするOSS基盤です。v1.7でauthoring pipelineを整え、v1.8で説明の深さと独立したsemantic auditを追加しました。`npm run build:concept`はdeterministic validation、Evidenceカバレッジ、6種類のsemantic audit、freshness付きPublish Gate、renderer、build reportを順に実行します。Gateを通過しない教材は`dist/`へ公開されません。
-
-## v1.8 Deep Explanation & Semantic Quality
-
-Deterministic validationはschema、参照、循環、必須アーティファクト、件数を機械的に確認します。Semantic auditは別Skillとして、数学的意味、Evidenceの解釈、具体から抽象への橋、説明の明瞭さ、図解の意味、教材の深さをレビューします。人間レビューを必須ゲートにしないのは、MVPで再現可能なローカル検証を優先するためです。ただし、semantic auditはwriterとは独立して再実行し、artifact hashが古ければpublishを拒否します。詳細は[`docs/deep-explanation.md`](docs/deep-explanation.md)、[`docs/semantic-audit.md`](docs/semantic-audit.md)、[`docs/lesson-architecture.md`](docs/lesson-architecture.md)を参照してください。
-
-## Why
-
-通常のMarkdown教材はページ単位で整理されますが、このプロジェクトではConceptを知識グラフの単位にします。Conceptは「何を知るか」、Lessonは「どの順で教えるか」、Claimは「どの主張をどの出典のどこで支えるか」、Exerciseは「何ができれば理解したとみなすか」を担当します。これにより、順序の異なるカリキュラム、グラフ表示、将来の教材形式への変換を同じデータから行えます。
+Open Learn Core is a domain-independent learning-content compiler. It turns structured concepts, evidence, lessons, exercises, visuals, and curricula into validated static learning sites.
 
 ## Architecture
 
 ```text
-Sources
-  ↓
-Concept Data (data/concepts/*.json)
-  ↓
-Lesson / Claim / Exercise
-  ↓
-Curriculum (data/curricula/*.json)
-  ↓
-Validator / Renderer
-  ↓
-Static Web (site/)
+core/                         shared schemas, validation, graph, quality, renderer
+domains/<domain>/              domain manifest, content, assets, tests, working files
+docs/                         architecture and contribution documentation
+tests/core/                   shared Core tests
+tests/integration/            repository and build-layout tests
+dist/                         generated portal and domain sites
 ```
 
-Schemaは`schemas/`、設計判断は`docs/design.md`にあります。Concept JSONでは、グラフメタデータと`lessons`、根拠付き`claims`、`exercises`、`diagnosticQuestions`を分けています。`content.explanation`はConcept全体の導入、細かな学習展開はLessonの`sections`に置きます。
+Core owns the reusable engine. A domain owns its knowledge, sources, visuals, curriculum, and quality-gate configuration. Core does not assume a particular subject or content path.
 
-## Run
+## Current domain
 
-Node.js 20以上が必要です。外部パッケージは使いません。
+`linear-algebra` is the first reference domain. Its content is intentionally staged: `basis` is the current quality-gate concept, while the remaining concepts make the prerequisite graph and curriculum structure visible.
+
+## Commands
 
 ```bash
-npm run validate
+npm run validate:domain -- linear-algebra
+npm run build:domain -- linear-algebra
+npm run test:domain -- linear-algebra
+npm run validate:all
+npm run build:all
 npm test
-npm run build
-npm run dev
 ```
 
-`npm run dev`の後、ターミナルに表示されたURLを開いてください。既定の4173番ポートが使用中の場合は、空いている次のポートへ自動的に切り替わります。`npm run build`で生成される`site/`は、そのまま静的ホスティングやGitHub Pagesへ配置できます。
+The generated site is written to `dist/`, with the portal at `dist/index.html` and domain output under `dist/domains/<domain>/`.
 
-## Validate
+## Adding a domain
 
-`npm run validate`は次を検査します。
-
-- JSON Schemaに対する必須フィールド、型、形式
-- Concept / Curriculum / Sourceの重複ID
-- prerequisiteとrelatedの参照切れ
-- prerequisiteの循環
-- Curriculumから参照されたConceptの存在
-- Lessonから参照されたExerciseの存在
-- Lesson本文から参照されたClaimの存在
-- Claimのsourceとlocator
-- EvidenceItemのSource / Claim参照
-- Evidence Reviewの対象と採用Source
-- prerequisite edgeの関係、理由、Evidence
-- CurriculumDecisionのCurriculum / Evidence参照
-
-## Add a Concept
-
-1. `data/concepts/your-concept-id.json`を作成し、既存Conceptと同じSchemaの全必須フィールドを記入します。
-2. `id`は小文字英数字とハイフンのstable identifierにし、ファイル名と一致させます。
-3. `prerequisites`、`related`、`sources`には既存のIDだけを指定します。
-4. `lessons`に直観・定義・方法・関係などの節を追加し、`exercises`をLessonの`exerciseIds`から参照します。
-5. 重要な主張は`claims`に切り出し、`claimType`、`status`、`evidence`、`sourceRefs`を付けます。
-6. `data/curricula/linear-algebra-basic.json`の`sequence`に学習順を追加します。ConceptとCurriculumは別の関心事なので、別ファイルのまま編集します。
-7. EvidenceItemとEvidence Reviewを`data/evidence/`に、順序の判断を`data/curriculum-decisions/`に追加します。
-8. `npm run validate && npm test && npm run evidence:report && npm run build`を実行します。
+Create `domains/<domain>/domain.yaml`, place the domain data and assets below that directory, and run the domain validation, tests, and build commands. See [docs/domain-system.md](docs/domain-system.md), [docs/repository-layout.md](docs/repository-layout.md), and [docs/asset-policy.md](docs/asset-policy.md).
 
 ## Roadmap
 
-- **MVP v1**: 線形代数の狭い範囲、Conceptデータ、検証、静的教材、prerequisite graph
-- **MVP v1.5**: Lesson / Claim / Exerciseの責務分離、2 Conceptの実用的な教材密度、claim-level provenance（現在地）
-- **MVP v1.6**: Evidence Layer、Evidence Review、根拠付き前提エッジ、CurriculumDecision、basisの監査可能な教材データ
-- **MVP v1.7**: Evidence-based authoring pipeline、独立Skill群、監査・publish gate・静的出力
-- **MVP v1.8**: basisの6 Lesson化、深い説明、semantic audit、audit freshness、Visual/Assessmentの意味的品質
-- **v2**: 小学算数から大学初年級までのConcept DAGと学習経路
-- **v3**: 理解度診断、adaptive learning、問題推薦、AI tutorなど
-
-アカウント、DB、LLM API、動画生成、LMSなどはMVP v1の対象外です。
+The repository currently optimizes for a single-domain MVP while preserving a clean path to multiple domains. Future work can add domain-specific packages or repositories without changing the Core contracts.

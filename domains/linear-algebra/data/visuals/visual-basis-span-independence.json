@@ -1,0 +1,18 @@
+{
+  "id": "visual-basis-span-independence",
+  "concept": "basis",
+  "type": "comparison",
+  "learning_goal": { "ja": "spanと線形独立の両方が基底に必要だと視覚的に理解する。", "en": "See that a basis requires both spanning and linear independence." },
+  "target_claim": "basis-claim-01",
+  "learner_question": { "ja": "空間全体を作れるだけでは、なぜ基底ではないのか。", "en": "Why is spanning alone not enough for a basis?" },
+  "layout": { "type": "three_panel_comparison", "panels": [{ "title": "redundant", "meaning": "spanning_but_dependent" }, { "title": "insufficient", "meaning": "independent_but_not_spanning" }, { "title": "basis", "meaning": "spanning_and_independent" }] },
+  "labels": ["span", "independent", "basis"],
+  "visual_encoding": "Three panels encode the two binary conditions with explicit text labels, not color alone.",
+  "misconception_risk": ["A basis must be orthogonal.", "Spanning alone is sufficient."],
+  "source_claims": ["basis-claim-01"],
+  "placement": { "lesson": "basis-lesson-02", "position": "after-definition" },
+  "alt_text": { "ja": "左に空間全体を覆うが重複した三本のベクトル、中央に空間を覆わない一本のベクトル、右に空間を覆い重複のない二本のベクトルを示し、右だけが基底である比較図。", "en": "A comparison showing that only the set that spans the plane without redundancy is a basis." },
+  "status": "published",
+  "output_path": "diagrams/basis-span-independence.svg",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 260\" role=\"img\" aria-label=\"Basis requires span and linear independence\"><rect width=\"900\" height=\"260\" rx=\"20\" fill=\"#f7faf3\"/><text x=\"450\" y=\"34\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" font-weight=\"700\" fill=\"#18321f\">Basis = Span + Linear Independence</text><g font-family=\"sans-serif\" text-anchor=\"middle\"><g transform=\"translate(150 70)\"><rect width=\"190\" height=\"145\" rx=\"14\" fill=\"#fff\" stroke=\"#df8a52\"/><text x=\"95\" y=\"25\" font-size=\"15\" fill=\"#a34e35\">span ✓ / independent ✗</text><line x1=\"30\" y1=\"112\" x2=\"150\" y2=\"55\" stroke=\"#df8a52\" stroke-width=\"4\"/><line x1=\"30\" y1=\"112\" x2=\"150\" y2=\"55\" stroke=\"#71a287\" stroke-width=\"2\"/><text x=\"95\" y=\"135\" font-size=\"13\" fill=\"#435047\">余分な材料</text></g><g transform=\"translate(355 70)\"><rect width=\"190\" height=\"145\" rx=\"14\" fill=\"#fff\" stroke=\"#df8a52\"/><text x=\"95\" y=\"25\" font-size=\"15\" fill=\"#a34e35\">span ✗ / independent ✓</text><line x1=\"40\" y1=\"115\" x2=\"150\" y2=\"70\" stroke=\"#df8a52\" stroke-width=\"4\"/><text x=\"95\" y=\"135\" font-size=\"13\" fill=\"#435047\">材料不足</text></g><g transform=\"translate(560 70)\"><rect width=\"190\" height=\"145\" rx=\"14\" fill=\"#e6f3df\" stroke=\"#71a287\" stroke-width=\"2\"/><text x=\"95\" y=\"25\" font-size=\"15\" fill=\"#18321f\">span ✓ / independent ✓</text><line x1=\"40\" y1=\"115\" x2=\"150\" y2=\"70\" stroke=\"#71a287\" stroke-width=\"4\"/><line x1=\"40\" y1=\"115\" x2=\"150\" y2=\"115\" stroke=\"#71a287\" stroke-width=\"4\"/><text x=\"95\" y=\"135\" font-size=\"13\" fill=\"#18321f\">基底</text></g></g></svg>"
+}

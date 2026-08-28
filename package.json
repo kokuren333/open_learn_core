@@ -2,18 +2,24 @@
   "name": "open-learn-core",
   "version": "1.8.0",
   "private": true,
-  "description": "Evidence-based learning content compiler for open linear algebra MVP v1.8",
+  "description": "Domain-independent evidence-based learning content compiler",
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate.mjs",
-    "build": "node scripts/build.mjs",
+    "validate:domain": "node scripts/validate-domain.mjs",
+    "validate:all": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs all",
+    "build:domain": "node scripts/build.mjs",
+    "build:all": "node scripts/build.mjs all",
     "dev": "node scripts/serve.mjs",
-    "test": "node --test",
+    "test": "node --test tests/core/*.test.mjs tests/integration/*.test.mjs",
+    "test:domain": "node scripts/test-domain.mjs",
     "evidence:report": "node scripts/evidence-report.mjs",
     "audit": "node scripts/run-audits.mjs",
     "audit:semantic": "node scripts/run-audits.mjs",
     "publish:gate": "node scripts/publish-gate.mjs",
-    "build:concept": "node scripts/build.mjs"
+    "build:concept": "node scripts/build.mjs",
+    "assets:report": "node scripts/assets-report.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -1,8 +1,0 @@
-status: pass
-auditor: openlearn-evidence-auditor
-independent_review: true
-artifact_hash: sha256:31106202c17bea2dd9e9b2e26fea87fcb293580feb9bacde179bebb936617912
-evaluated_at: 2026-08-28T13:15:06.963Z
-summary: Claim support, locator specificity, and evidence interpretation reviewed semantically.
-issues:
-  - none

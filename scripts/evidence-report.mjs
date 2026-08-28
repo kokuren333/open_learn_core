@@ -1,13 +1,16 @@
-import { loadDataset, validateDataset } from "../src/validation/index.mjs";
-import { evidenceCoverage } from "../src/evidence/coverage.mjs";
+import { loadDomain } from "../core/src/domain/load-domain.mjs";
+import { evidenceCoverage } from "../core/src/evidence/coverage.mjs";
+import { validateDataset } from "../core/src/validation/index.mjs";
 
-const dataset = await loadDataset(process.cwd());
-const validation = await validateDataset(dataset);
-if (!validation.valid) {
-  console.error("Cannot report invalid dataset:\n" + validation.issues.map((issue) => `- ${issue}`).join("\n"));
+const domain = await loadDomain(process.cwd(), process.argv[2]);
+const dataset = domain.dataset;
+const result = await validateDataset(dataset);
+if (!result.valid) {
+  console.error("Cannot report invalid dataset:\n" + result.issues.map((issue) => `- ${issue}`).join("\n"));
   process.exit(1);
 }
-const coverage = evidenceCoverage(dataset, validation, "basis");
+const conceptId = process.argv[3] ?? domain.manifest.quality_gate_concepts?.[0] ?? domain.manifest.entry_concepts?.[0] ?? dataset.concepts[0]?.value?.id;
+const coverage = evidenceCoverage(dataset, result, conceptId);
 console.log(`Evidence coverage: ${coverage.conceptId}`);
 console.log(`- claims with evidence: ${coverage.claims.withEvidence}/${coverage.claims.total}`);
 console.log(`- prerequisite edges with rationale: ${coverage.prerequisiteEdges.withRationale}/${coverage.prerequisiteEdges.total}`);

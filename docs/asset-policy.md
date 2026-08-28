@@ -1,0 +1,5 @@
+# Asset Policy
+
+数学的に厳密な座標軸・ベクトル・関数グラフはSVGまたはprogrammatic drawingを使います。概念overview、roadmap、misconception comparison、thumbnailなど視線誘導が中心の図は生成rasterを使えますが、Visual Specification、source claims、alt text、生成条件を必ずDomain側へ保存します。
+
+Web公開用rasterはWebPを優先し、通常画像は500KB〜1MB程度を目安にします。2MB超はwarning、5MB超はfail候補です。生成画像もVisual Auditorの対象で、見た目が数学的条件を追加しないか確認します。
