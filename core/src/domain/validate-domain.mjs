@@ -39,6 +39,7 @@ export async function validateDomain(domain, { schema } = {}) {
     for (const claim of resources.claims ?? []) {
       if (claimIds.has(claim.id)) issues.push(`Concept resources '${resources.concept_id}': duplicate claim '${claim.id}'`);
       claimIds.add(claim.id);
+      for (const evidenceId of claim.evidence_ids ?? []) if (!domain.dataset.evidenceItems.some((record) => record.value?.id === evidenceId)) issues.push(`Resource claim '${claim.id}': unknown evidence '${evidenceId}'`);
       for (const sourceRef of claim.source_refs ?? []) if (!domain.dataset.sources.some((item) => item.id === sourceRef.source_id)) issues.push(`Resource claim '${claim.id}': unknown source '${sourceRef.source_id}'`);
     }
     for (const item of resources.further_learning ?? []) if (!domain.dataset.sources.some((source) => source.id === item.source_id)) issues.push(`Further learning '${resources.concept_id}': unknown source '${item.source_id}'`);

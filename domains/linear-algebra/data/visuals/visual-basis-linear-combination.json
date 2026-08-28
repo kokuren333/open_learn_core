@@ -1,0 +1,18 @@
+{
+  "id": "visual-basis-linear-combination",
+  "concept": "basis",
+  "type": "worked-example-diagram",
+  "learning_goal": { "ja": "基底ベクトルを係数倍して足すと、目的ベクトルを作れることを式と図で対応づける。", "en": "Connect a basis expansion to the geometric construction of a target vector." },
+  "target_claim": "basis-claim-01",
+  "learner_question": { "ja": "3e₁+2e₂は、図のどの移動に対応するか。", "en": "Which moves in the diagram correspond to 3e1+2e2?" },
+  "layout": { "type": "step_flow", "panels": [{ "title": "係数倍", "meaning": "scale_each_basis_vector" }, { "title": "加算", "meaning": "add_displacements" }, { "title": "目的ベクトル", "meaning": "reach_target" }] },
+  "labels": ["e₁", "e₂", "3e₁", "2e₂", "v"],
+  "visual_encoding": "The horizontal and vertical basis vectors are scaled separately, then placed head-to-tail; the final arrow is the same vector as the coordinate expansion.",
+  "misconception_risk": ["係数はベクトルそのものを変える", "座標の数字だけでは幾何的な意味がない"],
+  "source_claims": ["basis-claim-01"],
+  "placement": { "lesson": "basis-lesson-01", "position": "after-motivation" },
+  "alt_text": { "ja": "原点からe₁を3倍した横方向の移動とe₂を2倍した縦方向の移動を順に加え、終点へのベクトルvを3e₁+2e₂として示す図。", "en": "A horizontal move of 3e1 followed by a vertical move of 2e2 reaches the target vector v, showing v=3e1+2e2." },
+  "status": "published",
+  "output_path": "diagrams/basis-linear-combination.svg",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 330\" role=\"img\" aria-label=\"v equals 3e1 plus 2e2\"><rect width=\"900\" height=\"330\" rx=\"20\" fill=\"#f7faf3\"/><text x=\"450\" y=\"38\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"24\" font-weight=\"700\" fill=\"#18321f\">v = 3e₁ + 2e₂</text><g stroke=\"#c9d8cc\" stroke-width=\"1\"><path d=\"M90 265H810M150 295V70\"/><path d=\"M270 265H270\"/><path d=\"M390 265H390\"/><path d=\"M510 265H510\"/><path d=\"M630 265H630\"/></g><g stroke=\"#71a287\" stroke-width=\"5\" fill=\"none\"><path d=\"M150 265L510 265\"/><path d=\"M510 265L510 105\"/></g><path d=\"M510 105L680 105L680 70\" stroke=\"#df8a52\" stroke-width=\"5\" fill=\"none\"/><g fill=\"#18321f\" font-family=\"sans-serif\" font-size=\"17\"><text x=\"245\" y=\"250\">3e₁</text><text x=\"525\" y=\"185\">2e₂</text><text x=\"695\" y=\"68\">v</text><text x=\"125\" y=\"285\">0</text><text x=\"115\" y=\"82\">e₂</text><text x=\"790\" y=\"285\">e₁</text></g><g font-family=\"sans-serif\" font-size=\"14\" fill=\"#435047\"><text x=\"120\" y=\"312\">基底ベクトルを係数倍</text><text x=\"385\" y=\"312\">順に足す</text><text x=\"650\" y=\"312\">目的ベクトルへ到達</text></g></svg>"
+}

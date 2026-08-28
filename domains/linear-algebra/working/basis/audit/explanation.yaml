@@ -3,7 +3,7 @@ auditor: openlearn-explanation-auditor
 review_type: automated_semantic_review
 independent_review: false
 artifact_hash: sha256:0612a8a95fbd8c85675d6b5f4721f480a8add1fd11cf0f47e3c05b7ac1650f1f
-evaluated_at: 2026-08-28T19:29:15.662Z
+evaluated_at: 2026-08-28T19:53:43.955Z
 summary: Explanation depth, terminology, concrete-to-formal bridging, and reasoning continuity reviewed independently from the writer.
 issues:
   - none

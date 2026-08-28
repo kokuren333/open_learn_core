@@ -128,8 +128,28 @@
       "assessment_count": 8
     }
   ],
+  "conceptResources": [
+    {
+      "concept_id": "basis",
+      "outputs": {
+        "html": "ready",
+        "pdf": "ready",
+        "video": "draft",
+        "pdf_purpose": "full_concept_handout",
+        "video_purpose": "visualization"
+      },
+      "representation_ids": [
+        "basis-linear-combination-figure",
+        "basis-span-independence-figure",
+        "basis-r2-figure",
+        "basis-coordinate-figure",
+        "basis-video",
+        "basis-pdf"
+      ]
+    }
+  ],
   "courseVersion": "2.0.0",
-  "source_commit": "00b336551b82345e2a5c247d2f0f4041dc21f2a8",
+  "source_commit": "6a6a4ad39207635e1cf5a40028f0f8af6b0e957c",
   "license": {
     "code": "MIT",
     "content": "CC BY-SA 4.0",

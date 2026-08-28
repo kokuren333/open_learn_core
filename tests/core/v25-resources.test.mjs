@@ -16,7 +16,11 @@ test("Basis resources expose claim mapping, further learning, media and output s
   assert.ok(resources);
   assert.equal(resources.further_learning.length, 3);
   assert.deepEqual(resources.claims.map((claim) => claim.id), ["basis-definition", "basis-linear-independence", "basis-span", "basis-coordinates"]);
+  assert.ok(resources.claims.every((claim) => claim.evidence_ids?.length));
   assert.ok(resources.representations.some((item) => item.type === "diagram"));
+  assert.ok(resources.representations.some((item) => item.visual_id === "visual-basis-linear-combination"));
+  assert.equal(resources.visual_plan.preferred_representation.type, "mixed");
+  assert.equal(resources.video_plan.status, "scripted");
   assert.equal(resources.outputs.pdf, "ready");
   assert.equal((await validateDomain(domain)).valid, true);
 });
@@ -27,7 +31,7 @@ test("Basis learner page renders citations, inline figures and optional resource
   const experience = domain.learningExperiences.find((item) => item.concept_id === "basis");
   const html = renderCoreConcept({ concept, experience, resources: domain.conceptResources[0], conceptsById: new Map(domain.coreConcepts.map((item) => [item.id, item])), sourceById: new Map(domain.dataset.sources.map((item) => [item.id, item])), visualsById: new Map(domain.dataset.visuals.map((record) => [record.value.id, record.value])) });
   assert.match(html, /class="citation"/);
-  assert.equal((html.match(/class="learner-figure"/g) ?? []).length, 3);
+  assert.equal((html.match(/class="learner-figure"/g) ?? []).length, 4);
   assert.match(html, /id="learner-further"/);
   assert.match(html, /id="learner-references"/);
   assert.match(html, /pdf\/basis\.pdf/);

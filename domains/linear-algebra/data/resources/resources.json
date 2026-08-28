@@ -11,6 +11,7 @@
       {
         "id": "basis-definition",
         "statement": "A basis is a linearly independent set that spans the vector space.",
+        "evidence_ids": ["basis-definition-mit", "basis-definition-open-textbook"],
         "source_refs": [
           { "source_id": "mit-ocw-linear-algebra", "locator": "Independence, Basis and Dimension" },
           { "source_id": "openstax-linear-algebra", "locator": "Basis and Dimension" }
@@ -19,6 +20,7 @@
       {
         "id": "basis-linear-independence",
         "statement": "Linear independence rules out a non-trivial linear combination that equals the zero vector.",
+        "evidence_ids": ["basis-definition-mit"],
         "source_refs": [
           { "source_id": "mit-ocw-linear-algebra", "locator": "Independence, Basis and Dimension" }
         ]
@@ -26,6 +28,7 @@
       {
         "id": "basis-span",
         "statement": "The span of a set is the collection of all linear combinations of its vectors.",
+        "evidence_ids": ["basis-definition-mit"],
         "source_refs": [
           { "source_id": "threeblue1brown-span", "locator": "Span" },
           { "source_id": "libretexts-span-bases", "locator": "Span and Bases" }
@@ -34,6 +37,7 @@
       {
         "id": "basis-coordinates",
         "statement": "The coefficients in the unique basis expansion of a vector are its coordinates relative to that basis.",
+        "evidence_ids": ["basis-definition-open-textbook"],
         "source_refs": [
           { "source_id": "openstax-linear-algebra", "locator": "Basis and Dimension" },
           { "source_id": "mit-ocw-linear-algebra", "locator": "Independence, Basis and Dimension" }
@@ -46,17 +50,29 @@
       { "source_id": "mit-ocw-linear-algebra", "role": "supplementary_learning", "description": "大学講義の文脈で独立性・基底・次元を復習する。" }
     ],
     "representations": [
+      { "id": "basis-linear-combination-figure", "type": "diagram", "role": "example", "visual_id": "visual-basis-linear-combination", "after_block_id": "basis-hook", "title": "v=3e₁+2e₂を図で見る", "caption": "係数倍した二つの基底ベクトルを順に足すと、目的ベクトルに到達します。", "purpose": "座標の係数を、実際の幾何的な移動として導入する。", "supports_claims": ["basis-span"], "targets_misconceptions": ["座標の数字だけでは幾何的な意味がない"] },
       { "id": "basis-span-independence-figure", "type": "diagram", "role": "intuition", "visual_id": "visual-basis-span-independence", "after_block_id": "basis-contrast", "title": "基底の二条件", "caption": "spanと線形独立の両方を満たす組だけが基底です。" },
       { "id": "basis-r2-figure", "type": "diagram", "role": "example", "visual_id": "visual-basis-r2-bases", "after_block_id": "basis-emergence", "title": "R²の二つの基底", "caption": "標準基底でなくても、二条件を満たせば基底になります。" },
       { "id": "basis-coordinate-figure", "type": "diagram", "role": "explanation", "visual_id": "visual-basis-coordinate-frames", "after_block_id": "basis-representation-switch", "title": "同じベクトル、異なる座標", "caption": "基底を変えると座標は変わりますが、ベクトルは変わりません。" },
-      { "id": "basis-video", "type": "video", "role": "supplementary", "source_id": "threeblue1brown-span", "title": "動画で復習する" },
+      { "id": "basis-video", "type": "video", "role": "supplementary", "source_id": "threeblue1brown-span", "title": "動画で復習する", "purpose": "図解でspanを復習する", "supports_claims": ["basis-span"] },
       { "id": "basis-pdf", "type": "pdf", "role": "printable", "href": "pdf/basis.pdf", "title": "このConceptをPDFで読む" }
     ],
     "visual_plan": {
       "needed": true,
       "type": "mixed",
-      "assets": ["visual-basis-span-independence", "visual-basis-r2-bases", "visual-basis-coordinate-frames"]
+      "assets": ["visual-basis-linear-combination", "visual-basis-span-independence", "visual-basis-r2-bases", "visual-basis-coordinate-frames"],
+      "cognitive_goal": "基底を『見た目の軸』ではなく、係数付きの線形結合として理解し、spanと線形独立の二条件へ接続する。",
+      "learner_difficulties": ["基底を標準基底だけだと思う", "spanと線形独立を同じ条件だと思う", "座標の係数とベクトル自体を混同する"],
+      "preferred_representation": { "type": "mixed", "reason": "係数倍と加算の順序はexact diagramで正確に示し、複数の基底や二条件の対比は比較図で直観を補う。" },
+      "success_conditions": ["3e₁+2e₂の各係数が図の移動に対応すると説明できる", "標準基底以外でもspanと線形独立を満たせば基底だと説明できる", "同じベクトルと基底に依存する座標を区別できる"]
     },
-    "outputs": { "html": "ready", "pdf": "ready", "video": "draft" }
+    "video_plan": {
+      "unit_id": "basis-definition",
+      "purpose": "visualization",
+      "sequence": ["具体例 v=3e₁+2e₂", "spanは作れる範囲", "独立性は重複を除く", "basisの二条件", "非標準基底でも同じ構造", "座標の一意性"],
+      "learner_outcomes": ["係数倍とベクトル加算を図で説明できる", "spanと線形独立を基底の条件として区別できる"],
+      "status": "scripted"
+    },
+    "outputs": { "html": "ready", "pdf": "ready", "video": "draft", "pdf_purpose": "full_concept_handout", "video_purpose": "visualization" }
   }
 ]
