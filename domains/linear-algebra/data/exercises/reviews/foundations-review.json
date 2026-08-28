@@ -1,0 +1,6 @@
+{
+  "id": "foundations-review",
+  "title": { "ja": "基礎横断レビュー", "en": "Foundations Cumulative Review" },
+  "module_ids": ["module-prerequisites-vectors", "module-systems-matrices", "module-vector-spaces"],
+  "exercise_ids": ["module-vector-spaces-review-01", "module-vector-spaces-review-02"]
+}

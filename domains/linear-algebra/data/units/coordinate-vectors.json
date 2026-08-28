@@ -1,0 +1,109 @@
+{
+  "id": "coordinate-vectors",
+  "module": "module-vector-spaces",
+  "order": 7,
+  "title": {
+    "ja": "座標ベクトル：基底をものさしにする",
+    "en": "Coordinate Vectors: Measuring with a Basis"
+  },
+  "summary": {
+    "ja": "座標ベクトル：基底をものさしにするを具体例と定義から学ぶ。",
+    "en": "A guided unit on Coordinate Vectors: Measuring with a Basis."
+  },
+  "estimated_duration": {
+    "reading_minutes": 8,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "coordinates"
+    ],
+    "supporting": [
+      "basis",
+      "linear-combination",
+      "dimension"
+    ]
+  },
+  "prerequisites": [
+    "basis-definition",
+    "dimension-and-rank"
+  ],
+  "learning_objectives": [
+    "基底に関する座標を係数の組として求められる",
+    "基底を変えると座標が変わる理由を説明できる"
+  ],
+  "content": [
+    {
+      "type": "motivation",
+      "body": "同じ幾何ベクトルでも、どの基底をものさしにするかで数値表現は変わります。座標はベクトルそのものではなく、選んだ基底に対する線形結合の係数です。"
+    },
+    {
+      "type": "concrete_case",
+      "body": "B={(1,1),(1,−1)}に対してv=(5,1)を表します。a(1,1)+b(1,−1)=(a+b,a−b)なので、a=3,b=2です。標準基底なら座標は(5,1)ですが、Bに関する座標は(3,2)です。"
+    },
+    {
+      "type": "definition",
+      "body": "基底B=(b₁,…,bₙ)に関するvの座標ベクトル[v]Bとは、v=c₁b₁+⋯+cₙbₙを満たす係数を並べた(c₁,…,cₙ)です。基底の独立性により、この係数は一意に定まります。"
+    },
+    {
+      "type": "worked_example",
+      "body": "B={(1,1),(1,−1)}、v=(5,1)ならa+b=5、a−b=1です。二式を足して2a=6、a=3。差を取って2b=4、b=2。したがって[v]B=(3,2)です。"
+    },
+    {
+      "type": "connection",
+      "body": "座標を使うと、基底に合わせた線形写像の行列表現を作れます。基底を変える操作は、同じベクトルを別の座標系で記述するchange of basisへつながります。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "座標は基底を指定しないと意味が定まりません。(5,1)という数値だけを見て、常に標準基底の座標だと判断しないことが重要です。"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "coordinates-ex-01",
+      "type": "calculation",
+      "difficulty": "standard",
+      "question": "B={(1,1),(1,−1)}に関するv=(5,1)の座標を求めよ。",
+      "solution": {
+        "what_is_asked": "vをBの線形結合で表す。",
+        "concepts": [
+          "coordinates",
+          "basis"
+        ],
+        "strategy": "未知係数を置いて連立方程式を解く。",
+        "steps": [
+          "a(1,1)+b(1,−1)=(a+b,a−b)と書く。",
+          "a+b=5、a−b=1を立てる。",
+          "加法で2a=6、減法で2b=4を得る。",
+          "a=3,b=2を座標として並べる。"
+        ],
+        "why": [
+          "座標の定義は基底ベクトルの係数だから。"
+        ],
+        "conclusion": "[v]B=(3,2)。",
+        "common_wrong_path": "標準基底の成分(5,1)をそのまま使うと、基底Bへの変換をしていない。"
+      }
+    }
+  ],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "authored"
+    },
+    "pdf": {
+      "required": true,
+      "status": "source_ready"
+    },
+    "video": {
+      "required": true,
+      "status": "scripted"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [
+    "basis-definition",
+    "dimension-and-rank"
+  ],
+  "status": "authored"
+}

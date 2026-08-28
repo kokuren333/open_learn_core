@@ -1,6 +1,6 @@
 {
   "name": "open-learn-core",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "private": true,
   "description": "Domain-independent evidence-based learning content compiler",
   "type": "module",
@@ -19,9 +19,24 @@
     "audit:semantic": "node scripts/run-audits.mjs",
     "publish:gate": "node scripts/publish-gate.mjs",
     "build:concept": "node scripts/build.mjs",
-    "assets:report": "node scripts/assets-report.mjs"
+    "assets:report": "node scripts/assets-report.mjs",
+    "skills:sync": "node scripts/sync-skills.mjs",
+    "course:audit": "node scripts/course-audit.mjs",
+    "course:status": "node scripts/course-status.mjs",
+    "pdf:unit": "node scripts/build-pdf.mjs unit",
+    "pdf:module": "node scripts/build-pdf.mjs module",
+    "pdf:check": "node scripts/build-pdf.mjs check",
+    "pdf:audit": "node scripts/pdf-audit.mjs",
+    "video:setup": "node scripts/setup-biim-slide-maker.mjs",
+    "video:prepare": "node scripts/video-prepare.mjs",
+    "video:build": "node scripts/video-build.mjs",
+    "video:audit": "node scripts/video-audit.mjs",
+    "youtube:register": "node scripts/register-youtube.mjs"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.5.0"
   }
 }

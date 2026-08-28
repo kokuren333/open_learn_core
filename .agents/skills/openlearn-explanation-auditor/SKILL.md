@@ -11,11 +11,11 @@ Lesson blocks, content layers, notation policy, learner state, examples, worked 
 
 ```yaml
 severity: critical | major | minor
-lesson: basis-lesson-01
-section: basis-section-01-intuition
+lesson: <concept>-lesson-01
+section: <concept>-section-01-intuition
 problem: concrete case does not connect to formal term
 rationale: learner cannot infer why the definition is introduced
-suggested_fix: name span after showing the reachable set
+suggested_fix: name the formal term after showing the concrete pattern
 ```
 
 ## Required Workflow
@@ -31,7 +31,7 @@ Fail on unexplained symbols, abrupt abstraction, ambiguous referents, missing de
 Writer self-review, synonym expansion, undefined notation, example dumping, and measuring quality only by character count.
 
 ## Example Output
-`basis-lesson-03 / basis-section-03-unpack`: pass when V, B, span, and independence are defined and both conditions are tied to existence and uniqueness.
+`<concept>-lesson-03 / <concept>-section-03-unpack`: pass when every symbol, condition, and quantifier is defined and tied to the learner's concrete question.
 
 ## Handoff to next Skill
 Return issues to `openlearn-explanation-writer`; rerun all semantic audits before publishing.

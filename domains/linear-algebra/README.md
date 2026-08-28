@@ -12,6 +12,8 @@
 
 The entry curriculum is `linear-algebra-basic`, beginning at `vector`. The current quality-gate entry point is the complete `basis` concept; the course graph exposes the route from scalar and vector operations through combinations, span, independence, basis, dimension, and matrix representation.
 
+The v1.9 teaching layer is `linear-algebra-foundations-to-applications`: 8 ordered Modules and 52 Learning Units. Learner navigation follows the Course and Module pages; the Knowledge Graph remains a separate reference structure. The first six vector-space Units (`linear-combination` through `coordinate-vectors`) are the initial authored slice, with HTML content, PDF source adaptation, and three video pilots.
+
 ## Concept list
 
 `scalar`, `scalar-multiplication`, `vector`, `vector-addition`, `linear-combination`, `span`, `linear-independence`, `basis`, `dimension`, `linear-map`, `matrix`, and `matrix-representation`.
@@ -26,6 +28,10 @@ Mathematical claims are linked to EvidenceItems and source locators under `data/
 npm run validate:domain -- linear-algebra
 npm run build:domain -- linear-algebra
 npm run test:domain -- linear-algebra
+npm run course:audit -- linear-algebra
+npm run build:all
 ```
+
+Video sources are tracked under `video/units/`; generated Biim compatibility files and media are ignored. See [`../../docs/video-protocol.md`](../../docs/video-protocol.md) and [`../../docs/pdf-pipeline.md`](../../docs/pdf-pipeline.md) for the multi-format contracts.
 
 Domain固有データは`data/`、Visual Specificationは`data/visuals/`、公開用/生成用assetは`assets/`、authoring artifactは`working/`に置きます。出典とEvidenceを先に確定し、Coreのschema・validator・quality gateを通過したものだけを公開します。

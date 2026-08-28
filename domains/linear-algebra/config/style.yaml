@@ -1,0 +1,8 @@
+html:
+  theme: open-learn
+pdf:
+  paper: a4
+  monochrome_safe: true
+video:
+  slide_density_lines: 5
+  resolution: 1920x1080

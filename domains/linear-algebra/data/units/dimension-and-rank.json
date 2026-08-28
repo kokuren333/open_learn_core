@@ -1,0 +1,106 @@
+{
+  "id": "dimension-and-rank",
+  "module": "module-vector-spaces",
+  "order": 6,
+  "title": {
+    "ja": "次元とrank：独立な方向の数",
+    "en": "Dimension and Rank: Counting Independent Directions"
+  },
+  "summary": {
+    "ja": "次元とrank：独立な方向の数を具体例と定義から学ぶ。",
+    "en": "A guided unit on Dimension and Rank: Counting Independent Directions."
+  },
+  "estimated_duration": {
+    "reading_minutes": 8,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "dimension",
+      "rank"
+    ],
+    "supporting": [
+      "basis",
+      "linear-independence"
+    ]
+  },
+  "prerequisites": [
+    "basis-definition"
+  ],
+  "learning_objectives": [
+    "次元を基底の本数として説明できる",
+    "rankを列空間の次元として解釈できる"
+  ],
+  "content": [
+    {
+      "type": "motivation",
+      "body": "平面を表す基底には二本、空間を表す基底には三本の独立な方向があります。見た目の大きさではなく、独立に動かせる方向の数を数える量が次元です。"
+    },
+    {
+      "type": "concrete_case",
+      "body": "R²の標準基底は二本ですが、斜めの二本の基底でも本数は二本です。同じ空間を張る基底の形は変わっても、本数は変わりません。この不変量がdimensionです。"
+    },
+    {
+      "type": "definition",
+      "body": "有限次元ベクトル空間Vの次元dim(V)は、Vの基底に含まれるベクトルの本数です。行列Aのrankは、Aの列が張る列空間の次元で、独立な列方向の数を表します。"
+    },
+    {
+      "type": "worked_example",
+      "body": "Aの列がc₁=(1,0,1), c₂=(0,1,1), c₃=(1,1,2)ならc₃=c₁+c₂です。三列は従属ですが、c₁,c₂は独立なので列空間の基底は二本、rank(A)=2です。"
+    },
+    {
+      "type": "connection",
+      "body": "行列の行基本変形でpivotの数を数えるとrankを計算できます。rankは解の自由度やnull spaceの次元とも関係し、rank-nullityへ進みます。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "rankは行列の列数そのものではありません。列の中に重複する方向があれば、独立な方向だけがrankに寄与します。"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "dimension-and-rank-ex-01",
+      "type": "calculation",
+      "difficulty": "standard",
+      "question": "c₁=(1,0,1), c₂=(0,1,1), c₃=(1,1,2)からrankを求めよ。",
+      "solution": {
+        "what_is_asked": "列空間の独立な方向数を求める。",
+        "concepts": [
+          "rank",
+          "linear-independence"
+        ],
+        "strategy": "列の関係を見つけ、独立な列を残す。",
+        "steps": [
+          "c₃=c₁+c₂を確認する。",
+          "c₁とc₂は一方が他方の定数倍でないので独立。",
+          "列空間の基底を二本選べる。"
+        ],
+        "why": [
+          "従属な列は新しい方向を追加しないから。"
+        ],
+        "conclusion": "rank(A)=2。",
+        "common_wrong_path": "列数3をそのままrankとするのは従属関係を見落としている。"
+      }
+    }
+  ],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "authored"
+    },
+    "pdf": {
+      "required": true,
+      "status": "source_ready"
+    },
+    "video": {
+      "required": true,
+      "status": "scripted"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [
+    "basis-definition"
+  ],
+  "status": "authored"
+}

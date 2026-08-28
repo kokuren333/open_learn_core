@@ -1,0 +1,31 @@
+{
+  "id": "module-orthogonality",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 4,
+  "title": {
+    "ja": "直交性と最小二乗",
+    "en": "Orthogonality"
+  },
+  "description": {
+    "ja": "直交性と最小二乗を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Orthogonality."
+  },
+  "topics": [
+    "orthogonality",
+    "orthogonal complement",
+    "projection",
+    "orthonormal basis",
+    "Gram-Schmidt",
+    "QR",
+    "least squares",
+    "pseudoinverse"
+  ],
+  "units": [
+    "orthogonality",
+    "orthogonal-complement",
+    "projection",
+    "orthonormal-bases",
+    "gram-schmidt",
+    "qr-least-squares"
+  ]
+}

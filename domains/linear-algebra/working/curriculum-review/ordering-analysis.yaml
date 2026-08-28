@@ -1,0 +1,20 @@
+ordering:
+  - from: vector_operations
+    to: linear_combination
+    reason: coefficients and vector arithmetic are needed first
+  - from: linear_combination
+    to: span
+    reason: span packages all reachable linear combinations into a set
+  - from: span
+    to: linear_independence
+    reason: independence supplies the complementary non-redundancy question
+  - from: linear_independence
+    to: basis
+    reason: a basis requires both spanning and independence
+  - from: basis
+    to: dimension_and_rank
+    reason: dimension counts basis directions and rank counts independent matrix directions
+  - from: basis_and_dimension
+    to: coordinate_vectors
+    reason: coordinates are coefficients relative to a chosen basis
+principle: Course order follows learner questions and prerequisite activation; the Knowledge Graph remains many-to-many.

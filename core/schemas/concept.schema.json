@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/concept.schema.json",
-  "title": "Concept v1.8",
+  "title": "Concept v1.9",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "title", "summary", "prerequisites", "related", "learningObjectives", "lessons", "claims", "examples", "exercises", "misconceptions", "sources"],

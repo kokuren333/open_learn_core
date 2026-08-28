@@ -1,0 +1,52 @@
+{
+  "id": "dot-product-and-norm",
+  "module": "module-prerequisites-vectors",
+  "order": 5,
+  "title": {
+    "ja": "dot product and norm",
+    "en": "dot product and norm"
+  },
+  "summary": {
+    "ja": "dot product and normを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on dot product and norm."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "dot-product-and-norm"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "dot product and normの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、dot product and normを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

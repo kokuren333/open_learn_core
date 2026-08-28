@@ -1,0 +1,5 @@
+repository: https://github.com/kokuren333/BiimSlideMaker
+revision: bf9c40432df0c5f5face139d9606772ee6d89559
+local_path: .tools/BiimSlideMaker
+ownership: first-party
+integration: protocol-and-adapter

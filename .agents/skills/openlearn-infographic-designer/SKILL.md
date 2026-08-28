@@ -18,7 +18,7 @@ Visual brief with learning goal, concept, target claim, learner question, layout
 6. Check the visual against the claim and body text before publishing.
 
 ## Quality Rules
-Visual appearance is not evidence. A slanted basis need not be orthogonal; spatial proximity and angle cannot silently become conditions. Alt text must explain the learning content, not merely list shapes.
+Visual appearance is not evidence. Geometry, position, and color cannot silently become conditions. Alt text must explain the learning content, not merely list shapes.
 
 ## Failure Conditions
 Fail on missing claim linkage, missing alt text, unlabeled panels, decorative-only placement, or a drawing that contradicts the definition.
@@ -27,7 +27,7 @@ Fail on missing claim linkage, missing alt text, unlabeled panels, decorative-on
 Decoration, color-only meaning, unexplained arrows, screenshots without provenance, and “looks right” geometry.
 
 ## Example Output
-Two R² panels show standard and non-standard bases with explicit `span ✓ / independent ✓` labels and a risk note that orthogonality is not required.
+A comparison layout shows positive and near-miss cases with explicit property labels and a risk note for the most likely visual misreading.
 
 ## Handoff to next Skill
 Send the brief and artifact to `openlearn-visual-auditor` and the explanation writer.

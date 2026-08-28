@@ -22,7 +22,7 @@ Fail on abrupt abstraction, no learner problem, content overload, calculation-on
 Presence-only review, topic-order worship, and equating longer text with better teaching.
 
 ## Example Output
-Lesson 2 passes because recall precedes notation, three conditions are contrasted, a visual answers the learner question, and a checkpoint distinguishes span from independence.
+Lesson 2 passes because recall precedes notation, nearby cases are contrasted, a visual answers the learner question, and a checkpoint distinguishes the target property from a common near-miss.
 
 ## Handoff to next Skill
 Return instructional issues to pedagogy synthesizer and explanation writer; return assessment issues to exercise/diagnostic designers.

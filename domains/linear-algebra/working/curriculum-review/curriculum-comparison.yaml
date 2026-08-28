@@ -1,0 +1,16 @@
+comparison:
+  - area: vectors_and_linear_combinations
+    sources: [mit-ocw-linear-algebra, openstax-linear-algebra, hefferon-linear-algebra]
+    finding: common foundation before abstract spaces, transformations, and applications
+  - area: systems_and_matrices
+    sources: [mit-ocw-linear-algebra, openstax-linear-algebra, hefferon-linear-algebra]
+    finding: equations and row operations should precede abstract matrix structure
+  - area: span_independence_basis_dimension
+    sources: [mit-ocw-linear-algebra, openstax-linear-algebra, hefferon-linear-algebra]
+    finding: teach span before independence, then combine both in basis and dimension
+  - area: orthogonality_and_least_squares
+    sources: [mit-ocw-linear-algebra, openstax-linear-algebra, hefferon-linear-algebra]
+    finding: projections and inner products provide the bridge to least squares
+  - area: eigenvalues_and_applications
+    sources: [mit-ocw-linear-algebra, openstax-linear-algebra, hefferon-linear-algebra]
+    finding: place later, after transformations, determinants, and matrix structure

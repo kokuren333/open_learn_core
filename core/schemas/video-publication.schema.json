@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/video-publication.schema.json",
+  "title": "Open Learn Video Publication",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["platform", "status"],
+  "properties": { "platform": { "type": "string", "const": "youtube" }, "status": { "type": "string", "enum": ["not_planned", "planned", "scripted", "generated", "uploaded", "published", "deprecated"] }, "video_id": { "type": "string" }, "url": { "type": "string" }, "published_at": { "type": "string" }, "language": { "type": "string" }, "duration_seconds": { "type": "number" } }
+}

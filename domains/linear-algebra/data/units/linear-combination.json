@@ -1,0 +1,108 @@
+{
+  "id": "linear-combination",
+  "module": "module-vector-spaces",
+  "order": 2,
+  "title": {
+    "ja": "線形結合とは何を作る操作か",
+    "en": "What Is a Linear Combination?"
+  },
+  "summary": {
+    "ja": "線形結合とは何を作る操作かを具体例と定義から学ぶ。",
+    "en": "A guided unit on What Is a Linear Combination?."
+  },
+  "estimated_duration": {
+    "reading_minutes": 8,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "linear-combination"
+    ],
+    "supporting": [
+      "vector",
+      "scalar-multiplication"
+    ]
+  },
+  "prerequisites": [
+    "vector-introduction",
+    "scalar-multiplication"
+  ],
+  "learning_objectives": [
+    "線形結合を係数とベクトルの組として説明できる",
+    "係数を変えたときに作れるベクトルの違いを計算できる"
+  ],
+  "content": [
+    {
+      "type": "motivation",
+      "body": "二つのベクトルを足し合わせるだけでなく、係数を変えながら組み合わせると、どのようなベクトルを作れるでしょうか。線形結合は、後でspanや基底を理解するための共通の操作です。"
+    },
+    {
+      "type": "concrete_case",
+      "body": "v=(1,0) と w=(0,1) を考えます。2v+3w=(2,3) なので、係数2と3を選ぶだけで平面上の点を指定できます。係数の組と結果のベクトルを対応させることが出発点です。"
+    },
+    {
+      "type": "definition",
+      "body": "ベクトル v₁,…,vₖ とスカラー c₁,…,cₖ に対して、c₁v₁+⋯+cₖvₖ をそれらの線形結合と呼びます。係数は実数でも、扱うベクトル空間が指定するスカラーでも構いません。"
+    },
+    {
+      "type": "worked_example",
+      "body": "u=(1,2), v=(3,-1) から (7,3) を作れるか調べます。係数を a,b と置くと a+3b=7、2a-b=3 です。第一式から a=7-3b、これを第二式へ代入して14-7b=3、b=11/7、a=16/7を得ます。したがって (7,3)=(16/7)u+(11/7)v です。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認：線形結合で変えられるのは係数であり、元のベクトルを途中で別の方向へ曲げる操作ではありません。係数をすべて0にすれば、どんなベクトル集合からも零ベクトルが作れます。"
+    },
+    {
+      "type": "connection",
+      "body": "係数を自由に動かしたときに到達できる集合全体がspanです。次のUnitでは、個別の計算結果ではなく、この到達可能な集合を調べます。"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "linear-combination-ex-01",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "u=(1,2), v=(2,1) の線形結合 3u−v を求めよ。",
+      "solution": {
+        "what_is_asked": "3u−vを成分ごとに計算する。",
+        "concepts": [
+          "vector",
+          "scalar-multiplication"
+        ],
+        "strategy": "各ベクトルを係数倍してから加える。",
+        "steps": [
+          "3u=(3,6)を計算する。",
+          "−v=(−2,−1)を計算する。",
+          "成分を加えて(1,5)を得る。"
+        ],
+        "why": [
+          "係数倍は各成分に同じ係数を掛ける操作だから。",
+          "ベクトル加法は対応する成分を足すから。"
+        ],
+        "conclusion": "3u−v=(1,5)。",
+        "common_wrong_path": "係数を一部の成分だけに掛けると、別のベクトルを計算してしまう。"
+      }
+    }
+  ],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "authored"
+    },
+    "pdf": {
+      "required": true,
+      "status": "source_ready"
+    },
+    "video": {
+      "required": true,
+      "status": "scripted"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [
+    "vector-introduction",
+    "scalar-multiplication"
+  ],
+  "status": "authored"
+}

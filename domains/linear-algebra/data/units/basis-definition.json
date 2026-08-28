@@ -1,0 +1,108 @@
+{
+  "id": "basis-definition",
+  "module": "module-vector-spaces",
+  "order": 5,
+  "title": {
+    "ja": "基底：spanと独立性を同時に満たす",
+    "en": "Basis: Spanning Without Redundancy"
+  },
+  "summary": {
+    "ja": "基底：spanと独立性を同時に満たすを具体例と定義から学ぶ。",
+    "en": "A guided unit on Basis: Spanning Without Redundancy."
+  },
+  "estimated_duration": {
+    "reading_minutes": 8,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "basis"
+    ],
+    "supporting": [
+      "span",
+      "linear-independence"
+    ]
+  },
+  "prerequisites": [
+    "span",
+    "linear-independence"
+  ],
+  "learning_objectives": [
+    "基底の二条件を説明できる",
+    "基底が存在と一意性を与える理由を例で説明できる"
+  ],
+  "content": [
+    {
+      "type": "motivation",
+      "body": "空間を作れるだけなら、余分なベクトルをいくら加えてもよい。しかし座標や計算に使う材料としては、足りないことも重複することも避けたい。基底はこの二つの要求を一つの概念にまとめます。"
+    },
+    {
+      "type": "concrete_case",
+      "body": "平面の標準基底e₁=(1,0),e₂=(0,1)は平面をspanし、二本は独立です。(1,1)を追加してもspanは変わりませんが、独立性が壊れます。逆に一本だけでは平面をspanできません。"
+    },
+    {
+      "type": "definition",
+      "body": "ベクトル集合Bがベクトル空間Vの基底であるとは、BがVをspanし、かつBが線形独立であることです。spanは全てのベクトルを表せること、独立性はその表現が重複しないことを保証します。"
+    },
+    {
+      "type": "worked_example",
+      "body": "B={(1,1),(1,−1)}がR²の基底か調べます。係数a,bで(a+b,a−b)=(x,y)を解くとa=(x+y)/2,b=(x−y)/2が常に存在し、零ベクトルの場合の解もa=b=0だけです。よってspanと独立性の両方が成り立ちます。"
+    },
+    {
+      "type": "connection",
+      "body": "基底があると、各ベクトルに係数の組を対応させられます。その係数が座標です。また、同じ空間の基底の本数が一致する事実が次の次元へつながります。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "基底は「きれいに見えるベクトル」や「直交するベクトル」に限定されません。重要なのは、空間をspanすることと、線形独立であることです。"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "basis-definition-ex-01",
+      "type": "explanation",
+      "difficulty": "standard",
+      "question": "基底にspanと線形独立性の両方が必要な理由を説明せよ。",
+      "solution": {
+        "what_is_asked": "二条件が防ぐ失敗を対比する。",
+        "concepts": [
+          "basis",
+          "span",
+          "linear-independence"
+        ],
+        "strategy": "不足と冗長性を別々に示す。",
+        "steps": [
+          "spanがなければ、空間の一部しか表せず材料不足になる。",
+          "独立性がなければ、同じベクトルに複数の係数が対応して冗長になる。",
+          "両方を満たすと表現の存在と一意性が得られる。"
+        ],
+        "why": [
+          "基底を座標の基準として使うには、全てを表せて、しかも表し方が一つでなければならない。"
+        ],
+        "conclusion": "spanは存在、独立性は一意性を支える。",
+        "common_wrong_path": "基底を単に『ベクトルの集合』とだけ説明すると二条件が抜ける。"
+      }
+    }
+  ],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "authored"
+    },
+    "pdf": {
+      "required": true,
+      "status": "source_ready"
+    },
+    "video": {
+      "required": true,
+      "status": "scripted"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [
+    "span",
+    "linear-independence"
+  ],
+  "status": "authored"
+}

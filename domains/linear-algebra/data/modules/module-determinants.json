@@ -1,0 +1,31 @@
+{
+  "id": "module-determinants",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 5,
+  "title": {
+    "ja": "行列式と可逆性",
+    "en": "Determinants"
+  },
+  "description": {
+    "ja": "行列式と可逆性を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Determinants."
+  },
+  "topics": [
+    "determinant intuition",
+    "definition",
+    "properties",
+    "computation",
+    "geometry",
+    "invertibility",
+    "volume",
+    "orientation"
+  ],
+  "units": [
+    "determinant-intuition",
+    "determinant-definition",
+    "determinant-properties",
+    "determinant-computation",
+    "determinant-invertibility",
+    "determinant-volume"
+  ]
+}

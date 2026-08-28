@@ -1,0 +1,32 @@
+{
+  "id": "module-eigenvalues",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 6,
+  "title": {
+    "ja": "固有値で変換を分解する",
+    "en": "Eigenvalues and Eigenvectors"
+  },
+  "description": {
+    "ja": "固有値で変換を分解するを、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Eigenvalues and Eigenvectors."
+  },
+  "topics": [
+    "eigenvalue",
+    "eigenvector",
+    "characteristic polynomial",
+    "eigenspace",
+    "multiplicity",
+    "diagonalization",
+    "symmetric matrices",
+    "spectral theorem",
+    "positive definite"
+  ],
+  "units": [
+    "eigenvalue-eigenvector",
+    "characteristic-polynomial",
+    "eigenspace-and-multiplicity",
+    "diagonalization",
+    "symmetric-spectral-theorem",
+    "positive-definite-matrices"
+  ]
+}

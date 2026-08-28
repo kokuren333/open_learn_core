@@ -1,0 +1,52 @@
+{
+  "id": "markov-matrices",
+  "module": "module-applications",
+  "order": 4,
+  "title": {
+    "ja": "markov matrices",
+    "en": "markov matrices"
+  },
+  "summary": {
+    "ja": "markov matricesを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on markov matrices."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "markov-matrices"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "markov matricesの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、markov matricesを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

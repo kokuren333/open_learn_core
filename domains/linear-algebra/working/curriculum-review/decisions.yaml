@@ -1,0 +1,19 @@
+decisions:
+  - id: decision-span-before-linear-independence
+    question: span と linear independence のどちらを先に教えるか
+    decision: span を先に扱う
+    rationale: 線形結合から作れる範囲を先に扱い、その後に冗長性を対比する。
+    evidence: [mit-ocw-linear-algebra, openstax-linear-algebra, hefferon-linear-algebra]
+    status: supported
+  - id: decision-course-not-graph
+    question: Knowledge Graphをそのまま学習順序にするか
+    decision: CourseとModuleの順序を独立に定義する
+    rationale: グラフは関係を網羅するが、学習者には一つの目的と次の行動が必要である。
+    evidence: [mit-ocw-linear-algebra, openstax-linear-algebra]
+    status: supported
+  - id: decision-applications-after-core
+    question: 応用と数値計算をどこに置くか
+    decision: 固有値・直交性・行列構造の後に置く
+    rationale: 応用の式を暗記させず、基礎概念からモデル化と近似へ接続する。
+    evidence: [mit-ocw-linear-algebra, hefferon-linear-algebra]
+    status: supported

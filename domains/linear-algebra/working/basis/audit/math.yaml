@@ -2,7 +2,7 @@ status: pass
 auditor: openlearn-math-auditor
 independent_review: true
 artifact_hash: sha256:0612a8a95fbd8c85675d6b5f4721f480a8add1fd11cf0f47e3c05b7ac1650f1f
-evaluated_at: 2026-08-28T13:57:53.020Z
+evaluated_at: 2026-08-28T15:10:39.606Z
 summary: Definitions, examples, counterexamples, and worked reasoning reviewed semantically.
 issues:
   - none

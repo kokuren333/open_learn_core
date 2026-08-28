@@ -22,7 +22,7 @@ Fail on missing support, vague locator, overclaiming, mismatched source type, or
 Citation decoration, source-count inflation, using a table of contents as proof of a theorem, and treating a draft as an authority.
 
 ## Example Output
-`basis-claim-05` maps to `basis-dimension-mit`, with theorem-level scope and a course-page locator; curriculum notes are not used as theorem proof.
+`<concept>-claim-05` maps to an EvidenceItem with precise scope and a re-openable locator; planning notes are not used as proof of a factual claim.
 
 ## Handoff to next Skill
 Send cleared claimRefs to the writer and publisher; send scope issues back to source discovery/extraction.

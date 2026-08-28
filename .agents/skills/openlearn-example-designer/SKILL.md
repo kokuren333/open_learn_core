@@ -27,7 +27,7 @@ Fail when examples are random, duplicate the same surface form, lack a purpose, 
 Changing only numbers, positive examples only, answer-first worked solutions, and geometric pictures that imply an unstated condition.
 
 ## Example Output
-`basis-example-016`: zero-vector candidate; targetClaim is independence; contrastWith is standard basis; whatToNotice identifies the nontrivial zero relation.
+`<concept>-example-016`: a near-miss candidate; `targetClaim` names the property under review; `contrastWith` names a nearby positive case; `whatToNotice` identifies the decisive distinction.
 
 ## Handoff to next Skill
 Send the example progression to the explanation writer, exercise designer, and math auditor.

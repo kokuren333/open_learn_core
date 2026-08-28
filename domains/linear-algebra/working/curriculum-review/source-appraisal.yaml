@@ -1,0 +1,11 @@
+appraisal:
+  - source: mit-ocw-linear-algebra
+    strengths: institutional university course, lecture sequence, exercises, and openly published teaching material
+    limitation: course emphasis reflects one instructor and is not a universal ordering
+  - source: openstax-linear-algebra
+    strengths: openly licensed textbook with definitions, examples, and exercises
+    limitation: chapter organization is textbook-oriented and may be denser than a video unit
+  - source: hefferon-linear-algebra
+    strengths: openly licensed proof-aware text with broad conceptual coverage
+    limitation: notation and proof depth require adaptation for the target learner
+decision: use convergence across sources for module boundaries and record disagreements instead of treating one source as authoritative

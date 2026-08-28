@@ -1,0 +1,13 @@
+entries:
+  - surface: Gram-Schmidt
+    reading: グラムシュミット
+  - surface: SVD
+    reading: エスブイディー
+  - surface: QR
+    reading: キューアール
+  - surface: RREF
+    reading: アールレフ
+  - surface: PCA
+    reading: ピーシーエー
+  - surface: R^n
+    reading: アールのエヌじょう

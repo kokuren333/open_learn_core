@@ -1,3 +1,15 @@
 site/
 node_modules/
 .DS_Store
+
+# Local first-party BiimSlideMaker checkout
+.tools/BiimSlideMaker/
+
+# Generated PDF/video artifacts
+domains/*/video/generated/
+domains/*/pdf/generated/
+*.wav
+*.mp3
+*.mp4
+*.mov
+*.mkv

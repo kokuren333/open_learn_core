@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/video-source.schema.json",
+  "title": "Open Learn Video Source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["unit", "tts", "slides"],
+  "properties": {
+    "unit": { "type": "string" },
+    "tts": { "type": "object", "required": ["backend", "speaker", "synthesis"], "properties": { "backend": { "type": "string", "enum": ["voicevox", "aivis"] }, "speaker": { "type": "object", "required": ["name", "style"], "properties": { "name": { "type": "string" }, "style": { "type": "string" } } }, "synthesis": { "type": "object", "required": ["speed_scale"], "properties": { "speed_scale": { "type": "number" } } } } },
+    "slides": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/slide" } },
+    "status": { "type": "string" }
+  },
+  "$defs": { "slide": { "type": "object", "required": ["id", "script", "spoken_script", "note_top", "note_bottom"], "properties": { "id": { "type": "integer" }, "script": { "type": "string", "minLength": 1 }, "spoken_script": { "type": "string", "minLength": 1 }, "note_top": { "type": "string", "minLength": 1 }, "note_bottom": { "type": "string", "minLength": 1 } } } }
+}

@@ -13,7 +13,7 @@ Visual artifact/brief, target claim, source text, lesson body, labels, encoding,
 Check semantic meaning; geometry and labels; false implications from position/angle; consistency with definition and prose; color independence; accessibility and alt text; claim linkage; and lesson placement.
 
 ## Quality Rules
-Text labels must carry the logical distinction. A diagram of one basis is not evidence that all bases look that way. The alt text must state what comparison or reasoning the learner should take away.
+Text labels must carry the logical distinction. One example is not evidence that every object in the class has the same appearance. The alt text must state what comparison or reasoning the learner should take away.
 
 ## Failure Conditions
 Fail on misleading geometry, missing labels, color-only encoding, inaccessible text, contradiction with the body, or decoration without a learning goal.
@@ -22,7 +22,7 @@ Fail on misleading geometry, missing labels, color-only encoding, inaccessible t
 Visual polish as correctness, unlabeled arrows, and treating SVG validity as semantic validity.
 
 ## Example Output
-The R² comparison passes because both panels explicitly state span and independence, while the risk note warns against reading orthogonality as required.
+The comparison passes because both panels explicitly state the relevant property, while the risk note warns against treating an incidental visual feature as a requirement.
 
 ## Handoff to next Skill
 Send cleared artifact to publisher and embedded lesson renderer; send semantic issues to infographic designer.

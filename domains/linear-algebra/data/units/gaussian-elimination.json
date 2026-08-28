@@ -1,0 +1,52 @@
+{
+  "id": "gaussian-elimination",
+  "module": "module-systems-matrices",
+  "order": 3,
+  "title": {
+    "ja": "gaussian elimination",
+    "en": "gaussian elimination"
+  },
+  "summary": {
+    "ja": "gaussian eliminationを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on gaussian elimination."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "gaussian-elimination"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "gaussian eliminationの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、gaussian eliminationを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

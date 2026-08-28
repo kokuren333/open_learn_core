@@ -1,0 +1,11 @@
+[
+  { "from": "linear-combination", "to": "span", "type": "prerequisite" },
+  { "from": "span", "to": "linear-independence", "type": "prerequisite" },
+  { "from": "linear-independence", "to": "basis", "type": "prerequisite" },
+  { "from": "basis", "to": "dimension", "type": "related" },
+  { "from": "dimension", "to": "rank", "type": "related" },
+  { "from": "matrix", "to": "linear-map", "type": "used_in" },
+  { "from": "linear-map", "to": "eigenvalue", "type": "prerequisite" },
+  { "from": "eigenvalue", "to": "determinant", "type": "related" },
+  { "from": "basis", "to": "coordinate-vectors", "type": "used_in" }
+]

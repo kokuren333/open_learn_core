@@ -1,0 +1,52 @@
+{
+  "id": "inverse-and-lu",
+  "module": "module-systems-matrices",
+  "order": 5,
+  "title": {
+    "ja": "inverse and lu",
+    "en": "inverse and lu"
+  },
+  "summary": {
+    "ja": "inverse and luを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on inverse and lu."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "inverse-and-lu"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "inverse and luの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、inverse and luを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

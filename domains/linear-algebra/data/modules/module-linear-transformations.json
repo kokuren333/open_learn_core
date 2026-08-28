@@ -1,0 +1,32 @@
+{
+  "id": "module-linear-transformations",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 3,
+  "title": {
+    "ja": "線形写像で構造を見る",
+    "en": "Linear Transformations"
+  },
+  "description": {
+    "ja": "線形写像で構造を見るを、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Linear Transformations."
+  },
+  "topics": [
+    "linear transformation",
+    "kernel",
+    "image",
+    "matrix representation",
+    "coordinate vectors",
+    "change of basis",
+    "composition",
+    "inverse",
+    "similarity"
+  ],
+  "units": [
+    "linear-transformations",
+    "kernel-and-image",
+    "matrix-representation",
+    "coordinate-maps",
+    "change-of-basis",
+    "composition-and-similarity"
+  ]
+}

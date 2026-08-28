@@ -1,0 +1,10 @@
+sources:
+  - id: mit-ocw-linear-algebra
+    type: university_oer
+    use: topic sequence, four subspaces, eigenvalue and application coverage
+  - id: openstax-linear-algebra
+    type: open_textbook
+    use: definitions, exercises, and standard introductory progression
+  - id: hefferon-linear-algebra
+    type: open_textbook
+    use: proof-oriented concepts, vector spaces, transformations, and applications

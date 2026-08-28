@@ -35,7 +35,7 @@ Fail on definition-only prose, unexplained prerequisites, repetition without a n
 Glossary cards, paraphrase inflation, unexplained notation, proof by “clearly”, example lists without purpose, and evidence pasted after writing.
 
 ## Example Output
-`formal_definition`: exact statement; `term_by_term`: explain V, B, span, independence, and why both conditions are needed; `checkpoint`: learner classifies a shortage versus redundancy.
+`formal_definition`: exact statement; `term_by_term`: explain every symbol, condition, and quantifier; `checkpoint`: learner classifies a positive case versus a near-miss.
 
 ## Handoff to next Skill
 Send complete lesson blocks, example contracts, and claimRefs to `openlearn-explanation-auditor`, `openlearn-math-auditor`, and `openlearn-pedagogy-auditor`.

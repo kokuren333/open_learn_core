@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/cumulative-review.schema.json",
+  "title": "Open Learn Cumulative Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "module_ids", "exercise_ids"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "title": { "$ref": "concept.schema.json#/$defs/localized" },
+    "module_ids": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "exercise_ids": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

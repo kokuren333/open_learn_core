@@ -1,0 +1,9 @@
+modules:
+  module-prerequisites-vectors: [scalars, vectors, addition, scalar_multiplication, dot_product, norm]
+  module-systems-matrices: [systems, matrices, row_operations, gaussian_elimination, rref, pivots, inverse, lu]
+  module-vector-spaces: [vector_spaces, subspaces, span, column_space, row_space, null_space, independence, basis, coordinates, dimension, rank, rank_nullity]
+  module-linear-transformations: [linear_transformation, kernel, image, matrix_representation, change_of_basis, composition, similarity]
+  module-orthogonality: [orthogonality, projection, orthonormal_basis, gram_schmidt, qr, least_squares, pseudoinverse]
+  module-determinants: [determinant_definition, determinant_properties, computation, invertibility, volume, orientation]
+  module-eigenvalues: [eigenvalue, eigenvector, characteristic_polynomial, eigenspace, multiplicity, diagonalization, spectral_theorem, positive_definite]
+  module-applications: [quadratic_forms, svd, low_rank, pca, markov, graph_matrices, differential_equations, fourier, numerical_stability]

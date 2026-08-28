@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/tts-config.schema.json",
+  "title": "Open Learn TTS Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["default", "backends"],
+  "properties": { "default": { "$ref": "#/$defs/backend" }, "backends": { "type": "object", "properties": { "voicevox": { "type": "object" }, "aivis": { "type": "object" } } } },
+  "$defs": { "backend": { "type": "object", "required": ["backend", "speaker", "synthesis"], "properties": { "backend": { "type": "string" }, "speaker": { "type": "object", "required": ["name", "style"], "properties": { "name": { "type": "string" }, "style": { "type": "string" } } }, "synthesis": { "type": "object", "required": ["speed_scale"], "properties": { "speed_scale": { "type": "number", "minimum": 0.9, "maximum": 1.5 } } } } } }
+}

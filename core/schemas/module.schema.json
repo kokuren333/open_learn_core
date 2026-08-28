@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-learn-core.example/schemas/module.schema.json",
+  "title": "Open Learn Module",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "course", "order", "title", "description", "topics", "units"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "course": { "type": "string" },
+    "order": { "type": "integer" },
+    "title": { "$ref": "concept.schema.json#/$defs/localized" },
+    "description": { "$ref": "concept.schema.json#/$defs/localized" },
+    "topics": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "units": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "exercise_ids": { "type": "array", "items": { "type": "string" } }
+  }
+}

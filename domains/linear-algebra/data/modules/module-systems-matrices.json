@@ -1,0 +1,33 @@
+{
+  "id": "module-systems-matrices",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 1,
+  "title": {
+    "ja": "連立方程式を行列で解く",
+    "en": "Linear Systems and Matrices"
+  },
+  "description": {
+    "ja": "連立方程式を行列で解くを、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Linear Systems and Matrices."
+  },
+  "topics": [
+    "linear equations",
+    "matrix notation",
+    "row operations",
+    "Gaussian elimination",
+    "RREF",
+    "pivots",
+    "consistency",
+    "matrix multiplication",
+    "inverse",
+    "LU decomposition"
+  ],
+  "units": [
+    "linear-equations",
+    "matrix-introduction",
+    "matrix-operations",
+    "gaussian-elimination",
+    "rref-and-pivots",
+    "inverse-and-lu"
+  ]
+}

@@ -1,0 +1,24 @@
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { loadDomain } from "../core/src/domain/load-domain.mjs";
+import { readVideoSource } from "../core/src/video/io.mjs";
+import { writeBiimCompatibility } from "../core/src/video/biim-adapter.mjs";
+import { auditVideoSource } from "../core/src/video/audit.mjs";
+
+const root = process.cwd();
+const domainId = process.argv[2];
+const unitId = process.argv[3];
+if (!domainId || !unitId) throw new Error("Usage: npm run video:prepare -- <domain> <unit>");
+const domain = await loadDomain(root, domainId);
+const sourcePath = path.join(domain.root, "video", "units", unitId, "video.yaml");
+const slidesPath = path.join(domain.root, "video", "units", unitId, "slides.md");
+await access(sourcePath); await access(slidesPath);
+const source = await readVideoSource(sourcePath);
+const slidesMarkdown = await readFile(slidesPath, "utf8");
+const audit = auditVideoSource({ source, slidesMarkdown });
+if (audit.status === "fail") throw new Error(`Video source audit failed:\n${audit.issues.map((item) => `- ${item.problem}`).join("\n")}`);
+const output = await writeBiimCompatibility({ domainRoot: domain.root, source });
+await mkdir(output, { recursive: true });
+await writeFile(path.join(output, "video-audit.json"), JSON.stringify(audit, null, 2) + "\n");
+console.log(`Video source prepared: ${domainId}/${unitId}`);
+console.log(`Biim compatibility output: ${path.relative(root, output)}`);

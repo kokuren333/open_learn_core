@@ -1,0 +1,52 @@
+{
+  "id": "quadratic-forms",
+  "module": "module-applications",
+  "order": 0,
+  "title": {
+    "ja": "quadratic forms",
+    "en": "quadratic forms"
+  },
+  "summary": {
+    "ja": "quadratic formsを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on quadratic forms."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "quadratic-forms"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "quadratic formsの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、quadratic formsを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

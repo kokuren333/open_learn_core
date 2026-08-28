@@ -1,0 +1,13 @@
+default:
+  backend: voicevox
+  speaker:
+    name: ずんだもん
+    style: ノーマル
+  synthesis:
+    speed_scale: 1.25
+backends:
+  voicevox:
+    endpoint: http://127.0.0.1:50021
+    resolve_speaker_by_name: true
+  aivis:
+    endpoint: http://127.0.0.1:10101

@@ -3,6 +3,7 @@ import path from "node:path";
 import { discoverDomains } from "./discover-domains.mjs";
 import { readManifest } from "./manifest.mjs";
 import { loadDataset } from "../validation/index.mjs";
+import { loadCourseData } from "../course/load-course.mjs";
 
 export async function loadDomain(repoRoot, domainId) {
   const discovered = await discoverDomains(repoRoot);
@@ -12,7 +13,13 @@ export async function loadDomain(repoRoot, domainId) {
   const dataset = await loadDataset(repoRoot, { dataRoot: path.resolve(found.root, manifest.content_root ?? "./data"), schemasRoot: path.join(repoRoot, "core", "schemas") });
   dataset.domainRoot = found.root;
   dataset.domainId = manifest.id;
-  return { ...found, manifest, dataset, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
+  const courseData = await loadCourseData(found.root);
+  dataset.courses = courseData.courses;
+  dataset.modules = courseData.modules;
+  dataset.units = courseData.units;
+  dataset.moduleExercises = courseData.moduleExercises;
+  dataset.cumulativeReviews = courseData.cumulativeReviews;
+  return { ...found, manifest, dataset, courseData, assetRoot: path.resolve(found.root, manifest.asset_root ?? "./assets"), workingRoot: path.join(found.root, "working") };
 }
 
 export async function loadAllDomains(repoRoot = process.cwd()) {

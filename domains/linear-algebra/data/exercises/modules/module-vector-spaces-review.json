@@ -1,0 +1,37 @@
+{
+  "id": "module-vector-spaces-review",
+  "module": "module-vector-spaces",
+  "title": { "ja": "ベクトル空間 Module レビュー", "en": "Vector Spaces Module Review" },
+  "exercises": [
+    {
+      "id": "module-vector-spaces-review-01",
+      "type": "synthesis",
+      "question": "S={(1,0),(0,1),(1,1)}について、spanと線形独立性を判定し、基底かどうか説明せよ。",
+      "difficulty": "standard",
+      "solution": {
+        "what_is_asked": "集合Sが平面をspanするか、線形独立か、基底かを順に判定する。",
+        "concepts": ["span", "linear-independence", "basis"],
+        "strategy": "まず最初の二本で平面を作れることを確認し、三本目の零関係を調べる。",
+        "steps": ["(1,0)と(0,1)の線形結合は(a,b)となるので、SはR²をspanする。", "(1,1)−(1,0)−(0,1)=0なので、零でない係数による関係がある。", "したがってSは線形従属であり、spanしていても基底ではない。"],
+        "why": ["基底にはspanと線形独立性の両方が必要だから。"],
+        "conclusion": "SはR²をspanするが線形従属なので、R²の基底ではない。",
+        "common_wrong_path": "spanしていることだけを確認して基底と結論する。"
+      }
+    },
+    {
+      "id": "module-vector-spaces-review-02",
+      "type": "calculation",
+      "question": "B={(1,1),(1,−1)}に関するv=(5,1)の座標を求め、標準基底の成分との違いを説明せよ。",
+      "difficulty": "standard",
+      "solution": {
+        "what_is_asked": "vをBの線形結合で表す係数を求める。",
+        "concepts": ["basis", "coordinate-vectors"],
+        "strategy": "v=a(1,1)+b(1,−1)と置いて成分比較する。",
+        "steps": ["a+b=5、a−b=1を立てる。", "二式を加えて2a=6、a=3を得る。", "a+b=5に代入してb=2を得る。"],
+        "why": ["基底に関する座標は、その基底ベクトルに掛ける係数だから。"],
+        "conclusion": "[v]B=(3,2)。標準基底の(5,1)とは基準となるベクトルが違うため数値が異なる。",
+        "common_wrong_path": "ベクトルの標準成分を、どの基底でもそのまま座標だと扱う。"
+      }
+    }
+  ]
+}

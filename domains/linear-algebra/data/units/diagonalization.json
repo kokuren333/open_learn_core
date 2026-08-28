@@ -1,0 +1,52 @@
+{
+  "id": "diagonalization",
+  "module": "module-eigenvalues",
+  "order": 3,
+  "title": {
+    "ja": "diagonalization",
+    "en": "diagonalization"
+  },
+  "summary": {
+    "ja": "diagonalizationを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on diagonalization."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "diagonalization"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "diagonalizationの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、diagonalizationを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

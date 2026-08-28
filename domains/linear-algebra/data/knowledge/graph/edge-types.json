@@ -1,0 +1,10 @@
+{
+  "edge_types": [
+    "prerequisite",
+    "related",
+    "generalizes",
+    "specializes",
+    "used_in",
+    "equivalent_view"
+  ]
+}

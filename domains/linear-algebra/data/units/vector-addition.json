@@ -1,0 +1,52 @@
+{
+  "id": "vector-addition",
+  "module": "module-prerequisites-vectors",
+  "order": 3,
+  "title": {
+    "ja": "vector addition",
+    "en": "vector addition"
+  },
+  "summary": {
+    "ja": "vector additionを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on vector addition."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "vector-addition"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "vector additionの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、vector additionを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "coordinate-maps",
+  "module": "module-linear-transformations",
+  "order": 3,
+  "title": {
+    "ja": "coordinate maps",
+    "en": "coordinate maps"
+  },
+  "summary": {
+    "ja": "coordinate mapsを段階的に学ぶための計画Unit。",
+    "en": "A planned unit on coordinate maps."
+  },
+  "estimated_duration": {
+    "reading_minutes": 7,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "coordinate-maps"
+    ],
+    "supporting": []
+  },
+  "prerequisites": [],
+  "learning_objectives": [
+    "coordinate mapsの基本的な意味を説明できる"
+  ],
+  "content": [
+    {
+      "type": "planned",
+      "body": "このUnitは、coordinate mapsを前提知識から例題・演習へ接続する教材として整備予定です。"
+    }
+  ],
+  "exercises": [],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "planned"
+    },
+    "pdf": {
+      "required": true,
+      "status": "planned"
+    },
+    "video": {
+      "required": false,
+      "status": "not_planned"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [],
+  "status": "planned"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "module-vector-spaces",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 2,
+  "title": {
+    "ja": "ベクトル空間と部分空間",
+    "en": "Vector Spaces and Subspaces"
+  },
+  "description": {
+    "ja": "ベクトル空間と部分空間を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Vector Spaces and Subspaces."
+  },
+  "topics": [
+    "vector spaces",
+    "subspaces",
+    "span",
+    "column space",
+    "row space",
+    "null space",
+    "independence",
+    "basis",
+    "coordinates",
+    "dimension",
+    "rank",
+    "rank-nullity",
+    "four fundamental subspaces"
+  ],
+  "units": [
+    "vector-spaces",
+    "subspaces",
+    "linear-combination",
+    "span",
+    "linear-independence",
+    "basis-definition",
+    "dimension-and-rank",
+    "coordinate-vectors"
+  ],
+  "exercise_ids": ["module-vector-spaces-review-01", "module-vector-spaces-review-02"]
+}

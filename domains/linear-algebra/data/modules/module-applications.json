@@ -1,0 +1,34 @@
+{
+  "id": "module-applications",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 7,
+  "title": {
+    "ja": "応用と発展",
+    "en": "Applications and Advanced Topics"
+  },
+  "description": {
+    "ja": "応用と発展を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Applications and Advanced Topics."
+  },
+  "topics": [
+    "quadratic forms",
+    "SVD",
+    "low-rank approximation",
+    "PCA",
+    "Markov matrices",
+    "graph matrices",
+    "differential equations",
+    "Fourier",
+    "numerical stability"
+  ],
+  "units": [
+    "quadratic-forms",
+    "svd-intuition",
+    "low-rank-approximation",
+    "pca-connection",
+    "markov-matrices",
+    "graph-network-matrices",
+    "differential-and-fourier",
+    "numerical-stability"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": "span",
+  "module": "module-vector-spaces",
+  "order": 3,
+  "title": {
+    "ja": "span：作れる範囲を集合として見る",
+    "en": "Span: The Set of Reachable Vectors"
+  },
+  "summary": {
+    "ja": "span：作れる範囲を集合として見るを具体例と定義から学ぶ。",
+    "en": "A guided unit on Span: The Set of Reachable Vectors."
+  },
+  "estimated_duration": {
+    "reading_minutes": 8,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "span"
+    ],
+    "supporting": [
+      "linear-combination",
+      "vector-space"
+    ]
+  },
+  "prerequisites": [
+    "linear-combination"
+  ],
+  "learning_objectives": [
+    "spanを線形結合全体の集合として説明できる",
+    "与えられたベクトルがspanに属するかを係数方程式で判定できる"
+  ],
+  "content": [
+    {
+      "type": "motivation",
+      "body": "線形結合を一回計算するだけでは、選んだベクトルが空間のどこまで届くかは分かりません。係数をすべて変えて得られる集合をまとめて見ると、ベクトルの組が持つ幾何学的な広がりを比較できます。"
+    },
+    {
+      "type": "concrete_case",
+      "body": "(1,0)と(0,1)の線形結合は(a,b)で、a,bを自由に選べるため平面全体になります。一方、(1,2)だけの線形結合は(t,2t)に限られ、原点を通る一本の直線です。"
+    },
+    {
+      "type": "definition",
+      "body": "ベクトル集合Sのspanとは、Sのベクトルの有限個の線形結合すべてからなる集合です。span(S)は必ずそのベクトルを含み、線形結合をさらに作っても外へ出ない最小の線形部分空間になります。"
+    },
+    {
+      "type": "worked_example",
+      "body": "(2,1)と(1,1)が(5,3)をspanするか調べます。2a+b=5、a+b=3を解くとa=2、b=1です。係数が存在するので(5,3)はこの二本のspanに含まれます。"
+    },
+    {
+      "type": "counterexample",
+      "body": "同じ方向の(1,2)と(2,4)では、線形結合が(t,2t)の形にしかなりません。(1,1)はこの形でないためspanに含まれません。ベクトルの本数だけで平面全体を作れるとは限りません。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "spanは「選んだベクトルそのもの」ではなく、係数を変えたときに作れる全範囲です。次は、その範囲を作る表現に重複がないかを線形独立性で調べます。"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "span-ex-01",
+      "type": "recognition",
+      "difficulty": "basic",
+      "question": "(1,0)のspanを幾何学的に説明せよ。",
+      "solution": {
+        "what_is_asked": "一つのベクトルから作れる集合を説明する。",
+        "concepts": [
+          "span",
+          "linear-combination"
+        ],
+        "strategy": "係数tを置いて一般形を書く。",
+        "steps": [
+          "t(1,0)=(t,0)と表す。",
+          "tが実数全体を動くのでx軸上の全点を得る。"
+        ],
+        "why": [
+          "spanは全ての係数の線形結合だから。"
+        ],
+        "conclusion": "原点を通るx軸である。",
+        "common_wrong_path": "一本のベクトルのspanを平面全体と考えるのは、独立な方向が足りないため誤り。"
+      }
+    }
+  ],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "authored"
+    },
+    "pdf": {
+      "required": true,
+      "status": "source_ready"
+    },
+    "video": {
+      "required": true,
+      "status": "scripted"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [
+    "linear-combination"
+  ],
+  "status": "authored"
+}

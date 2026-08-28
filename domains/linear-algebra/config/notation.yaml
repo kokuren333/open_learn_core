@@ -1,0 +1,9 @@
+vector:
+  style: bold
+matrix:
+  style: uppercase
+inner_product:
+  notation: angle_brackets
+transpose:
+  notation: superscript_T
+convention: Visible mathematical notation remains canonical; pronunciation normalization is video-only.

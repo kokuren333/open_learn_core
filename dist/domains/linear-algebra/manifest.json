@@ -31,7 +31,7 @@
     "basis"
   ],
   "core_compatibility": {
-    "min_version": "1.8"
+    "min_version": "1.9"
   },
   "content_root": "./data",
   "asset_root": "./assets",

@@ -1,0 +1,11 @@
+questions:
+  - id: coverage
+    question: Which topics form a coherent foundations-to-applications linear algebra route?
+  - id: ordering
+    question: Which prerequisites and module boundaries are shared across trustworthy courses?
+  - id: omissions
+    question: Which topics are often omitted from an introductory route but matter for later applications?
+sources:
+  - mit-ocw-linear-algebra
+  - openstax-linear-algebra
+  - hefferon-linear-algebra

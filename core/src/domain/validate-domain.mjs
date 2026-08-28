@@ -1,15 +1,53 @@
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { validateJsonSchema } from "../validation/schema.mjs";
 import { loadDomain } from "./load-domain.mjs";
+import { parseManifest } from "./manifest.mjs";
+import { readPublication, readVideoSource } from "../video/io.mjs";
+import { auditVideoSource } from "../video/audit.mjs";
 
 export async function validateDomain(domain, { schema } = {}) {
   const manifestSchema = schema ?? JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "domain-manifest.schema.json"), "utf8"));
-  const schemas = { "concept.schema.json": JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "concept.schema.json"), "utf8")) };
+  const schemaNames = ["concept", "course", "module", "learning-unit", "module-exercise-set", "cumulative-review", "video-source", "video-publication", "tts-config"];
+  const schemas = Object.fromEntries(await Promise.all(schemaNames.map(async (name) => [`${name}.schema.json`, JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, `${name}.schema.json`), "utf8"))])));
   const issues = [...validateJsonSchema(domain.manifest, manifestSchema, { schemas, path: `${domain.root}/domain.yaml` })];
   if (domain.manifest.id !== path.basename(domain.root)) issues.push("domain manifest id must match directory name");
   const datasetValidation = await (await import("../validation/index.mjs")).validateDataset(domain.dataset);
   issues.push(...datasetValidation.issues);
+  const validateRecords = (records, schemaName) => {
+    for (const record of records ?? []) issues.push(...validateJsonSchema(record.value, schemas[`${schemaName}.schema.json`], { schemas, path: record.file }));
+  };
+  validateRecords(domain.courseData?.courses, "course");
+  validateRecords(domain.courseData?.modules, "module");
+  validateRecords(domain.courseData?.units, "learning-unit");
+  validateRecords(domain.courseData?.moduleExercises, "module-exercise-set");
+  validateRecords(domain.courseData?.cumulativeReviews, "cumulative-review");
+  const courseRecords = domain.courseData?.courses ?? [];
+  const moduleRecords = domain.courseData?.modules ?? [];
+  const unitRecords = domain.courseData?.units ?? [];
+  const courseIds = new Set(courseRecords.map((record) => record.value.id));
+  const moduleIds = new Set(moduleRecords.map((record) => record.value.id));
+  const unitIds = new Set(unitRecords.map((record) => record.value.id));
+  if (courseIds.size !== courseRecords.length) issues.push("course IDs must be unique");
+  if (moduleIds.size !== moduleRecords.length) issues.push("module IDs must be unique");
+  if (unitIds.size !== unitRecords.length) issues.push("Learning Unit IDs must be unique");
+  for (const course of domain.courseData?.courses ?? []) {
+    for (const moduleId of course.value.modules ?? []) if (!moduleIds.has(moduleId)) issues.push(`course '${course.value.id}' references missing module '${moduleId}'`);
+    for (const unitId of course.value.units ?? []) if (!unitIds.has(unitId)) issues.push(`course '${course.value.id}' references missing unit '${unitId}'`);
+  }
+  for (const module of domain.courseData?.modules ?? []) {
+    if (!courseIds.has(module.value.course)) issues.push(`module '${module.value.id}' references missing course '${module.value.course}'`);
+    for (const unitId of module.value.units ?? []) if (!unitIds.has(unitId)) issues.push(`module '${module.value.id}' references missing unit '${unitId}'`);
+  }
+  const moduleExerciseIds = new Set((domain.courseData?.moduleExercises ?? []).flatMap((record) => record.value.exercises.map((exercise) => exercise.id)));
+  for (const module of domain.courseData?.modules ?? []) for (const exerciseId of module.value.exercise_ids ?? []) if (!moduleExerciseIds.has(exerciseId)) issues.push(`module '${module.value.id}' references missing module exercise '${exerciseId}'`);
+  for (const set of domain.courseData?.moduleExercises ?? []) if (!moduleIds.has(set.value.module)) issues.push(`module exercise set '${set.value.id}' references missing module '${set.value.module}'`);
+  for (const review of domain.courseData?.cumulativeReviews ?? []) {
+    for (const moduleId of review.value.module_ids) if (!moduleIds.has(moduleId)) issues.push(`cumulative review '${review.value.id}' references missing module '${moduleId}'`);
+    for (const exerciseId of review.value.exercise_ids) if (!moduleExerciseIds.has(exerciseId)) issues.push(`cumulative review '${review.value.id}' references missing module exercise '${exerciseId}'`);
+  }
+  for (const unit of domain.courseData?.units ?? []) if (!moduleIds.has(unit.value.module)) issues.push(`unit '${unit.value.id}' references missing module '${unit.value.module}'`);
+  for (const course of courseRecords) if (course.value.domain !== domain.manifest.id) issues.push(`course '${course.value.id}' points to domain '${course.value.domain}' instead of '${domain.manifest.id}'`);
   for (const id of domain.manifest.entry_curriculum ?? []) if (!datasetValidation.curriculaById.has(id)) issues.push(`manifest entry curriculum '${id}' is missing`);
   for (const id of domain.manifest.entry_concepts ?? []) if (!datasetValidation.conceptsById.has(id)) issues.push(`manifest entry concept '${id}' is missing`);
   for (const visualRecord of domain.dataset.visuals ?? []) {
@@ -19,6 +57,33 @@ export async function validateDomain(domain, { schema } = {}) {
     if (!assetPath.startsWith(`${domain.assetRoot}${path.sep}`)) issues.push(`visual '${visualRecord.value.id}' asset path escapes asset root`);
     else try { await access(assetPath); } catch { issues.push(`visual '${visualRecord.value.id}' asset is missing: ${outputPath}`); }
   }
+  try {
+    const ttsPath = path.join(domain.root, "config", "tts.yaml");
+    const ttsConfig = parseManifest(await readFile(ttsPath, "utf8"));
+    issues.push(...validateJsonSchema(ttsConfig, schemas["tts-config.schema.json"], { schemas, path: ttsPath }));
+  } catch (error) { if (error.code !== "ENOENT") issues.push(`TTS config could not be loaded: ${error.message}`); }
+  try {
+    const videoRoot = path.join(domain.root, "video", "units");
+    const videoUnits = (await readdir(videoRoot, { withFileTypes: true })).filter((entry) => entry.isDirectory());
+    const videoSchema = JSON.parse(await readFile(path.join(domain.dataset.schemasRoot, "video-source.schema.json"), "utf8"));
+    for (const entry of videoUnits) {
+      const unitId = entry.name;
+      const sourcePath = path.join(videoRoot, unitId, "video.yaml");
+      const slidesPath = path.join(videoRoot, unitId, "slides.md");
+      try {
+        const source = await readVideoSource(sourcePath);
+        issues.push(...validateJsonSchema(source, videoSchema, { schemas, path: sourcePath }));
+        const slidesMarkdown = await readFile(slidesPath, "utf8");
+        issues.push(...auditVideoSource({ source, slidesMarkdown }).issues.map((item) => `video/${unitId}: ${item.problem}`));
+        if (!unitIds.has(source.unit)) issues.push(`video '${unitId}' references missing Learning Unit '${source.unit}'`);
+        const publicationPath = path.join(videoRoot, unitId, "youtube.yaml");
+        try {
+          const publication = await readPublication(publicationPath);
+          issues.push(...validateJsonSchema(publication, schemas["video-publication.schema.json"], { schemas, path: publicationPath }));
+        } catch (error) { if (error.code !== "ENOENT") issues.push(`YouTube metadata '${unitId}' could not be loaded: ${error.message}`); }
+      } catch (error) { issues.push(`video '${unitId}' could not be loaded: ${error.message}`); }
+    }
+  } catch (error) { if (error.code !== "ENOENT") issues.push(`video discovery failed: ${error.message}`); }
   return { valid: issues.length === 0, issues, datasetValidation };
 }
 

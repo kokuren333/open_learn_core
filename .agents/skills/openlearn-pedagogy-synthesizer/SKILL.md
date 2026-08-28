@@ -31,7 +31,7 @@ Fail when the plan starts with an unexplained definition, has no motivating prob
 One-card lessons, calculation-only practice, decorative visuals, prerequisite dumping, and a linear list of topics without learner actions.
 
 ## Example Output
-`basis-lesson-01`: R² recording problem → insufficient/redundant sets → intuition → term preview → checkpoint; objective mapped to recognition and explanation exercises.
+`<concept>-lesson-01`: concrete learner problem → insufficient/redundant or otherwise contrasting cases → intuition → term preview → checkpoint; objective mapped to recognition and explanation exercises.
 
 ## Handoff to next Skill
 Send the lesson outline and claimRefs to `openlearn-explanation-writer`, example/visual designers, and then independent auditors.

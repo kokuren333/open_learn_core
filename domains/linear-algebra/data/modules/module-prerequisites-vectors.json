@@ -1,0 +1,31 @@
+{
+  "id": "module-prerequisites-vectors",
+  "course": "linear-algebra-foundations-to-applications",
+  "order": 0,
+  "title": {
+    "ja": "ベクトルの言葉と計算",
+    "en": "Prerequisites and Vectors"
+  },
+  "description": {
+    "ja": "ベクトルの言葉と計算を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Prerequisites and Vectors."
+  },
+  "topics": [
+    "scalars",
+    "vectors",
+    "vector notation",
+    "addition",
+    "scalar multiplication",
+    "dot product",
+    "norm",
+    "distance"
+  ],
+  "units": [
+    "scalar-introduction",
+    "vector-introduction",
+    "vector-notation",
+    "vector-addition",
+    "scalar-multiplication",
+    "dot-product-and-norm"
+  ]
+}

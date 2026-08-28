@@ -1,0 +1,105 @@
+{
+  "id": "linear-independence",
+  "module": "module-vector-spaces",
+  "order": 4,
+  "title": {
+    "ja": "線形独立性：表現に重複がない",
+    "en": "Linear Independence: No Redundant Representation"
+  },
+  "summary": {
+    "ja": "線形独立性：表現に重複がないを具体例と定義から学ぶ。",
+    "en": "A guided unit on Linear Independence: No Redundant Representation."
+  },
+  "estimated_duration": {
+    "reading_minutes": 8,
+    "video_minutes": 12
+  },
+  "concepts": {
+    "primary": [
+      "linear-independence"
+    ],
+    "supporting": [
+      "span",
+      "linear-combination"
+    ]
+  },
+  "prerequisites": [
+    "span"
+  ],
+  "learning_objectives": [
+    "線形独立性を零ベクトルの表現で判定できる",
+    "spanと線形独立性が別の条件であることを説明できる"
+  ],
+  "content": [
+    {
+      "type": "motivation",
+      "body": "同じベクトルを作る方法が複数あると、係数を座標として使うときに困ります。spanが「どこまで作れるか」を表すのに対し、線形独立性は「同じ作り方が重複していないか」を表します。"
+    },
+    {
+      "type": "concrete_case",
+      "body": "(1,0)と(0,1)ではa(1,0)+b(0,1)=(0,0)となるのはa=b=0だけです。一方、(1,0),(0,1),(1,1)では(1,1)−(1,0)−(0,1)=0という非自明な関係があります。"
+    },
+    {
+      "type": "definition",
+      "body": "ベクトルv₁,…,vₖが線形独立とは、c₁v₁+⋯+cₖvₖ=0を満たす係数がすべて0だけであることです。0以外の係数による関係があれば、少なくとも一本は他のベクトルの線形結合で表せます。"
+    },
+    {
+      "type": "worked_example",
+      "body": "v₁=(1,2), v₂=(2,4)を調べます。c₁v₁+c₂v₂=0はc₁+2c₂=0という一つの条件にまとまり、c₂=1,c₁=−2が非零解になります。したがって二本は線形従属です。"
+    },
+    {
+      "type": "counterexample",
+      "body": "spanが同じでも独立性は異なります。(1,0),(0,1)は平面をspanし独立ですが、そこへ(1,1)を加えてもspanは平面のまま、独立性だけが失われます。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "独立性は「本数が少ない」ことではありません。非自明な零関係がないことが定義です。次のUnitでは、spanと独立性を同時に満たす集合として基底を定義します。"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "linear-independence-ex-01",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "二本のベクトルが同じ方向なら、なぜ線形独立でないか説明せよ。",
+      "solution": {
+        "what_is_asked": "同方向という幾何的条件から零関係を作る。",
+        "concepts": [
+          "linear-independence",
+          "linear-combination"
+        ],
+        "strategy": "一方を他方の定数倍として表す。",
+        "steps": [
+          "v₂=kv₁と書く。",
+          "kv₁−v₂=0を作る。",
+          "係数(k,−1)はすべて0ではない。"
+        ],
+        "why": [
+          "非自明な係数で零ベクトルを作れたので、定義に反する。"
+        ],
+        "conclusion": "同方向の二本は線形従属である。",
+        "common_wrong_path": "二本あるから独立だと判断するのは、本数と独立性を混同している。"
+      }
+    }
+  ],
+  "formats": {
+    "html": {
+      "required": true,
+      "status": "authored"
+    },
+    "pdf": {
+      "required": true,
+      "status": "source_ready"
+    },
+    "video": {
+      "required": true,
+      "status": "scripted"
+    }
+  },
+  "evidence": [],
+  "visuals": [],
+  "remediation": [
+    "span"
+  ],
+  "status": "authored"
+}
