@@ -113,7 +113,11 @@ for (const domain of domains) {
       await exec(process.execPath, [path.join(root, "scripts", "video-prepare.mjs"), domain.id, resources.video_plan.unit_id], { cwd: root });
       await exec(process.execPath, [path.join(root, "scripts", "build-video-artifact.mjs"), domain.id, resources.video_plan.unit_id], { cwd: root });
       const generatedVideo = path.join(domain.root, "video", "generated", "rendered", resources.video_plan.unit_id);
-      await cp(generatedVideo, path.join(output, "video", resources.video_plan.unit_id), { recursive: true, force: true });
+      const publishedVideo = path.join(output, "video", resources.video_plan.unit_id);
+      await mkdir(publishedVideo, { recursive: true });
+      for (const filename of [`${resources.video_plan.unit_id}.mp4`, `${resources.video_plan.unit_id}.srt`, "video-manifest.json"]) {
+        await cp(path.join(generatedVideo, filename), path.join(publishedVideo, filename), { force: true });
+      }
     } catch (error) { console.warn(`Video artifact generation skipped for '${resources.concept_id}': ${error.message}`); }
   }
   const validateArtifact = async (item) => {

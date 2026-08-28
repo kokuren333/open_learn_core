@@ -20,3 +20,14 @@ dist/**/video/
 dist/offline/
 dist/release/
 dist/**/publication-manifest.json
+
+# Basis vertical-slice artifacts are part of the published static output.
+!dist/domains/linear-algebra/pdf/
+dist/domains/linear-algebra/pdf/*
+!dist/domains/linear-algebra/pdf/basis.pdf
+!dist/domains/linear-algebra/video/
+dist/domains/linear-algebra/video/*
+!dist/domains/linear-algebra/video/basis-definition/
+!dist/domains/linear-algebra/video/basis-definition/basis-definition.mp4
+!dist/domains/linear-algebra/video/basis-definition/basis-definition.srt
+!dist/domains/linear-algebra/video/basis-definition/video-manifest.json

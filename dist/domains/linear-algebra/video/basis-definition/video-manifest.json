@@ -1,0 +1,13 @@
+{
+  "unit": "basis-definition",
+  "artifact": "video/generated/rendered/basis-definition/basis-definition.mp4",
+  "subtitles": "video/generated/rendered/basis-definition/basis-definition.srt",
+  "duration_seconds": 43.520333,
+  "streams": {
+    "video": true,
+    "audio": true,
+    "subtitles": true
+  },
+  "status": "validated",
+  "source_audit": "pass"
+}
