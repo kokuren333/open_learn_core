@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exercise",
+  "type": "object",
+  "required": ["id", "type", "difficulty", "question", "answer", "explanation"],
+  "properties": { "id": { "type": "string" }, "type": { "type": "string" }, "difficulty": { "type": "string", "enum": ["basic", "standard", "challenge"] }, "question": { "type": "string" }, "answer": { "type": "string" }, "explanation": { "type": "string" }, "testsClaims": { "type": "array" }, "requiresConcepts": { "type": "array" } }
+}

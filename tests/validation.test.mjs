@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { loadDataset, validateConcept, validateDataset } from "../src/validation/index.mjs";
+import { evidenceCoverage } from "../src/evidence/coverage.mjs";
 
 const projectRoot = process.cwd();
 
@@ -9,6 +10,8 @@ test("valid dataset passes schema and reference validation", async () => {
   assert.equal(result.valid, true, result.issues.join("\n"));
   assert.equal(result.conceptsById.size, 12);
   assert.ok([...result.conceptsById.values()].every((concept) => concept.lessons.length > 0 && concept.claims.length > 0));
+  assert.equal(result.evidenceById.size, 5);
+  assert.equal((await import("../src/evidence/coverage.mjs")).evidenceCoverage(await loadDataset(projectRoot), result, "basis").claims.withEvidence, 6);
 });
 
 test("invalid concept fails schema validation", async () => {
@@ -55,4 +58,56 @@ test("claim-level source references are validated", async () => {
   basis.value.claims[0].sourceRefs[0].source = "missing-source";
   const result = await validateDataset(dataset);
   assert.ok(result.issues.some((issue) => issue.includes("claim 'basis-claim-01': unknown source reference 'missing-source'")));
+});
+
+test("evidence item source and claim references are validated", async () => {
+  const dataset = await loadDataset(projectRoot);
+  dataset.evidenceItems[0].value.source = "missing-source";
+  dataset.evidenceItems[0].value.supports = ["missing-claim"];
+  const result = await validateDataset(dataset);
+  assert.ok(result.issues.some((issue) => issue.includes("unknown source reference 'missing-source'")));
+  assert.ok(result.issues.some((issue) => issue.includes("unknown claim reference 'missing-claim'")));
+});
+
+test("claim evidence references and claim types are validated", async () => {
+  const dataset = await loadDataset(projectRoot);
+  const basis = dataset.concepts.find((record) => record.value.id === "basis");
+  basis.value.claims[0].evidence = ["missing-evidence"];
+  basis.value.claims[0].claimType = "not-a-claim-type";
+  const result = await validateDataset(dataset);
+  assert.ok(result.issues.some((issue) => issue.includes("unknown evidence reference 'missing-evidence'")));
+  assert.ok(result.issues.some((issue) => issue.includes("must be one of definition")));
+});
+
+test("prerequisite edges validate relation, concept, and evidence", async () => {
+  const dataset = await loadDataset(projectRoot);
+  const basis = dataset.concepts.find((record) => record.value.id === "basis");
+  basis.value.prerequisiteEdges[0].relation = "optional";
+  basis.value.prerequisiteEdges[0].concept = "missing-concept";
+  basis.value.prerequisiteEdges[0].evidence = ["missing-evidence"];
+  const result = await validateDataset(dataset);
+  assert.ok(result.issues.some((issue) => issue.includes("must be one of required")));
+  assert.ok(result.issues.some((issue) => issue.includes("unknown concept 'missing-concept'")));
+  assert.ok(result.issues.some((issue) => issue.includes("unknown evidence reference 'missing-evidence'")));
+});
+
+test("curriculum decisions and evidence reviews validate targets", async () => {
+  const dataset = await loadDataset(projectRoot);
+  dataset.curriculumDecisions[0].value.scope.curriculum = "missing-curriculum";
+  dataset.curriculumDecisions[0].value.evidence = ["missing-evidence"];
+  dataset.evidenceReviews[0].value.included_sources[0].source = "missing-source";
+  const result = await validateDataset(dataset);
+  assert.ok(result.issues.some((issue) => issue.includes("unknown curriculum 'missing-curriculum'")));
+  assert.ok(result.issues.some((issue) => issue.includes("unknown evidence reference 'missing-evidence'")));
+  assert.ok(result.issues.some((issue) => issue.includes("unknown included source 'missing-source'")));
+});
+
+test("basis evidence coverage reaches the v1.6 threshold", async () => {
+  const dataset = await loadDataset(projectRoot);
+  const result = await validateDataset(dataset);
+  const coverage = evidenceCoverage(dataset, result, "basis");
+  assert.equal(coverage.claims.withEvidence, coverage.claims.total);
+  assert.equal(coverage.prerequisiteEdges.withEvidence, coverage.prerequisiteEdges.total);
+  assert.equal(coverage.curriculumDecisions.withEvidence, coverage.curriculumDecisions.total);
+  assert.ok(coverage.lessons.linkedToClaims / coverage.lessons.total >= 0.8);
 });

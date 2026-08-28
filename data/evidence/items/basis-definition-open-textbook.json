@@ -1,0 +1,9 @@
+{
+  "id": "basis-definition-open-textbook",
+  "source": "openstax-linear-algebra",
+  "locator": { "type": "book-record", "value": "https://open.umn.edu/opentextbooks/textbooks/188", "section": "Table of Contents: Vector Spaces, Linear Independence, Basis and Dimension" },
+  "evidence_role": "definition",
+  "supports": ["basis-claim-01", "basis-claim-04"],
+  "extracted_meaning": { "ja": "開放教科書は、ベクトル空間・生成集合・線形独立・基底と次元を、直観から定義・定理・証明・演習へつなぐ構成で扱う。" },
+  "confidence": "high"
+}

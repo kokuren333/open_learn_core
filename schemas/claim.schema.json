@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claim",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "claimType", "statement", "evidence", "status"],
+  "properties": {
+    "id": { "type": "string" },
+    "claimType": { "type": "string", "enum": ["definition", "mathematical_fact", "theorem", "interpretation", "prerequisite_claim", "pedagogical_claim", "curriculum_claim", "difficulty_claim"] },
+    "statement": { "type": "string", "minLength": 1 },
+    "evidence": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "status": { "type": "string", "enum": ["established", "strongly_supported", "supported", "provisional", "uncertain", "contested"] }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "basis-curriculum-open-textbook",
+  "source": "openstax-linear-algebra",
+  "locator": { "type": "book-record", "value": "https://open.umn.edu/opentextbooks/textbooks/188", "section": "Table of Contents: Subspaces and Spanning Sets → Linear Independence → Basis and Dimension" },
+  "evidence_role": "curriculum",
+  "supports": ["basis-claim-06"],
+  "extracted_meaning": { "ja": "開放教科書の目次でも、生成・線形独立を基底と次元より前に置いており、基底を二条件の統合として学ぶ順序を支持する。" },
+  "confidence": "medium",
+  "notes": { "ja": "目次の章節順は教材設計の参考であり、唯一の正解を意味しない。" }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "basis-curriculum-mit",
+  "source": "mit-ocw-linear-algebra",
+  "locator": { "type": "resource-index", "value": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/resource-index/", "section": "Independence, Basis and Dimension" },
+  "evidence_role": "curriculum",
+  "supports": ["basis-claim-06"],
+  "extracted_meaning": { "ja": "MIT OCWのリソース索引では、Independence, Basis and Dimensionを一つの学習単位として扱い、関連する講義概要・問題セットへ導いている。" },
+  "confidence": "high"
+}

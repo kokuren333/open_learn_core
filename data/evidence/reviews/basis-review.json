@@ -1,0 +1,19 @@
+{
+  "id": "basis-review",
+  "target": { "type": "concept", "id": "basis" },
+  "research_question": { "ja": "基底の定義・前提関係・導入順を、一次的または公開教育資料で裏付けられるか。" },
+  "searched_at": "2026-08-28",
+  "search_queries": ["site:ocw.mit.edu independence basis dimension linear algebra", "Open Textbook Library Linear Algebra basis dimension"],
+  "source_priority": ["mit-ocw-linear-algebra", "openstax-linear-algebra", "hefferon-linear-algebra"],
+  "included_sources": [
+    { "source": "mit-ocw-linear-algebra", "reason": { "ja": "大学講義の公式公開資料で、基底・独立・次元を直接扱うため。" } },
+    { "source": "openstax-linear-algebra", "reason": { "ja": "基底関連の章節と演習を含む公開教科書の記録であるため。" } }
+  ],
+  "excluded_sources": [
+    { "title": "検索結果だけの要約ページ", "url": "https://example.com/search-summary", "reason": { "ja": "本文・著者・ライセンスを確認できず、直接の根拠として採用しなかった。" } }
+  ],
+  "limitations": ["今回は英語の公開資料を中心に確認しており、日本語教材との表現差は未検証。", "証拠は概念定義と章節順を支えるが、学習効果そのものの実験結果ではない。"],
+  "known": ["基底はspanと線形独立を組み合わせた概念として扱える。"],
+  "uncertain": ["初学者にとって最適なLesson数と練習量は未検証。"],
+  "open_questions": ["診断問題の誤答分類を実データでどう改善するか。"]
+}

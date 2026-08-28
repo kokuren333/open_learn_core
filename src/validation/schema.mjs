@@ -33,6 +33,9 @@ export function validateJsonSchema(value, schema, { schemas = {}, rootSchema = s
   if (schema.enum && !schema.enum.includes(value)) {
     return [`${path}: must be one of ${schema.enum.join(", ")}`];
   }
+  if (schema.const !== undefined && value !== schema.const) {
+    return [`${path}: must equal ${JSON.stringify(schema.const)}`];
+  }
   if (schema.type === "object") {
     for (const key of schema.required ?? []) {
       if (!(key in value)) issues.push(`${path}.${key}: is required`);

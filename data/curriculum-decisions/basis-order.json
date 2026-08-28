@@ -1,0 +1,17 @@
+{
+  "id": "basis-order",
+  "scope": { "curriculum": "linear-algebra-basic" },
+  "question": "基底をカリキュラムのどこに置くか。",
+  "decision": "spanとlinear-independenceの後、dimensionの前にbasisを置く。",
+  "rationale": "基底は「生成」と「線形独立」の二条件を同時に使う統合概念なので、両方を先に個別に扱うと定義と判定を分解して学べる。dimensionは基底の本数として導入すると意味が自然に続く。",
+  "claim_type": "curriculum_claim",
+  "evidence": ["basis-curriculum-mit", "basis-curriculum-open-textbook"],
+  "alternatives": [
+    { "option": "dimensionを先に置く", "rejected_reason": "基底の本数という意味を説明する前にdimensionを導入するため、動機付けが弱くなる。" },
+    { "option": "basisをspanより前に置く", "rejected_reason": "基底の定義に必要なspanを未学習のまま扱うことになる。" }
+  ],
+  "status": "strongly_supported",
+  "known": ["現在の12 ConceptのDAGと整合する。"],
+  "uncertain": ["学習者の背景によってはdimensionを先に直観的に提示する別順序も成立しうる。"],
+  "open_questions": ["実際の学習ログで順序の差を比較する。"]
+}

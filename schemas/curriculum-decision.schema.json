@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Curriculum Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "scope", "question", "decision", "rationale", "claim_type", "evidence", "alternatives", "status"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "scope": { "type": "object", "additionalProperties": false, "required": ["curriculum"], "properties": { "curriculum": { "type": "string" } } },
+    "question": { "type": "string", "minLength": 1 },
+    "decision": { "type": "string", "minLength": 1 },
+    "rationale": { "type": "string", "minLength": 1 },
+    "claim_type": { "type": "string", "const": "curriculum_claim" },
+    "evidence": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "alternatives": { "type": "array", "items": { "$ref": "#/$defs/alternative" } },
+    "status": { "type": "string", "enum": ["established", "strongly_supported", "supported", "provisional", "uncertain", "contested"] },
+    "known": { "type": "array", "items": { "type": "string" } },
+    "uncertain": { "type": "array", "items": { "type": "string" } },
+    "open_questions": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": { "alternative": { "type": "object", "additionalProperties": false, "required": ["option", "rejected_reason"], "properties": { "option": { "type": "string" }, "rejected_reason": { "type": "string" } } } }
+}

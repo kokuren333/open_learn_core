@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "target", "research_question", "searched_at", "search_queries", "source_priority", "included_sources", "excluded_sources", "limitations"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "target": { "type": "object", "additionalProperties": false, "required": ["type", "id"], "properties": { "type": { "type": "string", "enum": ["concept", "curriculum", "curriculum_decision"] }, "id": { "type": "string" } } },
+    "research_question": { "type": "object", "required": ["ja"], "additionalProperties": false, "properties": { "ja": { "type": "string", "minLength": 1 }, "en": { "type": "string" } } },
+    "searched_at": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "search_queries": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "source_priority": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "included_sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/includedSource" } },
+    "excluded_sources": { "type": "array", "items": { "$ref": "#/$defs/excludedSource" } },
+    "limitations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "known": { "type": "array", "items": { "type": "string" } },
+    "uncertain": { "type": "array", "items": { "type": "string" } },
+    "open_questions": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "includedSource": { "type": "object", "additionalProperties": false, "required": ["source", "reason"], "properties": { "source": { "type": "string" }, "reason": { "type": "object", "required": ["ja"], "additionalProperties": false, "properties": { "ja": { "type": "string", "minLength": 1 } } } } },
+    "excludedSource": { "type": "object", "additionalProperties": false, "required": ["title", "url", "reason"], "properties": { "title": { "type": "string" }, "url": { "type": "string", "pattern": "^https?://" }, "reason": { "type": "object", "required": ["ja"], "additionalProperties": false, "properties": { "ja": { "type": "string", "minLength": 1 } } } } }
+  }
+}

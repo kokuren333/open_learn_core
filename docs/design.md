@@ -1,18 +1,18 @@
-# MVP v1.5 設計
+# MVP v1.6 設計
 
 ## Architecture
 
 ```text
-Sources → Concept JSON（Concept / Lesson / Claim / Exercise）→ Curriculum JSON → Validator / Renderer → 静的HTML
+Sources → Evidence（Item / Review）→ Concept JSON（Concept / Lesson / Claim / Exercise）→ Curriculum Decision → Curriculum JSON → Validator / Renderer → 静的HTML
 ```
 
 ### 設計判断
 
 - **技術**: Node.js標準ライブラリのみ。データ検証、静的生成、テストを外部依存なしで動かせるようにする。
-- **データ**: 人間がGitHub上で編集しやすいJSONを採用する。ConceptとCurriculumは別ディレクトリに置く。v1.5ではConcept内の責務をConcept、Lesson、Claim、Exerciseに分ける。
+- **データ**: 人間がGitHub上で編集しやすいJSONを採用する。Concept、Evidence、Curriculum Decision、Curriculumを別ディレクトリに置く。Concept内の責務はConcept、Lesson、Claim、Exerciseに分ける。
 - **表示**: `npm run build`で`site/`を生成する。生成物はWebサーバーやGitHub Pagesにそのまま配置できる。
 - **グラフ**: Conceptの`prerequisites`を有向辺として扱い、生成時にSVGへ変換する。UIはデータ層から独立している。
-- **検証**: JSON Schema（`schemas/`）による形検証に加え、参照切れ、重複ID、循環、Curriculum参照を検査する。
+- **検証**: JSON Schema（`schemas/`）による形検証に加え、参照切れ、重複ID、循環、Evidence、Curriculum参照を検査する。
 
 ## Data model
 
@@ -24,6 +24,10 @@ Conceptのメタデータ（ID、題名、要約、参照関係、出典）と�
 - **Lesson**: そのConceptを教える小さな単位。直観・定義・関係・方法などの順序付きsectionと、対応するExercise IDを持つ。
 - **Claim**: 教材の中で検証可能にしたい主張。1つ以上の`sourceRefs`を持ち、source IDと人間が再訪できるlocatorを保存する。
 - **Exercise**: 習得を確認する問題。basic / standard / challengeの難易度、答え、解説、対象Lessonを持てる。
+- **Source**: 公式公開資料や公開教科書など、再訪可能な出典のメタデータを持つ。
+- **EvidenceItem**: Sourceのlocator、抽出した意味、支えるClaim、役割、確信度を持つ。
+- **EvidenceReview**: 検索質問、検索語、採否、限界、known / uncertain / open_questionsを持つ。
+- **CurriculumDecision**: 学習順序や範囲の判断を、数学的事実と区別して記録する。
 
 ```text
 Concept
@@ -31,6 +35,10 @@ Concept
 │  ├─ sections[] ── claimRefs[] → claims[] ── sourceRefs[] → sources[]
 │  └─ exerciseIds[] → exercises[]
 └─ diagnosticQuestions[]
+
+EvidenceItem ── supports[] → Claim
+prerequisiteEdges[] ── evidence[] → EvidenceItem
+CurriculumDecision ── evidence[] → EvidenceItem
 ```
 
 ```json
@@ -68,7 +76,7 @@ Concept
 }
 ```
 
-## MVP v1.5 acceptance criteria
+## MVP v1.6 acceptance criteria
 
 1. 12 ConceptをJSONで保存する。
 2. Conceptからprerequisiteを辿れる。
@@ -78,6 +86,8 @@ Concept
 6. 12 ConceptにLesson / Claim / Exerciseを持たせる。
 7. `linear-independence`と`basis`は、それぞれ5 Lesson・13 Exercise・3 Diagnostic・5 Claimを持つ。
 8. Claimから出典URLとlocatorをたどれる。
+9. EvidenceItem、EvidenceReview、CurriculumDecisionを独立JSONとして管理できる。
+10. basisのClaim、前提エッジ、カリキュラム判断、Lesson、ExerciseをEvidenceまで監査できる。
 
 ## Technology and hosting
 

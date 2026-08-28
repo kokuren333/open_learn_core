@@ -25,26 +25,31 @@ async function readJsonDirectory(directory) {
 }
 
 export async function loadDataset(root = process.cwd()) {
-  const [concepts, curricula, sources] = await Promise.all([
+  const [concepts, curricula, evidenceItems, evidenceReviews, curriculumDecisions, sources] = await Promise.all([
     readJsonDirectory(path.join(root, "data", "concepts")),
     readJsonDirectory(path.join(root, "data", "curricula")),
+    readJsonDirectory(path.join(root, "data", "evidence", "items")),
+    readJsonDirectory(path.join(root, "data", "evidence", "reviews")),
+    readJsonDirectory(path.join(root, "data", "curriculum-decisions")),
     readJson(path.join(root, "data", "sources", "sources.json"))
   ]);
   return {
     root,
     concepts: concepts.records,
     curricula: curricula.records,
+    evidenceItems: evidenceItems.records,
+    evidenceReviews: evidenceReviews.records,
+    curriculumDecisions: curriculumDecisions.records,
     sources: sources.value ?? [],
-    issues: [...concepts.issues, ...curricula.issues, ...sources.issues]
+    issues: [...concepts.issues, ...curricula.issues, ...evidenceItems.issues, ...evidenceReviews.issues, ...curriculumDecisions.issues, ...sources.issues]
   };
 }
 
 async function loadSchemas(root) {
-  const [concept, curriculum] = await Promise.all([
-    readJson(path.join(root, "schemas", "concept.schema.json")),
-    readJson(path.join(root, "schemas", "curriculum.schema.json"))
-  ]);
-  return { concept: concept.value, curriculum: curriculum.value, files: { "concept.schema.json": concept.value, "curriculum.schema.json": curriculum.value } };
+  const names = ["concept", "curriculum", "source", "evidence-item", "evidence-review", "curriculum-decision"];
+  const entries = await Promise.all(names.map(async (name) => [name, await readJson(path.join(root, "schemas", `${name}.schema.json`))]));
+  const files = Object.fromEntries(entries.map(([name, result]) => [`${name}.schema.json`, result.value]));
+  return { ...Object.fromEntries(entries.map(([name, result]) => [name, result.value])), files };
 }
 
 function duplicateIds(records, label) {
@@ -87,11 +92,19 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
   const issues = [...(dataset.issues ?? [])];
   const conceptRecords = dataset.concepts ?? [];
   const curriculumRecords = dataset.curricula ?? [];
+  const evidenceItemRecords = dataset.evidenceItems ?? [];
+  const evidenceReviewRecords = dataset.evidenceReviews ?? [];
+  const curriculumDecisionRecords = dataset.curriculumDecisions ?? [];
   const conceptsById = new Map();
   const sourcesById = new Map((Array.isArray(dataset.sources) ? dataset.sources : []).filter((source) => source?.id).map((source) => [source.id, source]));
+  const evidenceById = new Map();
+  const curriculaById = new Map();
 
   issues.push(...duplicateIds(conceptRecords, "concept"));
   issues.push(...duplicateIds(curriculumRecords, "curriculum"));
+  issues.push(...duplicateIds(evidenceItemRecords, "evidence item"));
+  issues.push(...duplicateIds(evidenceReviewRecords, "evidence review"));
+  issues.push(...duplicateIds(curriculumDecisionRecords, "curriculum decision"));
   for (const record of conceptRecords) {
     const concept = record.value;
     issues.push(...validateJsonSchema(concept, loadedSchemas.concept, { schemas: loadedSchemas.files, path: record.file }));
@@ -125,6 +138,7 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
 
   for (const record of curriculumRecords) {
     const curriculum = record.value;
+    if (curriculum?.id && !curriculaById.has(curriculum.id)) curriculaById.set(curriculum.id, curriculum);
     issues.push(...validateJsonSchema(curriculum, loadedSchemas.curriculum, { schemas: loadedSchemas.files, path: record.file }));
     for (const conceptId of curriculum?.sequence ?? []) {
       if (!conceptIds.has(conceptId)) issues.push(`curriculum '${curriculum.id}': unknown concept reference '${conceptId}'`);
@@ -134,9 +148,48 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
   const sourceIds = (dataset.sources ?? []).map((source) => source?.id).filter(Boolean);
   if (new Set(sourceIds).size !== sourceIds.length) issues.push("sources: duplicate id");
   for (const source of dataset.sources ?? []) {
+    issues.push(...validateJsonSchema(source, loadedSchemas.source, { schemas: loadedSchemas.files, path: "data/sources/sources.json" }));
     for (const field of ["id", "title", "url", "license"]) if (typeof source?.[field] !== "string" || !source[field].trim()) issues.push(`source: '${field}' is required`);
   }
-  return { valid: issues.length === 0, issues, conceptsById, sourceById: sourcesById };
+
+  const allClaims = new Map();
+  for (const concept of conceptsById.values()) for (const claim of concept.claims ?? []) {
+    if (claim?.id && !allClaims.has(claim.id)) allClaims.set(claim.id, { concept, claim });
+  }
+  for (const record of evidenceItemRecords) {
+    const item = record.value;
+    issues.push(...validateJsonSchema(item, loadedSchemas["evidence-item"], { schemas: loadedSchemas.files, path: record.file }));
+    if (item?.id && !evidenceById.has(item.id)) evidenceById.set(item.id, item);
+    if (item?.source && !sourcesById.has(item.source)) issues.push(`evidence item '${item.id}': unknown source reference '${item.source}'`);
+    for (const claimId of item?.supports ?? []) if (!allClaims.has(claimId)) issues.push(`evidence item '${item?.id}': unknown claim reference '${claimId}'`);
+  }
+  for (const concept of conceptsById.values()) {
+    for (const claim of concept.claims ?? []) for (const evidenceId of claim.evidence ?? []) if (!evidenceById.has(evidenceId)) issues.push(`concept '${concept.id}', claim '${claim.id}': unknown evidence reference '${evidenceId}'`);
+    for (const edge of concept.prerequisiteEdges ?? []) {
+      if (!conceptIds.has(edge.concept)) issues.push(`concept '${concept.id}': prerequisite edge references unknown concept '${edge.concept}'`);
+      for (const evidenceId of edge.evidence ?? []) if (!evidenceById.has(evidenceId)) issues.push(`concept '${concept.id}': prerequisite edge for '${edge.concept}' has unknown evidence reference '${evidenceId}'`);
+    }
+    for (const exercise of concept.exercises ?? []) {
+      for (const claimId of exercise.testsClaims ?? []) if (!allClaims.has(claimId)) issues.push(`concept '${concept.id}', exercise '${exercise.id}': unknown claim reference '${claimId}'`);
+      for (const conceptId of exercise.requiresConcepts ?? []) if (!conceptIds.has(conceptId)) issues.push(`concept '${concept.id}', exercise '${exercise.id}': unknown required concept '${conceptId}'`);
+    }
+  }
+  for (const record of evidenceReviewRecords) {
+    const review = record.value;
+    issues.push(...validateJsonSchema(review, loadedSchemas["evidence-review"], { schemas: loadedSchemas.files, path: record.file }));
+    const target = review?.target;
+    if (target?.type === "concept" && !conceptIds.has(target.id)) issues.push(`evidence review '${review.id}': unknown concept target '${target.id}'`);
+    if (target?.type === "curriculum" && !curriculaById.has(target.id)) issues.push(`evidence review '${review.id}': unknown curriculum target '${target.id}'`);
+    if (target?.type === "curriculum_decision" && !curriculumDecisionRecords.some((item) => item.value?.id === target.id)) issues.push(`evidence review '${review.id}': unknown curriculum decision target '${target.id}'`);
+    for (const included of review?.included_sources ?? []) if (!sourcesById.has(included.source)) issues.push(`evidence review '${review.id}': unknown included source '${included.source}'`);
+  }
+  for (const record of curriculumDecisionRecords) {
+    const decision = record.value;
+    issues.push(...validateJsonSchema(decision, loadedSchemas["curriculum-decision"], { schemas: loadedSchemas.files, path: record.file }));
+    if (decision?.scope?.curriculum && !curriculaById.has(decision.scope.curriculum)) issues.push(`curriculum decision '${decision.id}': unknown curriculum '${decision.scope.curriculum}'`);
+    for (const evidenceId of decision?.evidence ?? []) if (!evidenceById.has(evidenceId)) issues.push(`curriculum decision '${decision.id}': unknown evidence reference '${evidenceId}'`);
+  }
+  return { valid: issues.length === 0, issues, conceptsById, sourceById: sourcesById, evidenceById, curriculaById };
 }
 
 export async function validateConcept(concept, root = process.cwd()) {

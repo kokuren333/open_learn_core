@@ -1,0 +1,9 @@
+{
+  "id": "basis-dimension-mit",
+  "source": "mit-ocw-linear-algebra",
+  "locator": { "type": "course-page", "value": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/independence-basis-and-dimension/", "section": "Session Overview" },
+  "evidence_role": "theorem",
+  "supports": ["basis-claim-05"],
+  "extracted_meaning": { "ja": "基底に含まれるベクトルの本数が、その空間の次元になるという関係を確認できる。" },
+  "confidence": "high"
+}

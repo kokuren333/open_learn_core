@@ -1,0 +1,10 @@
+{
+  "id": "basis-definition-mit",
+  "source": "mit-ocw-linear-algebra",
+  "locator": { "type": "course-page", "value": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/independence-basis-and-dimension/", "section": "Session Overview" },
+  "evidence_role": "definition",
+  "supports": ["basis-claim-01", "basis-claim-02"],
+  "extracted_meaning": { "ja": "MIT OCWは、基底を空間のベクトルを生成する、できるだけ少ないベクトルの組として導入し、基底の本数と次元を結び付けている。" },
+  "confidence": "high",
+  "notes": { "ja": "講義ページの概要と学習活動を根拠として採用。" }
+}

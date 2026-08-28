@@ -1,10 +1,14 @@
 # Open Learn Core
 
-線形代数の概念を、前提関係と根拠付きの教材コンテンツとして管理し、そこから静的Web教材を生成する教育OSSのMVP v1.5です。
+線形代数の概念を、前提関係とEvidence付きの教材コンテンツとして管理し、そこから静的Web教材を生成する教育OSSのMVP v1.6です。
 
 ## What
 
-スカラー、ベクトル、線形結合、span、線形独立、基底、次元、線形写像、行列など12個のConceptを収録しています。ConceptページではLesson単位の説明、例、難易度別演習、解答、理解度セルフチェック、誤解しやすい点、出典、前提Conceptを確認できます。特に`linear-independence`と`basis`は5 Lesson・13 Exercise・3 Diagnostic・5 Claimで構成しています。
+スカラー、ベクトル、線形結合、span、線形独立、基底、次元、線形写像、行列など12個のConceptを収録しています。ConceptページではLesson単位の説明、例、難易度別演習、解答、理解度セルフチェック、誤解しやすい点、出典、前提Conceptを確認できます。特に`linear-independence`と`basis`は5 Lesson・13 Exercise・3 Diagnostic・5 Claim以上で構成し、`basis`にはEvidenceItem、前提エッジの根拠、CurriculumDecisionを接続しています。
+
+## v1.6 Evidence Layer
+
+`Source → EvidenceItem → Claim → Concept → Lesson → Exercise / Diagnostic`の連鎖で、教材の主張を出典のlocatorまで追跡できます。学習順序の判断は`Evidence → CurriculumDecision → Curriculum / prerequisite graph`として記録します。`npm run evidence:report`でbasisの根拠カバレッジを確認し、`curriculum.html`で順序の理由を確認できます。詳細は[`docs/evidence-model.md`](docs/evidence-model.md)と[`docs/authoring-workflow.md`](docs/authoring-workflow.md)を参照してください。
 
 ## Why
 
@@ -53,6 +57,10 @@ npm run dev
 - Lessonから参照されたExerciseの存在
 - Lesson本文から参照されたClaimの存在
 - Claimのsourceとlocator
+- EvidenceItemのSource / Claim参照
+- Evidence Reviewの対象と採用Source
+- prerequisite edgeの関係、理由、Evidence
+- CurriculumDecisionのCurriculum / Evidence参照
 
 ## Add a Concept
 
@@ -60,14 +68,16 @@ npm run dev
 2. `id`は小文字英数字とハイフンのstable identifierにし、ファイル名と一致させます。
 3. `prerequisites`、`related`、`sources`には既存のIDだけを指定します。
 4. `lessons`に直観・定義・方法・関係などの節を追加し、`exercises`をLessonの`exerciseIds`から参照します。
-5. 重要な主張は`claims`に切り出し、`sourceRefs`で出典IDとlocatorを付けます。
+5. 重要な主張は`claims`に切り出し、`claimType`、`status`、`evidence`、`sourceRefs`を付けます。
 6. `data/curricula/linear-algebra-basic.json`の`sequence`に学習順を追加します。ConceptとCurriculumは別の関心事なので、別ファイルのまま編集します。
-7. `npm run validate && npm test && npm run build`を実行します。
+7. EvidenceItemとEvidence Reviewを`data/evidence/`に、順序の判断を`data/curriculum-decisions/`に追加します。
+8. `npm run validate && npm test && npm run evidence:report && npm run build`を実行します。
 
 ## Roadmap
 
 - **MVP v1**: 線形代数の狭い範囲、Conceptデータ、検証、静的教材、prerequisite graph
 - **MVP v1.5**: Lesson / Claim / Exerciseの責務分離、2 Conceptの実用的な教材密度、claim-level provenance（現在地）
+- **MVP v1.6**: Evidence Layer、Evidence Review、根拠付き前提エッジ、CurriculumDecision、basisの監査可能な教材データ
 - **v2**: 小学算数から大学初年級までのConcept DAGと学習経路
 - **v3**: 理解度診断、adaptive learning、問題推薦、AI tutorなど
 

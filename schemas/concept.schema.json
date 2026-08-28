@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/concept.schema.json",
-  "title": "Concept v1.5",
+  "title": "Concept v1.6",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "title", "summary", "prerequisites", "related", "learningObjectives", "lessons", "claims", "examples", "exercises", "misconceptions", "sources"],
@@ -10,6 +10,7 @@
     "title": { "$ref": "#/$defs/localized" },
     "summary": { "$ref": "#/$defs/localized" },
     "prerequisites": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "prerequisiteEdges": { "type": "array", "items": { "$ref": "#/$defs/prerequisiteEdge" }, "uniqueItems": true },
     "related": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "learningObjectives": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
     "lessons": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/lesson" } },
@@ -19,16 +20,19 @@
     "exercises": { "type": "array", "items": { "$ref": "#/$defs/exercise" } },
     "diagnosticQuestions": { "type": "array", "items": { "$ref": "#/$defs/diagnostic" } },
     "misconceptions": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "misconceptionDetails": { "type": "array", "items": { "$ref": "#/$defs/misconceptionDetail" } },
     "sources": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true }
   },
   "$defs": {
     "localized": { "type": "object", "required": ["ja", "en"], "additionalProperties": false, "properties": { "ja": { "type": "string", "minLength": 1 }, "en": { "type": "string", "minLength": 1 } } },
     "lesson": { "type": "object", "additionalProperties": false, "required": ["id", "title", "summary", "objectives", "sections", "exerciseIds"], "properties": { "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }, "title": { "type": "string", "minLength": 1 }, "summary": { "type": "string", "minLength": 1 }, "objectives": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }, "sections": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/section" } }, "exerciseIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true } } },
     "section": { "type": "object", "additionalProperties": false, "required": ["id", "title", "kind", "body"], "properties": { "id": { "type": "string" }, "title": { "type": "string", "minLength": 1 }, "kind": { "type": "string", "enum": ["intuition", "definition", "why", "relationship", "method", "example", "counterexample", "summary"] }, "body": { "type": "string", "minLength": 1 }, "claimRefs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true } } },
-    "claim": { "type": "object", "additionalProperties": false, "required": ["id", "statement", "sourceRefs"], "properties": { "id": { "type": "string" }, "statement": { "type": "string", "minLength": 1 }, "sourceRefs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceRef" } } } },
+    "claim": { "type": "object", "additionalProperties": false, "required": ["id", "statement", "sourceRefs"], "properties": { "id": { "type": "string" }, "statement": { "type": "string", "minLength": 1 }, "sourceRefs": { "type": "array", "items": { "$ref": "#/$defs/sourceRef" } }, "claimType": { "type": "string", "enum": ["definition", "mathematical_fact", "theorem", "interpretation", "prerequisite_claim", "pedagogical_claim", "curriculum_claim", "difficulty_claim"] }, "status": { "type": "string", "enum": ["established", "strongly_supported", "supported", "provisional", "uncertain", "contested"] }, "evidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true } } },
     "sourceRef": { "type": "object", "additionalProperties": false, "required": ["source", "locator"], "properties": { "source": { "type": "string" }, "locator": { "type": "string", "minLength": 1 } } },
-    "example": { "type": "object", "additionalProperties": false, "required": ["id", "statement", "explanation"], "properties": { "id": { "type": "string" }, "statement": { "type": "string", "minLength": 1 }, "explanation": { "type": "string", "minLength": 1 } } },
-    "exercise": { "type": "object", "additionalProperties": false, "required": ["id", "type", "difficulty", "question", "answer", "explanation"], "properties": { "id": { "type": "string" }, "type": { "type": "string" }, "difficulty": { "type": "string", "enum": ["basic", "standard", "challenge"] }, "question": { "type": "string", "minLength": 1 }, "answer": { "type": "string", "minLength": 1 }, "explanation": { "type": "string", "minLength": 1 }, "lessonId": { "type": "string" }, "skill": { "type": "string" } } },
-    "diagnostic": { "type": "object", "additionalProperties": false, "required": ["id", "question", "answer", "explanation"], "properties": { "id": { "type": "string" }, "question": { "type": "string", "minLength": 1 }, "answer": { "type": "string", "minLength": 1 }, "explanation": { "type": "string", "minLength": 1 } } }
+    "prerequisiteEdge": { "type": "object", "additionalProperties": false, "required": ["concept", "relation", "rationale", "evidence", "confidence"], "properties": { "concept": { "type": "string" }, "relation": { "type": "string", "enum": ["required", "strongly_recommended", "helpful"] }, "rationale": { "type": "string", "minLength": 1 }, "evidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "confidence": { "type": "string", "enum": ["high", "medium", "low"] } } },
+    "example": { "type": "object", "additionalProperties": false, "required": ["id", "statement", "explanation"], "properties": { "id": { "type": "string" }, "statement": { "type": "string", "minLength": 1 }, "explanation": { "type": "string", "minLength": 1 }, "type": { "type": "string", "enum": ["positive", "counterexample", "worked"] }, "difficulty": { "type": "string", "enum": ["basic", "standard", "challenge"] }, "prompt": { "type": "string" }, "steps": { "type": "array", "items": { "type": "string" } }, "conceptsUsed": { "type": "array", "items": { "type": "string" } } } },
+    "exercise": { "type": "object", "additionalProperties": false, "required": ["id", "type", "difficulty", "question", "answer", "explanation"], "properties": { "id": { "type": "string" }, "type": { "type": "string" }, "difficulty": { "type": "string", "enum": ["basic", "standard", "challenge"] }, "question": { "type": "string", "minLength": 1 }, "answer": { "type": "string", "minLength": 1 }, "explanation": { "type": "string", "minLength": 1 }, "lessonId": { "type": "string" }, "skill": { "type": "string" }, "testsClaims": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }, "requiresConcepts": { "type": "array", "items": { "type": "string" }, "uniqueItems": true } } },
+    "diagnostic": { "type": "object", "additionalProperties": false, "required": ["id", "question", "answer", "explanation"], "properties": { "id": { "type": "string" }, "question": { "type": "string", "minLength": 1 }, "answer": { "type": "string", "minLength": 1 }, "explanation": { "type": "string", "minLength": 1 }, "diagnoses": { "type": "object" } } },
+    "misconceptionDetail": { "type": "object", "additionalProperties": false, "required": ["id", "statement", "relatedClaim", "correctiveExplanation", "diagnosticQuestionId"], "properties": { "id": { "type": "string" }, "statement": { "type": "string", "minLength": 1 }, "relatedClaim": { "type": "string" }, "correctiveExplanation": { "type": "string", "minLength": 1 }, "diagnosticQuestionId": { "type": "string" } } }
   }
 }

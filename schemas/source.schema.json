@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "provider", "type", "url", "license", "language", "accessed_at"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "provider": { "type": "string", "minLength": 1 },
+    "type": { "type": "string", "enum": ["university_oer", "open_textbook", "official_curriculum", "peer_reviewed_research", "reputable_textbook", "secondary_explanation"] },
+    "url": { "type": "string", "pattern": "^https?://" },
+    "authors": { "type": "array", "items": { "type": "string" } },
+    "license": { "type": "string", "minLength": 1 },
+    "license_url": { "type": "string", "pattern": "^https?://" },
+    "language": { "type": "string", "minLength": 2 },
+    "accessed_at": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+  }
+}
