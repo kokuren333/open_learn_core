@@ -1,0 +1,13 @@
+{
+  "id": "dimension",
+  "title": { "ja": "次元", "en": "Dimension" },
+  "summary": { "ja": "有限次元空間の基底に含まれるベクトルの個数。", "en": "The number of vectors in a basis of a finite-dimensional vector space." },
+  "prerequisites": ["basis"],
+  "related": ["linear-independence", "matrix", "linear-map"],
+  "learningObjectives": ["有限次元空間の次元を基底から求められる", "次元と独立性・生成性の関係を説明できる"],
+  "content": { "explanation": "有限次元ベクトル空間Vの次元dim(V)は、どの基底を選んでも同じになるベクトル数です。R^nの次元はnです。n次元空間では、n本より多いベクトルは必ず線形従属になり、n本未満のベクトルは空間全体をspanできません。" },
+  "examples": [{ "id": "dimension-example-001", "statement": "多項式全体ではなく、次数2以下の実係数多項式の空間の次元を求める。", "explanation": "{1,x,x²}が基底なので次元は3です。" }],
+  "exercises": [{ "id": "dimension-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "R³の基底には何本のベクトルがあるか。", "answer": "3本", "explanation": "R^nの標準基底はn本で、基底の本数は選び方によらず一定です。" }],
+  "misconceptions": ["次元は見た目の図形の長さや面積ではなく、基底の本数を表す。"],
+  "sources": ["mit-ocw-linear-algebra"]
+}

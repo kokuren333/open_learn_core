@@ -1,0 +1,13 @@
+{
+  "id": "span",
+  "title": { "ja": "生成（span）", "en": "Span" },
+  "summary": { "ja": "与えられたベクトルのすべての線形結合からなる集合。", "en": "The set of all linear combinations of a collection of vectors." },
+  "prerequisites": ["linear-combination"],
+  "related": ["linear-independence", "basis", "dimension"],
+  "learningObjectives": ["ベクトル集合のspanを言葉と式で定義できる", "spanが部分空間になる理由を説明できる", "標準基底が空間を生成することを確認できる"],
+  "content": { "explanation": "ベクトル集合Sのspanは、Sの有限個のベクトルの線形結合全体です。したがってゼロベクトルを含み、2つの元の和やスカラー倍でも閉じています。R²で(1,0)と(0,1)のspanは平面全体ですが、(1,2)だけのspanはそのベクトルを含む原点を通る直線です。" },
+  "examples": [{ "id": "span-example-001", "statement": "S={(1,0),(0,1)} のspanを求める。", "explanation": "a(1,0)+b(0,1)=(a,b) でa,bが任意なので、span(S)=R²です。" }],
+  "exercises": [{ "id": "span-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "S={(2,4)}のspanを幾何的に述べよ。", "answer": "原点を通り(2,4)を含む直線（y=2x）", "explanation": "t(2,4)=(2t,4t)という全点からなります。" }],
+  "misconceptions": ["spanは与えられたベクトルそのものだけの集合ではなく、それらの全線形結合の集合。", "spanが空間全体でも、生成元の個数が最小とは限らない。"],
+  "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
+}

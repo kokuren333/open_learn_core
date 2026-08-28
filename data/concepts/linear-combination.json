@@ -1,0 +1,13 @@
+{
+  "id": "linear-combination",
+  "title": { "ja": "線形結合", "en": "Linear Combination" },
+  "summary": { "ja": "ベクトルをスカラー倍して加えた形。", "en": "A sum of scalar multiples of given vectors." },
+  "prerequisites": ["vector-addition", "scalar-multiplication"],
+  "related": ["span", "linear-independence", "basis"],
+  "learningObjectives": ["線形結合を式で表せる", "指定されたベクトルから目的のベクトルを作れるか判定できる"],
+  "content": { "explanation": "v1,...,vkの線形結合とは、係数c1,...,ckを用いた c1v1+...+ckvk の形です。係数は任意のスカラーなので、ベクトルを足すだけでなく伸縮や反転も組み合わせられます。どのベクトルが作れるかを集めたものがspanであり、線形結合の表し方が一意かどうかは線形独立性と関係します。" },
+  "examples": [{ "id": "linear-combination-example-001", "statement": "(5,1) が (1,1),(2,-1) の線形結合か確認する。", "explanation": "a(1,1)+b(2,-1)=(5,1) は a+2b=5, a-b=1。解は b=4/3, a=7/3 なので、確かに線形結合です。" }],
+  "exercises": [{ "id": "linear-combination-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "(3,2) を (1,0),(0,1) の線形結合として表せ。", "answer": "3(1,0)+2(0,1)", "explanation": "標準基底の各ベクトルに対応する成分を係数として掛けます。" }],
+  "misconceptions": ["線形結合の係数は整数に限られない。実数や、選んだスカラー体の任意の元を使う。"],
+  "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
+}

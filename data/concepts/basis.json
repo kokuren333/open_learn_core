@@ -1,0 +1,13 @@
+{
+  "id": "basis",
+  "title": { "ja": "基底", "en": "Basis" },
+  "summary": { "ja": "空間を生成し、しかも線形独立なベクトルの組。", "en": "A linearly independent spanning set for a vector space." },
+  "prerequisites": ["span", "linear-independence"],
+  "related": ["dimension", "matrix-representation", "linear-combination"],
+  "learningObjectives": ["基底の定義を説明できる", "与えられたベクトル集合が基底か判定できる", "基底を用いてベクトルを座標表示できる"],
+  "content": { "explanation": "ベクトル空間Vの基底は、Vをspanし、かつ線形独立なベクトル集合です。この2条件により、Vの任意のベクトルは基底ベクトルの線形結合として存在し、しかも係数が一意になります。基底の選び方は一般に一意ではありませんが、有限次元空間では基底に含まれるベクトルの個数は常に同じです。" },
+  "examples": [{ "id": "basis-example-001", "statement": "R²の標準基底 e1=(1,0), e2=(0,1) が基底である理由を述べる。", "explanation": "a e1+b e2=(a,b)なのでR²全体をspanし、a e1+b e2=0ならa=b=0で線形独立です。" }],
+  "exercises": [{ "id": "basis-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "B={(1,1),(1,-1)}を基底とするとき、(4,2)のBに関する座標を求めよ。", "answer": "(3,1)", "explanation": "a(1,1)+b(1,-1)=(4,2)よりa+b=4, a-b=2。a=3,b=1です。" }],
+  "misconceptions": ["基底は一意に決まるとは限らない。標準基底以外にも無数に選べる。", "空間をspanするだけでは基底とは限らない。線形独立性も必要。"],
+  "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "scalar-multiplication",
+  "title": { "ja": "スカラー倍", "en": "Scalar Multiplication" },
+  "summary": { "ja": "スカラーをベクトルの各成分に掛ける演算。", "en": "Multiplication of every vector component by the same scalar." },
+  "prerequisites": ["scalar", "vector"],
+  "related": ["vector-addition", "linear-combination", "linear-map"],
+  "learningObjectives": ["スカラー倍を計算できる", "負数や0倍が幾何的に何をするか説明できる", "分配法則を使える"],
+  "content": { "explanation": "スカラー c とベクトル v=(v1,...,vn) に対し、cv=(cv1,...,cvn) と定義します。cの絶対値が1より大きければ伸び、0と1の間なら縮み、負なら向きが反転します。加法との分配法則 c(u+v)=cu+cv と (c+d)v=cv+dv が成り立つため、線形結合の基礎になります。" },
+  "examples": [{ "id": "scalar-multiplication-example-001", "statement": "-2(3,-1) を計算し、幾何的な意味を述べる。", "explanation": "(-6,2)。長さを2倍にして反対方向へ向けます。" }],
+  "exercises": [{ "id": "scalar-multiplication-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "c=0 のとき cv は常に何になるか。", "answer": "零ベクトル", "explanation": "各成分が0倍されるので (0,...,0) になります。" }],
+  "misconceptions": ["スカラー倍はベクトルの一部の成分だけを変える操作ではない。全成分に同じ数を掛ける。"],
+  "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
+}

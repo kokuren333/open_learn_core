@@ -1,0 +1,13 @@
+{
+  "id": "matrix",
+  "title": { "ja": "行列", "en": "Matrix" },
+  "summary": { "ja": "数を長方形状に並べた、線形写像を計算するための表現。", "en": "A rectangular array of numbers used to represent linear operations." },
+  "prerequisites": ["scalar", "vector"],
+  "related": ["linear-map", "matrix-representation", "basis"],
+  "learningObjectives": ["行列とベクトルの積を計算できる", "行列のサイズから入出力の次元を読める"],
+  "content": { "explanation": "m行n列の行列Aは、n成分ベクトルをm成分ベクトルへ送る計算規則として使えます。積Avのi成分は、Aのi行とvの内積です。行列を単なる数字の表ではなく、列ベクトルの線形結合を作る装置として見ると、線形写像との関係が分かりやすくなります。" },
+  "examples": [{ "id": "matrix-example-001", "statement": "A=[[1,2],[0,3]], v=(2,1) のときAvを求める。", "explanation": "Av=(1·2+2·1, 0·2+3·1)=(4,3)です。" }],
+  "exercises": [{ "id": "matrix-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "2×3行列は何成分ベクトルを入力として受け、何成分ベクトルを出力するか。", "answer": "3成分を入力し、2成分を出力する", "explanation": "行列の列数が入力次元、行数が出力次元です。" }],
+  "misconceptions": ["行列の掛け算は同じ位置の成分を掛ける演算ではない。行と列の内積を足し合わせる。"],
+  "sources": ["mit-ocw-linear-algebra"]
+}

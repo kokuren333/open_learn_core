@@ -1,0 +1,14 @@
+[
+  {
+    "id": "mit-ocw-linear-algebra",
+    "title": "MIT OpenCourseWare 18.06SC Linear Algebra",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/",
+    "license": "CC BY-NC-SA 4.0"
+  },
+  {
+    "id": "openstax-linear-algebra",
+    "title": "OpenStax, Linear Algebra",
+    "url": "https://openstax.org/details/books/linear-algebra",
+    "license": "CC BY 4.0"
+  }
+]

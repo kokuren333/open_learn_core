@@ -1,0 +1,19 @@
+{
+  "id": "linear-algebra-basic",
+  "title": { "ja": "線形代数入門", "en": "Linear Algebra Basics" },
+  "description": "ベクトルから行列表示までを、概念の依存関係に沿って学ぶMVPカリキュラム。",
+  "sequence": [
+    "scalar",
+    "vector",
+    "vector-addition",
+    "scalar-multiplication",
+    "linear-combination",
+    "span",
+    "linear-independence",
+    "basis",
+    "dimension",
+    "linear-map",
+    "matrix",
+    "matrix-representation"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "scalar",
+  "title": { "ja": "スカラー", "en": "Scalar" },
+  "summary": { "ja": "大きさだけを表し、ベクトルに掛けて伸縮や反転を行う数。", "en": "A number that can scale a vector without changing the vector space direction structure." },
+  "prerequisites": [],
+  "related": ["vector", "scalar-multiplication"],
+  "learningObjectives": ["スカラーとベクトルを区別できる", "スカラー倍がベクトルに与える意味を説明できる"],
+  "content": { "explanation": "線形代数でいうスカラーは、ベクトルの成分を一度に伸縮させるための数です。実数をスカラーに選ぶことが多いですが、複素数など別の数体系を選ぶこともあります。スカラーは単独では向きを持たず、ベクトルとの積によって線形な操作を表します。" },
+  "examples": [{ "id": "scalar-example-001", "statement": "スカラー -2 は何を表すか。", "explanation": "大きさを2倍にし、さらに向きを反転する操作としてベクトルに作用します。" }],
+  "exercises": [{ "id": "scalar-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "3(1, -2) を計算せよ。", "answer": "(3, -6)", "explanation": "スカラー3を各成分に掛けます。" }],
+  "misconceptions": ["スカラーは必ず正の数だとは限らない。0や負数、複素数も使える。"],
+  "sources": ["mit-ocw-linear-algebra"]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "linear-map",
+  "title": { "ja": "線形写像", "en": "Linear Map" },
+  "summary": { "ja": "加法とスカラー倍を保つ写像。", "en": "A map that preserves vector addition and scalar multiplication." },
+  "prerequisites": ["vector-addition", "scalar-multiplication"],
+  "related": ["matrix", "matrix-representation", "dimension"],
+  "learningObjectives": ["線形写像の2つの条件を確認できる", "線形写像の例と非例を区別できる"],
+  "content": { "explanation": "写像T:V→Wが線形であるとは、任意のu,vとスカラーcについてT(u+v)=T(u)+T(v)、T(cv)=cT(v)が成り立つことです。まとめてT(au+bv)=aT(u)+bT(v)と書けます。平行移動を含む写像は一般に原点を0へ写さないため、線形ではありません。" },
+  "examples": [{ "id": "linear-map-example-001", "statement": "T(x,y)=(x+y,y) が線形であることを確認する。", "explanation": "各成分が入力の線形結合なので、加法とスカラー倍を成分ごとに保ちます。" }],
+  "exercises": [{ "id": "linear-map-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "T(x,y)=(x+1,y) は線形写像か。", "answer": "線形ではない", "explanation": "T(0,0)=(1,0)であり、線形写像なら必ずT(0)=0でなければなりません。" }],
+  "misconceptions": ["線形という言葉はグラフが直線であることと同じではない。写像が2つの演算を保つことを指す。"],
+  "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
+}
