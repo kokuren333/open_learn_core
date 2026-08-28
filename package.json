@@ -43,6 +43,7 @@
     "video:setup": "node scripts/setup-biim-slide-maker.mjs",
     "video:prepare": "node scripts/video-prepare.mjs",
     "video:build": "node scripts/video-build.mjs",
+    "video:artifact": "node scripts/build-video-artifact.mjs",
     "video:audit": "node scripts/video-audit.mjs",
     "youtube:register": "node scripts/register-youtube.mjs"
   },

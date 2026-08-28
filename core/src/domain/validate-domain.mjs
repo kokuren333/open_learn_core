@@ -1,4 +1,4 @@
-import { access, readFile, readdir } from "node:fs/promises";
+import { access, readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { validateJsonSchema } from "../validation/schema.mjs";
 import { loadDomain } from "./load-domain.mjs";
@@ -47,7 +47,30 @@ export async function validateDomain(domain, { schema } = {}) {
       if (representation.source_id && !domain.dataset.sources.some((source) => source.id === representation.source_id)) issues.push(`Representation '${representation.id}': unknown source '${representation.source_id}'`);
       if (representation.visual_id && !domain.dataset.visuals.some((record) => record.value?.id === representation.visual_id)) issues.push(`Representation '${representation.id}': unknown visual '${representation.visual_id}'`);
       if (representation.after_block_id && !(domain.learningExperiences.find((experience) => experience.concept_id === resources.concept_id)?.sequence ?? []).some((block) => block.id === representation.after_block_id)) issues.push(`Representation '${representation.id}': unknown block '${representation.after_block_id}'`);
+      if (["generated", "validated", "published"].includes(representation.status)) {
+        const artifactPath = representation.artifact?.source_path;
+        if (!artifactPath) issues.push(`Representation '${representation.id}': status '${representation.status}' requires artifact.source_path`);
+        else {
+          const resolvedArtifact = path.resolve(domain.dataset.root ?? domain.root, artifactPath);
+          try {
+            const artifactStat = await stat(resolvedArtifact);
+            if (!artifactStat.isFile() || artifactStat.size === 0) issues.push(`Representation '${representation.id}': artifact is empty or not a file`);
+            if (representation.type === "pdf") {
+              const header = (await readFile(resolvedArtifact)).subarray(0, 5).toString("ascii");
+              if (header !== "%PDF-") issues.push(`Representation '${representation.id}': artifact is not a PDF`);
+            }
+            if (representation.type === "video") {
+              const manifestPath = path.join(path.dirname(resolvedArtifact), "video-manifest.json");
+              try {
+                const videoManifest = JSON.parse(await readFile(manifestPath, "utf8"));
+                if (!(Number(videoManifest.duration_seconds) > 0) || videoManifest.streams?.audio !== true || videoManifest.streams?.video !== true || videoManifest.streams?.subtitles !== true) issues.push(`Representation '${representation.id}': video manifest failed media checks`);
+              } catch { issues.push(`Representation '${representation.id}': video-manifest.json is missing or invalid`); }
+            }
+          } catch { issues.push(`Representation '${representation.id}': artifact is missing: ${artifactPath}`); }
+        }
+      }
     }
+    for (const type of ["pdf", "video"]) if (["generated", "validated", "published"].includes(resources.outputs?.[type]) && !(resources.representations ?? []).some((item) => item.type === type)) issues.push(`Concept resources '${resources.concept_id}': outputs.${type} has status '${resources.outputs[type]}' but no ${type} representation exists`);
     for (const visualId of resources.visual_plan?.assets ?? []) if (!domain.dataset.visuals.some((record) => record.value?.id === visualId)) issues.push(`Visual plan '${resources.concept_id}': unknown visual '${visualId}'`);
   }
   const learningExperiences = domain.learningExperiences ?? [];

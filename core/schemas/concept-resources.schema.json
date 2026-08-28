@@ -69,6 +69,13 @@
           "visual_id": { "type": "string" },
           "source_id": { "type": "string" },
           "href": { "type": "string" },
+          "status": { "type": "string", "enum": ["missing", "planned", "scripted", "generated", "validated", "published"] },
+          "artifact": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path"],
+            "properties": { "path": { "type": "string", "minLength": 1 }, "source_path": { "type": "string", "minLength": 1 }, "mime_type": { "type": "string" } }
+          },
           "after_block_id": { "type": "string" },
           "title": { "type": "string" },
           "caption": { "type": "string" },
@@ -115,9 +122,9 @@
       "additionalProperties": false,
       "required": ["html", "pdf", "video"],
       "properties": {
-        "html": { "type": "string", "enum": ["ready", "draft", "missing"] },
-        "pdf": { "type": "string", "enum": ["ready", "draft", "missing"] },
-        "video": { "type": "string", "enum": ["ready", "draft", "missing"] },
+        "html": { "type": "string", "enum": ["missing", "planned", "scripted", "generated", "validated", "published"] },
+        "pdf": { "type": "string", "enum": ["missing", "planned", "scripted", "generated", "validated", "published"] },
+        "video": { "type": "string", "enum": ["missing", "planned", "scripted", "generated", "validated", "published"] },
         "pdf_purpose": { "type": "string", "enum": ["printable_lesson", "cheat_sheet", "exercise_sheet", "reference_sheet", "full_concept_handout"] },
         "video_purpose": { "type": "string", "enum": ["overview", "intuition", "derivation", "worked_example", "visualization"] }
       }

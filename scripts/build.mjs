@@ -109,10 +109,35 @@ for (const domain of domains) {
   }
   for (const resources of domain.conceptResources ?? []) {
     if (!resources.video_plan?.unit_id) continue;
-    try { await exec(process.execPath, [path.join(root, "scripts", "video-prepare.mjs"), domain.id, resources.video_plan.unit_id], { cwd: root }); }
-    catch (error) { console.warn(`Video preparation skipped for '${resources.concept_id}': ${error.message}`); }
+    try {
+      await exec(process.execPath, [path.join(root, "scripts", "video-prepare.mjs"), domain.id, resources.video_plan.unit_id], { cwd: root });
+      await exec(process.execPath, [path.join(root, "scripts", "build-video-artifact.mjs"), domain.id, resources.video_plan.unit_id], { cwd: root });
+      const generatedVideo = path.join(domain.root, "video", "generated", "rendered", resources.video_plan.unit_id);
+      await cp(generatedVideo, path.join(output, "video", resources.video_plan.unit_id), { recursive: true, force: true });
+    } catch (error) { console.warn(`Video artifact generation skipped for '${resources.concept_id}': ${error.message}`); }
   }
-  const manifest = { ...domain.manifest, url: `/domains/${publishPath}/`, course_id: course?.id, curricula: coreCurriculum ? [{ id: coreCurriculum.id, title: coreCurriculum.title }] : dataset.curricula.map((record) => ({ id: record.value.id, title: record.value.title })), conceptCount: coreConcepts.length || concepts.length, legacyConceptCount: concepts.length, coreConcepts: coreConcepts.map((concept) => concept.id), learningExperiences: [...learningExperienceByConcept.values()].map((experience) => ({ id: experience.id, concept_id: experience.concept_id, status: experience.editorial_status, block_count: experience.sequence.length, assessment_count: experience.assessments.length })), conceptResources: (domain.conceptResources ?? []).map((resources) => ({ concept_id: resources.concept_id, outputs: resources.outputs, representation_ids: resources.representations.map((item) => item.id) })), courseVersion: course?.version ?? "2.2.0", source_commit: sourceCommit, license: course?.license ?? { code: "MIT", content: "CC BY-SA 4.0" }, asset_base_url: process.env.ASSET_BASE_URL ?? "" };
+  const validateArtifact = async (item) => {
+    const artifactPath = item.artifact?.source_path ? path.resolve(root, item.artifact.source_path) : null;
+    if (!artifactPath) return false;
+    try {
+      const bytes = await readFile(artifactPath);
+      if (bytes.length === 0) return false;
+      if (item.type === "pdf") return bytes.subarray(0, 5).toString("ascii") === "%PDF-";
+      if (item.type === "video") {
+        const videoManifest = JSON.parse(await readFile(path.join(path.dirname(artifactPath), "video-manifest.json"), "utf8"));
+        return Number(videoManifest.duration_seconds) > 0 && videoManifest.streams?.video === true && videoManifest.streams?.audio === true && videoManifest.streams?.subtitles === true;
+      }
+      return true;
+    } catch { return false; }
+  };
+  const conceptResourcesManifest = [];
+  for (const resources of domain.conceptResources ?? []) {
+    const representations = await Promise.all(resources.representations.map(async (item) => ({ ...item, status: await validateArtifact(item) ? "validated" : (item.status ?? "missing") })));
+    const pdfReady = representations.some((item) => item.type === "pdf" && item.status === "validated");
+    const videoReady = representations.some((item) => item.type === "video" && item.status === "validated");
+    conceptResourcesManifest.push({ concept_id: resources.concept_id, outputs: { ...resources.outputs, html: "published", pdf: pdfReady ? "validated" : resources.outputs.pdf, video: videoReady ? "validated" : resources.outputs.video }, representations });
+  }
+  const manifest = { ...domain.manifest, url: `/domains/${publishPath}/`, course_id: course?.id, curricula: coreCurriculum ? [{ id: coreCurriculum.id, title: coreCurriculum.title }] : dataset.curricula.map((record) => ({ id: record.value.id, title: record.value.title })), conceptCount: coreConcepts.length || concepts.length, legacyConceptCount: concepts.length, coreConcepts: coreConcepts.map((concept) => concept.id), learningExperiences: [...learningExperienceByConcept.values()].map((experience) => ({ id: experience.id, concept_id: experience.concept_id, status: experience.editorial_status, block_count: experience.sequence.length, assessment_count: experience.assessments.length })), conceptResources: conceptResourcesManifest, courseVersion: course?.version ?? "2.2.0", source_commit: sourceCommit, license: course?.license ?? { code: "MIT", content: "CC BY-SA 4.0" }, asset_base_url: process.env.ASSET_BASE_URL ?? "" };
   await writeFile(path.join(output, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n", "utf8");
   const report = { release_version: "2.5.0", concept: conceptId, domain: domain.id, version: "2.5.0", status: gate.status, course_status: course?.status ?? "unknown", semanticAudits: Object.fromEntries(Object.entries(gate.computedAudits).map(([name, result]) => [name, result.status])), content: { concepts: coreConcepts.length || concepts.length, legacyConcepts: concepts.length, learningExperiences: learningExperienceByConcept.size, lessonContentBlocks: [...learningExperienceByConcept.values()].reduce((sum, experience) => sum + experience.lesson_content.length, 0), modules: course?.modules?.length ?? 0, units: course?.units?.length ?? 0, lessons: gate.coverage.lessons.total, workedExamples: gate.coverage.examples.worked, counterexamples: gate.coverage.examples.counterexample, exercises: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.length, 0) : gate.coverage.exercises.total, solutions: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.filter((exercise) => exercise.solution).length, 0) : 0, cumulativeReviews: courseData?.cumulativeReviews?.length ?? 0, diagnostics: gate.coverage.diagnostics.total, visuals: gate.coverage.visuals.published }, audits: Object.fromEntries(Object.entries(gate.gates).map(([name, pass]) => [name, pass ? "pass" : "fail"])), counts: { claims: gate.coverage.claims.total, evidenceItems: dataset.evidenceItems.length, examples: gate.coverage.examples.total, exercises: gate.coverage.exercises.total, diagnostics: gate.coverage.diagnostics.total, misconceptions: gate.coverage.misconceptions.total, visuals: gate.coverage.visuals.total } };
   await writeFile(path.join(output, "build-report.json"), JSON.stringify(report, null, 2) + "\n", "utf8");

@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import { loadDomain } from "../core/src/domain/load-domain.mjs";
@@ -71,4 +71,6 @@ if (!pandoc || !lualatex) {
   process.exit(0);
 }
 await exec(pandoc, [markdownPath, "--from", "markdown+tex_math_dollars", "--toc", "--number-sections", `--pdf-engine=${lualatex}`, "-V", "documentclass=ltjsarticle", "-V", "geometry:a4paper,margin=22mm", "-o", pdfPath], { cwd: root });
-console.log(`Concept PDF written: ${path.relative(root, pdfPath)}`);
+const pdfBytes = await readFile(pdfPath);
+if (pdfBytes.length === 0 || pdfBytes.subarray(0, 5).toString("ascii") !== "%PDF-") throw new Error(`Generated PDF failed validation: ${pdfPath}`);
+console.log(`Concept PDF validated: ${path.relative(root, pdfPath)} (${pdfBytes.length} bytes)`);

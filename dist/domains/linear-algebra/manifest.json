@@ -132,24 +132,96 @@
     {
       "concept_id": "basis",
       "outputs": {
-        "html": "ready",
-        "pdf": "ready",
-        "video": "draft",
+        "html": "published",
+        "pdf": "validated",
+        "video": "validated",
         "pdf_purpose": "full_concept_handout",
         "video_purpose": "visualization"
       },
-      "representation_ids": [
-        "basis-linear-combination-figure",
-        "basis-span-independence-figure",
-        "basis-r2-figure",
-        "basis-coordinate-figure",
-        "basis-video",
-        "basis-pdf"
+      "representations": [
+        {
+          "id": "basis-linear-combination-figure",
+          "type": "diagram",
+          "role": "example",
+          "visual_id": "visual-basis-linear-combination",
+          "after_block_id": "basis-hook",
+          "title": "v=3e₁+2e₂を図で見る",
+          "caption": "係数倍した二つの基底ベクトルを順に足すと、目的ベクトルに到達します。",
+          "purpose": "座標の係数を、実際の幾何的な移動として導入する。",
+          "supports_claims": [
+            "basis-span"
+          ],
+          "targets_misconceptions": [
+            "座標の数字だけでは幾何的な意味がない"
+          ],
+          "status": "missing"
+        },
+        {
+          "id": "basis-span-independence-figure",
+          "type": "diagram",
+          "role": "intuition",
+          "visual_id": "visual-basis-span-independence",
+          "after_block_id": "basis-contrast",
+          "title": "基底の二条件",
+          "caption": "spanと線形独立の両方を満たす組だけが基底です。",
+          "status": "missing"
+        },
+        {
+          "id": "basis-r2-figure",
+          "type": "diagram",
+          "role": "example",
+          "visual_id": "visual-basis-r2-bases",
+          "after_block_id": "basis-emergence",
+          "title": "R²の二つの基底",
+          "caption": "標準基底でなくても、二条件を満たせば基底になります。",
+          "status": "missing"
+        },
+        {
+          "id": "basis-coordinate-figure",
+          "type": "diagram",
+          "role": "explanation",
+          "visual_id": "visual-basis-coordinate-frames",
+          "after_block_id": "basis-representation-switch",
+          "title": "同じベクトル、異なる座標",
+          "caption": "基底を変えると座標は変わりますが、ベクトルは変わりません。",
+          "status": "missing"
+        },
+        {
+          "id": "basis-video",
+          "type": "video",
+          "role": "supplementary",
+          "source_id": "threeblue1brown-span",
+          "title": "Basisを動画で復習する",
+          "purpose": "図解でspanを復習する",
+          "supports_claims": [
+            "basis-span"
+          ],
+          "status": "validated",
+          "artifact": {
+            "path": "video/basis-definition/basis-definition.mp4",
+            "source_path": "domains/linear-algebra/video/generated/rendered/basis-definition/basis-definition.mp4",
+            "mime_type": "video/mp4"
+          }
+        },
+        {
+          "id": "basis-pdf",
+          "type": "pdf",
+          "role": "printable",
+          "href": "pdf/basis.pdf",
+          "title": "このConceptをPDFで読む",
+          "purpose": "printable_lesson",
+          "status": "validated",
+          "artifact": {
+            "path": "pdf/basis.pdf",
+            "source_path": "dist/domains/linear-algebra/pdf/basis.pdf",
+            "mime_type": "application/pdf"
+          }
+        }
       ]
     }
   ],
   "courseVersion": "2.0.0",
-  "source_commit": "6a6a4ad39207635e1cf5a40028f0f8af6b0e957c",
+  "source_commit": "e6ae38c8c9dd7737347ec809ab67210b27dea342",
   "license": {
     "code": "MIT",
     "content": "CC BY-SA 4.0",

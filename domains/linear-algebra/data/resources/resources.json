@@ -54,8 +54,8 @@
       { "id": "basis-span-independence-figure", "type": "diagram", "role": "intuition", "visual_id": "visual-basis-span-independence", "after_block_id": "basis-contrast", "title": "基底の二条件", "caption": "spanと線形独立の両方を満たす組だけが基底です。" },
       { "id": "basis-r2-figure", "type": "diagram", "role": "example", "visual_id": "visual-basis-r2-bases", "after_block_id": "basis-emergence", "title": "R²の二つの基底", "caption": "標準基底でなくても、二条件を満たせば基底になります。" },
       { "id": "basis-coordinate-figure", "type": "diagram", "role": "explanation", "visual_id": "visual-basis-coordinate-frames", "after_block_id": "basis-representation-switch", "title": "同じベクトル、異なる座標", "caption": "基底を変えると座標は変わりますが、ベクトルは変わりません。" },
-      { "id": "basis-video", "type": "video", "role": "supplementary", "source_id": "threeblue1brown-span", "title": "動画で復習する", "purpose": "図解でspanを復習する", "supports_claims": ["basis-span"] },
-      { "id": "basis-pdf", "type": "pdf", "role": "printable", "href": "pdf/basis.pdf", "title": "このConceptをPDFで読む" }
+      { "id": "basis-video", "type": "video", "role": "supplementary", "source_id": "threeblue1brown-span", "title": "Basisを動画で復習する", "purpose": "図解でspanを復習する", "supports_claims": ["basis-span"], "status": "scripted", "artifact": { "path": "video/basis-definition/basis-definition.mp4", "source_path": "domains/linear-algebra/video/generated/rendered/basis-definition/basis-definition.mp4", "mime_type": "video/mp4" } },
+      { "id": "basis-pdf", "type": "pdf", "role": "printable", "href": "pdf/basis.pdf", "title": "このConceptをPDFで読む", "purpose": "printable_lesson", "status": "scripted", "artifact": { "path": "pdf/basis.pdf", "source_path": "dist/domains/linear-algebra/pdf/basis.pdf", "mime_type": "application/pdf" } }
     ],
     "visual_plan": {
       "needed": true,
@@ -73,6 +73,6 @@
       "learner_outcomes": ["係数倍とベクトル加算を図で説明できる", "spanと線形独立を基底の条件として区別できる"],
       "status": "scripted"
     },
-    "outputs": { "html": "ready", "pdf": "ready", "video": "draft", "pdf_purpose": "full_concept_handout", "video_purpose": "visualization" }
+    "outputs": { "html": "planned", "pdf": "scripted", "video": "scripted", "pdf_purpose": "full_concept_handout", "video_purpose": "visualization" }
   }
 ]

@@ -146,8 +146,14 @@ function renderCoreConcept({ concept, conceptsById, experience = null, resources
   const tocItems = learnerSections.map((section, index) => `<li><a href="#learner-section-${escapeHtml(section.id)}"><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(section.title)}</a></li>`).join("");
   const resourceLinks = (resources?.representations ?? []).filter((item) => ["video", "pdf", "interactive"].includes(item.type)).map((item) => {
     const source = item.source_id ? sourceById.get(item.source_id) : null;
-    const href = item.href ?? source?.url;
-    return href ? `<a class="resource-chip resource-${escapeHtml(item.type)}" href="${escapeHtml(href)}"${source?.url === href ? ` target="_blank" rel="noreferrer"` : ""}>${escapeHtml(item.title ?? item.type)} <span aria-hidden="true">↗</span></a>` : "";
+    const localArtifact = item.artifact?.path ? `../${item.artifact.path}` : null;
+    const href = item.href ? `../${item.href.replace(/^\.\//, "")}` : localArtifact ?? source?.url;
+    if (!href) return "";
+    if (item.type === "video" && localArtifact) {
+      const subtitlePath = localArtifact.replace(/\.mp4$/i, ".srt");
+      return `<div class="learner-video"><p class="resource-label">${escapeHtml(item.title ?? "動画")}</p><video controls preload="metadata"><source src="${escapeHtml(href)}" type="${escapeHtml(item.artifact?.mime_type ?? "video/mp4")}"><track kind="subtitles" srclang="ja" label="日本語" src="${escapeHtml(subtitlePath)}"></video><p class="video-fallback"><a href="${escapeHtml(href)}">動画ファイルを開く</a></p></div>`;
+    }
+    return `<a class="resource-chip resource-${escapeHtml(item.type)}" href="${escapeHtml(href)}"${source?.url === href ? ` target="_blank" rel="noreferrer"` : ""}>${escapeHtml(item.title ?? item.type)} <span aria-hidden="true">↗</span></a>`;
   }).join("");
   const mediaLinks = resourceLinks ? `<div class="learner-resource-links" aria-label="追加の学習形式">${resourceLinks}</div>` : "";
   const assessmentNumber = learnerSections.length + 1;
