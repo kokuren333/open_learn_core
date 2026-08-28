@@ -60,7 +60,10 @@ for (const domain of domains) {
   await writeFile(path.join(output, "graph.html"), renderGraph({ concepts: coreConcepts, conceptsById: coreConceptsById, curricula: coreCurriculum ? [{ value: coreCurriculum }] : [] }), "utf8");
   for (const concept of coreConcepts) await writeFile(path.join(output, "concepts", `${concept.id}.html`), renderCoreConcept({ concept, conceptsById: coreConceptsById, experience: learningExperienceByConcept.get(concept.id) }), "utf8");
   if (coreCurriculum) await writeFile(path.join(output, "curriculum.html"), renderCurriculum({ curriculum: coreCurriculum, conceptsById: coreConceptsById, sourceById, evidenceById, decisions: dataset.curriculumDecisions.map((record) => record.value) }), "utf8");
-  await writeFile(path.join(output, "styles.css"), await readFile(path.join(root, "core", "src", "renderer", "styles.css"), "utf8"), "utf8");
+  const rendererCss = await readFile(path.join(root, "core", "src", "renderer", "styles.css"), "utf8");
+  const katexCss = await readFile(path.join(root, "node_modules", "katex", "dist", "katex.min.css"), "utf8");
+  await writeFile(path.join(output, "styles.css"), `${rendererCss.trimEnd()}\n${katexCss.trim()}\n`, "utf8");
+  await cp(path.join(root, "node_modules", "katex", "dist", "fonts"), path.join(output, "fonts"), { recursive: true, force: true });
   const course = dataset.courses?.[0]?.value;
   if (course) {
     const modules = courseData.modules.map((record) => record.value).sort((a, b) => a.order - b.order);

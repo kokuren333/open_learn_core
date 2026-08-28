@@ -50,5 +50,8 @@
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "katex": "^0.18.4"
   }
 }

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { loadDomain } from "../../core/src/domain/load-domain.mjs";
 import { validateDomain } from "../../core/src/domain/validate-domain.mjs";
 import { renderCoreConcept } from "../../core/src/renderer/render.mjs";
+import { renderRichText } from "../../core/src/renderer/rich-text.mjs";
 
 const root = process.cwd();
 
@@ -37,11 +38,23 @@ test("Basis renderer separates learner content from author metadata", async () =
   assert.equal((html.match(/class="learner-block"/g) ?? []).length, 21);
   assert.equal((html.match(/class="learner-section"/g) ?? []).length, 6);
   assert.match(html, /LEARNING PATH/);
-  assert.match(html, /少し考えてみる/);
+  assert.doesNotMatch(html, /少し考えてみる/);
+  assert.match(html, /考えてみよう/);
+  assert.match(html, /ヒント：/);
   assert.match(html, /解法と理由を見る/);
+  assert.match(html, /class="desktop-toc"/);
+  assert.match(html, /class="mobile-toc"/);
+  assert.match(html, /class="katex/);
   assert.doesNotMatch(html, /設計上のねらい|learner_state_before|internal dependencies|generated_from/);
   assert.doesNotMatch(html, /data-learning-block-type/);
-  assert.match(html, /式で確認/);
+  assert.doesNotMatch(html, /式で確認/);
   assert.match(html, /よくある勘違いを見る/);
   assert.match(html, /CHECK YOUR UNDERSTANDING/);
+});
+
+test("learner rich text renders math and lightweight callouts", () => {
+  const html = renderRichText("係数 $a,b$ を使う。\n\n:::note\nここだけ覚えよう。\n:::");
+  assert.match(html, /class="katex/);
+  assert.match(html, /rich-callout-note/);
+  assert.match(html, /ここだけ覚えよう/);
 });
