@@ -5,6 +5,8 @@
   "prerequisites": ["vector-addition", "scalar-multiplication"],
   "related": ["matrix", "matrix-representation", "dimension"],
   "learningObjectives": ["線形写像の2つの条件を確認できる", "線形写像の例と非例を区別できる"],
+  "lessons": [{"id":"linear-map-lesson-01","title":"構造を保つ写像","summary":"加法とスカラー倍を保つ写像を見分ける。","objectives":["線形写像の条件を使って判定できる"],"sections":[{"id":"linear-map-section-01","title":"線形性の条件","kind":"definition","body":"T(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たす写像が線形写像です。","claimRefs":["linear-map-claim-01"]}],"exerciseIds":["linear-map-exercise-001"]}],
+  "claims": [{"id":"linear-map-claim-01","statement":"線形写像はベクトルの加法とスカラー倍を保つ。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 8: Linear transformations"}]}],
   "content": { "explanation": "写像T:V→Wが線形であるとは、任意のu,vとスカラーcについてT(u+v)=T(u)+T(v)、T(cv)=cT(v)が成り立つことです。まとめてT(au+bv)=aT(u)+bT(v)と書けます。平行移動を含む写像は一般に原点を0へ写さないため、線形ではありません。" },
   "examples": [{ "id": "linear-map-example-001", "statement": "T(x,y)=(x+y,y) が線形であることを確認する。", "explanation": "各成分が入力の線形結合なので、加法とスカラー倍を成分ごとに保ちます。" }],
   "exercises": [{ "id": "linear-map-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "T(x,y)=(x+1,y) は線形写像か。", "answer": "線形ではない", "explanation": "T(0,0)=(1,0)であり、線形写像なら必ずT(0)=0でなければなりません。" }],

@@ -8,6 +8,7 @@ test("valid dataset passes schema and reference validation", async () => {
   const result = await validateDataset(await loadDataset(projectRoot));
   assert.equal(result.valid, true, result.issues.join("\n"));
   assert.equal(result.conceptsById.size, 12);
+  assert.ok([...result.conceptsById.values()].every((concept) => concept.lessons.length > 0 && concept.claims.length > 0));
 });
 
 test("invalid concept fails schema validation", async () => {
@@ -38,4 +39,20 @@ test("curriculum references are validated", async () => {
   dataset.curricula[0].value.sequence.push("unknown-concept");
   const result = await validateDataset(dataset);
   assert.ok(result.issues.some((issue) => issue.includes("curriculum 'linear-algebra-basic': unknown concept reference 'unknown-concept'")));
+});
+
+test("lesson exercise references are validated", async () => {
+  const dataset = await loadDataset(projectRoot);
+  const basis = dataset.concepts.find((record) => record.value.id === "basis");
+  basis.value.lessons[0].exerciseIds.push("missing-exercise");
+  const result = await validateDataset(dataset);
+  assert.ok(result.issues.some((issue) => issue.includes("unknown exercise reference 'missing-exercise'")));
+});
+
+test("claim-level source references are validated", async () => {
+  const dataset = await loadDataset(projectRoot);
+  const basis = dataset.concepts.find((record) => record.value.id === "basis");
+  basis.value.claims[0].sourceRefs[0].source = "missing-source";
+  const result = await validateDataset(dataset);
+  assert.ok(result.issues.some((issue) => issue.includes("claim 'basis-claim-01': unknown source reference 'missing-source'")));
 });

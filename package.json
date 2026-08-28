@@ -1,8 +1,8 @@
 {
   "name": "open-learn-core",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "private": true,
-  "description": "Concept-based, open linear algebra learning material MVP",
+  "description": "Concept-based, evidence-linked open linear algebra learning material MVP v1.5",
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate.mjs",

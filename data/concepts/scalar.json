@@ -5,6 +5,8 @@
   "prerequisites": [],
   "related": ["vector", "scalar-multiplication"],
   "learningObjectives": ["スカラーとベクトルを区別できる", "スカラー倍がベクトルに与える意味を説明できる"],
+  "lessons": [{"id":"scalar-lesson-01","title":"数がベクトルを変える","summary":"スカラーの役割とスカラー倍の直観をつかむ。","objectives":["スカラーの役割を説明できる"],"sections":[{"id":"scalar-section-01","title":"定義と役割","kind":"definition","body":"スカラーはベクトルを伸縮・反転させる数です。","claimRefs":["scalar-claim-01"]}],"exerciseIds":["scalar-exercise-001"]}],
+  "claims": [{"id":"scalar-claim-01","statement":"スカラーはベクトルに掛けて伸縮や反転を表す数である。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Course notes: vectors and linear combinations"}]}],
   "content": { "explanation": "線形代数でいうスカラーは、ベクトルの成分を一度に伸縮させるための数です。実数をスカラーに選ぶことが多いですが、複素数など別の数体系を選ぶこともあります。スカラーは単独では向きを持たず、ベクトルとの積によって線形な操作を表します。" },
   "examples": [{ "id": "scalar-example-001", "statement": "スカラー -2 は何を表すか。", "explanation": "大きさを2倍にし、さらに向きを反転する操作としてベクトルに作用します。" }],
   "exercises": [{ "id": "scalar-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "3(1, -2) を計算せよ。", "answer": "(3, -6)", "explanation": "スカラー3を各成分に掛けます。" }],

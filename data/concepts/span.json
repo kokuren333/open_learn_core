@@ -5,6 +5,8 @@
   "prerequisites": ["linear-combination"],
   "related": ["linear-independence", "basis", "dimension"],
   "learningObjectives": ["ベクトル集合のspanを言葉と式で定義できる", "spanが部分空間になる理由を説明できる", "標準基底が空間を生成することを確認できる"],
+  "lessons": [{"id":"span-lesson-01","title":"何を生成できるか","summary":"線形結合全体としてspanを捉える。","objectives":["集合のspanを式と幾何で説明できる"],"sections":[{"id":"span-section-01","title":"生成集合","kind":"definition","body":"ベクトル集合のspanは、その集合の全線形結合です。","claimRefs":["span-claim-01"]}],"exerciseIds":["span-exercise-001"]}],
+  "claims": [{"id":"span-claim-01","statement":"ベクトル集合のspanは、そのベクトルの全線形結合からなる。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 2: The column space"}]}],
   "content": { "explanation": "ベクトル集合Sのspanは、Sの有限個のベクトルの線形結合全体です。したがってゼロベクトルを含み、2つの元の和やスカラー倍でも閉じています。R²で(1,0)と(0,1)のspanは平面全体ですが、(1,2)だけのspanはそのベクトルを含む原点を通る直線です。" },
   "examples": [{ "id": "span-example-001", "statement": "S={(1,0),(0,1)} のspanを求める。", "explanation": "a(1,0)+b(0,1)=(a,b) でa,bが任意なので、span(S)=R²です。" }],
   "exercises": [{ "id": "span-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "S={(2,4)}のspanを幾何的に述べよ。", "answer": "原点を通り(2,4)を含む直線（y=2x）", "explanation": "t(2,4)=(2t,4t)という全点からなります。" }],

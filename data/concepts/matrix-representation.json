@@ -5,6 +5,8 @@
   "prerequisites": ["linear-map", "matrix", "basis"],
   "related": ["dimension", "linear-combination"],
   "learningObjectives": ["基底ベクトルの像から表現行列を作れる", "行列表示が基底の選択に依存することを説明できる"],
+  "lessons": [{"id":"matrix-representation-lesson-01","title":"写像を行列へ翻訳する","summary":"基底ベクトルの像から表現行列を構成する。","objectives":["基底と像から表現行列を作れる"],"sections":[{"id":"matrix-representation-section-01","title":"列ベクトルの意味","kind":"method","body":"表現行列の第j列は、定義域の第j基底ベクトルの像の座標です。","claimRefs":["matrix-representation-claim-01"]}],"exerciseIds":["matrix-representation-exercise-001"]}],
+  "claims": [{"id":"matrix-representation-claim-01","statement":"線形写像の表現行列の各列は、定義域の基底ベクトルの像を終域の基底で表した座標である。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 8: The matrix of a linear transformation"}]}],
   "content": { "explanation": "Vの基底BとWの基底Cを選ぶと、線形写像T:V→Wは行列で表せます。第j列には、TがBの第j基底ベクトルを写した結果をCで座標表示したものを置きます。この行列に入力ベクトルのB座標を掛けると、出力のC座標が得られます。" },
   "examples": [{ "id": "matrix-representation-example-001", "statement": "T(x,y)=(x+y,y)を標準基底で表す行列を求める。", "explanation": "T(1,0)=(1,0), T(0,1)=(1,1)なので、列を並べて[[1,1],[0,1]]です。" }],
   "exercises": [{ "id": "matrix-representation-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "表現行列の第j列は何を表すか。", "answer": "定義域の基底の第jベクトルの像を、終域の基底で座標表示したもの", "explanation": "行列と座標ベクトルの積が線形写像の作用を再現するように列を定めます。" }],

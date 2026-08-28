@@ -5,6 +5,8 @@
   "prerequisites": ["scalar", "vector"],
   "related": ["linear-map", "matrix-representation", "basis"],
   "learningObjectives": ["行列とベクトルの積を計算できる", "行列のサイズから入出力の次元を読める"],
+  "lessons": [{"id":"matrix-lesson-01","title":"線形な計算を表にする","summary":"行列とベクトル積を線形写像として読む。","objectives":["行列のサイズと積の意味を説明できる"],"sections":[{"id":"matrix-section-01","title":"行列の役割","kind":"definition","body":"行列の列数が入力次元、行数が出力次元を表します。","claimRefs":["matrix-claim-01"]}],"exerciseIds":["matrix-exercise-001"]}],
+  "claims": [{"id":"matrix-claim-01","statement":"m行n列の行列は、n成分ベクトルをm成分ベクトルへ送る計算規則として使える。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 3: Matrices"}]}],
   "content": { "explanation": "m行n列の行列Aは、n成分ベクトルをm成分ベクトルへ送る計算規則として使えます。積Avのi成分は、Aのi行とvの内積です。行列を単なる数字の表ではなく、列ベクトルの線形結合を作る装置として見ると、線形写像との関係が分かりやすくなります。" },
   "examples": [{ "id": "matrix-example-001", "statement": "A=[[1,2],[0,3]], v=(2,1) のときAvを求める。", "explanation": "Av=(1·2+2·1, 0·2+3·1)=(4,3)です。" }],
   "exercises": [{ "id": "matrix-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "2×3行列は何成分ベクトルを入力として受け、何成分ベクトルを出力するか。", "answer": "3成分を入力し、2成分を出力する", "explanation": "行列の列数が入力次元、行数が出力次元です。" }],

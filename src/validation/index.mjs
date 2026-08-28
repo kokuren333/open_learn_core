@@ -101,6 +101,18 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
 
   const conceptIds = new Set(conceptsById.keys());
   for (const concept of conceptsById.values()) {
+    const lessonIds = (concept.lessons ?? []).map((lesson) => lesson.id);
+    const claimIds = (concept.claims ?? []).map((claim) => claim.id);
+    const exerciseIds = (concept.exercises ?? []).map((exercise) => exercise.id);
+    if (new Set(lessonIds).size !== lessonIds.length) issues.push(`concept '${concept.id}': duplicate lesson id`);
+    if (new Set(claimIds).size !== claimIds.length) issues.push(`concept '${concept.id}': duplicate claim id`);
+    if (new Set(exerciseIds).size !== exerciseIds.length) issues.push(`concept '${concept.id}': duplicate exercise id`);
+    for (const lesson of concept.lessons ?? []) {
+      for (const exerciseId of lesson.exerciseIds ?? []) if (!exerciseIds.includes(exerciseId)) issues.push(`concept '${concept.id}', lesson '${lesson.id}': unknown exercise reference '${exerciseId}'`);
+      for (const section of lesson.sections ?? []) for (const claimId of section.claimRefs ?? []) if (!claimIds.includes(claimId)) issues.push(`concept '${concept.id}', section '${section.id}': unknown claim reference '${claimId}'`);
+    }
+    for (const exercise of concept.exercises ?? []) if (exercise.lessonId && !lessonIds.includes(exercise.lessonId)) issues.push(`concept '${concept.id}', exercise '${exercise.id}': unknown lesson reference '${exercise.lessonId}'`);
+    for (const claim of concept.claims ?? []) for (const sourceRef of claim.sourceRefs ?? []) if (!sourcesById.has(sourceRef.source)) issues.push(`concept '${concept.id}', claim '${claim.id}': unknown source reference '${sourceRef.source}'`);
     for (const reference of [...(concept.prerequisites ?? []), ...(concept.related ?? [])]) {
       if (!conceptIds.has(reference)) issues.push(`concept '${concept.id}': unknown concept reference '${reference}'`);
     }

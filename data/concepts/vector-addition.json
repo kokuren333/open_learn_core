@@ -5,6 +5,8 @@
   "prerequisites": ["vector"],
   "related": ["scalar-multiplication", "linear-combination"],
   "learningObjectives": ["ベクトル和を成分計算できる", "交換法則と結合法則を使える"],
+  "lessons": [{"id":"vector-addition-lesson-01","title":"ベクトルを足す","summary":"成分計算と幾何的な三角形則を結びつける。","objectives":["ベクトル和を計算できる"],"sections":[{"id":"vector-addition-section-01","title":"成分ごとの加法","kind":"definition","body":"対応する成分を足してベクトル和を定義します。","claimRefs":["vector-addition-claim-01"]}],"exerciseIds":["vector-addition-exercise-001"]}],
+  "claims": [{"id":"vector-addition-claim-01","statement":"ベクトルの加法は対応する成分の加法として定義される。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 1: Vector addition"}]}],
   "content": { "explanation": "R^nのベクトル u=(u1,...,un) と v=(v1,...,vn) の和は、u+v=(u1+v1,...,un+vn) と定義します。幾何的には、平行移動した矢印をつなぐ三角形則に対応します。加法は順序を変えても結果が同じで、3本以上の和では括弧の付け方も結果に影響しません。" },
   "examples": [{ "id": "vector-addition-example-001", "statement": "(1,2)+(-1,5) を計算する。", "explanation": "(1-1,2+5)=(0,7) です。" }],
   "exercises": [{ "id": "vector-addition-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "a=(1,0), b=(2,3), c=(-1,4) のとき a+b+c を求めよ。", "answer": "(2,7)", "explanation": "(1+2-1, 0+3+4)=(2,7) です。" }],

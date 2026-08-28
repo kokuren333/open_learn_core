@@ -5,6 +5,8 @@
   "prerequisites": ["scalar", "vector"],
   "related": ["vector-addition", "linear-combination", "linear-map"],
   "learningObjectives": ["スカラー倍を計算できる", "負数や0倍が幾何的に何をするか説明できる", "分配法則を使える"],
+  "lessons": [{"id":"scalar-multiplication-lesson-01","title":"ベクトルを伸縮・反転する","summary":"スカラー倍の計算と幾何的意味を理解する。","objectives":["スカラー倍を計算し意味を説明できる"],"sections":[{"id":"scalar-multiplication-section-01","title":"スカラー倍の定義","kind":"definition","body":"スカラーcとベクトルvの積は、vの全成分にcを掛けたものです。","claimRefs":["scalar-multiplication-claim-01"]}],"exerciseIds":["scalar-multiplication-exercise-001"]}],
+  "claims": [{"id":"scalar-multiplication-claim-01","statement":"スカラー倍はベクトルの全成分に同じスカラーを掛ける操作である。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 1: Vector spaces"}]}],
   "content": { "explanation": "スカラー c とベクトル v=(v1,...,vn) に対し、cv=(cv1,...,cvn) と定義します。cの絶対値が1より大きければ伸び、0と1の間なら縮み、負なら向きが反転します。加法との分配法則 c(u+v)=cu+cv と (c+d)v=cv+dv が成り立つため、線形結合の基礎になります。" },
   "examples": [{ "id": "scalar-multiplication-example-001", "statement": "-2(3,-1) を計算し、幾何的な意味を述べる。", "explanation": "(-6,2)。長さを2倍にして反対方向へ向けます。" }],
   "exercises": [{ "id": "scalar-multiplication-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "c=0 のとき cv は常に何になるか。", "answer": "零ベクトル", "explanation": "各成分が0倍されるので (0,...,0) になります。" }],

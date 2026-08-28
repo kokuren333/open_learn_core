@@ -4,10 +4,47 @@
   "summary": { "ja": "零ベクトルを作る線形結合が自明なものだけである性質。", "en": "A set whose zero linear combination has only zero coefficients." },
   "prerequisites": ["vector", "linear-combination"],
   "related": ["span", "basis", "dimension"],
-  "learningObjectives": ["線形独立の定義を使って判定できる", "線形従属なら冗長なベクトルを説明できる"],
+  "learningObjectives": ["線形独立の定義を使って判定できる", "線形従属なら冗長なベクトルを説明できる", "線形独立性と座標の一意性を結びつけられる"],
+  "lessons": [
+    {"id":"linear-independence-lesson-01","title":"冗長さのないベクトル集合","summary":"同じ情報を重複して持たない、という直観から始める。","objectives":["線形独立をベクトルの冗長性として説明できる"],"sections":[{"id":"linear-independence-section-01","title":"直観：作り直せるベクトル","kind":"intuition","body":"あるベクトルが他のベクトルの線形結合で作れるなら、その集合には重複した情報があります。線形独立とは、そのような冗長さがない状態です。"}],"exerciseIds":["linear-independence-basic-001","linear-independence-basic-002"]},
+    {"id":"linear-independence-lesson-02","title":"定義を式で読む","summary":"係数がすべて0になる条件を、定義として正確に扱う。","objectives":["零ベクトルを作る係数方程式を立てられる"],"sections":[{"id":"linear-independence-section-02","title":"線形独立の定義","kind":"definition","body":"v1,...,vkが線形独立とは、c1v1+...+ckvk=0からc1=...=ck=0しか出ないことです。これ以外の係数解があれば線形従属です。","claimRefs":["linear-independence-claim-01","linear-independence-claim-02"]}],"exerciseIds":["linear-independence-basic-003","linear-independence-basic-004","linear-independence-basic-005"]},
+    {"id":"linear-independence-lesson-03","title":"R²で図形的に判定する","summary":"2次元では同一直線上にあるかどうかと結びつける。","objectives":["R²の2本のベクトルを幾何的に判定できる"],"sections":[{"id":"linear-independence-section-03","title":"原点を通る同一直線","kind":"relationship","body":"R²の2本の非零ベクトルが同一直線上にあるとき、一方は他方のスカラー倍です。そのとき線形従属で、同一直線上にないとき線形独立です。","claimRefs":["linear-independence-claim-03"]}],"exerciseIds":["linear-independence-standard-001","linear-independence-standard-002"]},
+    {"id":"linear-independence-lesson-04","title":"計算で判定する","summary":"係数方程式や行列のrankを使って判定する。","objectives":["連立方程式を解いて線形独立性を判定できる"],"sections":[{"id":"linear-independence-section-04","title":"列を並べて解く","kind":"method","body":"ベクトルを列に並べた行列Aを作り、Ax=0の解を調べます。自明解だけなら列ベクトルは線形独立です。","claimRefs":["linear-independence-claim-04"]}],"exerciseIds":["linear-independence-standard-003","linear-independence-standard-004","linear-independence-standard-005"]},
+    {"id":"linear-independence-lesson-05","title":"空間・座標との関係","summary":"独立性が基底と一意な座標表示を支えることを確認する。","objectives":["線形独立性と基底・多項式の例を説明できる"],"sections":[{"id":"linear-independence-section-05","title":"一意性を生む条件","kind":"relationship","body":"線形結合による表現が2通りあると差を取って零ベクトルの関係が得られます。線形独立なら係数は一致するため、表現が一意になります。","claimRefs":["linear-independence-claim-05"]}],"exerciseIds":["linear-independence-challenge-001","linear-independence-challenge-002","linear-independence-challenge-003"]}
+  ],
+  "claims": [
+    {"id":"linear-independence-claim-01","statement":"ベクトル集合が線形独立であるとは、零ベクトルを作る線形結合の係数がすべて0であることをいう。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 2: Linear dependence and span"}]},
+    {"id":"linear-independence-claim-02","statement":"線形従属な集合では、少なくとも1本のベクトルを他のベクトルの線形結合で表せる。","sourceRefs":[{"source":"openstax-linear-algebra","locator":"Chapter 2: Linear dependence and independence"}]},
+    {"id":"linear-independence-claim-03","statement":"R²の2本の非零ベクトルは、一方が他方のスカラー倍であるとき、かつそのときに線形従属である。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 2: Linear dependence"}]},
+    {"id":"linear-independence-claim-04","statement":"ベクトルを列に並べた行列Aについて、Ax=0が自明解だけなら列ベクトルは線形独立である。","sourceRefs":[{"source":"openstax-linear-algebra","locator":"Chapter 2: Homogeneous systems and linear independence"}]},
+    {"id":"linear-independence-claim-05","statement":"線形独立なベクトルの線形結合による表現は一意である。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 3: Basis and dimension"}]}
+  ],
   "content": { "explanation": "v1,...,vkが線形独立とは、c1v1+...+ckvk=0からc1=...=ck=0しか導けないことです。非自明な係数で零ベクトルになるなら線形従属です。線形従属な集合では、少なくとも1本のベクトルが他のベクトルの線形結合で表せるため、生成のために冗長な要素が含まれています。" },
-  "examples": [{ "id": "linear-independence-example-001", "statement": "(1,2)と(2,4)は線形独立か。", "explanation": "(2,4)=2(1,2)なので、2(1,2)-(2,4)=0という非自明な関係があり、線形従属です。" }],
-  "exercises": [{ "id": "linear-independence-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "R²の3本のベクトルは線形独立になり得るか。", "answer": "なり得ない", "explanation": "R²の次元は2であり、3本なら必ず非自明な線形関係が存在します。" }],
-  "misconceptions": ["線形独立はベクトル同士が直交することではない。直交は十分条件になる場合があるが、定義は線形結合の係数に関するもの。"],
+  "examples": [
+    { "id": "linear-independence-example-001", "statement": "(1,2)と(2,4)は線形独立か。", "explanation": "(2,4)=2(1,2)なので、2(1,2)-(2,4)=0という非自明な関係があり、線形従属です。" },
+    { "id": "linear-independence-example-002", "statement": "(1,0)と(0,1)は線形独立か。", "explanation": "a(1,0)+b(0,1)=(a,b)=0ならa=b=0です。したがって線形独立です。" },
+    { "id": "linear-independence-example-003", "statement": "{1,x,x²}は次数2以下の多項式空間で線形独立か。", "explanation": "a+bx+cx²が零多項式なら各係数が0なので、3つの多項式は線形独立です。" }
+  ],
+  "exercises": [
+    {"id":"linear-independence-basic-001","type":"short-answer","difficulty":"basic","skill":"冗長性の直観","question":"(1,0)と(0,1)は線形独立か。","answer":"線形独立","explanation":"a(1,0)+b(0,1)=(a,b)=0ならa=b=0だけです。"},
+    {"id":"linear-independence-basic-002","type":"short-answer","difficulty":"basic","skill":"スカラー倍の認識","question":"(3,6)と(-1,-2)は線形独立か。","answer":"線形従属","explanation":"(3,6)=-3(-1,-2)なので非自明な関係があります。"},
+    {"id":"linear-independence-basic-003","type":"short-answer","difficulty":"basic","skill":"定義","question":"a(1,0)+b(0,1)=(0,0)を解け。","answer":"a=0, b=0","explanation":"左辺は(a,b)なので、各成分を0にすればよいです。"},
+    {"id":"linear-independence-basic-004","type":"short-answer","difficulty":"basic","skill":"次元による判断","question":"R²の3本のベクトルは線形独立になり得るか。","answer":"なり得ない","explanation":"R²の次元は2なので、3本のベクトルには必ず非自明な線形関係があります。"},
+    {"id":"linear-independence-basic-005","type":"short-answer","difficulty":"basic","skill":"零ベクトル","question":"集合に零ベクトルが含まれる場合、その集合は線形独立か。","answer":"線形従属","explanation":"零ベクトルに係数1、他に0を掛ける非自明な関係ができるためです。"},
+    {"id":"linear-independence-standard-001","type":"short-answer","difficulty":"standard","skill":"R²の判定","question":"(1,1)と(1,-1)が線形独立であることを係数方程式で示せ。","answer":"a=b=0のみ","explanation":"a+b=0, a-b=0を解くと2a=0、a=0、b=0です。"},
+    {"id":"linear-independence-standard-002","type":"short-answer","difficulty":"standard","skill":"幾何的判定","question":"(2,3)と(-4,-6)の関係を述べよ。","answer":"線形従属","explanation":"(-4,-6)=-2(2,3)であり、同一直線上にあります。"},
+    {"id":"linear-independence-standard-003","type":"short-answer","difficulty":"standard","skill":"係数行列","question":"(1,2,3)と(2,4,6)は線形独立か。","answer":"線形従属","explanation":"第2ベクトルが第1ベクトルの2倍です。"},
+    {"id":"linear-independence-standard-004","type":"short-answer","difficulty":"standard","skill":"パラメータ","question":"(1,t)と(t,1)が線形独立となるtの条件を求めよ。","answer":"t≠1,-1","explanation":"列行列の行列式は1-t²。0でない条件がt≠±1です。"},
+    {"id":"linear-independence-standard-005","type":"short-answer","difficulty":"standard","skill":"行列式","question":"(1,2)と(2,5)が線形独立であることを行列式で判定せよ。","answer":"線形独立","explanation":"行列式1·5-2·2=1≠0なので、列は線形独立です。"},
+    {"id":"linear-independence-challenge-001","type":"proof-sketch","difficulty":"challenge","skill":"部分集合","question":"線形独立な集合の部分集合も線形独立である理由を説明せよ。","answer":"部分集合の関係を元の集合の関係とみなせるため","explanation":"部分集合の線形結合が0なら、元の集合で不足する係数を0にした線形関係です。元の集合が独立なので全係数が0です。"},
+    {"id":"linear-independence-challenge-002","type":"short-answer","difficulty":"challenge","skill":"多項式空間","question":"{1,x,x²}が線形独立であることを係数比較で示せ。","answer":"a+bx+cx²=0からa=b=c=0","explanation":"零多項式の各次数の係数はすべて0でなければならないためです。"},
+    {"id":"linear-independence-challenge-003","type":"proof-sketch","difficulty":"challenge","skill":"一意性","question":"線形独立なv1,...,vkの線形結合表示が一意である理由を述べよ。","answer":"2つの表示の差が零ベクトルになり、係数差が全て0になるため","explanation":"同じベクトルの2表示を引くと、係数差による零の線形結合です。独立性から各係数差は0です。"}
+  ],
+  "diagnosticQuestions": [
+    {"id":"linear-independence-diagnostic-001","question":"非零ベクトル2本が同一直線上にあるとき、線形独立か。","answer":"線形従属","explanation":"一方が他方のスカラー倍になるためです。"},
+    {"id":"linear-independence-diagnostic-002","question":"Ax=0に非自明解があるとき、Aの列はどうなるか。","answer":"線形従属","explanation":"非零係数ベクトルxが列の非自明な線形関係を与えます。"},
+    {"id":"linear-independence-diagnostic-003","question":"線形独立性はベクトル同士が直交することと同じか。","answer":"同じではない","explanation":"直交は特別な場合の判定材料ですが、定義は零の線形結合の係数に関する条件です。"}
+  ],
+  "misconceptions": ["線形独立はベクトル同士が直交することではない。直交は十分条件になる場合があるが、定義は線形結合の係数に関するもの。", "ベクトルの本数が少なければ必ず独立とは限らない。零ベクトルやスカラー倍の組は従属。", "非自明解とは係数の少なくとも1つが0でない解を指す。"],
   "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
 }

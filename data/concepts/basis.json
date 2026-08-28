@@ -4,10 +4,47 @@
   "summary": { "ja": "空間を生成し、しかも線形独立なベクトルの組。", "en": "A linearly independent spanning set for a vector space." },
   "prerequisites": ["span", "linear-independence"],
   "related": ["dimension", "matrix-representation", "linear-combination"],
-  "learningObjectives": ["基底の定義を説明できる", "与えられたベクトル集合が基底か判定できる", "基底を用いてベクトルを座標表示できる"],
+  "learningObjectives": ["基底の定義を説明できる", "与えられたベクトル集合が基底か判定できる", "基底を用いてベクトルを座標表示できる", "基底の選択と座標表示の関係を説明できる"],
+  "lessons": [
+    {"id":"basis-lesson-01","title":"空間を測るものさし","summary":"基底を、空間のすべてを組み立てる最小限の材料として直観的に捉える。","objectives":["基底を生成元と冗長性のない組として説明できる"],"sections":[{"id":"basis-section-01","title":"直観：材料の組","kind":"intuition","body":"基底は、空間のすべてのベクトルを作れる材料であり、どの材料も他の材料から作れない組です。標準基底だけが基底なのではありません。"}],"exerciseIds":["basis-basic-001","basis-basic-002"]},
+    {"id":"basis-lesson-02","title":"定義の2条件","summary":"spanと線形独立を同時に満たすことを定義として確認する。","objectives":["基底の2条件を使って判定できる"],"sections":[{"id":"basis-section-02","title":"生成かつ独立","kind":"definition","body":"ベクトル空間Vの基底は、Vをspanし、線形独立なベクトル集合です。spanだけでは材料が多すぎる可能性があり、独立だけでは材料が足りない可能性があります。","claimRefs":["basis-claim-01","basis-claim-02"]}],"exerciseIds":["basis-basic-003","basis-basic-004","basis-basic-005"]},
+    {"id":"basis-lesson-03","title":"基底かどうかを判定する","summary":"R²のベクトル集合を、係数方程式と行列で調べる。","objectives":["2本のベクトルがR²の基底か計算で判定できる"],"sections":[{"id":"basis-section-03","title":"R²での判定法","kind":"method","body":"R²の2本のベクトルなら、線形独立であれば自動的にR²をspanします。列を並べた2×2行列の行列式が0でないことでも判定できます。","claimRefs":["basis-claim-03"]}],"exerciseIds":["basis-standard-001","basis-standard-002"]},
+    {"id":"basis-lesson-04","title":"基底による座標表示","summary":"同じベクトルを、選んだ基底の係数として読み替える。","objectives":["非標準基底でベクトルの座標を求められる"],"sections":[{"id":"basis-section-04","title":"係数が座標になる","kind":"relationship","body":"B=(b1,...,bn)を基底とすると、v=c1b1+...+cnbnの係数(c1,...,cn)が、vのBに関する座標です。基底が変わると座標は変わりますが、ベクトルそのものは変わりません。","claimRefs":["basis-claim-04"]}],"exerciseIds":["basis-standard-003","basis-standard-004","basis-standard-005"]},
+    {"id":"basis-lesson-05","title":"非標準基底と次元","summary":"基底の本数が次元を決め、表現の一意性を保証することを確認する。","objectives":["基底の本数・次元・一意性を結びつけられる"],"sections":[{"id":"basis-section-05","title":"基底は一意ではない","kind":"relationship","body":"基底の選び方は複数ありますが、有限次元空間では基底に含まれるベクトルの本数は常に同じです。独立性により座標表示はその基底に対して一意になります。","claimRefs":["basis-claim-05"]}],"exerciseIds":["basis-challenge-001","basis-challenge-002","basis-challenge-003"]}
+  ],
+  "claims": [
+    {"id":"basis-claim-01","statement":"基底は、ベクトル空間をspanし、かつ線形独立な集合である。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 3: Basis and dimension"}]},
+    {"id":"basis-claim-02","statement":"基底の線形結合による表現は存在し、線形独立性により一意である。","sourceRefs":[{"source":"openstax-linear-algebra","locator":"Chapter 2: Bases"}]},
+    {"id":"basis-claim-03","statement":"R²の2本のベクトルが基底を作るには、行列式が0でないことが使える。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 3: Basis and dimension"}]},
+    {"id":"basis-claim-04","statement":"基底による線形結合の係数が、その基底に関する座標になる。","sourceRefs":[{"source":"openstax-linear-algebra","locator":"Chapter 2: Coordinates and bases"}]},
+    {"id":"basis-claim-05","statement":"有限次元ベクトル空間の任意の基底は同じ本数のベクトルを持つ。","sourceRefs":[{"source":"mit-ocw-linear-algebra","locator":"Lecture 3: Dimension"}]}
+  ],
   "content": { "explanation": "ベクトル空間Vの基底は、Vをspanし、かつ線形独立なベクトル集合です。この2条件により、Vの任意のベクトルは基底ベクトルの線形結合として存在し、しかも係数が一意になります。基底の選び方は一般に一意ではありませんが、有限次元空間では基底に含まれるベクトルの個数は常に同じです。" },
-  "examples": [{ "id": "basis-example-001", "statement": "R²の標準基底 e1=(1,0), e2=(0,1) が基底である理由を述べる。", "explanation": "a e1+b e2=(a,b)なのでR²全体をspanし、a e1+b e2=0ならa=b=0で線形独立です。" }],
-  "exercises": [{ "id": "basis-exercise-001", "type": "short-answer", "difficulty": "basic", "question": "B={(1,1),(1,-1)}を基底とするとき、(4,2)のBに関する座標を求めよ。", "answer": "(3,1)", "explanation": "a(1,1)+b(1,-1)=(4,2)よりa+b=4, a-b=2。a=3,b=1です。" }],
-  "misconceptions": ["基底は一意に決まるとは限らない。標準基底以外にも無数に選べる。", "空間をspanするだけでは基底とは限らない。線形独立性も必要。"],
+  "examples": [
+    { "id": "basis-example-001", "statement": "R²の標準基底 e1=(1,0), e2=(0,1) が基底である理由を述べる。", "explanation": "a e1+b e2=(a,b)なのでR²全体をspanし、a e1+b e2=0ならa=b=0で線形独立です。" },
+    { "id": "basis-example-002", "statement": "B={(1,1),(1,-1)}はR²の基底か。", "explanation": "行列式は-2で0ではないため線形独立で、R²をspanします。よって基底です。" },
+    { "id": "basis-example-003", "statement": "R²の基底B={(1,1),(1,-1)}で(4,2)を表示する。", "explanation": "a+b=4, a-b=2を解いてa=3,b=1。座標は(3,1)です。" }
+  ],
+  "exercises": [
+    {"id":"basis-basic-001","type":"short-answer","difficulty":"basic","skill":"定義","question":"基底の2つの条件を答えよ。","answer":"空間をspanし、線形独立であること","explanation":"材料が足りないことも、冗長すぎることも避ける条件です。"},
+    {"id":"basis-basic-002","type":"short-answer","difficulty":"basic","skill":"標準基底","question":"R³の標準基底を記述せよ。","answer":"(1,0,0),(0,1,0),(0,0,1)","explanation":"各座標方向の単位ベクトル3本です。"},
+    {"id":"basis-basic-003","type":"short-answer","difficulty":"basic","skill":"spanと独立","question":"R²の3本のベクトルは基底になり得るか。","answer":"なり得ない","explanation":"R²では3本は線形従属になるため、基底の線形独立条件を満たしません。"},
+    {"id":"basis-basic-004","type":"short-answer","difficulty":"basic","skill":"不足","question":"R²の1本の非零ベクトルだけでR²の基底を作れるか。","answer":"作れない","explanation":"そのspanは原点を通る1本の直線にとどまり、平面全体を生成できません。"},
+    {"id":"basis-basic-005","type":"short-answer","difficulty":"basic","skill":"判定","question":"{(1,0),(0,1)}はR²の基底か。","answer":"基底である","explanation":"R²全体をspanし、零の線形結合には自明解しかないためです。"},
+    {"id":"basis-standard-001","type":"short-answer","difficulty":"standard","skill":"行列式","question":"{(1,2),(2,5)}はR²の基底か。","answer":"基底である","explanation":"行列式1·5-2·2=1≠0なので線形独立で、R²をspanします。"},
+    {"id":"basis-standard-002","type":"short-answer","difficulty":"standard","skill":"反例","question":"{(1,2),(2,4)}がR²の基底でない理由を述べよ。","answer":"線形従属であるため","explanation":"第2ベクトルが第1ベクトルの2倍で、spanも直線にしかなりません。"},
+    {"id":"basis-standard-003","type":"short-answer","difficulty":"standard","skill":"座標表示","question":"B={(1,1),(1,-1)}に関する(4,2)の座標を求めよ。","answer":"(3,1)","explanation":"a+b=4, a-b=2を解くと(a,b)=(3,1)です。"},
+    {"id":"basis-standard-004","type":"short-answer","difficulty":"standard","skill":"座標表示","question":"B={(2,0),(0,3)}に関する(4,6)の座標を求めよ。","answer":"(2,2)","explanation":"(4,6)=2(2,0)+2(0,3)です。"},
+    {"id":"basis-standard-005","type":"short-answer","difficulty":"standard","skill":"多項式空間","question":"次数2以下の多項式空間の標準的な基底を1つ挙げよ。","answer":"{1,x,x²}","explanation":"任意のa+bx+cx²を生成し、係数比較により線形独立です。"},
+    {"id":"basis-challenge-001","type":"proof-sketch","difficulty":"challenge","skill":"一意性","question":"基底による座標表示が一意である理由を説明せよ。","answer":"2つの表示の差が零の線形結合となり、独立性から係数差が0になるため","explanation":"同じベクトルの2表示を引き、基底の線形独立性を適用します。"},
+    {"id":"basis-challenge-002","type":"proof-sketch","difficulty":"challenge","skill":"冗長性","question":"spanする集合から冗長なベクトルを除くと何が期待できるか。","answer":"独立な生成集合、つまり基底に近づく","explanation":"他のベクトルの線形結合で表せる要素を除くと、spanを保ちながら独立性を得られます。"},
+    {"id":"basis-challenge-003","type":"short-answer","difficulty":"challenge","skill":"基底変換","question":"同じベクトルでも基底を変えると座標が変わるのはなぜか。","answer":"座標は選んだ基底ベクトルの線形結合の係数だから","explanation":"基底が変われば、同じベクトルを作る係数の組も一般に変わります。"}
+  ],
+  "diagnosticQuestions": [
+    {"id":"basis-diagnostic-001","question":"基底は空間をspanすれば、線形独立でなくてもよいか。","answer":"よくない","explanation":"基底にはspanと線形独立の両方が必要です。"},
+    {"id":"basis-diagnostic-002","question":"基底を変えるとベクトルそのものも変わるか。","answer":"変わらない","explanation":"変わるのは、そのベクトルを基底で表した座標です。"},
+    {"id":"basis-diagnostic-003","question":"R²の基底には何本のベクトルがあるか。","answer":"2本","explanation":"R²の次元が2であり、どの基底も2本のベクトルを持ちます。"}
+  ],
+  "misconceptions": ["基底は一意に決まるとは限らない。標準基底以外にも無数に選べる。", "空間をspanするだけでは基底とは限らない。線形独立性も必要。", "線形独立なだけでは基底とは限らない。空間全体をspanできるかも必要。", "基底を変えるとベクトル自体が変わるのではなく、座標表示が変わる。", "基底のベクトルは必ず直交していなくてもよい。"],
   "sources": ["mit-ocw-linear-algebra", "openstax-linear-algebra"]
 }
