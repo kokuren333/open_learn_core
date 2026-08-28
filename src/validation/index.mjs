@@ -25,12 +25,13 @@ async function readJsonDirectory(directory) {
 }
 
 export async function loadDataset(root = process.cwd()) {
-  const [concepts, curricula, evidenceItems, evidenceReviews, curriculumDecisions, sources] = await Promise.all([
+  const [concepts, curricula, evidenceItems, evidenceReviews, curriculumDecisions, visuals, sources] = await Promise.all([
     readJsonDirectory(path.join(root, "data", "concepts")),
     readJsonDirectory(path.join(root, "data", "curricula")),
     readJsonDirectory(path.join(root, "data", "evidence", "items")),
     readJsonDirectory(path.join(root, "data", "evidence", "reviews")),
     readJsonDirectory(path.join(root, "data", "curriculum-decisions")),
+    readJsonDirectory(path.join(root, "data", "visuals")),
     readJson(path.join(root, "data", "sources", "sources.json"))
   ]);
   return {
@@ -40,13 +41,14 @@ export async function loadDataset(root = process.cwd()) {
     evidenceItems: evidenceItems.records,
     evidenceReviews: evidenceReviews.records,
     curriculumDecisions: curriculumDecisions.records,
+    visuals: visuals.records,
     sources: sources.value ?? [],
-    issues: [...concepts.issues, ...curricula.issues, ...evidenceItems.issues, ...evidenceReviews.issues, ...curriculumDecisions.issues, ...sources.issues]
+    issues: [...concepts.issues, ...curricula.issues, ...evidenceItems.issues, ...evidenceReviews.issues, ...curriculumDecisions.issues, ...visuals.issues, ...sources.issues]
   };
 }
 
 async function loadSchemas(root) {
-  const names = ["concept", "curriculum", "source", "evidence-item", "evidence-review", "curriculum-decision"];
+  const names = ["concept", "curriculum", "source", "evidence-item", "evidence-review", "curriculum-decision", "visual-artifact", "build-report"];
   const entries = await Promise.all(names.map(async (name) => [name, await readJson(path.join(root, "schemas", `${name}.schema.json`))]));
   const files = Object.fromEntries(entries.map(([name, result]) => [`${name}.schema.json`, result.value]));
   return { ...Object.fromEntries(entries.map(([name, result]) => [name, result.value])), files };
@@ -95,16 +97,19 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
   const evidenceItemRecords = dataset.evidenceItems ?? [];
   const evidenceReviewRecords = dataset.evidenceReviews ?? [];
   const curriculumDecisionRecords = dataset.curriculumDecisions ?? [];
+  const visualRecords = dataset.visuals ?? [];
   const conceptsById = new Map();
   const sourcesById = new Map((Array.isArray(dataset.sources) ? dataset.sources : []).filter((source) => source?.id).map((source) => [source.id, source]));
   const evidenceById = new Map();
   const curriculaById = new Map();
+  const visualsById = new Map();
 
   issues.push(...duplicateIds(conceptRecords, "concept"));
   issues.push(...duplicateIds(curriculumRecords, "curriculum"));
   issues.push(...duplicateIds(evidenceItemRecords, "evidence item"));
   issues.push(...duplicateIds(evidenceReviewRecords, "evidence review"));
   issues.push(...duplicateIds(curriculumDecisionRecords, "curriculum decision"));
+  issues.push(...duplicateIds(visualRecords, "visual artifact"));
   for (const record of conceptRecords) {
     const concept = record.value;
     issues.push(...validateJsonSchema(concept, loadedSchemas.concept, { schemas: loadedSchemas.files, path: record.file }));
@@ -173,6 +178,8 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
       for (const claimId of exercise.testsClaims ?? []) if (!allClaims.has(claimId)) issues.push(`concept '${concept.id}', exercise '${exercise.id}': unknown claim reference '${claimId}'`);
       for (const conceptId of exercise.requiresConcepts ?? []) if (!conceptIds.has(conceptId)) issues.push(`concept '${concept.id}', exercise '${exercise.id}': unknown required concept '${conceptId}'`);
     }
+    for (const layer of concept.contentLayers ?? []) for (const claimId of layer.claimRefs ?? []) if (!allClaims.has(claimId)) issues.push(`concept '${concept.id}', content layer '${layer.id}': unknown claim reference '${claimId}'`);
+    for (const visualId of concept.visualIds ?? []) if (!visualRecords.some((record) => record.value?.id === visualId)) issues.push(`concept '${concept.id}': unknown visual reference '${visualId}'`);
   }
   for (const record of evidenceReviewRecords) {
     const review = record.value;
@@ -189,7 +196,16 @@ export async function validateDataset(dataset, { schemas = null } = {}) {
     if (decision?.scope?.curriculum && !curriculaById.has(decision.scope.curriculum)) issues.push(`curriculum decision '${decision.id}': unknown curriculum '${decision.scope.curriculum}'`);
     for (const evidenceId of decision?.evidence ?? []) if (!evidenceById.has(evidenceId)) issues.push(`curriculum decision '${decision.id}': unknown evidence reference '${evidenceId}'`);
   }
-  return { valid: issues.length === 0, issues, conceptsById, sourceById: sourcesById, evidenceById, curriculaById };
+  for (const record of visualRecords) {
+    const visual = record.value;
+    issues.push(...validateJsonSchema(visual, loadedSchemas["visual-artifact"], { schemas: loadedSchemas.files, path: record.file }));
+    if (visual?.id && !visualsById.has(visual.id)) visualsById.set(visual.id, visual);
+    if (visual?.concept && !conceptIds.has(visual.concept)) issues.push(`visual artifact '${visual.id}': unknown concept '${visual.concept}'`);
+    for (const claimId of visual?.source_claims ?? []) if (!allClaims.has(claimId)) issues.push(`visual artifact '${visual.id}': unknown claim reference '${claimId}'`);
+    if (visual?.placement?.lesson && !conceptsById.get(visual.concept)?.lessons?.some((lesson) => lesson.id === visual.placement.lesson)) issues.push(`visual artifact '${visual.id}': unknown lesson '${visual.placement.lesson}'`);
+    if (visual?.status === "published" && !visual?.alt_text?.ja) issues.push(`visual artifact '${visual.id}': published visual requires alt text`);
+  }
+  return { valid: issues.length === 0, issues, conceptsById, sourceById: sourcesById, evidenceById, curriculaById, visualsById };
 }
 
 export async function validateConcept(concept, root = process.cwd()) {

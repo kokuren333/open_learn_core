@@ -1,0 +1,17 @@
+concept: basis
+items:
+  - id: basis-definition-mit
+    role: definition
+    supports: [basis-claim-01, basis-claim-02]
+  - id: basis-definition-open-textbook
+    role: definition
+    supports: [basis-claim-01, basis-claim-04]
+  - id: basis-dimension-mit
+    role: theorem
+    supports: [basis-claim-05]
+  - id: basis-curriculum-mit
+    role: ordering
+    supports: [basis-claim-06]
+  - id: basis-curriculum-open-textbook
+    role: ordering
+    supports: [basis-claim-06]

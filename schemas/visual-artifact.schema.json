@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Visual Artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "concept", "type", "learning_goal", "source_claims", "placement", "alt_text", "status", "output_path"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "concept": { "type": "string" },
+    "type": { "type": "string", "enum": ["concept-map", "dependency-diagram", "comparison", "step-flow", "geometric-diagram", "worked-example-diagram", "misconception-contrast", "summary-infographic"] },
+    "learning_goal": { "$ref": "concept.schema.json#/$defs/localized" },
+    "source_claims": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
+    "placement": { "type": "object", "additionalProperties": false, "required": ["lesson", "position"], "properties": { "lesson": { "type": "string" }, "position": { "type": "string" } } },
+    "alt_text": { "$ref": "concept.schema.json#/$defs/localized" },
+    "status": { "type": "string", "enum": ["draft", "audited", "published"] },
+    "output_path": { "type": "string", "minLength": 1 },
+    "svg": { "type": "string" }
+  }
+}

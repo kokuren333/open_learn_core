@@ -1,0 +1,20 @@
+concept: basis
+target:
+  level: university_introductory
+  learner: linear-algebra beginner
+assumed_prerequisites:
+  - vector
+  - linear-combination
+  - span
+  - linear-independence
+learning_objectives:
+  - 基底の定義を説明できる
+  - 与えられた集合が基底か判定できる
+  - 基底による座標表示を計算できる
+  - dimensionとの関係を説明できる
+expected_mastery: explain-two-conditions-and-solve-routine-R2-cases
+terminology_policy: Japanese explanation with English stable terms in parentheses
+out_of_scope:
+  - infinite-dimensional basis
+  - Hamel basis
+  - functional analysis

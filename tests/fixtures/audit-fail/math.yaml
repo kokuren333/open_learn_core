@@ -1,0 +1,5 @@
+status: fail
+auditor: synthetic-failure
+independent_review: true
+issues:
+  - synthetic math error

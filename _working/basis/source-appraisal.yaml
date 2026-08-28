@@ -1,0 +1,32 @@
+concept: basis
+sources:
+  - source: mit-ocw-linear-algebra
+    authority: high
+    directness: high
+    pedagogical_relevance: high
+    mathematical_reliability: high
+    transparency: high
+    reuse_suitability: medium
+    strengths: official university course with direct basis session
+    limitations: English lecture material; not a controlled learning study
+    decision: include
+  - source: openstax-linear-algebra
+    authority: high
+    directness: medium
+    pedagogical_relevance: high
+    mathematical_reliability: high
+    transparency: high
+    reuse_suitability: medium
+    strengths: open textbook record and relevant chapter sequence
+    limitations: record page is not a full claim-level quotation
+    decision: include
+  - source: hefferon-linear-algebra
+    authority: medium
+    directness: medium
+    pedagogical_relevance: medium
+    mathematical_reliability: high
+    transparency: high
+    reuse_suitability: high
+    strengths: independent open textbook comparison
+    limitations: not used as a basis claim locator in this MVP
+    decision: comparator

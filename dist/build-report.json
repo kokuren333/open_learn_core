@@ -1,0 +1,23 @@
+{
+  "concept": "basis",
+  "version": "1.7",
+  "status": "published",
+  "audits": {
+    "structure": "pass",
+    "evidence": "pass",
+    "mathematics": "pass",
+    "pedagogy": "pass",
+    "visual": "pass",
+    "completeness": "pass",
+    "assessment": "pass"
+  },
+  "counts": {
+    "claims": 6,
+    "evidenceItems": 5,
+    "examples": 10,
+    "exercises": 15,
+    "diagnostics": 4,
+    "misconceptions": 5,
+    "visuals": 2
+  }
+}

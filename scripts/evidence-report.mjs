@@ -15,3 +15,6 @@ console.log(`- prerequisite edges with evidence: ${coverage.prerequisiteEdges.wi
 console.log(`- curriculum decisions with evidence: ${coverage.curriculumDecisions.withEvidence}/${coverage.curriculumDecisions.total}`);
 console.log(`- lessons linked to claims: ${coverage.lessons.linkedToClaims}/${coverage.lessons.total}`);
 console.log(`- exercises linked to claims: ${coverage.exercises.linkedToClaims}/${coverage.exercises.total}`);
+console.log(`- published visuals: ${coverage.visuals.published}/${coverage.visuals.total}`);
+console.log(`- examples: ${coverage.examples.positive} positive, ${coverage.examples.counterexample} counterexample, ${coverage.examples.worked} worked`);
+console.log(`- diagnostics: ${coverage.diagnostics.total}; misconceptions: ${coverage.misconceptions.total}; connections: ${coverage.connections.total}`);

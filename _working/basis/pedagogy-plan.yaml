@@ -1,0 +1,19 @@
+concept: basis
+teaching_sequence:
+  - motivation
+  - intuition
+  - prerequisite_recall
+  - formal_definition
+  - term_by_term_explanation
+  - positive_example
+  - counterexample
+  - worked_example
+  - coordinate_connection
+  - dimension_connection
+  - misconceptions
+  - recap
+  - next_connection
+design_rationale:
+  - integrate span and independence only after each is recalled
+  - alternate verbal, algebraic, geometric, and coordinate representations
+  - use counterexamples to prevent one-condition shortcuts

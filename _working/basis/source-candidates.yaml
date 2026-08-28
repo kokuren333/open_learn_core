@@ -1,0 +1,11 @@
+concept: basis
+candidates:
+  - id: mit-ocw-linear-algebra
+    category: university_oer
+    decision: include
+  - id: openstax-linear-algebra
+    category: open_textbook
+    decision: include
+  - id: hefferon-linear-algebra
+    category: open_textbook
+    decision: include-as-comparator

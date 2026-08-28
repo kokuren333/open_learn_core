@@ -1,0 +1,8 @@
+concept: basis
+visuals:
+  - id: visual-basis-span-independence
+    type: comparison
+    goal: show that both span and linear independence are required
+  - id: visual-basis-coordinate-frames
+    type: geometric-diagram
+    goal: show different bases producing different coordinates for one vector

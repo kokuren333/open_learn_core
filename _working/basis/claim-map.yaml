@@ -1,0 +1,20 @@
+concept: basis
+claims:
+  - id: basis-claim-01
+    type: definition
+    evidence: [basis-definition-mit, basis-definition-open-textbook]
+  - id: basis-claim-02
+    type: mathematical_fact
+    evidence: [basis-definition-mit, basis-definition-open-textbook]
+  - id: basis-claim-03
+    type: mathematical_fact
+    evidence: [basis-definition-mit]
+  - id: basis-claim-04
+    type: definition
+    evidence: [basis-definition-open-textbook]
+  - id: basis-claim-05
+    type: theorem
+    evidence: [basis-dimension-mit]
+  - id: basis-claim-06
+    type: curriculum_claim
+    evidence: [basis-curriculum-mit, basis-curriculum-open-textbook]

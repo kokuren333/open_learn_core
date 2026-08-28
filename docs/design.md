@@ -91,4 +91,8 @@ CurriculumDecision ── evidence[] → EvidenceItem
 
 ## Technology and hosting
 
-`site/`は相対リンクだけで構成するため、GitHub Pagesのプロジェクトページ配下でも動作する。動作確認は`npm run validate && npm test && npm run build`で行う。
+`site/`は相対リンクだけで構成するため、GitHub Pagesのプロジェクトページ配下でも動作する。v1.7の標準確認は`npm run validate && npm test && npm run audit && npm run publish:gate && npm run build:concept`で行う。
+
+## v1.7 migration plan
+
+v1.6のConcept内embedded Lesson / Claim / Exerciseと`data/evidence/`は互換維持する。v1.7では、独立Skill成果物を`_working/`へ追加し、Visual Artifactを`data/visuals/`へ追加する。既存の`prerequisites`と`sourceRefs`は残し、必要なときだけ`prerequisiteEdges`、`evidence`、`assesses`を併記する。build時に独立監査とPublish Gateを通し、公開成果物は`dist/`へ出力する。将来の外部Skill実行も、現在のYAML artifact契約と同じ場所へ保存する。

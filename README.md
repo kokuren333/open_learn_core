@@ -1,6 +1,6 @@
 # Open Learn Core
 
-線形代数の概念を、前提関係とEvidence付きの教材コンテンツとして管理し、そこから静的Web教材を生成する教育OSSのMVP v1.6です。
+線形代数の概念を、前提関係とEvidence付きの教材コンテンツとして管理し、信頼できる資料から再現可能に静的Web教材へcompileする教育OSSのMVP v1.7です。
 
 ## What
 
@@ -9,6 +9,10 @@
 ## v1.6 Evidence Layer
 
 `Source → EvidenceItem → Claim → Concept → Lesson → Exercise / Diagnostic`の連鎖で、教材の主張を出典のlocatorまで追跡できます。学習順序の判断は`Evidence → CurriculumDecision → Curriculum / prerequisite graph`として記録します。`npm run evidence:report`でbasisの根拠カバレッジを確認し、`curriculum.html`で順序の理由を確認できます。詳細は[`docs/evidence-model.md`](docs/evidence-model.md)と[`docs/authoring-workflow.md`](docs/authoring-workflow.md)を参照してください。
+
+## v1.7 Evidence-Based Learning Content Compiler
+
+Open Learn Coreは「AIで教材文章を大量生成するプロジェクト」ではありません。Evidence / Knowledge Graph / Pedagogy / Assessment / Visual / Auditを分離し、高品質な教材を再現可能にbuildするOSS基盤です。`npm run build:concept`はschema検証、Evidenceカバレッジ、5種類の独立監査、Publish Gate、renderer、build reportを順に実行します。Gateを通過しない教材は`dist/`へ公開されません。
 
 ## Why
 

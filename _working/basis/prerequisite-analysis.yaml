@@ -1,0 +1,14 @@
+concept: basis
+edges:
+  - concept: span
+    relation: required
+    direct: true
+    rationale: basis requires spanning the ambient space
+    evidence: [basis-definition-mit, basis-curriculum-open-textbook]
+    learner_consequence_if_missing: cannot judge coverage
+  - concept: linear-independence
+    relation: required
+    direct: true
+    rationale: basis requires no redundant vector relation
+    evidence: [basis-definition-mit, basis-curriculum-open-textbook]
+    learner_consequence_if_missing: cannot judge minimality

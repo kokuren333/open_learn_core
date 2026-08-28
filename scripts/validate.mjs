@@ -6,5 +6,5 @@ if (!result.valid) {
   console.error(`Validation failed (${result.issues.length} issue(s))\n${formatIssues(result.issues)}`);
   process.exitCode = 1;
 } else {
-  console.log(`Validation passed: ${result.conceptsById.size} concepts, ${dataset.curricula.length} curriculum, ${dataset.sources.length} sources.`);
+  console.log(`Validation passed: ${result.conceptsById.size} concepts, ${dataset.curricula.length} curriculum, ${dataset.sources.length} sources, ${dataset.evidenceItems.length} evidence items, ${dataset.visuals.length} visuals.`);
 }

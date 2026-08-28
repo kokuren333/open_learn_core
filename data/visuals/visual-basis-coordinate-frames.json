@@ -1,0 +1,12 @@
+{
+  "id": "visual-basis-coordinate-frames",
+  "concept": "basis",
+  "type": "geometric-diagram",
+  "learning_goal": { "ja": "同じベクトルでも基底を変えると座標が変わることを理解する。", "en": "Understand that coordinates change when the basis changes, while the vector does not." },
+  "source_claims": ["basis-claim-04"],
+  "placement": { "lesson": "basis-lesson-04", "position": "after-coordinate-example" },
+  "alt_text": { "ja": "同じ点vを、水平垂直の基底では(4,2)、斜めの基底では(3,1)として表示する二つの座標枠の比較図。", "en": "Two coordinate frames label the same vector v with coordinates (4,2) and (3,1)." },
+  "status": "published",
+  "output_path": "visuals/basis-coordinate-frames.svg",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 300\" role=\"img\" aria-label=\"Same vector, different basis coordinates\"><rect width=\"900\" height=\"300\" rx=\"20\" fill=\"#f7faf3\"/><text x=\"450\" y=\"35\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" font-weight=\"700\" fill=\"#18321f\">同じ v、異なる座標</text><g stroke=\"#a8c9b5\" stroke-width=\"1\"><path d=\"M80 240H350M215 270V70\"/><path d=\"M530 240H800M665 270V70\"/></g><g stroke=\"#71a287\" stroke-width=\"4\"><path d=\"M215 240L315 190\"/><path d=\"M665 240L735 155\"/><path d=\"M215 240L275 240\"/><path d=\"M215 240L215 190\"/><path d=\"M665 240L715 200\"/><path d=\"M665 240L700 205\"/></g><g font-family=\"sans-serif\" fill=\"#18321f\" text-anchor=\"middle\"><text x=\"215\" y=\"285\" font-size=\"16\">標準基底</text><text x=\"215\" y=\"58\" font-size=\"15\">v = 4e₁ + 2e₂</text><text x=\"665\" y=\"285\" font-size=\"16\">非標準基底 B</text><text x=\"665\" y=\"58\" font-size=\"15\">v = 3b₁ + 1b₂</text><text x=\"315\" y=\"180\" font-size=\"15\">v</text><text x=\"735\" y=\"145\" font-size=\"15\">v</text></g></svg>"
+}
