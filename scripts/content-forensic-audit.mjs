@@ -57,7 +57,7 @@ const report = {
   issues: failures.map((row) => ({ unit: row.id, flags: row.flags })),
   units: rows
 };
-const output = path.join(root, "dist", "domains", domainId, "audit", "content-forensic.json");
+const output = path.join(root, "dist", "domains", domainId, "audit", "content_forensic.json");
 await mkdir(path.dirname(output), { recursive: true });
 await writeFile(output, JSON.stringify(report, null, 2) + "\n", "utf8");
 console.log(JSON.stringify(report, null, 2));
