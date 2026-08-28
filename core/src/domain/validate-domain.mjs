@@ -44,6 +44,18 @@ export async function validateDomain(domain, { schema } = {}) {
       if (!blockIndex.has(dependency)) issues.push(`Learning Block '${block.id}' references missing internal block dependency '${dependency}'`);
       else if (blockIndex.get(dependency) >= index) issues.push(`Learning Block '${block.id}' has a forward/self internal dependency '${dependency}'`);
     }
+    const learnerSectionIds = new Set();
+    const learnerSectionCoverage = new Set();
+    for (const section of experience.learner_sections ?? []) {
+      if (learnerSectionIds.has(section.id)) issues.push(`Learner section IDs must be unique: '${section.id}'`);
+      learnerSectionIds.add(section.id);
+      for (const blockId of section.block_ids ?? []) {
+        if (!blockIndex.has(blockId)) issues.push(`Learner section '${section.id}' references missing Learning Block '${blockId}'`);
+        if (learnerSectionCoverage.has(blockId)) issues.push(`Learning Block '${blockId}' appears in multiple learner sections`);
+        learnerSectionCoverage.add(blockId);
+      }
+    }
+    for (const block of experience.sequence ?? []) if (!learnerSectionCoverage.has(block.id)) issues.push(`Learning Block '${block.id}' is not assigned to a learner section`);
     for (const assessment of experience.assessments ?? []) {
       for (const outcomeId of assessment.tests_learning_outcome_ids ?? []) if (!outcomeIds.has(outcomeId)) issues.push(`Assessment '${assessment.id}' references outcome '${outcomeId}' not declared by Core Concept '${experience.concept_id}'`);
     }

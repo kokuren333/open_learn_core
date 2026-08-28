@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.3",
+  "schema_version": "2.4",
   "domain": "linear-algebra",
   "review_type": "automated_learning_experience_audit",
   "independent_review": false,
@@ -14,10 +14,11 @@
       "id": "basis-learning-experience",
       "concept_id": "basis",
       "editorial_status": "gold",
+      "learner_section_count": 6,
       "block_count": 21,
       "content_block_count": 21,
       "assessment_count": 8,
-      "content_prose_characters": 7193,
+      "content_prose_characters": 3585,
       "counts": {
         "concrete_scenarios": 2,
         "worked_examples": 3,

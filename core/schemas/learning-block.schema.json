@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/learning-block.schema.json",
-  "title": "Open Learn Learning Block v2.3",
+  "title": "Open Learn Learning Block v2.4",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "type", "purpose", "learner_state_before", "activity", "required_elements", "learner_state_after", "learning_outcome_ids", "external_prerequisite_concept_ids", "internal_block_dependencies", "difficulty", "expected_time_minutes", "generated_from"],

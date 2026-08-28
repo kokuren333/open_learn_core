@@ -27,6 +27,6 @@ try {
     units.push(manifest);
   }
 } catch (error) { if (error.code !== "ENOENT") throw error; }
-const index = { version: "2.3.0", domain: domain.id, generated_by: "open-learn-core", units };
+const index = { version: "2.4.0", domain: domain.id, generated_by: "open-learn-core", units };
 await writeFile(path.join(output, "build-index.json"), JSON.stringify(index, null, 2) + "\n", "utf8");
 console.log(`Video source index written: ${units.length} source package(s).`);

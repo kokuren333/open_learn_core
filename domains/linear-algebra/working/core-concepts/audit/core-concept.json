@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.3",
+  "schema_version": "2.4",
   "domain": "linear-algebra",
   "review_type": "automated_semantic_review",
   "independent_review": false,

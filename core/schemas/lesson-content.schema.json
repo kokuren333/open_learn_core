@@ -1,18 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-learn-core.example/schemas/lesson-content.schema.json",
-  "title": "Open Learn Lesson Content v2.3",
+  "title": "Open Learn Lesson Content v2.4",
   "type": "object",
   "additionalProperties": false,
-  "required": ["block_id", "opening", "explanation", "equations", "guided_reasoning", "learner_prompt", "feedback", "takeaway"],
+  "required": ["block_id", "body"],
   "properties": {
     "block_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
-    "opening": { "type": "string", "minLength": 30 },
-    "explanation": { "type": "string", "minLength": 80 },
-    "equations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
-    "guided_reasoning": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 25 } },
-    "learner_prompt": { "type": "string", "minLength": 20 },
-    "feedback": { "type": "string", "minLength": 40 },
-    "takeaway": { "type": "string", "minLength": 40 }
+    "body": { "type": "string", "minLength": 80 },
+    "opening": { "type": "string", "minLength": 1 },
+    "explanation": { "type": "string", "minLength": 1 },
+    "equations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "guided_reasoning": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "learner_prompt": { "type": "string", "minLength": 1 },
+    "feedback": { "type": "string", "minLength": 1 },
+    "takeaway": { "type": "string", "minLength": 1 }
   }
 }

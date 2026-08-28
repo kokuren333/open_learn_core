@@ -13,12 +13,14 @@ test("Basis is backed by a first-class Gold Learning Experience", async () => {
   const experience = domain.learningExperiences.find((item) => item.concept_id === "basis");
   assert.equal(experience?.editorial_status, "gold");
   assert.equal(experience.sequence.length, 21);
+  assert.equal(experience.learner_sections.length, 6);
+  assert.equal(new Set(experience.learner_sections.flatMap((section) => section.block_ids)).size, 21);
   assert.equal(experience.lesson_content.length, 21);
+  assert.ok(experience.lesson_content.every((lesson) => lesson.body.length >= 80));
   assert.ok(experience.sequence.every((block, index) => block.internal_block_dependencies.every((dependency) => dependency === experience.sequence[index - 1]?.id)));
   assert.ok(experience.sequence.every((block) => !block.external_prerequisite_concept_ids.includes("basis")));
   for (const type of ["hook", "concrete_problem", "learner_prediction", "formalization", "worked_example", "misconception_challenge", "independent_practice", "representation", "transfer", "synthesis"]) assert.ok(experience.sequence.some((block) => block.type === type), type);
   assert.equal(experience.sequence.filter((block) => block.type === "worked_example").length, 3);
-  assert.ok(experience.lesson_content.every((lesson) => lesson.equations.length >= 1 && lesson.guided_reasoning.length >= 2));
   assert.ok(!JSON.stringify(experience).toLowerCase().includes("determinant"));
   assert.equal(experience.sequence.find((block) => block.id === "basis-worked-coordinates").representation, "平面ベクトル・非標準座標");
   assert.ok(experience.sequence.filter((block) => block.type === "worked_example").every((block) => block.worked_example.reasoning_steps.length >= 3));
@@ -27,17 +29,19 @@ test("Basis is backed by a first-class Gold Learning Experience", async () => {
   for (const outcome of domain.coreConcepts.find((concept) => concept.id === "basis").learning_contract.learning_outcome_ids) assert.ok(assessed.has(outcome), outcome);
 });
 
-test("Basis renderer exposes interaction type and block metadata", async () => {
+test("Basis renderer separates learner content from author metadata", async () => {
   const domain = await loadDomain(root, "linear-algebra");
   const concept = domain.coreConcepts.find((item) => item.id === "basis");
   const experience = domain.learningExperiences.find((item) => item.concept_id === "basis");
   const html = renderCoreConcept({ concept, experience, conceptsById: new Map(domain.coreConcepts.map((item) => [item.id, item])) });
-  assert.equal((html.match(/class="learning-block /g) ?? []).length, 21);
-  assert.match(html, /data-learning-block-type="worked_example"/);
-  assert.match(html, /推論ステップ/);
-  assert.match(html, /lesson-content/);
+  assert.equal((html.match(/class="learner-block"/g) ?? []).length, 21);
+  assert.equal((html.match(/class="learner-section"/g) ?? []).length, 6);
+  assert.match(html, /LEARNING PATH/);
+  assert.match(html, /少し考えてみる/);
+  assert.match(html, /解法と理由を見る/);
+  assert.doesNotMatch(html, /設計上のねらい|learner_state_before|internal dependencies|generated_from/);
+  assert.doesNotMatch(html, /data-learning-block-type/);
   assert.match(html, /式で確認/);
-  assert.match(html, /誤解をほどく/);
-  assert.match(html, /このブロックの設計情報/);
-  assert.match(html, /ASSESSMENT \/ 8 ITEMS/);
+  assert.match(html, /よくある勘違いを見る/);
+  assert.match(html, /CHECK YOUR UNDERSTANDING/);
 });

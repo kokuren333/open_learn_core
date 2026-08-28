@@ -46,10 +46,12 @@ for (const experience of experiences) {
     const content = contentByBlock.get(block.id);
     if (!content) localIssues.push(`${block.id}: lesson_content is missing`);
     else {
-      const proseChars = [content.opening, content.explanation, content.learner_prompt, content.feedback, content.takeaway].join("").length;
-      if (proseChars < 300) localIssues.push(`${block.id}: lesson_content is too thin (${proseChars} prose characters)`);
-      if ((content.guided_reasoning?.length ?? 0) < 2) localIssues.push(`${block.id}: lesson_content needs at least two guided reasoning steps`);
-      if (!content.equations?.length) localIssues.push(`${block.id}: lesson_content has no equation or symbolic checkpoint`);
+      const proseChars = (content.body ?? "").length;
+      if (proseChars < 120) localIssues.push(`${block.id}: lesson_content body is too thin (${proseChars} prose characters)`);
+      const promptRequired = ["learner_prediction", "guided_exploration", "guided_practice", "independent_practice", "transfer"].includes(block.type);
+      if (promptRequired && !hasText(block.question) && !hasText(content.learner_prompt)) localIssues.push(`${block.id}: learner activity needs a question or prompt`);
+      if (block.type === "worked_example" && (!block.worked_example || block.worked_example.reasoning_steps?.length < 3)) localIssues.push(`${block.id}: worked example needs problem and at least three reasoning steps`);
+      if (block.type === "misconception_challenge" && !hasText(content.learner_prompt)) localIssues.push(`${block.id}: misconception challenge needs a learner-facing prompt`);
     }
     for (const prerequisite of block.external_prerequisite_concept_ids ?? []) if ((coreOrder.get(prerequisite) ?? -1) >= (coreOrder.get(experience.concept_id) ?? Number.MAX_SAFE_INTEGER)) localIssues.push(`${block.id}: external prerequisite '${prerequisite}' is the target or a later Core Concept`);
     if (block.type === "worked_example") {
@@ -72,7 +74,7 @@ for (const experience of experiences) {
   const outcomeIds = new Set(coreById.get(experience.concept_id)?.learning_contract?.learning_outcome_ids ?? []);
   const assessed = new Set(experience.assessments?.flatMap((assessment) => assessment.tests_learning_outcome_ids ?? []) ?? []);
   for (const outcomeId of outcomeIds) if (!assessed.has(outcomeId)) localIssues.push(`learning outcome '${outcomeId}' has no assessment item`);
-  const report = { id: experience.id, concept_id: experience.concept_id, editorial_status: experience.editorial_status, block_count: blocks.length, content_block_count: contentByBlock.size, assessment_count: experience.assessments?.length ?? 0, content_prose_characters: [...contentByBlock.values()].reduce((sum, content) => sum + [content.opening, content.explanation, content.learner_prompt, content.feedback, content.takeaway].join("").length, 0), counts, status: localIssues.length ? "fail" : "pass", issues: localIssues };
+  const report = { id: experience.id, concept_id: experience.concept_id, editorial_status: experience.editorial_status, learner_section_count: experience.learner_sections?.length ?? 0, block_count: blocks.length, content_block_count: contentByBlock.size, assessment_count: experience.assessments?.length ?? 0, content_prose_characters: [...contentByBlock.values()].reduce((sum, content) => sum + (content.body ?? "").length, 0), counts, status: localIssues.length ? "fail" : "pass", issues: localIssues };
   reports.push(report);
   if (experience.editorial_status === "gold") issues.push(...localIssues.map((issue) => `${experience.id}: ${issue}`));
   else if (localIssues.length) warnings.push(...localIssues.map((issue) => `${experience.id}: ${issue}`));
@@ -82,7 +84,7 @@ const goldConcepts = (domain.coreConcepts ?? []).filter((concept) => concept.edi
 for (const concept of goldConcepts) if (!experiences.some((experience) => experience.concept_id === concept.id && experience.editorial_status === "gold")) issues.push(`Gold Core Concept '${concept.id}' has no Gold Learning Experience`);
 for (const concept of domain.coreConcepts ?? []) if (!experiences.some((experience) => experience.concept_id === concept.id)) warnings.push(`scaffold concept '${concept.id}' has no Learning Experience yet`);
 
-const report = { schema_version: "2.3", domain: domainId, review_type: "automated_learning_experience_audit", independent_review: false, status: issues.length ? "fail" : "pass", summary: { experiences: experiences.length, gold_experiences: experiences.filter((experience) => experience.editorial_status === "gold").length, scaffold_concepts_without_experience: warnings.filter((warning) => warning.startsWith("scaffold concept")).length }, experiences: reports, issues, warnings };
+const report = { schema_version: "2.4", domain: domainId, review_type: "automated_learning_experience_audit", independent_review: false, status: issues.length ? "fail" : "pass", summary: { experiences: experiences.length, gold_experiences: experiences.filter((experience) => experience.editorial_status === "gold").length, scaffold_concepts_without_experience: warnings.filter((warning) => warning.startsWith("scaffold concept")).length }, experiences: reports, issues, warnings };
 const outDir = path.join(domain.root, "working", "core-concepts", "audit");
 await mkdir(outDir, { recursive: true });
 await writeFile(path.join(outDir, "learning-experience.json"), JSON.stringify(report, null, 2) + "\n", "utf8");

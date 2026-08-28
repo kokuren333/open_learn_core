@@ -1,6 +1,6 @@
 {
-  "release_version": "2.3.0",
-  "source_commit": "219a5c9796de44f4834532f6427864613b53f746",
+  "release_version": "2.4.0",
+  "source_commit": "d119dfa285e4020896174848d9752452592f7fbb",
   "domain": "linear-algebra",
   "course_id": "linear-algebra-foundations-to-applications",
   "core_concepts": 30,

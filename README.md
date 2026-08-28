@@ -1,6 +1,6 @@
 # Open Learn Core
 
-Open Learn Core is an open-source framework for building reproducible, auditable learning resources from structured educational source and publishing them across web, print, and video. V2.3 adds first-class lesson content inside the Learning Experience layer while preserving the legacy knowledge dataset for migration and provenance.
+Open Learn Core is an open-source framework for building reproducible, auditable learning resources from structured educational source and publishing them across web, print, and video. V2.4 separates the rich author/audit model from the learner-facing lesson, groups Learning Blocks into readable Parts, and uses progressive disclosure for practice and solutions.
 
 ## Architecture
 
