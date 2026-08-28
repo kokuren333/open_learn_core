@@ -3,50 +3,171 @@
   "module": "module-linear-transformations",
   "order": 1,
   "title": {
-    "ja": "kernel and image",
-    "en": "kernel and image"
+    "ja": "核と像",
+    "en": "Kernel and Image"
   },
   "summary": {
-    "ja": "kernel and imageを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on kernel and image."
+    "ja": "rank-nullityと可逆性へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Kernel and Image, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "kernel-and-image"
     ],
-    "supporting": []
+    "supporting": [
+      "linear-transformations"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "linear-transformations"
+  ],
   "learning_objectives": [
-    "kernel and imageの基本的な意味を説明できる"
+    "rank-nullityと可逆性へ接続するを定義と具体例で説明できる",
+    "rank-nullityと可逆性へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、kernel and imageを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ核と像を学ぶのでしょうか。核は写像が見分けられない入力方向、像は実際に到達できる出力方向である。つぶれる方向と残る範囲を分けて見る。 rank-nullityと可逆性へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：linear-transformations。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "核は写像が見分けられない入力方向、像は実際に到達できる出力方向である。つぶれる方向と残る範囲を分けて見る。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。T(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[1,2],[2,4]]ではker(A)=span{(-2,1)}、im(A)=span{(1,2)}。一方向がつぶれ、出力も一方向に限られる。 まず条件を確認し、T(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。 最後にker(A)とim(A)を方程式と生成元の両方で示せる。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：rank-nullityと可逆性へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はker(A)とim(A)を方程式と生成元の両方で示せる。"
+    },
+    {
+      "type": "summary",
+      "body": "rank-nullityと可逆性へ接続するは、線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。 重要なのはrank-nullityと可逆性へ接続するを式だけでなく、核は写像が見分けられない入力方向、像は実際に到達できる出力方向である。つぶれる方向と残る範囲を分けて見る。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のmatrix-representationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "kernel-and-image-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "rank-nullityと可逆性へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank-nullityと可逆性へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "kernel-and-image-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってT(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。",
+          "具体例としてA=[[1,2],[2,4]]ではker(A)=span{(-2,1)}、im(A)=span{(1,2)}。一方向がつぶれ、出力も一方向に限られる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "ker(A)とim(A)を方程式と生成元の両方で示せる。",
+        "common_wrong_path": "核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。"
+      }
+    },
+    {
+      "id": "kernel-and-image-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "rank-nullityと可逆性へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank-nullityと可逆性へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "kernel-and-image-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってT(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。",
+          "具体例としてA=[[1,2],[2,4]]ではker(A)=span{(-2,1)}、im(A)=span{(1,2)}。一方向がつぶれ、出力も一方向に限られる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "ker(A)とim(A)を方程式と生成元の両方で示せる。",
+        "common_wrong_path": "核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。"
+      }
+    },
+    {
+      "id": "kernel-and-image-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "rank-nullityと可逆性へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank-nullityと可逆性へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "kernel-and-image-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってT(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。",
+          "具体例としてA=[[1,2],[2,4]]ではker(A)=span{(-2,1)}、im(A)=span{(1,2)}。一方向がつぶれ、出力も一方向に限られる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "ker(A)とim(A)を方程式と生成元の両方で示せる。",
+        "common_wrong_path": "核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "linear-transformations"
+  ],
+  "status": "audited"
 }

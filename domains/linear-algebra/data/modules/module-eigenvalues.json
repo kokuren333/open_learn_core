@@ -28,5 +28,30 @@
     "diagonalization",
     "symmetric-spectral-theorem",
     "positive-definite-matrices"
-  ]
+  ],
+  "exercise_ids": [
+    "module-eigenvalues-exercise-basic",
+    "module-eigenvalues-exercise-conceptual",
+    "module-eigenvalues-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "固有値で変換を分解するを、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Eigenvalues and Eigenvectors."
+  },
+  "entry_prerequisites": [
+    "module-determinants"
+  ],
+  "learning_objectives": [
+    "eigenvalue-eigenvectorの定義・例・基本計算を説明できる",
+    "characteristic-polynomialの定義・例・基本計算を説明できる",
+    "eigenspace-and-multiplicityの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "eigenvalueからpositive definiteまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-determinants",
+    "next": "module-applications"
+  }
 }

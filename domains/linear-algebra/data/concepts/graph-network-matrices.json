@@ -1,0 +1,113 @@
+{
+  "id": "graph-network-matrices",
+  "title": {
+    "ja": "グラフとネットワーク行列",
+    "en": "Graph and Network Matrices"
+  },
+  "summary": {
+    "ja": "グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。",
+    "en": "グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "固有値・拡散・応用へつなぐを定義と例で説明できる",
+    "固有値・拡散・応用へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "graph-network-matrices-concept-lesson",
+      "title": "グラフとネットワーク行列",
+      "summary": "固有値・拡散・応用へつなぐ",
+      "objectives": [
+        "固有値・拡散・応用へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "graph-network-matrices-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。 三頂点の道1-2-3ではA=[[0,1,0],[1,0,1],[0,1,0]],D=diag(1,2,1)。",
+          "claimRefs": [
+            "graph-network-matrices-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "graph-network-matrices-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "graph-network-matrices-claim-01",
+      "statement": "グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "点と辺の図を表に翻訳すると、近傍の集計や流れの保存を行列積で計算できる。 グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。 頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。"
+  },
+  "examples": [
+    {
+      "id": "graph-network-matrices-example",
+      "statement": "三頂点の道1-2-3ではA=[[0,1,0],[1,0,1],[0,1,0]],D=diag(1,2,1)。",
+      "explanation": "頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。 Lの各行和は0で、定数ベクトルはLの零空間に入る。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "固有値・拡散・応用へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。",
+        "Lの各行和は0で、定数ベクトルはLの零空間に入る。"
+      ],
+      "finalConclusion": "Lの各行和は0で、定数ベクトルはLの零空間に入る。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。",
+      "conceptsUsed": [
+        "graph-network-matrices"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "graph-network-matrices-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値・拡散・応用へつなぐの小さな例を計算せよ。",
+      "answer": "Lの各行和は0で、定数ベクトルはLの零空間に入る。",
+      "explanation": "頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。 隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。",
+      "lessonId": "graph-network-matrices-concept-lesson",
+      "testsClaims": [
+        "graph-network-matrices-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -13,3 +13,10 @@ domains/*/pdf/generated/
 *.mp4
 *.mov
 *.mkv
+
+# Build-only publication packages
+dist/**/pdf/
+dist/**/video/
+dist/offline/
+dist/release/
+dist/**/publication-manifest.json

@@ -1,0 +1,113 @@
+{
+  "id": "pca-connection",
+  "title": {
+    "ja": "PCAと線形代数",
+    "en": "PCA and Linear Algebra"
+  },
+  "summary": {
+    "ja": "中心化したデータ行列の共分散行列の固有ベクトルは主成分方向を与え、SVDの右特異ベクトルと対応する。",
+    "en": "中心化したデータ行列の共分散行列の固有ベクトルは主成分方向を与え、SVDの右特異ベクトルと対応する。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "低次元表現・近似と結び付けるを定義と例で説明できる",
+    "低次元表現・近似と結び付けるを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "pca-connection-concept-lesson",
+      "title": "PCAと線形代数",
+      "summary": "低次元表現・近似と結び付ける",
+      "objectives": [
+        "低次元表現・近似と結び付けるを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "pca-connection-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "中心化したデータ行列の共分散行列の固有ベクトルは主成分方向を与え、SVDの右特異ベクトルと対応する。 点(1,1),(2,2),(3,3)は中心化すると直線方向(1,1)に全分散が集中し、第一主成分になる。",
+          "claimRefs": [
+            "pca-connection-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "pca-connection-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "pca-connection-claim-01",
+      "statement": "中心化したデータ行列の共分散行列の固有ベクトルは主成分方向を与え、SVDの右特異ベクトルと対応する。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "雲状に散ったデータを、最もばらつく軸から順に回転して見直す。PCAはデータの中心を移してから方向を探す。 中心化したデータ行列の共分散行列の固有ベクトルは主成分方向を与え、SVDの右特異ベクトルと対応する。 各特徴量の平均を引いてX_cを作り、X_c^TX_cの固有ベクトルまたはX_cのSVDから主方向を求める。"
+  },
+  "examples": [
+    {
+      "id": "pca-connection-example",
+      "statement": "点(1,1),(2,2),(3,3)は中心化すると直線方向(1,1)に全分散が集中し、第一主成分になる。",
+      "explanation": "各特徴量の平均を引いてX_cを作り、X_c^TX_cの固有ベクトルまたはX_cのSVDから主方向を求める。 平均を引いたX_cの共分散最大固有ベクトルが第一主成分。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "低次元表現・近似と結び付ける",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "各特徴量の平均を引いてX_cを作り、X_c^TX_cの固有ベクトルまたはX_cのSVDから主方向を求める。",
+        "平均を引いたX_cの共分散最大固有ベクトルが第一主成分。"
+      ],
+      "finalConclusion": "平均を引いたX_cの共分散最大固有ベクトルが第一主成分。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "中心化しないデータでは平均の位置が第一方向を歪めることがある。標準化するかどうかも前処理の選択である。",
+      "conceptsUsed": [
+        "pca-connection"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "pca-connection-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "低次元表現・近似と結び付けるの小さな例を計算せよ。",
+      "answer": "平均を引いたX_cの共分散最大固有ベクトルが第一主成分。",
+      "explanation": "各特徴量の平均を引いてX_cを作り、X_c^TX_cの固有ベクトルまたはX_cのSVDから主方向を求める。 中心化しないデータでは平均の位置が第一方向を歪めることがある。標準化するかどうかも前処理の選択である。",
+      "lessonId": "pca-connection-concept-lesson",
+      "testsClaims": [
+        "pca-connection-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "中心化しないデータでは平均の位置が第一方向を歪めることがある。標準化するかどうかも前処理の選択である。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

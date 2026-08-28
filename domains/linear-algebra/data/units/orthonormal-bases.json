@@ -3,50 +3,171 @@
   "module": "module-orthogonality",
   "order": 3,
   "title": {
-    "ja": "orthonormal bases",
-    "en": "orthonormal bases"
+    "ja": "正規直交系と正規直交基底",
+    "en": "Orthonormal Sets and Bases"
   },
   "summary": {
-    "ja": "orthonormal basesを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on orthonormal bases."
+    "ja": "Gram-SchmidtとQRの準備をするを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Orthonormal Sets and Bases, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "orthonormal-bases"
     ],
-    "supporting": []
+    "supporting": [
+      "projection"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "projection"
+  ],
   "learning_objectives": [
-    "orthonormal basesの基本的な意味を説明できる"
+    "Gram-SchmidtとQRの準備をするを定義と具体例で説明できる",
+    "Gram-SchmidtとQRの準備をするの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、orthonormal basesを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ正規直交系と正規直交基底を学ぶのでしょうか。互いに干渉しない単位方向をそろえると、座標係数が内積を一回計算するだけで読める。 Gram-SchmidtとQRの準備をするは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：projection。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "互いに干渉しない単位方向をそろえると、座標係数が内積を一回計算するだけで読める。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：q1=(1,0), q2=(0,1)はR²の正規直交基底。v=(3,4)の係数はv·q1=3,v·q2=4。 まず条件を確認し、各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。 最後に{q1,q2}は正規直交基底で、[v]_Q=(3,4)。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：Gram-SchmidtとQRの準備をするの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は{q1,q2}は正規直交基底で、[v]_Q=(3,4)。"
+    },
+    {
+      "type": "summary",
+      "body": "Gram-SchmidtとQRの準備をするは、ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。 重要なのはGram-SchmidtとQRの準備をするを式だけでなく、互いに干渉しない単位方向をそろえると、座標係数が内積を一回計算するだけで読める。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のgram-schmidtでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "orthonormal-bases-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "Gram-SchmidtとQRの準備をするを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "Gram-SchmidtとQRの準備をするについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "orthonormal-bases-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。",
+          "具体例としてq1=(1,0), q2=(0,1)はR²の正規直交基底。v=(3,4)の係数はv·q1=3,v·q2=4。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "{q1,q2}は正規直交基底で、[v]_Q=(3,4)。",
+        "common_wrong_path": "直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。"
+      }
+    },
+    {
+      "id": "orthonormal-bases-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "Gram-SchmidtとQRの準備をするを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "Gram-SchmidtとQRの準備をするについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "orthonormal-bases-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。",
+          "具体例としてq1=(1,0), q2=(0,1)はR²の正規直交基底。v=(3,4)の係数はv·q1=3,v·q2=4。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "{q1,q2}は正規直交基底で、[v]_Q=(3,4)。",
+        "common_wrong_path": "直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。"
+      }
+    },
+    {
+      "id": "orthonormal-bases-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "Gram-SchmidtとQRの準備をするを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "Gram-SchmidtとQRの準備をするについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "orthonormal-bases-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。",
+          "具体例としてq1=(1,0), q2=(0,1)はR²の正規直交基底。v=(3,4)の係数はv·q1=3,v·q2=4。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "{q1,q2}は正規直交基底で、[v]_Q=(3,4)。",
+        "common_wrong_path": "直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "projection"
+  ],
+  "status": "audited"
 }

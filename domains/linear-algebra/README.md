@@ -2,17 +2,17 @@
 
 ## Scope
 
-大学初年級向けに、スカラー、ベクトル、線形結合、span、線形独立、基底、次元、線形写像、行列、行列表現を扱います。
+高校数学の代数を前提に、大学初年級向けの線形代数を、ベクトル・連立方程式・行列からSVDと代表的応用まで一貫して扱います。
 
 ## Current status
 
-`basis`がTier Aのflagship教材です。その他のConceptはKnowledge Graphとカリキュラムを支えるTier Cから整備中です。詳細は[`docs/content-status.md`](docs/content-status.md)を参照してください。
+V2.0では52 Learning Unitsをauthored/audited状態にし、8 Module exercise sets、完全解答、5つの累積レビュー、HTML/PDF/video sourceを揃えています。詳細は[`docs/content-status.md`](docs/content-status.md)を参照してください。
 
 ## Curriculum and entry point
 
-The entry curriculum is `linear-algebra-basic`, beginning at `vector`. The current quality-gate entry point is the complete `basis` concept; the course graph exposes the route from scalar and vector operations through combinations, span, independence, basis, dimension, and matrix representation.
+The entry curriculum is `linear-algebra-basic`, while the learner-facing canonical route is `linear-algebra-foundations-to-applications`. The Course sequence—not the Knowledge Graph—controls navigation. The evidence-backed research and V2.0 freeze manifest live under `working/curriculum-review/`.
 
-The v1.9 teaching layer is `linear-algebra-foundations-to-applications`: 8 ordered Modules and 52 Learning Units. Learner navigation follows the Course and Module pages; the Knowledge Graph remains a separate reference structure. The first six vector-space Units (`linear-combination` through `coordinate-vectors`) are the initial authored slice, with HTML content, PDF source adaptation, and three video pilots.
+The course has 8 ordered Modules and 52 Learning Units. Every Unit includes a learner-facing explanation, definitions, examples, a boundary case, a checkpoint, a next connection, and exercises with complete solutions. Three foundational Units also have BiimSlideMaker-compatible video source packages.
 
 ## Concept list
 
@@ -29,9 +29,12 @@ npm run validate:domain -- linear-algebra
 npm run build:domain -- linear-algebra
 npm run test:domain -- linear-algebra
 npm run course:audit -- linear-algebra
-npm run build:all
+npm run build -- linear-algebra
+npm run build:pdf -- linear-algebra
+npm run build:video -- linear-algebra
+npm run publication:audit -- linear-algebra
 ```
 
 Video sources are tracked under `video/units/`; generated Biim compatibility files and media are ignored. See [`../../docs/video-protocol.md`](../../docs/video-protocol.md) and [`../../docs/pdf-pipeline.md`](../../docs/pdf-pipeline.md) for the multi-format contracts.
 
-Domain固有データは`data/`、Visual Specificationは`data/visuals/`、公開用/生成用assetは`assets/`、authoring artifactは`working/`に置きます。出典とEvidenceを先に確定し、Coreのschema・validator・quality gateを通過したものだけを公開します。
+Domain固有データは`data/`、Visual Specificationは`data/visuals/`、公開用/生成用assetは`assets/`、authoring artifactは`working/`に置きます。Unitは`data/units/`、演習と解答はUnit内および`data/exercises/`、記法は`config/notation.yaml`、引用は`data/sources/`とEvidenceに置きます。出典とEvidenceを先に確認し、Coreのschema・validator・Course completeness gateを通過したものだけを公開します。コードはMIT、オリジナル教材はCC BY-SA 4.0です。

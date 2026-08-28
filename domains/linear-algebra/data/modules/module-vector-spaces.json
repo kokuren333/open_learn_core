@@ -35,5 +35,29 @@
     "dimension-and-rank",
     "coordinate-vectors"
   ],
-  "exercise_ids": ["module-vector-spaces-review-01", "module-vector-spaces-review-02"]
+  "exercise_ids": [
+    "module-vector-spaces-exercise-basic",
+    "module-vector-spaces-exercise-conceptual",
+    "module-vector-spaces-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "ベクトル空間と部分空間を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Vector Spaces and Subspaces."
+  },
+  "entry_prerequisites": [
+    "module-systems-matrices"
+  ],
+  "learning_objectives": [
+    "vector-spacesの定義・例・基本計算を説明できる",
+    "subspacesの定義・例・基本計算を説明できる",
+    "linear-combinationの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "vector spacesからfour fundamental subspacesまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-systems-matrices",
+    "next": "module-linear-transformations"
+  }
 }

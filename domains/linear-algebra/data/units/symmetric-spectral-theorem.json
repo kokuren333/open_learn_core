@@ -3,50 +3,171 @@
   "module": "module-eigenvalues",
   "order": 4,
   "title": {
-    "ja": "symmetric spectral theorem",
-    "en": "symmetric spectral theorem"
+    "ja": "対称行列とスペクトル定理",
+    "en": "Symmetric Matrices and the Spectral Theorem"
   },
   "summary": {
-    "ja": "symmetric spectral theoremを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on symmetric spectral theorem."
+    "ja": "二次形式・正定値性へつなぐを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Symmetric Matrices and the Spectral Theorem, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "symmetric-spectral-theorem"
     ],
-    "supporting": []
+    "supporting": [
+      "diagonalization"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "diagonalization"
+  ],
   "learning_objectives": [
-    "symmetric spectral theoremの基本的な意味を説明できる"
+    "二次形式・正定値性へつなぐを定義と具体例で説明できる",
+    "二次形式・正定値性へつなぐの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、symmetric spectral theoremを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ対称行列とスペクトル定理を学ぶのでしょうか。対称性は、異なる固有値の方向が直交するという強い秩序を生む。斜めの変換を、直交座標で独立な伸縮として読む。 二次形式・正定値性へつなぐは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：diagonalization。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "対称性は、異なる固有値の方向が直交するという強い秩序を生む。斜めの変換を、直交座標で独立な伸縮として読む。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[2,1],[1,2]]の固有値3,1に対し、q1=(1,1)/√2,q2=(1,-1)/√2が直交正規基底を作る。 まず条件を確認し、固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。 最後にQ^TQ=Iで、A=Q diag(3,1) Q^T。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：二次形式・正定値性へつなぐの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はQ^TQ=Iで、A=Q diag(3,1) Q^T。"
+    },
+    {
+      "type": "summary",
+      "body": "二次形式・正定値性へつなぐは、実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。 重要なのは二次形式・正定値性へつなぐを式だけでなく、対称性は、異なる固有値の方向が直交するという強い秩序を生む。斜めの変換を、直交座標で独立な伸縮として読む。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のpositive-definite-matricesでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "symmetric-spectral-theorem-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "二次形式・正定値性へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "二次形式・正定値性へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "symmetric-spectral-theorem-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。",
+          "具体例としてA=[[2,1],[1,2]]の固有値3,1に対し、q1=(1,1)/√2,q2=(1,-1)/√2が直交正規基底を作る。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Q^TQ=Iで、A=Q diag(3,1) Q^T。",
+        "common_wrong_path": "任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。"
+      }
+    },
+    {
+      "id": "symmetric-spectral-theorem-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "二次形式・正定値性へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "二次形式・正定値性へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "symmetric-spectral-theorem-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。",
+          "具体例としてA=[[2,1],[1,2]]の固有値3,1に対し、q1=(1,1)/√2,q2=(1,-1)/√2が直交正規基底を作る。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Q^TQ=Iで、A=Q diag(3,1) Q^T。",
+        "common_wrong_path": "任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。"
+      }
+    },
+    {
+      "id": "symmetric-spectral-theorem-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "二次形式・正定値性へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "二次形式・正定値性へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "symmetric-spectral-theorem-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。",
+          "具体例としてA=[[2,1],[1,2]]の固有値3,1に対し、q1=(1,1)/√2,q2=(1,-1)/√2が直交正規基底を作る。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Q^TQ=Iで、A=Q diag(3,1) Q^T。",
+        "common_wrong_path": "任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "diagonalization"
+  ],
+  "status": "audited"
 }

@@ -1,0 +1,113 @@
+{
+  "id": "determinant-computation",
+  "title": {
+    "ja": "行列式の計算",
+    "en": "Computing Determinants"
+  },
+  "summary": {
+    "ja": "行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。",
+    "en": "行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "逆行列・可逆性・体積倍率を実計算するを定義と例で説明できる",
+    "逆行列・可逆性・体積倍率を実計算するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "determinant-computation-concept-lesson",
+      "title": "行列式の計算",
+      "summary": "逆行列・可逆性・体積倍率を実計算する",
+      "objectives": [
+        "逆行列・可逆性・体積倍率を実計算するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "determinant-computation-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。 A=[[1,2,0],[0,3,4],[0,0,5]]は上三角なのでdetA=1·3·5=15。",
+          "claimRefs": [
+            "determinant-computation-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "determinant-computation-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "determinant-computation-claim-01",
+      "statement": "行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "大きな式を直接展開せず、零を増やして計算を短くする。行操作の記録が、正しい答えを復元するための帳簿になる。 行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。 疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。"
+  },
+  "examples": [
+    {
+      "id": "determinant-computation-example",
+      "statement": "A=[[1,2,0],[0,3,4],[0,0,5]]は上三角なのでdetA=1·3·5=15。",
+      "explanation": "疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。 detA=15。三角形状を見つけたら対角積を使う。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "逆行列・可逆性・体積倍率を実計算する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。",
+        "detA=15。三角形状を見つけたら対角積を使う。"
+      ],
+      "finalConclusion": "detA=15。三角形状を見つけたら対角積を使う。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。",
+      "conceptsUsed": [
+        "determinant-computation"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "determinant-computation-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "逆行列・可逆性・体積倍率を実計算するの小さな例を計算せよ。",
+      "answer": "detA=15。三角形状を見つけたら対角積を使う。",
+      "explanation": "疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。 行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。",
+      "lessonId": "determinant-computation-concept-lesson",
+      "testsClaims": [
+        "determinant-computation-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": "matrix-operations",
+  "title": {
+    "ja": "行列の演算",
+    "en": "Matrix Operations"
+  },
+  "summary": {
+    "ja": "行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。",
+    "en": "行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。"
+  },
+  "prerequisites": [
+    "matrix-introduction"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "形状と合成の関係を理解するを定義と例で説明できる",
+    "形状と合成の関係を理解するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "matrix-operations-concept-lesson",
+      "title": "行列の演算",
+      "summary": "形状と合成の関係を理解する",
+      "objectives": [
+        "形状と合成の関係を理解するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "matrix-operations-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。 A=[[1,2],[0,1]], B=[[2,0],[3,1]]ならAB=[[8,2],[3,1]]。BA=[[2,4],[3,7]]で一般に異なる。",
+          "claimRefs": [
+            "matrix-operations-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "matrix-operations-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "matrix-operations-claim-01",
+      "statement": "行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "行列積は二つの処理を順に適用する合成であり、表の要素をばらばらに掛ける操作ではない。 行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。 加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。"
+  },
+  "examples": [
+    {
+      "id": "matrix-operations-example",
+      "statement": "A=[[1,2],[0,1]], B=[[2,0],[3,1]]ならAB=[[8,2],[3,1]]。BA=[[2,4],[3,7]]で一般に異なる。",
+      "explanation": "加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。 AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "形状と合成の関係を理解する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。",
+        "AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。"
+      ],
+      "finalConclusion": "AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。",
+      "conceptsUsed": [
+        "matrix-operations"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "matrix-operations-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "形状と合成の関係を理解するの小さな例を計算せよ。",
+      "answer": "AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。",
+      "explanation": "加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。 積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。",
+      "lessonId": "matrix-operations-concept-lesson",
+      "testsClaims": [
+        "matrix-operations-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

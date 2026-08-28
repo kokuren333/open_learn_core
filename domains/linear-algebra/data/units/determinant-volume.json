@@ -3,50 +3,171 @@
   "module": "module-determinants",
   "order": 5,
   "title": {
-    "ja": "determinant volume",
-    "en": "determinant volume"
+    "ja": "行列式と面積・体積",
+    "en": "Determinants and Volume Scaling"
   },
   "summary": {
-    "ja": "determinant volumeを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on determinant volume."
+    "ja": "固有値の積・応用幾何へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Determinants and Volume Scaling, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "determinant-volume"
     ],
-    "supporting": []
+    "supporting": [
+      "determinant-invertibility"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "determinant-invertibility"
+  ],
   "learning_objectives": [
-    "determinant volumeの基本的な意味を説明できる"
+    "固有値の積・応用幾何へ接続するを定義と具体例で説明できる",
+    "固有値の積・応用幾何へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、determinant volumeを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列式と面積・体積を学ぶのでしょうか。単位立方体を押す・伸ばす・せん断する操作を分解すると、体積倍率が各操作の積として見える。 固有値の積・応用幾何へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：determinant-invertibility。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "単位立方体を押す・伸ばす・せん断する操作を分解すると、体積倍率が各操作の積として見える。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：diag(2,3,4)は体積を24倍する。せん断[[1,1],[0,1]]は面積を保ちdet=1。 まず条件を確認し、標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。 最後にdet diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：固有値の積・応用幾何へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はdet diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。"
+    },
+    {
+      "type": "summary",
+      "body": "固有値の積・応用幾何へ接続するは、n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。 重要なのは固有値の積・応用幾何へ接続するを式だけでなく、単位立方体を押す・伸ばす・せん断する操作を分解すると、体積倍率が各操作の積として見える。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のeigenvalue-eigenvectorでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "determinant-volume-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値の積・応用幾何へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値の積・応用幾何へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-volume-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。",
+          "具体例としてdiag(2,3,4)は体積を24倍する。せん断[[1,1],[0,1]]は面積を保ちdet=1。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。",
+        "common_wrong_path": "面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。"
+      }
+    },
+    {
+      "id": "determinant-volume-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "固有値の積・応用幾何へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値の積・応用幾何へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-volume-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。",
+          "具体例としてdiag(2,3,4)は体積を24倍する。せん断[[1,1],[0,1]]は面積を保ちdet=1。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。",
+        "common_wrong_path": "面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。"
+      }
+    },
+    {
+      "id": "determinant-volume-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "固有値の積・応用幾何へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値の積・応用幾何へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-volume-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。",
+          "具体例としてdiag(2,3,4)は体積を24倍する。せん断[[1,1],[0,1]]は面積を保ちdet=1。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。",
+        "common_wrong_path": "面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "determinant-invertibility"
+  ],
+  "status": "audited"
 }

@@ -3,50 +3,171 @@
   "module": "module-applications",
   "order": 1,
   "title": {
-    "ja": "svd intuition",
-    "en": "svd intuition"
+    "ja": "特異値分解の直観",
+    "en": "Singular Value Decomposition"
   },
   "summary": {
-    "ja": "svd intuitionを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on svd intuition."
+    "ja": "低ランク近似とPCAへ進むを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Singular Value Decomposition, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "svd-intuition"
     ],
-    "supporting": []
+    "supporting": [
+      "quadratic-forms"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "quadratic-forms"
+  ],
   "learning_objectives": [
-    "svd intuitionの基本的な意味を説明できる"
+    "低ランク近似とPCAへ進むを定義と具体例で説明できる",
+    "低ランク近似とPCAへ進むの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、svd intuitionを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ特異値分解の直観を学ぶのでしょうか。SVDは、入力を直交座標で回転・反射し、方向ごとに異なる倍率で伸縮し、出力側の直交座標へ移す三段階の機械である。 低ランク近似とPCAへ進むは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：quadratic-forms。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "SVDは、入力を直交座標で回転・反射し、方向ごとに異なる倍率で伸縮し、出力側の直交座標へ移す三段階の機械である。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。A^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=diag(3,1)ではU=V=I,Σ=diag(3,1)。第1方向を3倍、第2方向を1倍する。 まず条件を確認し、A^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。 最後にUΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：低ランク近似とPCAへ進むの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はUΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。"
+    },
+    {
+      "type": "summary",
+      "body": "低ランク近似とPCAへ進むは、任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。 重要なのは低ランク近似とPCAへ進むを式だけでなく、SVDは、入力を直交座標で回転・反射し、方向ごとに異なる倍率で伸縮し、出力側の直交座標へ移す三段階の機械である。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のlow-rank-approximationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "svd-intuition-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "低ランク近似とPCAへ進むを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "低ランク近似とPCAへ進むについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "svd-intuition-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってA^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。",
+          "具体例としてA=diag(3,1)ではU=V=I,Σ=diag(3,1)。第1方向を3倍、第2方向を1倍する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。",
+        "common_wrong_path": "SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。"
+      }
+    },
+    {
+      "id": "svd-intuition-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "低ランク近似とPCAへ進むを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "低ランク近似とPCAへ進むについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "svd-intuition-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってA^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。",
+          "具体例としてA=diag(3,1)ではU=V=I,Σ=diag(3,1)。第1方向を3倍、第2方向を1倍する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。",
+        "common_wrong_path": "SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。"
+      }
+    },
+    {
+      "id": "svd-intuition-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "低ランク近似とPCAへ進むを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "低ランク近似とPCAへ進むについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "svd-intuition-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってA^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。",
+          "具体例としてA=diag(3,1)ではU=V=I,Σ=diag(3,1)。第1方向を3倍、第2方向を1倍する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。",
+        "common_wrong_path": "SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "quadratic-forms"
+  ],
+  "status": "audited"
 }

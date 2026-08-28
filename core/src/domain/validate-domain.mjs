@@ -47,6 +47,16 @@ export async function validateDomain(domain, { schema } = {}) {
     for (const exerciseId of review.value.exercise_ids) if (!moduleExerciseIds.has(exerciseId)) issues.push(`cumulative review '${review.value.id}' references missing module exercise '${exerciseId}'`);
   }
   for (const unit of domain.courseData?.units ?? []) if (!moduleIds.has(unit.value.module)) issues.push(`unit '${unit.value.id}' references missing module '${unit.value.module}'`);
+  const conceptIds = new Set((domain.dataset.concepts ?? []).map((record) => record.value.id));
+  for (const unit of domain.courseData?.units ?? []) {
+    for (const conceptId of [...(unit.value.concepts?.primary ?? []), ...(unit.value.concepts?.supporting ?? [])]) if (!conceptIds.has(conceptId)) issues.push(`unit '${unit.value.id}' references missing Concept '${conceptId}'`);
+    for (const prerequisite of unit.value.prerequisites ?? []) if (!unitIds.has(prerequisite) && !conceptIds.has(prerequisite) && prerequisite !== "secondary-school algebra fluency" && prerequisite !== "simultaneous equations at a basic level") issues.push(`unit '${unit.value.id}' references missing prerequisite '${prerequisite}'`);
+    for (const exercise of unit.value.exercises ?? []) {
+      const solution = exercise.solution;
+      for (const field of ["what_is_asked", "strategy", "conclusion", "common_wrong_path"]) if (!solution?.[field]?.trim()) issues.push(`unit '${unit.value.id}' exercise '${exercise.id}' has incomplete solution field '${field}'`);
+      if (!solution?.steps?.length || !solution?.why?.length) issues.push(`unit '${unit.value.id}' exercise '${exercise.id}' lacks reasoning steps or justification`);
+    }
+  }
   for (const course of courseRecords) if (course.value.domain !== domain.manifest.id) issues.push(`course '${course.value.id}' points to domain '${course.value.domain}' instead of '${domain.manifest.id}'`);
   for (const id of domain.manifest.entry_curriculum ?? []) if (!datasetValidation.curriculaById.has(id)) issues.push(`manifest entry curriculum '${id}' is missing`);
   for (const id of domain.manifest.entry_concepts ?? []) if (!datasetValidation.conceptsById.has(id)) issues.push(`manifest entry concept '${id}' is missing`);

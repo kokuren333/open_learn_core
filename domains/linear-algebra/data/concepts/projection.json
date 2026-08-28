@@ -1,0 +1,113 @@
+{
+  "id": "projection",
+  "title": {
+    "ja": "直交射影",
+    "en": "Orthogonal Projection"
+  },
+  "summary": {
+    "ja": "部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。",
+    "en": "部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "最小二乗へつなぐを定義と例で説明できる",
+    "最小二乗へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "projection-concept-lesson",
+      "title": "直交射影",
+      "summary": "最小二乗へつなぐ",
+      "objectives": [
+        "最小二乗へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "projection-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。 v=(2,1), u=(1,1)なら係数=(3/2)、射影=(3/2,3/2)、誤差=(1/2,-1/2)でuと直交する。",
+          "claimRefs": [
+            "projection-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "projection-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "projection-claim-01",
+      "statement": "部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "斜めの点を、指定した直線や平面へ最も近い点として落とす。残った誤差は対象空間の方向と直交する。 部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。 直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。"
+  },
+  "examples": [
+    {
+      "id": "projection-example",
+      "statement": "v=(2,1), u=(1,1)なら係数=(3/2)、射影=(3/2,3/2)、誤差=(1/2,-1/2)でuと直交する。",
+      "explanation": "直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。 proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "最小二乗へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。",
+        "proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。"
+      ],
+      "finalConclusion": "proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。",
+      "conceptsUsed": [
+        "projection"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "projection-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "最小二乗へつなぐの小さな例を計算せよ。",
+      "answer": "proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。",
+      "explanation": "直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。 uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。",
+      "lessonId": "projection-concept-lesson",
+      "testsClaims": [
+        "projection-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

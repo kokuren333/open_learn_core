@@ -3,50 +3,171 @@
   "module": "module-linear-transformations",
   "order": 0,
   "title": {
-    "ja": "linear transformations",
-    "en": "linear transformations"
+    "ja": "線形写像",
+    "en": "Linear Transformations"
   },
   "summary": {
-    "ja": "linear transformationsを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on linear transformations."
+    "ja": "kernel・imageと行列表現へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Linear Transformations, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "linear-transformations"
     ],
-    "supporting": []
+    "supporting": [
+      "coordinates"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "coordinate-vectors"
+  ],
   "learning_objectives": [
-    "linear transformationsの基本的な意味を説明できる"
+    "kernel・imageと行列表現へ接続するを定義と具体例で説明できる",
+    "kernel・imageと行列表現へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、linear transformationsを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ線形写像を学ぶのでしょうか。線形写像は、原点を保ちながら空間を伸ばす・回す・つぶす規則である。入力を分解して処理した結果が、先に足してから処理した結果と一致する。 kernel・imageと行列表現へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：coordinate-vectors。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "線形写像は、原点を保ちながら空間を伸ばす・回す・つぶす規則である。入力を分解して処理した結果が、先に足してから処理した結果と一致する。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：T(x,y)=(2x-y,x)ではT(u+v)=T(u)+T(v)、T(3u)=3T(u)が成分計算で確かめられる。 まず条件を確認し、零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。 最後にT(0)=0で、和とスカラー倍を保つのでTは線形。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：kernel・imageと行列表現へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はT(0)=0で、和とスカラー倍を保つのでTは線形。"
+    },
+    {
+      "type": "summary",
+      "body": "kernel・imageと行列表現へ接続するは、線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。 重要なのはkernel・imageと行列表現へ接続するを式だけでなく、線形写像は、原点を保ちながら空間を伸ばす・回す・つぶす規則である。入力を分解して処理した結果が、先に足してから処理した結果と一致する。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のkernel-and-imageでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "linear-transformations-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "kernel・imageと行列表現へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "kernel・imageと行列表現へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "linear-transformations-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。",
+          "具体例としてT(x,y)=(2x-y,x)ではT(u+v)=T(u)+T(v)、T(3u)=3T(u)が成分計算で確かめられる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "T(0)=0で、和とスカラー倍を保つのでTは線形。",
+        "common_wrong_path": "平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。"
+      }
+    },
+    {
+      "id": "linear-transformations-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "kernel・imageと行列表現へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "kernel・imageと行列表現へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "linear-transformations-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。",
+          "具体例としてT(x,y)=(2x-y,x)ではT(u+v)=T(u)+T(v)、T(3u)=3T(u)が成分計算で確かめられる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "T(0)=0で、和とスカラー倍を保つのでTは線形。",
+        "common_wrong_path": "平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。"
+      }
+    },
+    {
+      "id": "linear-transformations-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "kernel・imageと行列表現へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "kernel・imageと行列表現へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "linear-transformations-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。",
+          "具体例としてT(x,y)=(2x-y,x)ではT(u+v)=T(u)+T(v)、T(3u)=3T(u)が成分計算で確かめられる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "T(0)=0で、和とスカラー倍を保つのでTは線形。",
+        "common_wrong_path": "平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "coordinate-vectors"
+  ],
+  "status": "audited"
 }

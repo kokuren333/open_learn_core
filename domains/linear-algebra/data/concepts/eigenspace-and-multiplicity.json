@@ -1,0 +1,113 @@
+{
+  "id": "eigenspace-and-multiplicity",
+  "title": {
+    "ja": "固有空間と重複度",
+    "en": "Eigenspaces and Multiplicities"
+  },
+  "summary": {
+    "ja": "固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。",
+    "en": "固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "対角化可能性の判定を準備するを定義と例で説明できる",
+    "対角化可能性の判定を準備するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "eigenspace-and-multiplicity-concept-lesson",
+      "title": "固有空間と重複度",
+      "summary": "対角化可能性の判定を準備する",
+      "objectives": [
+        "対角化可能性の判定を準備するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "eigenspace-and-multiplicity-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。 A=2I_2はλ=2の代数的重複度2、固有空間全体R²で幾何的重複度2。",
+          "claimRefs": [
+            "eigenspace-and-multiplicity-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "eigenspace-and-multiplicity-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "eigenspace-and-multiplicity-claim-01",
+      "statement": "固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "同じ伸縮率を持つ方向が一本とは限らない。多項式が根を何回数えるかと、実際に何方向の独立な固有ベクトルがあるかを分ける。 固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。 特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。"
+  },
+  "examples": [
+    {
+      "id": "eigenspace-and-multiplicity-example",
+      "statement": "A=2I_2はλ=2の代数的重複度2、固有空間全体R²で幾何的重複度2。",
+      "explanation": "特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。 A=2Iなら二つの独立な固有ベクトルを選べる。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "対角化可能性の判定を準備する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。",
+        "A=2Iなら二つの独立な固有ベクトルを選べる。"
+      ],
+      "finalConclusion": "A=2Iなら二つの独立な固有ベクトルを選べる。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。",
+      "conceptsUsed": [
+        "eigenspace-and-multiplicity"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "eigenspace-and-multiplicity-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "対角化可能性の判定を準備するの小さな例を計算せよ。",
+      "answer": "A=2Iなら二つの独立な固有ベクトルを選べる。",
+      "explanation": "特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。 重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。",
+      "lessonId": "eigenspace-and-multiplicity-concept-lesson",
+      "testsClaims": [
+        "eigenspace-and-multiplicity-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

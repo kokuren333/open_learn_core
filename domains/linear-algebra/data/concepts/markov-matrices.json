@@ -1,0 +1,113 @@
+{
+  "id": "markov-matrices",
+  "title": {
+    "ja": "Markov行列",
+    "en": "Markov Matrices"
+  },
+  "summary": {
+    "ja": "確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。",
+    "en": "確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "固有値・反復・応用例を統合するを定義と例で説明できる",
+    "固有値・反復・応用例を統合するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "markov-matrices-concept-lesson",
+      "title": "Markov行列",
+      "summary": "固有値・反復・応用例を統合する",
+      "objectives": [
+        "固有値・反復・応用例を統合するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "markov-matrices-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。 P=[[0.8,0.3],[0.2,0.7]]を列確率の規約で使うなら、v=Pvとv1+v2=1からv=(3/5,2/5)を得る。",
+          "claimRefs": [
+            "markov-matrices-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "markov-matrices-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "markov-matrices-claim-01",
+      "statement": "確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "ページ間の移動や状態遷移を繰り返すと、確率の山が行列の作用で移動する。長期的に変わらない分布が定常分布である。 確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。 確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。"
+  },
+  "examples": [
+    {
+      "id": "markov-matrices-example",
+      "statement": "P=[[0.8,0.3],[0.2,0.7]]を列確率の規約で使うなら、v=Pvとv1+v2=1からv=(3/5,2/5)を得る。",
+      "explanation": "確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。 P v=vかつ成分非負・総和1を検算する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "固有値・反復・応用例を統合する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。",
+        "P v=vかつ成分非負・総和1を検算する。"
+      ],
+      "finalConclusion": "P v=vかつ成分非負・総和1を検算する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。",
+      "conceptsUsed": [
+        "markov-matrices"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "markov-matrices-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値・反復・応用例を統合するの小さな例を計算せよ。",
+      "answer": "P v=vかつ成分非負・総和1を検算する。",
+      "explanation": "確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。 行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。",
+      "lessonId": "markov-matrices-concept-lesson",
+      "testsClaims": [
+        "markov-matrices-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

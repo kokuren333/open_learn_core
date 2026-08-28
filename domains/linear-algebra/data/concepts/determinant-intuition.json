@@ -1,0 +1,113 @@
+{
+  "id": "determinant-intuition",
+  "title": {
+    "ja": "行列式の直観",
+    "en": "Determinant Intuition"
+  },
+  "summary": {
+    "ja": "行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。",
+    "en": "行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "定義・計算・可逆性へ進むを定義と例で説明できる",
+    "定義・計算・可逆性へ進むを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "determinant-intuition-concept-lesson",
+      "title": "行列式の直観",
+      "summary": "定義・計算・可逆性へ進む",
+      "objectives": [
+        "定義・計算・可逆性へ進むを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "determinant-intuition-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。 A=[[2,0],[0,3]]は面積を6倍しdetA=6。A=[[1,0],[0,-1]]は面積を保つが向きを反転しdetA=-1。",
+          "claimRefs": [
+            "determinant-intuition-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "determinant-intuition-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "determinant-intuition-claim-01",
+      "statement": "行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "単位正方形をAで写した平行四辺形の面積が|det A|、向きが反転すれば符号が変わる。空間を押しつぶすと面積・体積は0になる。 行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。 標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。"
+  },
+  "examples": [
+    {
+      "id": "determinant-intuition-example",
+      "statement": "A=[[2,0],[0,3]]は面積を6倍しdetA=6。A=[[1,0],[0,-1]]は面積を保つが向きを反転しdetA=-1。",
+      "explanation": "標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。 detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "定義・計算・可逆性へ進む",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。",
+        "detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。"
+      ],
+      "finalConclusion": "detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。",
+      "conceptsUsed": [
+        "determinant-intuition"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "determinant-intuition-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "定義・計算・可逆性へ進むの小さな例を計算せよ。",
+      "answer": "detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。",
+      "explanation": "標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。 行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。",
+      "lessonId": "determinant-intuition-concept-lesson",
+      "testsClaims": [
+        "determinant-intuition-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

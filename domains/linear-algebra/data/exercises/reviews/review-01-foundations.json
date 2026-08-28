@@ -1,0 +1,19 @@
+{
+  "id": "review-01-foundations",
+  "title": {
+    "ja": "基礎横断レビュー：ベクトル・方程式・行列",
+    "en": "Review 1: Vectors, Systems, and Matrices"
+  },
+  "module_ids": [
+    "module-prerequisites-vectors",
+    "module-systems-matrices"
+  ],
+  "exercise_ids": [
+    "module-prerequisites-vectors-exercise-basic",
+    "module-prerequisites-vectors-exercise-conceptual",
+    "module-prerequisites-vectors-exercise-synthesis",
+    "module-systems-matrices-exercise-basic",
+    "module-systems-matrices-exercise-conceptual",
+    "module-systems-matrices-exercise-synthesis"
+  ]
+}

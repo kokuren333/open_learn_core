@@ -1,0 +1,30 @@
+{
+  "release_version": "2.0.0",
+  "source_commit": "e6c63d6fd6c112c1b0ebbd60da3e1a129beaac1d",
+  "domain": "linear-algebra",
+  "course_id": "linear-algebra-foundations-to-applications",
+  "modules": 8,
+  "units": 52,
+  "exercises": 168,
+  "solutions": 168,
+  "cumulative_reviews": 6,
+  "audits": {
+    "structural": "pass",
+    "completeness": "pass",
+    "math": "pass",
+    "pedagogy": "pass",
+    "evidence": "pass",
+    "explanation": "pass",
+    "visual": "pass",
+    "video": "pass",
+    "publication": "pass"
+  },
+  "deployment": "not_run: credentials intentionally not required for local/CI audit",
+  "known_limitations": [
+    "Only three video source packages are production pilots; video binaries are optional build artifacts.",
+    "Cloudflare Pages/R2 deployment requires user-provided production credentials.",
+    "Judgment-based pedagogy findings are scoped and not presented as objective learner guarantees."
+  ],
+  "status": "pass",
+  "blocking": []
+}

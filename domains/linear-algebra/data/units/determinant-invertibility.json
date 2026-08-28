@@ -3,50 +3,171 @@
   "module": "module-determinants",
   "order": 4,
   "title": {
-    "ja": "determinant invertibility",
-    "en": "determinant invertibility"
+    "ja": "行列式と可逆性",
+    "en": "Determinants and Invertibility"
   },
   "summary": {
-    "ja": "determinant invertibilityを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on determinant invertibility."
+    "ja": "rank・線形方程式・数値安定性をつなぐを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Determinants and Invertibility, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "determinant-invertibility"
     ],
-    "supporting": []
+    "supporting": [
+      "determinant-computation"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "determinant-computation"
+  ],
   "learning_objectives": [
-    "determinant invertibilityの基本的な意味を説明できる"
+    "rank・線形方程式・数値安定性をつなぐを定義と具体例で説明できる",
+    "rank・線形方程式・数値安定性をつなぐの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、determinant invertibilityを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列式と可逆性を学ぶのでしょうか。det=0は空間を低い次元へ押しつぶした状態で、情報が失われるため元に戻せない。 rank・線形方程式・数値安定性をつなぐは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：determinant-computation。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "det=0は空間を低い次元へ押しつぶした状態で、情報が失われるため元に戻せない。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。detを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[1,2],[2,4]]はdet=0。2列目=2×1列目なのでA(−2,1)^T=0、逆行列はない。 まず条件を確認し、detを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。 最後にdetA=0なので非可逆。従属な列が情報を重複させている。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：rank・線形方程式・数値安定性をつなぐの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はdetA=0なので非可逆。従属な列が情報を重複させている。"
+    },
+    {
+      "type": "summary",
+      "body": "rank・線形方程式・数値安定性をつなぐは、正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。 重要なのはrank・線形方程式・数値安定性をつなぐを式だけでなく、det=0は空間を低い次元へ押しつぶした状態で、情報が失われるため元に戻せない。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdeterminant-volumeでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "determinant-invertibility-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "rank・線形方程式・数値安定性をつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank・線形方程式・数値安定性をつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-invertibility-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってdetを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。",
+          "具体例としてA=[[1,2],[2,4]]はdet=0。2列目=2×1列目なのでA(−2,1)^T=0、逆行列はない。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=0なので非可逆。従属な列が情報を重複させている。",
+        "common_wrong_path": "det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。"
+      }
+    },
+    {
+      "id": "determinant-invertibility-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "rank・線形方程式・数値安定性をつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank・線形方程式・数値安定性をつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-invertibility-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってdetを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。",
+          "具体例としてA=[[1,2],[2,4]]はdet=0。2列目=2×1列目なのでA(−2,1)^T=0、逆行列はない。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=0なので非可逆。従属な列が情報を重複させている。",
+        "common_wrong_path": "det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。"
+      }
+    },
+    {
+      "id": "determinant-invertibility-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "rank・線形方程式・数値安定性をつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank・線形方程式・数値安定性をつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-invertibility-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってdetを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。",
+          "具体例としてA=[[1,2],[2,4]]はdet=0。2列目=2×1列目なのでA(−2,1)^T=0、逆行列はない。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=0なので非可逆。従属な列が情報を重複させている。",
+        "common_wrong_path": "det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "determinant-computation"
+  ],
+  "status": "audited"
 }

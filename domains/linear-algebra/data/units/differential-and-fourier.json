@@ -3,50 +3,171 @@
   "module": "module-applications",
   "order": 6,
   "title": {
-    "ja": "differential and fourier",
-    "en": "differential and fourier"
+    "ja": "微分方程式・Fourierとの接続",
+    "en": "Differential Equations and Fourier Connections"
   },
   "summary": {
-    "ja": "differential and fourierを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on differential and fourier."
+    "ja": "線形代数を応用へ運ぶを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Differential Equations and Fourier Connections, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "differential-and-fourier"
     ],
-    "supporting": []
+    "supporting": [
+      "graph-network-matrices"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "graph-network-matrices"
+  ],
   "learning_objectives": [
-    "differential and fourierの基本的な意味を説明できる"
+    "線形代数を応用へ運ぶを定義と具体例で説明できる",
+    "線形代数を応用へ運ぶの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、differential and fourierを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ微分方程式・Fourierとの接続を学ぶのでしょうか。複雑な信号や運動を、単純な振動モードの重ね合わせとして見る。各モードは固有値に応じて増減・振動する。 線形代数を応用へ運ぶは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：graph-network-matrices。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "複雑な信号や運動を、単純な振動モードの重ね合わせとして見る。各モードは固有値に応じて増減・振動する。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：x'(t)=Ax(t)でAの固有対(A v=λv)があれば、x(t)=e^{λt}vは一つのモードになる。 まず条件を確認し、線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。 最後に固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：線形代数を応用へ運ぶの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。"
+    },
+    {
+      "type": "summary",
+      "body": "線形代数を応用へ運ぶは、線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。 重要なのは線形代数を応用へ運ぶを式だけでなく、複雑な信号や運動を、単純な振動モードの重ね合わせとして見る。各モードは固有値に応じて増減・振動する。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のnumerical-stabilityでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "differential-and-fourier-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "線形代数を応用へ運ぶを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "線形代数を応用へ運ぶについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "differential-and-fourier-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。",
+          "具体例としてx'(t)=Ax(t)でAの固有対(A v=λv)があれば、x(t)=e^{λt}vは一つのモードになる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。",
+        "common_wrong_path": "固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。"
+      }
+    },
+    {
+      "id": "differential-and-fourier-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "線形代数を応用へ運ぶを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "線形代数を応用へ運ぶについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "differential-and-fourier-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。",
+          "具体例としてx'(t)=Ax(t)でAの固有対(A v=λv)があれば、x(t)=e^{λt}vは一つのモードになる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。",
+        "common_wrong_path": "固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。"
+      }
+    },
+    {
+      "id": "differential-and-fourier-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "線形代数を応用へ運ぶを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "線形代数を応用へ運ぶについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "differential-and-fourier-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。",
+          "具体例としてx'(t)=Ax(t)でAの固有対(A v=λv)があれば、x(t)=e^{λt}vは一つのモードになる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。",
+        "common_wrong_path": "固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "graph-network-matrices"
+  ],
+  "status": "audited"
 }

@@ -1,0 +1,15 @@
+status: fail
+auditor: openlearn-pedagogy-auditor
+independent_review: true
+artifact_hash: sha256:2825616f095ac7f5940811a99bd966dd6d2627d3fe21d7584b338835416c5b62
+evaluated_at: 2026-08-28T15:56:44.722Z
+summary: Learning sequence, bridge, retrieval, and objective alignment reviewed semantically.
+issues:
+  - severity: major
+    problem: lesson sequence has 0/6 learning units
+    rationale: Deep explanation requires a progression of learning units.
+    suggested_fix: Add at least six lessons or adjust the domain quality profile.
+  - severity: major
+    problem: motivation or concrete-to-abstract bridge is missing
+    rationale: Learners need a problem, an observable case, and a reason for formal vocabulary.
+    suggested_fix: Connect the first concrete case to the formal concept.

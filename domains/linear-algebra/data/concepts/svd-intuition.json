@@ -1,0 +1,113 @@
+{
+  "id": "svd-intuition",
+  "title": {
+    "ja": "特異値分解の直観",
+    "en": "Singular Value Decomposition"
+  },
+  "summary": {
+    "ja": "任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。",
+    "en": "任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "低ランク近似とPCAへ進むを定義と例で説明できる",
+    "低ランク近似とPCAへ進むを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "svd-intuition-concept-lesson",
+      "title": "特異値分解の直観",
+      "summary": "低ランク近似とPCAへ進む",
+      "objectives": [
+        "低ランク近似とPCAへ進むを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "svd-intuition-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。 A=diag(3,1)ではU=V=I,Σ=diag(3,1)。第1方向を3倍、第2方向を1倍する。",
+          "claimRefs": [
+            "svd-intuition-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "svd-intuition-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "svd-intuition-claim-01",
+      "statement": "任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "SVDは、入力を直交座標で回転・反射し、方向ごとに異なる倍率で伸縮し、出力側の直交座標へ移す三段階の機械である。 任意の実m×n行列AはA=UΣV^Tと分解でき、U,Vは直交行列、Σの非負対角成分が特異値である。 A^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。"
+  },
+  "examples": [
+    {
+      "id": "svd-intuition-example",
+      "statement": "A=diag(3,1)ではU=V=I,Σ=diag(3,1)。第1方向を3倍、第2方向を1倍する。",
+      "explanation": "A^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。 UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "低ランク近似とPCAへ進む",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "A^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。",
+        "UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。"
+      ],
+      "finalConclusion": "UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。",
+      "conceptsUsed": [
+        "svd-intuition"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "svd-intuition-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "低ランク近似とPCAへ進むの小さな例を計算せよ。",
+      "answer": "UΣV^Tを掛け戻してAを再構成し、σ_i≥0と並び順を確認する。",
+      "explanation": "A^TAの固有ベクトルをVに選び、特異値σ=√λを求め、対応する左特異ベクトルをAv/σで作る。 SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。",
+      "lessonId": "svd-intuition-concept-lesson",
+      "testsClaims": [
+        "svd-intuition-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "SVDを単に矩形行列の固有分解と呼ばない。左右の異なる空間と、A^TA・AA^Tの関係を区別する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

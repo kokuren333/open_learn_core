@@ -1,0 +1,113 @@
+{
+  "id": "coordinates",
+  "title": {
+    "ja": "座標",
+    "en": "Coordinates"
+  },
+  "summary": {
+    "ja": "基底Bに関するベクトルvの座標[v]_Bは、vをBのベクトルの線形結合で表した係数列である。",
+    "en": "基底Bに関するベクトルvの座標[v]_Bは、vをBのベクトルの線形結合で表した係数列である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "基底変換と線形写像へ接続するを定義と例で説明できる",
+    "基底変換と線形写像へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "coordinates-concept-lesson",
+      "title": "座標",
+      "summary": "基底変換と線形写像へ接続する",
+      "objectives": [
+        "基底変換と線形写像へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "coordinates-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "基底Bに関するベクトルvの座標[v]_Bは、vをBのベクトルの線形結合で表した係数列である。 B={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2から[v]_B=(3,1)。",
+          "claimRefs": [
+            "coordinates-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "coordinates-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "coordinates-claim-01",
+      "statement": "基底Bに関するベクトルvの座標[v]_Bは、vをBのベクトルの線形結合で表した係数列である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "座標はベクトルそのものではなく、選んだものさしに対する読み上げである。ものさしが変われば数字は変わるが、再構成される対象は同じである。 基底Bに関するベクトルvの座標[v]_Bは、vをBのベクトルの線形結合で表した係数列である。 基底ベクトルを列に並べた行列で係数方程式を立て、解を基底座標として再構成で検算する。"
+  },
+  "examples": [
+    {
+      "id": "coordinates-example",
+      "statement": "B={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2から[v]_B=(3,1)。",
+      "explanation": "基底ベクトルを列に並べた行列で係数方程式を立て、解を基底座標として再構成で検算する。 [v]_B=(3,1)で、3(1,1)+1(1,-1)=(4,2)。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "基底変換と線形写像へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "基底ベクトルを列に並べた行列で係数方程式を立て、解を基底座標として再構成で検算する。",
+        "[v]_B=(3,1)で、3(1,1)+1(1,-1)=(4,2)。"
+      ],
+      "finalConclusion": "[v]_B=(3,1)で、3(1,1)+1(1,-1)=(4,2)。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "標準座標を任意の基底座標として流用しない。基底でない集合では座標の存在・一意性が保証されない。",
+      "conceptsUsed": [
+        "coordinates"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "coordinates-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "基底変換と線形写像へ接続するの小さな例を計算せよ。",
+      "answer": "[v]_B=(3,1)で、3(1,1)+1(1,-1)=(4,2)。",
+      "explanation": "基底ベクトルを列に並べた行列で係数方程式を立て、解を基底座標として再構成で検算する。 標準座標を任意の基底座標として流用しない。基底でない集合では座標の存在・一意性が保証されない。",
+      "lessonId": "coordinates-concept-lesson",
+      "testsClaims": [
+        "coordinates-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "標準座標を任意の基底座標として流用しない。基底でない集合では座標の存在・一意性が保証されない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

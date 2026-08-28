@@ -1,0 +1,113 @@
+{
+  "id": "qr-least-squares",
+  "title": {
+    "ja": "QR分解と最小二乗",
+    "en": "QR Factorization and Least Squares"
+  },
+  "summary": {
+    "ja": "フル列ランクの行列AはA=QR（Qの列が正規直交、Rが上三角）と分解でき、最小二乗問題はRx=Q^Tbで解ける。",
+    "en": "フル列ランクの行列AはA=QR（Qの列が正規直交、Rが上三角）と分解でき、最小二乗問題はRx=Q^Tbで解ける。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "投影・データフィッティングの実用へつなぐを定義と例で説明できる",
+    "投影・データフィッティングの実用へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "qr-least-squares-concept-lesson",
+      "title": "QR分解と最小二乗",
+      "summary": "投影・データフィッティングの実用へつなぐ",
+      "objectives": [
+        "投影・データフィッティングの実用へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "qr-least-squares-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "フル列ランクの行列AはA=QR（Qの列が正規直交、Rが上三角）と分解でき、最小二乗問題はRx=Q^Tbで解ける。 A=[(1,0),(1,1)]を列に持つ場合、Qを作れば、観測bに対する近似係数はQ^TbをRで後退代入して得られる。",
+          "claimRefs": [
+            "qr-least-squares-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "qr-least-squares-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "qr-least-squares-claim-01",
+      "statement": "フル列ランクの行列AはA=QR（Qの列が正規直交、Rが上三角）と分解でき、最小二乗問題はRx=Q^Tbで解ける。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "過剰決定のAx=bを完全に満たせないとき、bをAの列空間へ直交射影して最も近い予測を選ぶ。QRはこの射影を安定に計算する。 フル列ランクの行列AはA=QR（Qの列が正規直交、Rが上三角）と分解でき、最小二乗問題はRx=Q^Tbで解ける。 Aの列をGram–SchmidtでQにし、R=Q^TAを作り、Q^T Ax=Q^Tbから上三角方程式を解く。"
+  },
+  "examples": [
+    {
+      "id": "qr-least-squares-example",
+      "statement": "A=[(1,0),(1,1)]を列に持つ場合、Qを作れば、観測bに対する近似係数はQ^TbをRで後退代入して得られる。",
+      "explanation": "Aの列をGram–SchmidtでQにし、R=Q^TAを作り、Q^T Ax=Q^Tbから上三角方程式を解く。 残差r=b-AxはAの列空間と直交し、||r||が最小になる。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "投影・データフィッティングの実用へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "Aの列をGram–SchmidtでQにし、R=Q^TAを作り、Q^T Ax=Q^Tbから上三角方程式を解く。",
+        "残差r=b-AxはAの列空間と直交し、||r||が最小になる。"
+      ],
+      "finalConclusion": "残差r=b-AxはAの列空間と直交し、||r||が最小になる。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "正規方程式を使うときもAの列ランク条件を確認する。ランク不足なら解は一意でなく、正則化など別の扱いが必要。",
+      "conceptsUsed": [
+        "qr-least-squares"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "qr-least-squares-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "投影・データフィッティングの実用へつなぐの小さな例を計算せよ。",
+      "answer": "残差r=b-AxはAの列空間と直交し、||r||が最小になる。",
+      "explanation": "Aの列をGram–SchmidtでQにし、R=Q^TAを作り、Q^T Ax=Q^Tbから上三角方程式を解く。 正規方程式を使うときもAの列ランク条件を確認する。ランク不足なら解は一意でなく、正則化など別の扱いが必要。",
+      "lessonId": "qr-least-squares-concept-lesson",
+      "testsClaims": [
+        "qr-least-squares-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "正規方程式を使うときもAの列ランク条件を確認する。ランク不足なら解は一意でなく、正則化など別の扱いが必要。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

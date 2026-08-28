@@ -1,0 +1,113 @@
+{
+  "id": "coordinate-maps",
+  "title": {
+    "ja": "座標写像",
+    "en": "Coordinate Maps"
+  },
+  "summary": {
+    "ja": "基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。",
+    "en": "基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "抽象ベクトルと行列計算を接続するを定義と例で説明できる",
+    "抽象ベクトルと行列計算を接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "coordinate-maps-concept-lesson",
+      "title": "座標写像",
+      "summary": "抽象ベクトルと行列計算を接続する",
+      "objectives": [
+        "抽象ベクトルと行列計算を接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "coordinate-maps-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。 B={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2を解き[a]_B=(3,1)。",
+          "claimRefs": [
+            "coordinate-maps-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "coordinate-maps-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "coordinate-maps-claim-01",
+      "statement": "基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "座標写像は、抽象的なベクトルを計算しやすい数の列へ翻訳する辞書である。辞書を変えると表現は変わるが対象は変わらない。 基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。 基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。"
+  },
+  "examples": [
+    {
+      "id": "coordinate-maps-example",
+      "statement": "B={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2を解き[a]_B=(3,1)。",
+      "explanation": "基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。 φ_B(4,2)=(3,1)。座標は選択した基底に依存する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "抽象ベクトルと行列計算を接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。",
+        "φ_B(4,2)=(3,1)。座標は選択した基底に依存する。"
+      ],
+      "finalConclusion": "φ_B(4,2)=(3,1)。座標は選択した基底に依存する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。",
+      "conceptsUsed": [
+        "coordinate-maps"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "coordinate-maps-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "抽象ベクトルと行列計算を接続するの小さな例を計算せよ。",
+      "answer": "φ_B(4,2)=(3,1)。座標は選択した基底に依存する。",
+      "explanation": "基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。 基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。",
+      "lessonId": "coordinate-maps-concept-lesson",
+      "testsClaims": [
+        "coordinate-maps-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

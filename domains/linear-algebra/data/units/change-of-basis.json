@@ -3,50 +3,171 @@
   "module": "module-linear-transformations",
   "order": 4,
   "title": {
-    "ja": "change of basis",
-    "en": "change of basis"
+    "ja": "基底変換",
+    "en": "Change of Basis"
   },
   "summary": {
-    "ja": "change of basisを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on change of basis."
+    "ja": "行列表示・相似へつなぐを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Change of Basis, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "change-of-basis"
     ],
-    "supporting": []
+    "supporting": [
+      "coordinate-maps"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "coordinate-maps"
+  ],
   "learning_objectives": [
-    "change of basisの基本的な意味を説明できる"
+    "行列表示・相似へつなぐを定義と具体例で説明できる",
+    "行列表示・相似へつなぐの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、change of basisを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ基底変換を学ぶのでしょうか。物体を変えずに、ものさしだけを取り替える。数字は変わるが、基底ベクトルの線形結合として再構成した結果は同じベクトルになる。 行列表示・相似へつなぐは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：coordinate-maps。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "物体を変えずに、ものさしだけを取り替える。数字は変わるが、基底ベクトルの線形結合として再構成した結果は同じベクトルになる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：B={(1,0),(0,1)}, C={(1,1),(1,-1)}で[v]_B=(3,1)ならv=(3,1)=2(1,1)+1(1,-1)、よって[v]_C=(2,1)。 まず条件を確認し、基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。 最後にP_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：行列表示・相似へつなぐの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はP_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。"
+    },
+    {
+      "type": "summary",
+      "body": "行列表示・相似へつなぐは、同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。 重要なのは行列表示・相似へつなぐを式だけでなく、物体を変えずに、ものさしだけを取り替える。数字は変わるが、基底ベクトルの線形結合として再構成した結果は同じベクトルになる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のcomposition-and-similarityでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "change-of-basis-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "行列表示・相似へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列表示・相似へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "change-of-basis-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。",
+          "具体例としてB={(1,0),(0,1)}, C={(1,1),(1,-1)}で[v]_B=(3,1)ならv=(3,1)=2(1,1)+1(1,-1)、よって[v]_C=(2,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。",
+        "common_wrong_path": "座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。"
+      }
+    },
+    {
+      "id": "change-of-basis-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "行列表示・相似へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列表示・相似へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "change-of-basis-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。",
+          "具体例としてB={(1,0),(0,1)}, C={(1,1),(1,-1)}で[v]_B=(3,1)ならv=(3,1)=2(1,1)+1(1,-1)、よって[v]_C=(2,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。",
+        "common_wrong_path": "座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。"
+      }
+    },
+    {
+      "id": "change-of-basis-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "行列表示・相似へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列表示・相似へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "change-of-basis-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。",
+          "具体例としてB={(1,0),(0,1)}, C={(1,1),(1,-1)}で[v]_B=(3,1)ならv=(3,1)=2(1,1)+1(1,-1)、よって[v]_C=(2,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。",
+        "common_wrong_path": "座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "coordinate-maps"
+  ],
+  "status": "audited"
 }

@@ -1,0 +1,113 @@
+{
+  "id": "numerical-stability",
+  "title": {
+    "ja": "数値安定性",
+    "en": "Numerical Stability"
+  },
+  "summary": {
+    "ja": "数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。",
+    "en": "数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "SVD・実データ・計算実装を締めくくるを定義と例で説明できる",
+    "SVD・実データ・計算実装を締めくくるを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "numerical-stability-concept-lesson",
+      "title": "数値安定性",
+      "summary": "SVD・実データ・計算実装を締めくくる",
+      "objectives": [
+        "SVD・実データ・計算実装を締めくくるを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "numerical-stability-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。 A=diag(1,10^{-6})では、第一方向と第二方向で倍率が大きく異なり、第二成分の相対誤差が増幅されやすい。",
+          "claimRefs": [
+            "numerical-stability-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "numerical-stability-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "numerical-stability-claim-01",
+      "statement": "数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "同じ数学問題でも、細い方向を持つ行列では少しの測定誤差が解を大きく動かす。問題の敏感さと解法の悪さは別の原因である。 数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。 条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。"
+  },
+  "examples": [
+    {
+      "id": "numerical-stability-example",
+      "statement": "A=diag(1,10^{-6})では、第一方向と第二方向で倍率が大きく異なり、第二成分の相対誤差が増幅されやすい。",
+      "explanation": "条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。 残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "SVD・実データ・計算実装を締めくくる",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。",
+        "残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。"
+      ],
+      "finalConclusion": "残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。",
+      "conceptsUsed": [
+        "numerical-stability"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "numerical-stability-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "SVD・実データ・計算実装を締めくくるの小さな例を計算せよ。",
+      "answer": "残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。",
+      "explanation": "条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。 detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。",
+      "lessonId": "numerical-stability-concept-lesson",
+      "testsClaims": [
+        "numerical-stability-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

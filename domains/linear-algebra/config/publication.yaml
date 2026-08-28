@@ -1,0 +1,6 @@
+site_base_url: https://learn.example.org
+asset_base_url: https://media.example.org
+large_asset_policy: r2
+offline_textual_package: true
+github_repository: https://github.com/kokuren333/open_learn_core
+github_release_tag: v2.0.0

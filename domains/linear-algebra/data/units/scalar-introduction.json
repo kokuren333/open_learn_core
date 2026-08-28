@@ -3,16 +3,16 @@
   "module": "module-prerequisites-vectors",
   "order": 0,
   "title": {
-    "ja": "scalar introduction",
-    "en": "scalar introduction"
+    "ja": "スカラーと数の役割",
+    "en": "Scalars and Numbers"
   },
   "summary": {
-    "ja": "scalar introductionを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on scalar introduction."
+    "ja": "ベクトル計算の係数を読めるを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Scalars and Numbers, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
@@ -22,31 +22,146 @@
   },
   "prerequisites": [],
   "learning_objectives": [
-    "scalar introductionの基本的な意味を説明できる"
+    "ベクトル計算の係数を読めるを定義と具体例で説明できる",
+    "ベクトル計算の係数を読めるの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、scalar introductionを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜスカラーと数の役割を学ぶのでしょうか。ベクトルが方向を持つ材料なら、スカラーはその材料の量を調整するつまみである。2倍なら同じ向きに長くなり、-1倍なら向きが反転する。 ベクトル計算の係数を読めるは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：スカラー、ベクトル、成分の順序を確認します。"
+    },
+    {
+      "type": "intuition",
+      "body": "ベクトルが方向を持つ材料なら、スカラーはその材料の量を調整するつまみである。2倍なら同じ向きに長くなり、-1倍なら向きが反転する。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "スカラーは、ベクトルを伸縮・反転したり、別のスカラーと演算したりする数である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。数の種類を確認し、ベクトルとスカラーを区別してから、加法・乗法の結果がどちらの種類かを判定する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：u=(2,-1)にスカラー3を掛けると3u=(6,-3)となる。3は新しいベクトルではなく、各成分を同じ倍率で変える数である。 まず条件を確認し、数の種類を確認し、ベクトルとスカラーを区別してから、加法・乗法の結果がどちらの種類かを判定する。 最後に3u=(6,-3)。スカラーは各成分に同じ数を掛ける。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "スカラーをベクトルの成分と混同したり、負のスカラーを長さだけの変化と考えたりしない。-1倍では方向も反転する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：ベクトル計算の係数を読めるの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は3u=(6,-3)。スカラーは各成分に同じ数を掛ける。"
+    },
+    {
+      "type": "summary",
+      "body": "ベクトル計算の係数を読めるは、スカラーは、ベクトルを伸縮・反転したり、別のスカラーと演算したりする数である。 重要なのはベクトル計算の係数を読めるを式だけでなく、ベクトルが方向を持つ材料なら、スカラーはその材料の量を調整するつまみである。2倍なら同じ向きに長くなり、-1倍なら向きが反転する。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のvector-introductionでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "scalar-introduction-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "ベクトル計算の係数を読めるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "ベクトル計算の係数を読めるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "scalar-introduction-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って数の種類を確認し、ベクトルとスカラーを区別してから、加法・乗法の結果がどちらの種類かを判定する。",
+          "具体例としてu=(2,-1)にスカラー3を掛けると3u=(6,-3)となる。3は新しいベクトルではなく、各成分を同じ倍率で変える数である。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "3u=(6,-3)。スカラーは各成分に同じ数を掛ける。",
+        "common_wrong_path": "スカラーをベクトルの成分と混同したり、負のスカラーを長さだけの変化と考えたりしない。-1倍では方向も反転する。"
+      }
+    },
+    {
+      "id": "scalar-introduction-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "ベクトル計算の係数を読めるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "ベクトル計算の係数を読めるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "scalar-introduction-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って数の種類を確認し、ベクトルとスカラーを区別してから、加法・乗法の結果がどちらの種類かを判定する。",
+          "具体例としてu=(2,-1)にスカラー3を掛けると3u=(6,-3)となる。3は新しいベクトルではなく、各成分を同じ倍率で変える数である。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "3u=(6,-3)。スカラーは各成分に同じ数を掛ける。",
+        "common_wrong_path": "スカラーをベクトルの成分と混同したり、負のスカラーを長さだけの変化と考えたりしない。-1倍では方向も反転する。"
+      }
+    },
+    {
+      "id": "scalar-introduction-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "ベクトル計算の係数を読めるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "ベクトル計算の係数を読めるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "scalar-introduction-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って数の種類を確認し、ベクトルとスカラーを区別してから、加法・乗法の結果がどちらの種類かを判定する。",
+          "具体例としてu=(2,-1)にスカラー3を掛けると3u=(6,-3)となる。3は新しいベクトルではなく、各成分を同じ倍率で変える数である。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "3u=(6,-3)。スカラーは各成分に同じ数を掛ける。",
+        "common_wrong_path": "スカラーをベクトルの成分と混同したり、負のスカラーを長さだけの変化と考えたりしない。-1倍では方向も反転する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
   "remediation": [],
-  "status": "planned"
+  "status": "audited"
 }

@@ -73,7 +73,16 @@
     "differential-and-fourier",
     "numerical-stability"
   ],
-  "status": "experimental",
+  "status": "course_ready",
+  "version": "2.0.0",
+  "target_learner": {
+    "ja": "高校数学の代数を使える、独学志向の大学初年級学習者。",
+    "en": "A motivated independent learner with secondary-school algebra fluency who wants a first undergraduate course."
+  },
+  "prerequisites": ["secondary-school algebra fluency", "simultaneous equations at a basic level"],
+  "reviews": ["review-01-foundations", "review-02-vector-spaces", "review-03-determinants-eigenvalues", "review-04-orthogonality-least-squares", "review-05-final-synthesis"],
+  "license": { "code": "MIT", "content": "CC BY-SA 4.0", "attribution": "Original Open Learn Core explanations and diagrams; external references are cited in source records." },
+  "repository": "https://github.com/kokuren333/open_learn_core",
   "requirements": {
     "curriculum_review": "pass",
     "required_modules_present": true,

@@ -1,0 +1,23 @@
+status: fail
+auditor: openlearn-explanation-auditor
+independent_review: true
+artifact_hash: sha256:2825616f095ac7f5940811a99bd966dd6d2627d3fe21d7584b338835416c5b62
+evaluated_at: 2026-08-28T15:56:44.723Z
+summary: Explanation depth, terminology, concrete-to-formal bridging, and reasoning continuity reviewed independently from the writer.
+issues:
+  - severity: major
+    problem: motivation is too thin or absent
+    rationale: The opening must establish a learner problem rather than announce a definition.
+    suggested_fix: Write a problem-driven motivation of at least 150 characters.
+  - severity: major
+    problem: intuition lacks a substantial concrete bridge
+    rationale: Intuition should provide an experience that can later be abstracted.
+    suggested_fix: Add a concrete case and a contrast.
+  - severity: major
+    problem: formal definition is not unpacked
+    rationale: Each condition and its role must be explained after the exact statement.
+    suggested_fix: Expand the formal definition and term-by-term explanation.
+  - severity: major
+    problem: worked examples do not expose enough reasoning
+    rationale: Depth is not established by example count alone.
+    suggested_fix: Give six worked examples at least three steps and an explicit purpose.

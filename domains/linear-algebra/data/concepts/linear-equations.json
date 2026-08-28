@@ -1,0 +1,115 @@
+{
+  "id": "linear-equations",
+  "title": {
+    "ja": "線形方程式系",
+    "en": "Systems of Linear Equations"
+  },
+  "summary": {
+    "ja": "線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。",
+    "en": "線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。"
+  },
+  "prerequisites": [
+    "dot-product-and-norm"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "行列と消去法の動機を作るを定義と例で説明できる",
+    "行列と消去法の動機を作るを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "linear-equations-concept-lesson",
+      "title": "線形方程式系",
+      "summary": "行列と消去法の動機を作る",
+      "objectives": [
+        "行列と消去法の動機を作るを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "linear-equations-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。 x+y=3, x-y=1を加えると2x=4、x=2、代入してy=1。交点は(2,1)である。",
+          "claimRefs": [
+            "linear-equations-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "linear-equations-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "linear-equations-claim-01",
+      "statement": "線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "一つの方程式は平面上の直線、二つの方程式は交点候補を表す。解とは、すべての制約が同時に成立する点である。 線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。 方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。"
+  },
+  "examples": [
+    {
+      "id": "linear-equations-example",
+      "statement": "x+y=3, x-y=1を加えると2x=4、x=2、代入してy=1。交点は(2,1)である。",
+      "explanation": "方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。 解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "行列と消去法の動機を作る",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。",
+        "解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。"
+      ],
+      "finalConclusion": "解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。",
+      "conceptsUsed": [
+        "linear-equations"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "linear-equations-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "行列と消去法の動機を作るの小さな例を計算せよ。",
+      "answer": "解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。",
+      "explanation": "方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。 方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。",
+      "lessonId": "linear-equations-concept-lesson",
+      "testsClaims": [
+        "linear-equations-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

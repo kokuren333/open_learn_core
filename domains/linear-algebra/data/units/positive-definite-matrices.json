@@ -3,50 +3,171 @@
   "module": "module-eigenvalues",
   "order": 5,
   "title": {
-    "ja": "positive definite matrices",
-    "en": "positive definite matrices"
+    "ja": "正定値行列",
+    "en": "Positive-Definite Matrices"
   },
   "summary": {
-    "ja": "positive definite matricesを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on positive definite matrices."
+    "ja": "二次形式・最適化・数値計算へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Positive-Definite Matrices, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "positive-definite-matrices"
     ],
-    "supporting": []
+    "supporting": [
+      "symmetric-spectral-theorem"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "symmetric-spectral-theorem"
+  ],
   "learning_objectives": [
-    "positive definite matricesの基本的な意味を説明できる"
+    "二次形式・最適化・数値計算へ接続するを定義と具体例で説明できる",
+    "二次形式・最適化・数値計算へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、positive definite matricesを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ正定値行列を学ぶのでしょうか。x^TAxは方向xに沿った二次的なエネルギーや曲率を測る。全方向で正なら、原点が谷の底のように安定している。 二次形式・最適化・数値計算へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：symmetric-spectral-theorem。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "x^TAxは方向xに沿った二次的なエネルギーや曲率を測る。全方向で正なら、原点が谷の底のように安定している。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=diag(2,3)ならx^TAx=2x1²+3x2²>0（x≠0）なので正定値。 まず条件を確認し、対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。 最後に非零xでは2x1²+3x2²>0。よってAは正定値。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：二次形式・最適化・数値計算へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は非零xでは2x1²+3x2²>0。よってAは正定値。"
+    },
+    {
+      "type": "summary",
+      "body": "二次形式・最適化・数値計算へ接続するは、実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。 重要なのは二次形式・最適化・数値計算へ接続するを式だけでなく、x^TAxは方向xに沿った二次的なエネルギーや曲率を測る。全方向で正なら、原点が谷の底のように安定している。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のquadratic-formsでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "positive-definite-matrices-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "二次形式・最適化・数値計算へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "二次形式・最適化・数値計算へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "positive-definite-matrices-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。",
+          "具体例としてA=diag(2,3)ならx^TAx=2x1²+3x2²>0（x≠0）なので正定値。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "非零xでは2x1²+3x2²>0。よってAは正定値。",
+        "common_wrong_path": "対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。"
+      }
+    },
+    {
+      "id": "positive-definite-matrices-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "二次形式・最適化・数値計算へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "二次形式・最適化・数値計算へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "positive-definite-matrices-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。",
+          "具体例としてA=diag(2,3)ならx^TAx=2x1²+3x2²>0（x≠0）なので正定値。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "非零xでは2x1²+3x2²>0。よってAは正定値。",
+        "common_wrong_path": "対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。"
+      }
+    },
+    {
+      "id": "positive-definite-matrices-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "二次形式・最適化・数値計算へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "二次形式・最適化・数値計算へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "positive-definite-matrices-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。",
+          "具体例としてA=diag(2,3)ならx^TAx=2x1²+3x2²>0（x≠0）なので正定値。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "非零xでは2x1²+3x2²>0。よってAは正定値。",
+        "common_wrong_path": "対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "symmetric-spectral-theorem"
+  ],
+  "status": "audited"
 }

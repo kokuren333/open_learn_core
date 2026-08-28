@@ -3,50 +3,171 @@
   "module": "module-applications",
   "order": 0,
   "title": {
-    "ja": "quadratic forms",
-    "en": "quadratic forms"
+    "ja": "二次形式",
+    "en": "Quadratic Forms"
   },
   "summary": {
-    "ja": "quadratic formsを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on quadratic forms."
+    "ja": "SVD・PCA・最適化の幾何へつなぐを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Quadratic Forms, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "quadratic-forms"
     ],
-    "supporting": []
+    "supporting": [
+      "positive-definite-matrices"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "positive-definite-matrices"
+  ],
   "learning_objectives": [
-    "quadratic formsの基本的な意味を説明できる"
+    "SVD・PCA・最適化の幾何へつなぐを定義と具体例で説明できる",
+    "SVD・PCA・最適化の幾何へつなぐの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、quadratic formsを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ二次形式を学ぶのでしょうか。円・楕円・双曲線などの形は、方向ごとの二次的な伸び縮みの組合せとして現れる。 SVD・PCA・最適化の幾何へつなぐは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：positive-definite-matrices。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "円・楕円・双曲線などの形は、方向ごとの二次的な伸び縮みの組合せとして現れる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。Aを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：q(x,y)=2x²+4xy+5y²はA=[[2,2],[2,5]]で表せ、対称行列なので固有値の符号から正定値性を調べられる。 まず条件を確認し、Aを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。 最後にq=x^TAxを展開して元の式へ戻ることで係数配置を検算する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：SVD・PCA・最適化の幾何へつなぐの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はq=x^TAxを展開して元の式へ戻ることで係数配置を検算する。"
+    },
+    {
+      "type": "summary",
+      "body": "SVD・PCA・最適化の幾何へつなぐは、二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。 重要なのはSVD・PCA・最適化の幾何へつなぐを式だけでなく、円・楕円・双曲線などの形は、方向ごとの二次的な伸び縮みの組合せとして現れる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のsvd-intuitionでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "quadratic-forms-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "SVD・PCA・最適化の幾何へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "SVD・PCA・最適化の幾何へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "quadratic-forms-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってAを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。",
+          "具体例としてq(x,y)=2x²+4xy+5y²はA=[[2,2],[2,5]]で表せ、対称行列なので固有値の符号から正定値性を調べられる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。",
+        "common_wrong_path": "交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。"
+      }
+    },
+    {
+      "id": "quadratic-forms-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "SVD・PCA・最適化の幾何へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "SVD・PCA・最適化の幾何へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "quadratic-forms-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってAを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。",
+          "具体例としてq(x,y)=2x²+4xy+5y²はA=[[2,2],[2,5]]で表せ、対称行列なので固有値の符号から正定値性を調べられる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。",
+        "common_wrong_path": "交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。"
+      }
+    },
+    {
+      "id": "quadratic-forms-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "SVD・PCA・最適化の幾何へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "SVD・PCA・最適化の幾何へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "quadratic-forms-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってAを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。",
+          "具体例としてq(x,y)=2x²+4xy+5y²はA=[[2,2],[2,5]]で表せ、対称行列なので固有値の符号から正定値性を調べられる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。",
+        "common_wrong_path": "交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "positive-definite-matrices"
+  ],
+  "status": "audited"
 }

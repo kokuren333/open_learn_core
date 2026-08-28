@@ -1,0 +1,13 @@
+{
+  "course_id": "linear-algebra-foundations-to-applications",
+  "version": "2.0.0",
+  "scope": "A complete introductory undergraduate linear algebra course from algebraic vector foundations through systems, spaces, transformations, determinants, eigenvalues, orthogonality, least squares, quadratic forms, SVD, and representative applications.",
+  "target_learner": "A motivated learner with secondary-school algebra fluency who wants an independent first course.",
+  "prerequisites": ["secondary-school algebra fluency", "basic simultaneous equations"],
+  "module_order": ["module-prerequisites-vectors", "module-systems-matrices", "module-vector-spaces", "module-linear-transformations", "module-orthogonality", "module-determinants", "module-eigenvalues", "module-applications"],
+  "coverage_rationale": "The order moves from operations and equations to structural language, maps, geometry, spectral structure, and applications. It preserves the v1.9 evidence-backed vector-space slice while expanding the course around common introductory university coverage.",
+  "application_selection": ["least squares and data fitting", "PCA and dimensionality reduction", "Markov transitions", "graph/network matrices", "low-rank approximation", "differential and Fourier connections"],
+  "explicit_exclusions": ["measure-theoretic functional analysis", "advanced numerical analysis", "abstract module theory", "full differential geometry"],
+  "known_limitations": ["The course is Japanese-first and English labels are provided for navigation.", "Video binaries and large PDFs are build artifacts; tracked video pilots remain source packages.", "Pedagogy judgments are recorded as audit findings rather than objective learner guarantees."],
+  "evidence": ["domains/linear-algebra/working/curriculum-review/source-candidates.yaml", "domains/linear-algebra/working/curriculum-review/source-appraisal.yaml", "domains/linear-algebra/working/curriculum-review/topic-coverage-matrix.yaml", "domains/linear-algebra/working/curriculum-review/ordering-analysis.yaml", "domains/linear-algebra/working/curriculum-review/decisions.yaml", "domains/linear-algebra/working/curriculum-review/limitations.yaml"]
+}

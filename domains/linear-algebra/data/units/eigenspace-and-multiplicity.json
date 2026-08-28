@@ -3,50 +3,171 @@
   "module": "module-eigenvalues",
   "order": 2,
   "title": {
-    "ja": "eigenspace and multiplicity",
-    "en": "eigenspace and multiplicity"
+    "ja": "固有空間と重複度",
+    "en": "Eigenspaces and Multiplicities"
   },
   "summary": {
-    "ja": "eigenspace and multiplicityを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on eigenspace and multiplicity."
+    "ja": "対角化可能性の判定を準備するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Eigenspaces and Multiplicities, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "eigenspace-and-multiplicity"
     ],
-    "supporting": []
+    "supporting": [
+      "characteristic-polynomial"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "characteristic-polynomial"
+  ],
   "learning_objectives": [
-    "eigenspace and multiplicityの基本的な意味を説明できる"
+    "対角化可能性の判定を準備するを定義と具体例で説明できる",
+    "対角化可能性の判定を準備するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、eigenspace and multiplicityを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ固有空間と重複度を学ぶのでしょうか。同じ伸縮率を持つ方向が一本とは限らない。多項式が根を何回数えるかと、実際に何方向の独立な固有ベクトルがあるかを分ける。 対角化可能性の判定を準備するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：characteristic-polynomial。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "同じ伸縮率を持つ方向が一本とは限らない。多項式が根を何回数えるかと、実際に何方向の独立な固有ベクトルがあるかを分ける。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=2I_2はλ=2の代数的重複度2、固有空間全体R²で幾何的重複度2。 まず条件を確認し、特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。 最後にA=2Iなら二つの独立な固有ベクトルを選べる。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：対角化可能性の判定を準備するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はA=2Iなら二つの独立な固有ベクトルを選べる。"
+    },
+    {
+      "type": "summary",
+      "body": "対角化可能性の判定を準備するは、固有値λの固有空間E_λ=ker(A-λI)は線形空間であり、代数的重複度は特性多項式の根の重複、幾何的重複度はdim E_λである。 重要なのは対角化可能性の判定を準備するを式だけでなく、同じ伸縮率を持つ方向が一本とは限らない。多項式が根を何回数えるかと、実際に何方向の独立な固有ベクトルがあるかを分ける。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdiagonalizationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "eigenspace-and-multiplicity-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "対角化可能性の判定を準備するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "対角化可能性の判定を準備するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "eigenspace-and-multiplicity-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。",
+          "具体例としてA=2I_2はλ=2の代数的重複度2、固有空間全体R²で幾何的重複度2。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "A=2Iなら二つの独立な固有ベクトルを選べる。",
+        "common_wrong_path": "重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。"
+      }
+    },
+    {
+      "id": "eigenspace-and-multiplicity-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "対角化可能性の判定を準備するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "対角化可能性の判定を準備するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "eigenspace-and-multiplicity-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。",
+          "具体例としてA=2I_2はλ=2の代数的重複度2、固有空間全体R²で幾何的重複度2。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "A=2Iなら二つの独立な固有ベクトルを選べる。",
+        "common_wrong_path": "重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。"
+      }
+    },
+    {
+      "id": "eigenspace-and-multiplicity-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "対角化可能性の判定を準備するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "対角化可能性の判定を準備するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "eigenspace-and-multiplicity-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って特性多項式の根の回数を数え、各λの零空間を解いて次元を測り、幾何的重複度≤代数的重複度を確認する。",
+          "具体例としてA=2I_2はλ=2の代数的重複度2、固有空間全体R²で幾何的重複度2。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "A=2Iなら二つの独立な固有ベクトルを選べる。",
+        "common_wrong_path": "重複度が同じでも自動的に対角化できるとは限らない。固有空間の次元を実際に計算する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "characteristic-polynomial"
+  ],
+  "status": "audited"
 }

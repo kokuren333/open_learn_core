@@ -1,0 +1,6 @@
+name = "open-learn-core"
+compatibility_date = "2026-08-29"
+pages_build_output_dir = "dist"
+
+# Configure secrets in the Cloudflare project, never in Git.
+# R2 uploads are handled by a separate release job.

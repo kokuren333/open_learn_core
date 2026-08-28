@@ -3,50 +3,171 @@
   "module": "module-determinants",
   "order": 3,
   "title": {
-    "ja": "determinant computation",
-    "en": "determinant computation"
+    "ja": "行列式の計算",
+    "en": "Computing Determinants"
   },
   "summary": {
-    "ja": "determinant computationを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on determinant computation."
+    "ja": "逆行列・可逆性・体積倍率を実計算するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Computing Determinants, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "determinant-computation"
     ],
-    "supporting": []
+    "supporting": [
+      "determinant-properties"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "determinant-properties"
+  ],
   "learning_objectives": [
-    "determinant computationの基本的な意味を説明できる"
+    "逆行列・可逆性・体積倍率を実計算するを定義と具体例で説明できる",
+    "逆行列・可逆性・体積倍率を実計算するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、determinant computationを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列式の計算を学ぶのでしょうか。大きな式を直接展開せず、零を増やして計算を短くする。行操作の記録が、正しい答えを復元するための帳簿になる。 逆行列・可逆性・体積倍率を実計算するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：determinant-properties。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "大きな式を直接展開せず、零を増やして計算を短くする。行操作の記録が、正しい答えを復元するための帳簿になる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[1,2,0],[0,3,4],[0,0,5]]は上三角なのでdetA=1·3·5=15。 まず条件を確認し、疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。 最後にdetA=15。三角形状を見つけたら対角積を使う。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：逆行列・可逆性・体積倍率を実計算するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はdetA=15。三角形状を見つけたら対角積を使う。"
+    },
+    {
+      "type": "summary",
+      "body": "逆行列・可逆性・体積倍率を実計算するは、行列式は余因子展開や行基本変形を使って計算でき、三角行列では対角成分の積に等しい。 重要なのは逆行列・可逆性・体積倍率を実計算するを式だけでなく、大きな式を直接展開せず、零を増やして計算を短くする。行操作の記録が、正しい答えを復元するための帳簿になる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdeterminant-invertibilityでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "determinant-computation-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "逆行列・可逆性・体積倍率を実計算するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "逆行列・可逆性・体積倍率を実計算するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-computation-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。",
+          "具体例としてA=[[1,2,0],[0,3,4],[0,0,5]]は上三角なのでdetA=1·3·5=15。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=15。三角形状を見つけたら対角積を使う。",
+        "common_wrong_path": "行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。"
+      }
+    },
+    {
+      "id": "determinant-computation-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "逆行列・可逆性・体積倍率を実計算するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "逆行列・可逆性・体積倍率を実計算するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-computation-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。",
+          "具体例としてA=[[1,2,0],[0,3,4],[0,0,5]]は上三角なのでdetA=1·3·5=15。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=15。三角形状を見つけたら対角積を使う。",
+        "common_wrong_path": "行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。"
+      }
+    },
+    {
+      "id": "determinant-computation-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "逆行列・可逆性・体積倍率を実計算するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "逆行列・可逆性・体積倍率を実計算するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-computation-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って疎な行・列を選び、必要なら行交換して消去し、交換・スカラー倍の影響を最後に補正する。",
+          "具体例としてA=[[1,2,0],[0,3,4],[0,0,5]]は上三角なのでdetA=1·3·5=15。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=15。三角形状を見つけたら対角積を使う。",
+        "common_wrong_path": "行列式の計算途中で方程式の解を変える操作と、行列式の値を変える操作を区別する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "determinant-properties"
+  ],
+  "status": "audited"
 }

@@ -1,0 +1,115 @@
+{
+  "id": "vector-spaces",
+  "title": {
+    "ja": "ベクトル空間の公理",
+    "en": "Vector Spaces"
+  },
+  "summary": {
+    "ja": "ベクトル空間は、集合と加法・スカラー倍が閉じており、結合則・零元・逆元・分配法則などの公理を満たす構造である。",
+    "en": "ベクトル空間は、集合と加法・スカラー倍が閉じており、結合則・零元・逆元・分配法則などの公理を満たす構造である。"
+  },
+  "prerequisites": [
+    "rref-and-pivots"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "抽象定義を具体的な集合へ適用するを定義と例で説明できる",
+    "抽象定義を具体的な集合へ適用するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "vector-spaces-concept-lesson",
+      "title": "ベクトル空間の公理",
+      "summary": "抽象定義を具体的な集合へ適用する",
+      "objectives": [
+        "抽象定義を具体的な集合へ適用するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "vector-spaces-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "ベクトル空間は、集合と加法・スカラー倍が閉じており、結合則・零元・逆元・分配法則などの公理を満たす構造である。 次数2以下の多項式全体は、和と実数倍で次数2以下に留まるのでベクトル空間になる。",
+          "claimRefs": [
+            "vector-spaces-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "vector-spaces-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "vector-spaces-claim-01",
+      "statement": "ベクトル空間は、集合と加法・スカラー倍が閉じており、結合則・零元・逆元・分配法則などの公理を満たす構造である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "空間を矢印の集合ではなく、同じ種類の足し算と倍率操作が安全にできる世界として見る。多項式や関数も同じ規則を満たせばベクトルになる。 ベクトル空間は、集合と加法・スカラー倍が閉じており、結合則・零元・逆元・分配法則などの公理を満たす構造である。 候補集合と演算を示し、閉性を確認した後、必要な公理のうち破れやすいものを反例で検査する。"
+  },
+  "examples": [
+    {
+      "id": "vector-spaces-example",
+      "statement": "次数2以下の多項式全体は、和と実数倍で次数2以下に留まるのでベクトル空間になる。",
+      "explanation": "候補集合と演算を示し、閉性を確認した後、必要な公理のうち破れやすいものを反例で検査する。 多項式の和・スカラー倍が閉じていることを確認し、係数組との対応を説明する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "抽象定義を具体的な集合へ適用する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "候補集合と演算を示し、閉性を確認した後、必要な公理のうち破れやすいものを反例で検査する。",
+        "多項式の和・スカラー倍が閉じていることを確認し、係数組との対応を説明する。"
+      ],
+      "finalConclusion": "多項式の和・スカラー倍が閉じていることを確認し、係数組との対応を説明する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "『同じ見た目』ではなく演算とスカラーの体を指定する。正の数だけの集合は加法逆元を含まず、通常はベクトル空間でない。",
+      "conceptsUsed": [
+        "vector-spaces"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "vector-spaces-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "抽象定義を具体的な集合へ適用するの小さな例を計算せよ。",
+      "answer": "多項式の和・スカラー倍が閉じていることを確認し、係数組との対応を説明する。",
+      "explanation": "候補集合と演算を示し、閉性を確認した後、必要な公理のうち破れやすいものを反例で検査する。 『同じ見た目』ではなく演算とスカラーの体を指定する。正の数だけの集合は加法逆元を含まず、通常はベクトル空間でない。",
+      "lessonId": "vector-spaces-concept-lesson",
+      "testsClaims": [
+        "vector-spaces-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "『同じ見た目』ではなく演算とスカラーの体を指定する。正の数だけの集合は加法逆元を含まず、通常はベクトル空間でない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

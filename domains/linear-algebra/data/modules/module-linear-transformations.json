@@ -28,5 +28,30 @@
     "coordinate-maps",
     "change-of-basis",
     "composition-and-similarity"
-  ]
+  ],
+  "exercise_ids": [
+    "module-linear-transformations-exercise-basic",
+    "module-linear-transformations-exercise-conceptual",
+    "module-linear-transformations-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "線形写像で構造を見るを、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Linear Transformations."
+  },
+  "entry_prerequisites": [
+    "module-vector-spaces"
+  ],
+  "learning_objectives": [
+    "linear-transformationsの定義・例・基本計算を説明できる",
+    "kernel-and-imageの定義・例・基本計算を説明できる",
+    "matrix-representationの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "linear transformationからsimilarityまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-vector-spaces",
+    "next": "module-orthogonality"
+  }
 }

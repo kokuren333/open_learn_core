@@ -1,14 +1,23 @@
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
 import path from "node:path";
+import { promisify } from "node:util";
 import { loadAllDomains, loadDomain } from "../core/src/domain/load-domain.mjs";
 import { validateDomain } from "../core/src/domain/validate-domain.mjs";
 import { renderConcept, renderCurriculum, renderGraph, renderIndex } from "../core/src/renderer/render.mjs";
-import { renderCourse, renderModule, renderUnit } from "../core/src/renderer/course-render.mjs";
+import { renderCourse, renderModule, renderReview, renderUnit } from "../core/src/renderer/course-render.mjs";
+import { auditCourse } from "../core/src/course/audit.mjs";
 import { runAudits } from "./run-audits.mjs";
 import { evaluatePublishGate } from "../core/src/quality/publish-gate.mjs";
 
 const root = process.cwd();
+const exec = promisify(execFile);
 const requested = process.argv[2];
+async function currentSourceCommit() {
+  if (process.env.SOURCE_COMMIT) return process.env.SOURCE_COMMIT;
+  try { return (await exec("git", ["rev-parse", "HEAD"], { cwd: root })).stdout.trim(); } catch { return "working-tree"; }
+}
+const sourceCommit = await currentSourceCommit();
 async function readVideoPublication(domainRoot, unitId) {
   try { return JSON.parse(await readFile(path.join(domainRoot, "video", "units", unitId, "youtube.yaml"), "utf8")); } catch { return null; }
 }
@@ -42,6 +51,7 @@ for (const domain of domains) {
   const sourceById = validation.sourceById;
   const evidenceById = validation.evidenceById;
   const visualsById = validation.visualsById;
+  const courseData = domain.courseData;
   await writeFile(path.join(output, "index.html"), renderIndex({ concepts, conceptsById, curricula: dataset.curricula, domainTitle: domain.manifest.title, course: dataset.courses?.[0]?.value }), "utf8");
   await writeFile(path.join(output, "graph.html"), renderGraph({ concepts, conceptsById, curricula: dataset.curricula }), "utf8");
   for (const concept of concepts) await writeFile(path.join(output, "concepts", `${concept.id}.html`), renderConcept({ concept, conceptsById, sourceById, evidenceById, visualsById }), "utf8");
@@ -49,16 +59,26 @@ for (const domain of domains) {
   await writeFile(path.join(output, "styles.css"), await readFile(path.join(root, "core", "src", "renderer", "styles.css"), "utf8"), "utf8");
   const course = dataset.courses?.[0]?.value;
   if (course) {
-    const courseData = domain.courseData;
     const modules = courseData.modules.map((record) => record.value).sort((a, b) => a.order - b.order);
     const units = courseData.units.map((record) => record.value);
     await mkdir(path.join(output, "modules"), { recursive: true });
     await mkdir(path.join(output, "units"), { recursive: true });
+    await mkdir(path.join(output, "reviews"), { recursive: true });
+    await mkdir(path.join(output, "exercises"), { recursive: true });
+    const videoUnitIds = await (async () => { try { return (await readdir(path.join(domain.root, "video", "units"), { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort(); } catch { return []; } })();
+    const courseAudit = auditCourse({ course, modules, units, videoUnitIds, moduleExerciseSets: courseData.moduleExercises.map((record) => record.value), cumulativeReviews: courseData.cumulativeReviews.map((record) => record.value), notationAvailable: true });
+    if (courseAudit.status === "fail") {
+      console.error(`Course completeness gate blocked '${domain.id}':\n${courseAudit.issues.map((item) => `- ${item.problem}`).join("\n")}`);
+      process.exit(1);
+    }
+    await mkdir(path.join(output, "audit"), { recursive: true });
+    await writeFile(path.join(output, "audit", "course.json"), JSON.stringify(courseAudit, null, 2) + "\n", "utf8");
     await writeFile(path.join(output, "course.html"), renderCourse({ course, modules, units }), "utf8");
     for (const module of modules) {
       const moduleUnits = module.units.map((id) => units.find((unit) => unit.id === id)).filter(Boolean);
       const exerciseSets = (courseData.moduleExercises ?? []).map((record) => record.value).filter((set) => set.module === module.id);
       await writeFile(path.join(output, "modules", `${module.id}.html`), renderModule({ module, course, units: moduleUnits, exerciseSets }), "utf8");
+      await writeFile(path.join(output, "exercises", `${module.id}.html`), renderModule({ module, course, units: moduleUnits, exerciseSets }), "utf8");
     }
     for (const unit of units) {
       const module = modules.find((item) => item.id === unit.module);
@@ -67,13 +87,14 @@ for (const domain of domains) {
       const publication = await readVideoPublication(domain.root, unit.id);
       await writeFile(path.join(output, "units", `${unit.id}.html`), renderUnit({ unit, module, course, units, relatedConcepts, video: publication?.status === "published" ? publication : null }), "utf8");
     }
+    for (const review of courseData.cumulativeReviews.map((record) => record.value)) await writeFile(path.join(output, "reviews", `${review.id}.html`), renderReview({ review, exerciseSets: courseData.moduleExercises.map((record) => record.value) }), "utf8");
   }
   await writeFile(path.join(output, ".nojekyll"), "", "utf8");
   await mkdir(path.join(output, "assets"), { recursive: true });
   await cp(domain.assetRoot, path.join(output, "assets"), { recursive: true, force: true });
-  const manifest = { ...domain.manifest, url: `/domains/${publishPath}/`, curricula: dataset.curricula.map((record) => ({ id: record.value.id, title: record.value.title })), conceptCount: concepts.length };
+  const manifest = { ...domain.manifest, url: `/domains/${publishPath}/`, course_id: course?.id, curricula: dataset.curricula.map((record) => ({ id: record.value.id, title: record.value.title })), conceptCount: concepts.length, courseVersion: course?.version ?? "2.0.0", source_commit: sourceCommit, license: course?.license ?? { code: "MIT", content: "CC BY-SA 4.0" }, asset_base_url: process.env.ASSET_BASE_URL ?? "" };
   await writeFile(path.join(output, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n", "utf8");
-  const report = { concept: conceptId, domain: domain.id, version: "1.9", status: gate.status, semanticAudits: Object.fromEntries(Object.entries(gate.computedAudits).map(([name, result]) => [name, result.status])), content: { concepts: concepts.length, lessons: gate.coverage.lessons.total, workedExamples: gate.coverage.examples.worked, counterexamples: gate.coverage.examples.counterexample, exercises: gate.coverage.exercises.total, diagnostics: gate.coverage.diagnostics.total, visuals: gate.coverage.visuals.published }, audits: Object.fromEntries(Object.entries(gate.gates).map(([name, pass]) => [name, pass ? "pass" : "fail"])), counts: { claims: gate.coverage.claims.total, evidenceItems: dataset.evidenceItems.length, examples: gate.coverage.examples.total, exercises: gate.coverage.exercises.total, diagnostics: gate.coverage.diagnostics.total, misconceptions: gate.coverage.misconceptions.total, visuals: gate.coverage.visuals.total } };
+  const report = { release_version: "2.0.0", concept: conceptId, domain: domain.id, version: "2.0.0", status: gate.status, course_status: course?.status ?? "unknown", semanticAudits: Object.fromEntries(Object.entries(gate.computedAudits).map(([name, result]) => [name, result.status])), content: { concepts: concepts.length, modules: course?.modules?.length ?? 0, units: course?.units?.length ?? 0, lessons: gate.coverage.lessons.total, workedExamples: gate.coverage.examples.worked, counterexamples: gate.coverage.examples.counterexample, exercises: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.length, 0) : gate.coverage.exercises.total, solutions: course?.units?.length ? courseData.units.reduce((sum, record) => sum + record.value.exercises.filter((exercise) => exercise.solution).length, 0) : 0, cumulativeReviews: courseData?.cumulativeReviews?.length ?? 0, diagnostics: gate.coverage.diagnostics.total, visuals: gate.coverage.visuals.published }, audits: Object.fromEntries(Object.entries(gate.gates).map(([name, pass]) => [name, pass ? "pass" : "fail"])), counts: { claims: gate.coverage.claims.total, evidenceItems: dataset.evidenceItems.length, examples: gate.coverage.examples.total, exercises: gate.coverage.exercises.total, diagnostics: gate.coverage.diagnostics.total, misconceptions: gate.coverage.misconceptions.total, visuals: gate.coverage.visuals.total } };
   await writeFile(path.join(output, "build-report.json"), JSON.stringify(report, null, 2) + "\n", "utf8");
   await writeFile(path.join(domain.root, "working", conceptId, "build-report.json"), JSON.stringify(report, null, 2) + "\n", "utf8");
   portalEntries.push({ id: domain.id, title: domain.manifest.title, description: domain.manifest.description, url: `/domains/${publishPath}/`, curricula: manifest.curricula, conceptCount: concepts.length, status: domain.manifest.status });

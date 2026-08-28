@@ -29,5 +29,30 @@
     "gaussian-elimination",
     "rref-and-pivots",
     "inverse-and-lu"
-  ]
+  ],
+  "exercise_ids": [
+    "module-systems-matrices-exercise-basic",
+    "module-systems-matrices-exercise-conceptual",
+    "module-systems-matrices-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "連立方程式を行列で解くを、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Linear Systems and Matrices."
+  },
+  "entry_prerequisites": [
+    "module-prerequisites-vectors"
+  ],
+  "learning_objectives": [
+    "linear-equationsの定義・例・基本計算を説明できる",
+    "matrix-introductionの定義・例・基本計算を説明できる",
+    "matrix-operationsの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "linear equationsからLU decompositionまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-prerequisites-vectors",
+    "next": "module-vector-spaces"
+  }
 }

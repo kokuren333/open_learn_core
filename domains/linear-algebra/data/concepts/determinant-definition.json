@@ -1,0 +1,113 @@
+{
+  "id": "determinant-definition",
+  "title": {
+    "ja": "行列式の定義",
+    "en": "The Determinant"
+  },
+  "summary": {
+    "ja": "n×n行列の行列式は、置換の符号と各行から一つずつ選ぶ積の総和で定義される交代多重線形関数である。",
+    "en": "n×n行列の行列式は、置換の符号と各行から一つずつ選ぶ積の総和で定義される交代多重線形関数である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "性質と効率的計算へつなぐを定義と例で説明できる",
+    "性質と効率的計算へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "determinant-definition-concept-lesson",
+      "title": "行列式の定義",
+      "summary": "性質と効率的計算へつなぐ",
+      "objectives": [
+        "性質と効率的計算へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "determinant-definition-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "n×n行列の行列式は、置換の符号と各行から一つずつ選ぶ積の総和で定義される交代多重線形関数である。 A=[[a,b],[c,d]]ならdetA=ad-bc。A=[[1,2],[3,4]]では4-6=-2。",
+          "claimRefs": [
+            "determinant-definition-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "determinant-definition-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "determinant-definition-claim-01",
+      "statement": "n×n行列の行列式は、置換の符号と各行から一つずつ選ぶ積の総和で定義される交代多重線形関数である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "2×2のad-bcは、二つの対応の積を向きの符号付きで引いたもの。高次元では同じ『全ての対応を符号付きで足す』原理になる。 n×n行列の行列式は、置換の符号と各行から一つずつ選ぶ積の総和で定義される交代多重線形関数である。 小行列展開または置換定義を使い、行・列を固定して項を整理する。定義と計算法を混同しない。"
+  },
+  "examples": [
+    {
+      "id": "determinant-definition-example",
+      "statement": "A=[[a,b],[c,d]]ならdetA=ad-bc。A=[[1,2],[3,4]]では4-6=-2。",
+      "explanation": "小行列展開または置換定義を使い、行・列を固定して項を整理する。定義と計算法を混同しない。 det[[1,2],[3,4]]=-2。定義に基づく計算であることを確認する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "性質と効率的計算へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "小行列展開または置換定義を使い、行・列を固定して項を整理する。定義と計算法を混同しない。",
+        "det[[1,2],[3,4]]=-2。定義に基づく計算であることを確認する。"
+      ],
+      "finalConclusion": "det[[1,2],[3,4]]=-2。定義に基づく計算であることを確認する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行列式を対角成分の積だけとしない。余因子展開では符号と小行列を落とさない。",
+      "conceptsUsed": [
+        "determinant-definition"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "determinant-definition-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "性質と効率的計算へつなぐの小さな例を計算せよ。",
+      "answer": "det[[1,2],[3,4]]=-2。定義に基づく計算であることを確認する。",
+      "explanation": "小行列展開または置換定義を使い、行・列を固定して項を整理する。定義と計算法を混同しない。 行列式を対角成分の積だけとしない。余因子展開では符号と小行列を落とさない。",
+      "lessonId": "determinant-definition-concept-lesson",
+      "testsClaims": [
+        "determinant-definition-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行列式を対角成分の積だけとしない。余因子展開では符号と小行列を落とさない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

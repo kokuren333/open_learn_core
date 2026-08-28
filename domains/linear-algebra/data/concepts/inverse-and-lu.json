@@ -1,0 +1,115 @@
+{
+  "id": "inverse-and-lu",
+  "title": {
+    "ja": "逆行列とLU型分解",
+    "en": "Inverses and LU Factorization"
+  },
+  "summary": {
+    "ja": "正方行列Aの逆行列A^{-1}はAA^{-1}=Iを満たす行列で、LU分解はAを下三角行列Lと上三角行列Uの積として扱う計算法である。",
+    "en": "正方行列Aの逆行列A^{-1}はAA^{-1}=Iを満たす行列で、LU分解はAを下三角行列Lと上三角行列Uの積として扱う計算法である。"
+  },
+  "prerequisites": [
+    "rref-and-pivots"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "消去・計算量・数値安定性へつなぐを定義と例で説明できる",
+    "消去・計算量・数値安定性へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "inverse-and-lu-concept-lesson",
+      "title": "逆行列とLU型分解",
+      "summary": "消去・計算量・数値安定性へつなぐ",
+      "objectives": [
+        "消去・計算量・数値安定性へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "inverse-and-lu-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "正方行列Aの逆行列A^{-1}はAA^{-1}=Iを満たす行列で、LU分解はAを下三角行列Lと上三角行列Uの積として扱う計算法である。 A=[[2,1],[4,3]]ではR2←R2-2R1、L=[[1,0],[2,1]], U=[[2,1],[0,1]]。detA=2なので逆行列も存在する。",
+          "claimRefs": [
+            "inverse-and-lu-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "inverse-and-lu-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "inverse-and-lu-claim-01",
+      "statement": "正方行列Aの逆行列A^{-1}はAA^{-1}=Iを満たす行列で、LU分解はAを下三角行列Lと上三角行列Uの積として扱う計算法である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "逆行列は『入力を元に戻す処理』、LUは一度の消去を再利用可能な二段階の処理へ分解する見方である。 正方行列Aの逆行列A^{-1}はAA^{-1}=Iを満たす行列で、LU分解はAを下三角行列Lと上三角行列Uの積として扱う計算法である。 逆行列は拡大行列[A|I]をRREFにし、LUでは消去係数をLに保存してLy=b, Ux=yの二段階で解く。"
+  },
+  "examples": [
+    {
+      "id": "inverse-and-lu-example",
+      "statement": "A=[[2,1],[4,3]]ではR2←R2-2R1、L=[[1,0],[2,1]], U=[[2,1],[0,1]]。detA=2なので逆行列も存在する。",
+      "explanation": "逆行列は拡大行列[A|I]をRREFにし、LUでは消去係数をLに保存してLy=b, Ux=yの二段階で解く。 A=LUを確認し、解法を『逆行列を掛ける』だけで終わらせず、前進・後退代入で示す。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "消去・計算量・数値安定性へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "逆行列は拡大行列[A|I]をRREFにし、LUでは消去係数をLに保存してLy=b, Ux=yの二段階で解く。",
+        "A=LUを確認し、解法を『逆行列を掛ける』だけで終わらせず、前進・後退代入で示す。"
+      ],
+      "finalConclusion": "A=LUを確認し、解法を『逆行列を掛ける』だけで終わらせず、前進・後退代入で示す。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "特異行列には逆行列がない。数値計算では逆行列を明示的に作るより、分解して連立方程式を解く方が安定・効率的なことが多い。",
+      "conceptsUsed": [
+        "inverse-and-lu"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "inverse-and-lu-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "消去・計算量・数値安定性へつなぐの小さな例を計算せよ。",
+      "answer": "A=LUを確認し、解法を『逆行列を掛ける』だけで終わらせず、前進・後退代入で示す。",
+      "explanation": "逆行列は拡大行列[A|I]をRREFにし、LUでは消去係数をLに保存してLy=b, Ux=yの二段階で解く。 特異行列には逆行列がない。数値計算では逆行列を明示的に作るより、分解して連立方程式を解く方が安定・効率的なことが多い。",
+      "lessonId": "inverse-and-lu-concept-lesson",
+      "testsClaims": [
+        "inverse-and-lu-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "特異行列には逆行列がない。数値計算では逆行列を明示的に作るより、分解して連立方程式を解く方が安定・効率的なことが多い。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

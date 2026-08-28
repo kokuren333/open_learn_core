@@ -1,8 +1,10 @@
 {
+  "release_version": "2.0.0",
   "concept": "basis",
   "domain": "linear-algebra",
-  "version": "1.9",
+  "version": "2.0.0",
   "status": "published",
+  "course_status": "course_ready",
   "semanticAudits": {
     "math": "pass",
     "evidence": "pass",
@@ -12,11 +14,15 @@
     "completeness": "pass"
   },
   "content": {
-    "concepts": 12,
+    "concepts": 57,
+    "modules": 8,
+    "units": 52,
     "lessons": 6,
     "workedExamples": 6,
     "counterexamples": 4,
-    "exercises": 25,
+    "exercises": 144,
+    "solutions": 144,
+    "cumulativeReviews": 6,
     "diagnostics": 6,
     "visuals": 3
   },

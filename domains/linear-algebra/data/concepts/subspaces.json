@@ -1,0 +1,115 @@
+{
+  "id": "subspaces",
+  "title": {
+    "ja": "部分空間",
+    "en": "Subspaces"
+  },
+  "summary": {
+    "ja": "ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。",
+    "en": "ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。"
+  },
+  "prerequisites": [
+    "vector-spaces"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "span・kernel・column spaceの準備をするを定義と例で説明できる",
+    "span・kernel・column spaceの準備をするを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "subspaces-concept-lesson",
+      "title": "部分空間",
+      "summary": "span・kernel・column spaceの準備をする",
+      "objectives": [
+        "span・kernel・column spaceの準備をするを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "subspaces-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。 W={(x,y):x+y=0}は、(t,-t)と書け、二つの元の線形結合も同じ形なのでR²の部分空間。",
+          "claimRefs": [
+            "subspaces-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "subspaces-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "subspaces-claim-01",
+      "statement": "ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "部分空間は大きな空間の中にある、演算をしても外へ飛び出さない小さな世界である。原点を通る直線・平面が典型例になる。 ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。 零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。"
+  },
+  "examples": [
+    {
+      "id": "subspaces-example",
+      "statement": "W={(x,y):x+y=0}は、(t,-t)と書け、二つの元の線形結合も同じ形なのでR²の部分空間。",
+      "explanation": "零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。 Wはspan{(1,-1)}であり、R²の部分空間。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "span・kernel・column spaceの準備をする",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。",
+        "Wはspan{(1,-1)}であり、R²の部分空間。"
+      ],
+      "finalConclusion": "Wはspan{(1,-1)}であり、R²の部分空間。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。",
+      "conceptsUsed": [
+        "subspaces"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "subspaces-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "span・kernel・column spaceの準備をするの小さな例を計算せよ。",
+      "answer": "Wはspan{(1,-1)}であり、R²の部分空間。",
+      "explanation": "零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。 原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。",
+      "lessonId": "subspaces-concept-lesson",
+      "testsClaims": [
+        "subspaces-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

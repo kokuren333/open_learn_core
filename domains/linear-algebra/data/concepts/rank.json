@@ -1,0 +1,113 @@
+{
+  "id": "rank",
+  "title": {
+    "ja": "階数",
+    "en": "Rank"
+  },
+  "summary": {
+    "ja": "行列Aの階数rank(A)は、列空間または行空間の次元であり、ピボットの個数に等しい。",
+    "en": "行列Aの階数rank(A)は、列空間または行空間の次元であり、ピボットの個数に等しい。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "nullity・rank-nullity・線形写像へ接続するを定義と例で説明できる",
+    "nullity・rank-nullity・線形写像へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "rank-concept-lesson",
+      "title": "階数",
+      "summary": "nullity・rank-nullity・線形写像へ接続する",
+      "objectives": [
+        "nullity・rank-nullity・線形写像へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "rank-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "行列Aの階数rank(A)は、列空間または行空間の次元であり、ピボットの個数に等しい。 Aの列c1=(1,0,1),c2=(0,1,1),c3=c1+c2なら、独立な列は二本なのでrank(A)=2。",
+          "claimRefs": [
+            "rank-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "rank-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "rank-claim-01",
+      "statement": "行列Aの階数rank(A)は、列空間または行空間の次元であり、ピボットの個数に等しい。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "階数は、入力の中で出力へ残る独立な方向の数を数える。列が重複していれば新しい情報を増やさない。 行列Aの階数rank(A)は、列空間または行空間の次元であり、ピボットの個数に等しい。 RREFのピボット数を数えるか、独立な列を選んでそのspanの次元を求める。"
+  },
+  "examples": [
+    {
+      "id": "rank-example",
+      "statement": "Aの列c1=(1,0,1),c2=(0,1,1),c3=c1+c2なら、独立な列は二本なのでrank(A)=2。",
+      "explanation": "RREFのピボット数を数えるか、独立な列を選んでそのspanの次元を求める。 rank(A)=2。c3は新しい方向を加えない。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "nullity・rank-nullity・線形写像へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "RREFのピボット数を数えるか、独立な列を選んでそのspanの次元を求める。",
+        "rank(A)=2。c3は新しい方向を加えない。"
+      ],
+      "finalConclusion": "rank(A)=2。c3は新しい方向を加えない。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行数や列数をそのまま階数としない。ゼロ行や従属列がある場合はピボットを実際に数える。",
+      "conceptsUsed": [
+        "rank"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "rank-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "nullity・rank-nullity・線形写像へ接続するの小さな例を計算せよ。",
+      "answer": "rank(A)=2。c3は新しい方向を加えない。",
+      "explanation": "RREFのピボット数を数えるか、独立な列を選んでそのspanの次元を求める。 行数や列数をそのまま階数としない。ゼロ行や従属列がある場合はピボットを実際に数える。",
+      "lessonId": "rank-concept-lesson",
+      "testsClaims": [
+        "rank-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行数や列数をそのまま階数としない。ゼロ行や従属列がある場合はピボットを実際に数える。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "review-05-final-synthesis",
+  "title": {
+    "ja": "最終総合レビュー：線形代数の地図",
+    "en": "Final Review: Linear Algebra Synthesis"
+  },
+  "module_ids": [
+    "module-prerequisites-vectors",
+    "module-systems-matrices",
+    "module-vector-spaces",
+    "module-linear-transformations",
+    "module-orthogonality",
+    "module-determinants",
+    "module-eigenvalues",
+    "module-applications"
+  ],
+  "exercise_ids": [
+    "module-prerequisites-vectors-exercise-basic",
+    "module-prerequisites-vectors-exercise-conceptual",
+    "module-prerequisites-vectors-exercise-synthesis",
+    "module-systems-matrices-exercise-basic",
+    "module-systems-matrices-exercise-conceptual",
+    "module-systems-matrices-exercise-synthesis",
+    "module-vector-spaces-exercise-basic",
+    "module-vector-spaces-exercise-conceptual",
+    "module-vector-spaces-exercise-synthesis",
+    "module-linear-transformations-exercise-basic",
+    "module-linear-transformations-exercise-conceptual",
+    "module-linear-transformations-exercise-synthesis",
+    "module-orthogonality-exercise-basic",
+    "module-orthogonality-exercise-conceptual",
+    "module-orthogonality-exercise-synthesis",
+    "module-determinants-exercise-basic",
+    "module-determinants-exercise-conceptual",
+    "module-determinants-exercise-synthesis",
+    "module-eigenvalues-exercise-basic",
+    "module-eigenvalues-exercise-conceptual",
+    "module-eigenvalues-exercise-synthesis",
+    "module-applications-exercise-basic",
+    "module-applications-exercise-conceptual",
+    "module-applications-exercise-synthesis"
+  ]
+}

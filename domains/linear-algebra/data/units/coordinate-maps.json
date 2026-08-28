@@ -3,50 +3,171 @@
   "module": "module-linear-transformations",
   "order": 3,
   "title": {
-    "ja": "coordinate maps",
-    "en": "coordinate maps"
+    "ja": "座標写像",
+    "en": "Coordinate Maps"
   },
   "summary": {
-    "ja": "coordinate mapsを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on coordinate maps."
+    "ja": "抽象ベクトルと行列計算を接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Coordinate Maps, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "coordinate-maps"
     ],
-    "supporting": []
+    "supporting": [
+      "matrix-representation"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "matrix-representation"
+  ],
   "learning_objectives": [
-    "coordinate mapsの基本的な意味を説明できる"
+    "抽象ベクトルと行列計算を接続するを定義と具体例で説明できる",
+    "抽象ベクトルと行列計算を接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、coordinate mapsを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ座標写像を学ぶのでしょうか。座標写像は、抽象的なベクトルを計算しやすい数の列へ翻訳する辞書である。辞書を変えると表現は変わるが対象は変わらない。 抽象ベクトルと行列計算を接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：matrix-representation。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "座標写像は、抽象的なベクトルを計算しやすい数の列へ翻訳する辞書である。辞書を変えると表現は変わるが対象は変わらない。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：B={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2を解き[a]_B=(3,1)。 まず条件を確認し、基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。 最後にφ_B(4,2)=(3,1)。座標は選択した基底に依存する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：抽象ベクトルと行列計算を接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はφ_B(4,2)=(3,1)。座標は選択した基底に依存する。"
+    },
+    {
+      "type": "summary",
+      "body": "抽象ベクトルと行列計算を接続するは、基底Bに対する座標写像φ_Bは、ベクトルvを一意な係数列[v]_Bへ送る線形同型である。 重要なのは抽象ベクトルと行列計算を接続するを式だけでなく、座標写像は、抽象的なベクトルを計算しやすい数の列へ翻訳する辞書である。辞書を変えると表現は変わるが対象は変わらない。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のchange-of-basisでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "coordinate-maps-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "抽象ベクトルと行列計算を接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "抽象ベクトルと行列計算を接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "coordinate-maps-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。",
+          "具体例としてB={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2を解き[a]_B=(3,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "φ_B(4,2)=(3,1)。座標は選択した基底に依存する。",
+        "common_wrong_path": "基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。"
+      }
+    },
+    {
+      "id": "coordinate-maps-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "抽象ベクトルと行列計算を接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "抽象ベクトルと行列計算を接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "coordinate-maps-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。",
+          "具体例としてB={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2を解き[a]_B=(3,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "φ_B(4,2)=(3,1)。座標は選択した基底に依存する。",
+        "common_wrong_path": "基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。"
+      }
+    },
+    {
+      "id": "coordinate-maps-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "抽象ベクトルと行列計算を接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "抽象ベクトルと行列計算を接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "coordinate-maps-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って基底での係数を未知数として置き、元のベクトルを再構成して一致を確認する。写像の加法・スカラー倍保存も確認する。",
+          "具体例としてB={(1,1),(1,-1)}でv=(4,2)ならa+b=4,a-b=2を解き[a]_B=(3,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "φ_B(4,2)=(3,1)。座標は選択した基底に依存する。",
+        "common_wrong_path": "基底でない集合では座標が存在しないか一意でない。標準座標とB座標を同じ記号の数字として扱わない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "matrix-representation"
+  ],
+  "status": "audited"
 }

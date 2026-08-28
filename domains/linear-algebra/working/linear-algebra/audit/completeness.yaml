@@ -1,0 +1,55 @@
+status: fail
+auditor: openlearn-completeness-auditor
+independent_review: true
+artifact_hash: sha256:2825616f095ac7f5940811a99bd966dd6d2627d3fe21d7584b338835416c5b62
+evaluated_at: 2026-08-28T15:56:44.726Z
+summary: Coverage matrix checks counts, depth, progression, and assessment alignment.
+issues:
+  - severity: major
+    problem: lessons 0/6
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more lessons.
+  - severity: major
+    problem: positive examples 0/6
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more positive examples.
+  - severity: major
+    problem: counterexamples 0/4
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more counterexamples.
+  - severity: major
+    problem: worked examples 0/6
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more worked examples.
+  - severity: major
+    problem: misconceptions 0/6
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more misconceptions.
+  - severity: major
+    problem: exercises 0/20
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more exercises.
+  - severity: major
+    problem: diagnostics 0/5
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more diagnostics.
+  - severity: major
+    problem: published visuals 0/3
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more published visuals.
+  - severity: major
+    problem: checkpoints 0/6
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more checkpoints.
+  - severity: major
+    problem: concept connections 0/4
+    rationale: Deep content needs coverage across the learning unit.
+    suggested_fix: Add or connect more concept connections.
+  - severity: major
+    problem: substantial lessons 0/6
+    rationale: A lesson is more than a title and one short paragraph.
+    suggested_fix: Expand each lesson with multiple learner actions.
+  - severity: major
+    problem: depth matrix has insufficient primary-layer length
+    rationale: Soft depth thresholds catch thin cards while semantic review checks meaning.
+    suggested_fix: Expand motivation, intuition, and definition unpacking.

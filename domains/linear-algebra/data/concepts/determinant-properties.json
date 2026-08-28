@@ -1,0 +1,113 @@
+{
+  "id": "determinant-properties",
+  "title": {
+    "ja": "行列式の性質",
+    "en": "Properties of Determinants"
+  },
+  "summary": {
+    "ja": "行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。",
+    "en": "行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "計算・逆行列・固有値へ接続するを定義と例で説明できる",
+    "計算・逆行列・固有値へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "determinant-properties-concept-lesson",
+      "title": "行列式の性質",
+      "summary": "計算・逆行列・固有値へ接続する",
+      "objectives": [
+        "計算・逆行列・固有値へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "determinant-properties-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。 Aを行交換一回でUにし、det(U)=6ならdet(A)=-6。行の他行倍加はdetを変えない。",
+          "claimRefs": [
+            "determinant-properties-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "determinant-properties-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "determinant-properties-claim-01",
+      "statement": "行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "基本行操作が面積・体積倍率へどう影響するかを追えば、複雑な行列式を三角行列まで簡約できる。 行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。 行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。"
+  },
+  "examples": [
+    {
+      "id": "determinant-properties-example",
+      "statement": "Aを行交換一回でUにし、det(U)=6ならdet(A)=-6。行の他行倍加はdetを変えない。",
+      "explanation": "行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。 det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "計算・逆行列・固有値へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。",
+        "det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。"
+      ],
+      "finalConclusion": "det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。",
+      "conceptsUsed": [
+        "determinant-properties"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "determinant-properties-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "計算・逆行列・固有値へ接続するの小さな例を計算せよ。",
+      "answer": "det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。",
+      "explanation": "行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。 行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。",
+      "lessonId": "determinant-properties-concept-lesson",
+      "testsClaims": [
+        "determinant-properties-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

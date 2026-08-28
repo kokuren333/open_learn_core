@@ -1,0 +1,115 @@
+{
+  "id": "rref-and-pivots",
+  "title": {
+    "ja": "階段形・主変数・自由変数",
+    "en": "Echelon Form and Pivots"
+  },
+  "summary": {
+    "ja": "主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。",
+    "en": "主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。"
+  },
+  "prerequisites": [
+    "gaussian-elimination"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "rank・null spaceへの橋を作るを定義と例で説明できる",
+    "rank・null spaceへの橋を作るを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "rref-and-pivots-concept-lesson",
+      "title": "階段形・主変数・自由変数",
+      "summary": "rank・null spaceへの橋を作る",
+      "objectives": [
+        "rank・null spaceへの橋を作るを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "rref-and-pivots-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。 x+2z=3, y-z=1のRREFからz=tと置けばx=3-2t,y=1+t。解は一つの直線として表される。",
+          "claimRefs": [
+            "rref-and-pivots-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "rref-and-pivots-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "rref-and-pivots-claim-01",
+      "statement": "主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "ピボットは、その列で新しい制約を代表する最初の非零成分である。自由変数は、方程式だけでは値が決まらない方向を表す。 主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。 行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。"
+  },
+  "examples": [
+    {
+      "id": "rref-and-pivots-example",
+      "statement": "x+2z=3, y-z=1のRREFからz=tと置けばx=3-2t,y=1+t。解は一つの直線として表される。",
+      "explanation": "行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。 z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "rank・null spaceへの橋を作る",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。",
+        "z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。"
+      ],
+      "finalConclusion": "z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。",
+      "conceptsUsed": [
+        "rref-and-pivots"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "rref-and-pivots-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "rank・null spaceへの橋を作るの小さな例を計算せよ。",
+      "answer": "z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。",
+      "explanation": "行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。 ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。",
+      "lessonId": "rref-and-pivots-concept-lesson",
+      "testsClaims": [
+        "rref-and-pivots-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

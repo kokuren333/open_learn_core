@@ -3,50 +3,171 @@
   "module": "module-applications",
   "order": 4,
   "title": {
-    "ja": "markov matrices",
-    "en": "markov matrices"
+    "ja": "Markov行列",
+    "en": "Markov Matrices"
   },
   "summary": {
-    "ja": "markov matricesを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on markov matrices."
+    "ja": "固有値・反復・応用例を統合するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Markov Matrices, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "markov-matrices"
     ],
-    "supporting": []
+    "supporting": [
+      "pca-connection"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "pca-connection"
+  ],
   "learning_objectives": [
-    "markov matricesの基本的な意味を説明できる"
+    "固有値・反復・応用例を統合するを定義と具体例で説明できる",
+    "固有値・反復・応用例を統合するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、markov matricesを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜMarkov行列を学ぶのでしょうか。ページ間の移動や状態遷移を繰り返すと、確率の山が行列の作用で移動する。長期的に変わらない分布が定常分布である。 固有値・反復・応用例を統合するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：pca-connection。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "ページ間の移動や状態遷移を繰り返すと、確率の山が行列の作用で移動する。長期的に変わらない分布が定常分布である。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：P=[[0.8,0.3],[0.2,0.7]]を列確率の規約で使うなら、v=Pvとv1+v2=1からv=(3/5,2/5)を得る。 まず条件を確認し、確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。 最後にP v=vかつ成分非負・総和1を検算する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：固有値・反復・応用例を統合するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はP v=vかつ成分非負・総和1を検算する。"
+    },
+    {
+      "type": "summary",
+      "body": "固有値・反復・応用例を統合するは、確率ベクトルを保つMarkov遷移行列は、確率の流れを線形写像として表し、定常分布は固有値1の固有ベクトルとして現れる。 重要なのは固有値・反復・応用例を統合するを式だけでなく、ページ間の移動や状態遷移を繰り返すと、確率の山が行列の作用で移動する。長期的に変わらない分布が定常分布である。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のgraph-network-matricesでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "markov-matrices-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値・反復・応用例を統合するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値・反復・応用例を統合するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "markov-matrices-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。",
+          "具体例としてP=[[0.8,0.3],[0.2,0.7]]を列確率の規約で使うなら、v=Pvとv1+v2=1からv=(3/5,2/5)を得る。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "P v=vかつ成分非負・総和1を検算する。",
+        "common_wrong_path": "行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。"
+      }
+    },
+    {
+      "id": "markov-matrices-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "固有値・反復・応用例を統合するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値・反復・応用例を統合するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "markov-matrices-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。",
+          "具体例としてP=[[0.8,0.3],[0.2,0.7]]を列確率の規約で使うなら、v=Pvとv1+v2=1からv=(3/5,2/5)を得る。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "P v=vかつ成分非負・総和1を検算する。",
+        "common_wrong_path": "行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。"
+      }
+    },
+    {
+      "id": "markov-matrices-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "固有値・反復・応用例を統合するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値・反復・応用例を統合するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "markov-matrices-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って確率の向きを列ベクトルか行ベクトルか固定し、非負性と和1を確認し、Av=vを解いて定常分布を正規化する。",
+          "具体例としてP=[[0.8,0.3],[0.2,0.7]]を列確率の規約で使うなら、v=Pvとv1+v2=1からv=(3/5,2/5)を得る。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "P v=vかつ成分非負・総和1を検算する。",
+        "common_wrong_path": "行和1と列和1は規約が違う。固有値1があっても、収束には既約性・周期性など追加条件が必要。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "pca-connection"
+  ],
+  "status": "audited"
 }

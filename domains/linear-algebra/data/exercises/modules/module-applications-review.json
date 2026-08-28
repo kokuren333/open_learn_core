@@ -1,0 +1,82 @@
+{
+  "id": "module-applications-review",
+  "module": "module-applications",
+  "title": {
+    "ja": "応用と発展 Module演習",
+    "en": "Applications and Advanced Topics Module Review"
+  },
+  "exercises": [
+    {
+      "id": "module-applications-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "quadratic formsについて、このModuleで使う基本的な定義または計算規則を一つ書き、小さな例で確認せよ。",
+      "solution": {
+        "what_is_asked": "応用と発展のquadratic formsについて、calculationを行う。",
+        "concepts": [
+          "quadratic forms"
+        ],
+        "strategy": "quadratic formsの定義を式にし、例へ代入する。",
+        "steps": [
+          "対象の次元・条件・記号を確認する。",
+          "quadratic formsの定義を式にし、例へ代入する。",
+          "小さな例または定義へ戻って結果を検算する。"
+        ],
+        "why": [
+          "条件を先に固定すると、似た記号や異なる規約を混同しにくい。",
+          "最後に意味へ戻ることで、答えが単なる数値で終わらない。"
+        ],
+        "conclusion": "quadratic formsの定義を明示し、例の各ステップを計算できる。",
+        "common_wrong_path": "用語だけを答え、対象や条件を示さない。"
+      }
+    },
+    {
+      "id": "module-applications-exercise-conceptual",
+      "type": "explanation",
+      "difficulty": "standard",
+      "question": "quadratic formsとSVDの関係を、計算・幾何・構造のうち二つの観点で説明せよ。",
+      "solution": {
+        "what_is_asked": "応用と発展のquadratic forms・SVDについて、explanationを行う。",
+        "concepts": [
+          "quadratic forms・SVD"
+        ],
+        "strategy": "二つの語を別々に定義してから、共通する例の中で接続する。",
+        "steps": [
+          "対象の次元・条件・記号を確認する。",
+          "二つの語を別々に定義してから、共通する例の中で接続する。",
+          "小さな例または定義へ戻って結果を検算する。"
+        ],
+        "why": [
+          "条件を先に固定すると、似た記号や異なる規約を混同しにくい。",
+          "最後に意味へ戻ることで、答えが単なる数値で終わらない。"
+        ],
+        "conclusion": "quadratic formsを定義し、SVDがその結果をどう利用するかを、式または具体例付きで説明する。",
+        "common_wrong_path": "似た言葉を同義語として扱い、条件の違いを消す。"
+      }
+    },
+    {
+      "id": "module-applications-exercise-synthesis",
+      "type": "synthesis",
+      "difficulty": "challenge",
+      "question": "quadratic formsからnumerical stabilityまでの学習内容を使う、小さな総合問題を設計し、解法と検算を示せ。",
+      "solution": {
+        "what_is_asked": "応用と発展のquadratic forms・numerical stabilityについて、synthesisを行う。",
+        "concepts": [
+          "quadratic forms・numerical stability"
+        ],
+        "strategy": "出発条件→中間表現→最終計算→解釈の順に分解する。",
+        "steps": [
+          "対象の次元・条件・記号を確認する。",
+          "出発条件→中間表現→最終計算→解釈の順に分解する。",
+          "小さな例または定義へ戻って結果を検算する。"
+        ],
+        "why": [
+          "条件を先に固定すると、似た記号や異なる規約を混同しにくい。",
+          "最後に意味へ戻ることで、答えが単なる数値で終わらない。"
+        ],
+        "conclusion": "quadratic formsの条件を出発点に、numerical stabilityへ至る三段階以上の推論を示し、最後に元の条件へ戻って検算する。",
+        "common_wrong_path": "最後の公式だけを適用し、前提条件や中間結果を省略する。"
+      }
+    }
+  ]
+}

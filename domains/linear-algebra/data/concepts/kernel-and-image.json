@@ -1,0 +1,113 @@
+{
+  "id": "kernel-and-image",
+  "title": {
+    "ja": "核と像",
+    "en": "Kernel and Image"
+  },
+  "summary": {
+    "ja": "線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。",
+    "en": "線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "rank-nullityと可逆性へ接続するを定義と例で説明できる",
+    "rank-nullityと可逆性へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "kernel-and-image-concept-lesson",
+      "title": "核と像",
+      "summary": "rank-nullityと可逆性へ接続する",
+      "objectives": [
+        "rank-nullityと可逆性へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "kernel-and-image-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。 A=[[1,2],[2,4]]ではker(A)=span{(-2,1)}、im(A)=span{(1,2)}。一方向がつぶれ、出力も一方向に限られる。",
+          "claimRefs": [
+            "kernel-and-image-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "kernel-and-image-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "kernel-and-image-claim-01",
+      "statement": "線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "核は写像が見分けられない入力方向、像は実際に到達できる出力方向である。つぶれる方向と残る範囲を分けて見る。 線形写像T:V→Wの核ker(T)はT(v)=0となる入力全体、像im(T)はT(v)として得られる出力全体で、どちらも部分空間である。 T(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。"
+  },
+  "examples": [
+    {
+      "id": "kernel-and-image-example",
+      "statement": "A=[[1,2],[2,4]]ではker(A)=span{(-2,1)}、im(A)=span{(1,2)}。一方向がつぶれ、出力も一方向に限られる。",
+      "explanation": "T(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。 ker(A)とim(A)を方程式と生成元の両方で示せる。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "rank-nullityと可逆性へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "T(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。",
+        "ker(A)とim(A)を方程式と生成元の両方で示せる。"
+      ],
+      "finalConclusion": "ker(A)とim(A)を方程式と生成元の両方で示せる。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。",
+      "conceptsUsed": [
+        "kernel-and-image"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "kernel-and-image-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "rank-nullityと可逆性へ接続するの小さな例を計算せよ。",
+      "answer": "ker(A)とim(A)を方程式と生成元の両方で示せる。",
+      "explanation": "T(v)=0を解いて核を求め、出力をTの列の線形結合として像を求める。行列なら零空間と列空間を使う。 核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。",
+      "lessonId": "kernel-and-image-concept-lesson",
+      "testsClaims": [
+        "kernel-and-image-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "核を行列の対角成分だけで判断しない。像を『行列の全要素』と呼ばず、列のspanとして記述する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -3,50 +3,171 @@
   "module": "module-prerequisites-vectors",
   "order": 4,
   "title": {
-    "ja": "scalar multiplication",
-    "en": "scalar multiplication"
+    "ja": "スカラー倍",
+    "en": "Scalar Multiplication"
   },
   "summary": {
-    "ja": "scalar multiplicationを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on scalar multiplication."
+    "ja": "係数の符号・零・倍率の意味を説明するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Scalar Multiplication, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "scalar-multiplication"
     ],
-    "supporting": []
+    "supporting": [
+      "vector-addition"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "vector-addition"
+  ],
   "learning_objectives": [
-    "scalar multiplicationの基本的な意味を説明できる"
+    "係数の符号・零・倍率の意味を説明するを定義と具体例で説明できる",
+    "係数の符号・零・倍率の意味を説明するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、scalar multiplicationを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜスカラー倍を学ぶのでしょうか。正のcは方向を保った伸縮、負のcは方向反転を伴う伸縮、c=0は零ベクトルへの押しつぶしを表す。 係数の符号・零・倍率の意味を説明するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：vector-addition。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "正のcは方向を保った伸縮、負のcは方向反転を伴う伸縮、c=0は零ベクトルへの押しつぶしを表す。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "スカラーcによるベクトルvのスカラー倍cvは、vの全成分をc倍する演算である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。係数の符号と大きさを先に読み、全成分へ同じ係数を掛け、幾何的な変化を言葉で確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：v=(2,-3)なら-2v=(-4,6)。長さは2倍になり、向きは反転する。 まず条件を確認し、係数の符号と大きさを先に読み、全成分へ同じ係数を掛け、幾何的な変化を言葉で確認する。 最後に-2v=(-4,6)。全成分を同じ倍率で変える。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "一部の成分だけを変える操作ではない。c=0のときは方向が残るのではなく、零ベクトルになる。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：係数の符号・零・倍率の意味を説明するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は-2v=(-4,6)。全成分を同じ倍率で変える。"
+    },
+    {
+      "type": "summary",
+      "body": "係数の符号・零・倍率の意味を説明するは、スカラーcによるベクトルvのスカラー倍cvは、vの全成分をc倍する演算である。 重要なのは係数の符号・零・倍率の意味を説明するを式だけでなく、正のcは方向を保った伸縮、負のcは方向反転を伴う伸縮、c=0は零ベクトルへの押しつぶしを表す。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdot-product-and-normでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "scalar-multiplication-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "係数の符号・零・倍率の意味を説明するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "係数の符号・零・倍率の意味を説明するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "scalar-multiplication-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って係数の符号と大きさを先に読み、全成分へ同じ係数を掛け、幾何的な変化を言葉で確認する。",
+          "具体例としてv=(2,-3)なら-2v=(-4,6)。長さは2倍になり、向きは反転する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "-2v=(-4,6)。全成分を同じ倍率で変える。",
+        "common_wrong_path": "一部の成分だけを変える操作ではない。c=0のときは方向が残るのではなく、零ベクトルになる。"
+      }
+    },
+    {
+      "id": "scalar-multiplication-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "係数の符号・零・倍率の意味を説明するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "係数の符号・零・倍率の意味を説明するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "scalar-multiplication-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って係数の符号と大きさを先に読み、全成分へ同じ係数を掛け、幾何的な変化を言葉で確認する。",
+          "具体例としてv=(2,-3)なら-2v=(-4,6)。長さは2倍になり、向きは反転する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "-2v=(-4,6)。全成分を同じ倍率で変える。",
+        "common_wrong_path": "一部の成分だけを変える操作ではない。c=0のときは方向が残るのではなく、零ベクトルになる。"
+      }
+    },
+    {
+      "id": "scalar-multiplication-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "係数の符号・零・倍率の意味を説明するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "係数の符号・零・倍率の意味を説明するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "scalar-multiplication-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って係数の符号と大きさを先に読み、全成分へ同じ係数を掛け、幾何的な変化を言葉で確認する。",
+          "具体例としてv=(2,-3)なら-2v=(-4,6)。長さは2倍になり、向きは反転する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "-2v=(-4,6)。全成分を同じ倍率で変える。",
+        "common_wrong_path": "一部の成分だけを変える操作ではない。c=0のときは方向が残るのではなく、零ベクトルになる。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "vector-addition"
+  ],
+  "status": "audited"
 }

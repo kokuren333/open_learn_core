@@ -1,0 +1,115 @@
+{
+  "id": "gaussian-elimination",
+  "title": {
+    "ja": "ガウス消去法",
+    "en": "Gaussian Elimination"
+  },
+  "summary": {
+    "ja": "ガウス消去法は、行交換・非零行のスカラー倍・他行の倍数加減という可逆な行操作で連立方程式を簡約する方法である。",
+    "en": "ガウス消去法は、行交換・非零行のスカラー倍・他行の倍数加減という可逆な行操作で連立方程式を簡約する方法である。"
+  },
+  "prerequisites": [
+    "matrix-operations"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "アルゴリズムと解釈を結び付けるを定義と例で説明できる",
+    "アルゴリズムと解釈を結び付けるを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "gaussian-elimination-concept-lesson",
+      "title": "ガウス消去法",
+      "summary": "アルゴリズムと解釈を結び付ける",
+      "objectives": [
+        "アルゴリズムと解釈を結び付けるを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "gaussian-elimination-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "ガウス消去法は、行交換・非零行のスカラー倍・他行の倍数加減という可逆な行操作で連立方程式を簡約する方法である。 x+y=3, 2x+3y=8の拡大行列でR2←R2-2R1を行うと[0,1|2]、よってy=2,x=1。",
+          "claimRefs": [
+            "gaussian-elimination-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "gaussian-elimination-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "gaussian-elimination-claim-01",
+      "statement": "ガウス消去法は、行交換・非零行のスカラー倍・他行の倍数加減という可逆な行操作で連立方程式を簡約する方法である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "各列の下にある係数を0にして、未知数の依存関係を階段状に露出させる。見た目を変える操作ではなく、解集合を保つ操作である。 ガウス消去法は、行交換・非零行のスカラー倍・他行の倍数加減という可逆な行操作で連立方程式を簡約する方法である。 拡大係数行列を作り、左からピボットを選び、下を0にし、最後に後退代入する。零行や交換不能なピボットも確認する。"
+  },
+  "examples": [
+    {
+      "id": "gaussian-elimination-example",
+      "statement": "x+y=3, 2x+3y=8の拡大行列でR2←R2-2R1を行うと[0,1|2]、よってy=2,x=1。",
+      "explanation": "拡大係数行列を作り、左からピボットを選び、下を0にし、最後に後退代入する。零行や交換不能なピボットも確認する。 解は(1,2)。各行操作が解集合を保つ理由を一つずつ説明する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "アルゴリズムと解釈を結び付ける",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "拡大係数行列を作り、左からピボットを選び、下を0にし、最後に後退代入する。零行や交換不能なピボットも確認する。",
+        "解は(1,2)。各行操作が解集合を保つ理由を一つずつ説明する。"
+      ],
+      "finalConclusion": "解は(1,2)。各行操作が解集合を保つ理由を一つずつ説明する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "ピボットが0なら行交換を試す。全係数0=非零定数の行は解なし、零行は冗長な条件を示す。",
+      "conceptsUsed": [
+        "gaussian-elimination"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "gaussian-elimination-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "アルゴリズムと解釈を結び付けるの小さな例を計算せよ。",
+      "answer": "解は(1,2)。各行操作が解集合を保つ理由を一つずつ説明する。",
+      "explanation": "拡大係数行列を作り、左からピボットを選び、下を0にし、最後に後退代入する。零行や交換不能なピボットも確認する。 ピボットが0なら行交換を試す。全係数0=非零定数の行は解なし、零行は冗長な条件を示す。",
+      "lessonId": "gaussian-elimination-concept-lesson",
+      "testsClaims": [
+        "gaussian-elimination-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "ピボットが0なら行交換を試す。全係数0=非零定数の行は解なし、零行は冗長な条件を示す。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

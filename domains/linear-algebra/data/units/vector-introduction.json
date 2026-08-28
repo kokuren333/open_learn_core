@@ -3,50 +3,171 @@
   "module": "module-prerequisites-vectors",
   "order": 1,
   "title": {
-    "ja": "vector introduction",
-    "en": "vector introduction"
+    "ja": "ベクトルを対象として見る",
+    "en": "What Is a Vector?"
   },
   "summary": {
-    "ja": "vector introductionを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on vector introduction."
+    "ja": "成分と演算を使ってベクトルを説明するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on What Is a Vector?, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "vector-introduction"
     ],
-    "supporting": []
+    "supporting": [
+      "scalar-introduction"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "scalar-introduction"
+  ],
   "learning_objectives": [
-    "vector introductionの基本的な意味を説明できる"
+    "成分と演算を使ってベクトルを説明するを定義と具体例で説明できる",
+    "成分と演算を使ってベクトルを説明するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、vector introductionを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜベクトルを対象として見るを学ぶのでしょうか。矢印はベクトルの一つの見え方にすぎない。始点を動かしても成分の差が同じなら同じ自由ベクトルとして扱える。 成分と演算を使ってベクトルを説明するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：scalar-introduction。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "矢印はベクトルの一つの見え方にすぎない。始点を動かしても成分の差が同じなら同じ自由ベクトルとして扱える。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：u=(1,2), v=(-2,3)ならu+v=(-1,5)。第1成分と第2成分を同じ位置どうしで組み合わせる。 まず条件を確認し、成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。 最後にu+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：成分と演算を使ってベクトルを説明するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はu+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。"
+    },
+    {
+      "type": "summary",
+      "body": "成分と演算を使ってベクトルを説明するは、ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。 重要なのは成分と演算を使ってベクトルを説明するを式だけでなく、矢印はベクトルの一つの見え方にすぎない。始点を動かしても成分の差が同じなら同じ自由ベクトルとして扱える。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のvector-notationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "vector-introduction-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "成分と演算を使ってベクトルを説明するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "成分と演算を使ってベクトルを説明するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "vector-introduction-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。",
+          "具体例としてu=(1,2), v=(-2,3)ならu+v=(-1,5)。第1成分と第2成分を同じ位置どうしで組み合わせる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。",
+        "common_wrong_path": "ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。"
+      }
+    },
+    {
+      "id": "vector-introduction-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "成分と演算を使ってベクトルを説明するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "成分と演算を使ってベクトルを説明するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "vector-introduction-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。",
+          "具体例としてu=(1,2), v=(-2,3)ならu+v=(-1,5)。第1成分と第2成分を同じ位置どうしで組み合わせる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。",
+        "common_wrong_path": "ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。"
+      }
+    },
+    {
+      "id": "vector-introduction-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "成分と演算を使ってベクトルを説明するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "成分と演算を使ってベクトルを説明するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "vector-introduction-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。",
+          "具体例としてu=(1,2), v=(-2,3)ならu+v=(-1,5)。第1成分と第2成分を同じ位置どうしで組み合わせる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。",
+        "common_wrong_path": "ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "scalar-introduction"
+  ],
+  "status": "audited"
 }

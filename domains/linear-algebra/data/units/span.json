@@ -20,7 +20,7 @@
     ],
     "supporting": [
       "linear-combination",
-      "vector-space"
+      "vector-spaces"
     ]
   },
   "prerequisites": [
@@ -54,6 +54,10 @@
     {
       "type": "checkpoint",
       "body": "spanは「選んだベクトルそのもの」ではなく、係数を変えたときに作れる全範囲です。次は、その範囲を作る表現に重複がないかを線形独立性で調べます。"
+    },
+    {
+      "type": "connection",
+      "body": "ここで得た到達範囲を、次のUnitでは係数関係の重複という観点から読み直します。spanは『どこまで作れるか』を答え、線形独立性は『同じものを余分な関係なしに作れるか』を答えます。"
     }
   ],
   "exercises": [

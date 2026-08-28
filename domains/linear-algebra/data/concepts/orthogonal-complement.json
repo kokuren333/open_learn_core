@@ -1,0 +1,113 @@
+{
+  "id": "orthogonal-complement",
+  "title": {
+    "ja": "直交補空間",
+    "en": "Orthogonal Complements"
+  },
+  "summary": {
+    "ja": "部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。",
+    "en": "部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "projection・least squaresへの橋を作るを定義と例で説明できる",
+    "projection・least squaresへの橋を作るを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "orthogonal-complement-concept-lesson",
+      "title": "直交補空間",
+      "summary": "projection・least squaresへの橋を作る",
+      "objectives": [
+        "projection・least squaresへの橋を作るを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "orthogonal-complement-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。 W=span{(1,1)}なら(x,y)·(1,1)=0、つまりx+y=0なのでW^⊥=span{(1,-1)}。",
+          "claimRefs": [
+            "orthogonal-complement-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "orthogonal-complement-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "orthogonal-complement-claim-01",
+      "statement": "部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "W^⊥は、Wの方向成分を一切持たない方向の集合である。R²の直線に対する補空間は、原点を通る垂直な直線になる。 部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。 Wの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。"
+  },
+  "examples": [
+    {
+      "id": "orthogonal-complement-example",
+      "statement": "W=span{(1,1)}なら(x,y)·(1,1)=0、つまりx+y=0なのでW^⊥=span{(1,-1)}。",
+      "explanation": "Wの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。 W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "projection・least squaresへの橋を作る",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "Wの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。",
+        "W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。"
+      ],
+      "finalConclusion": "W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。",
+      "conceptsUsed": [
+        "orthogonal-complement"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "orthogonal-complement-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "projection・least squaresへの橋を作るの小さな例を計算せよ。",
+      "answer": "W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。",
+      "explanation": "Wの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。 W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。",
+      "lessonId": "orthogonal-complement-concept-lesson",
+      "testsClaims": [
+        "orthogonal-complement-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

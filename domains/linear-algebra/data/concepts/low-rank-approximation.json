@@ -1,0 +1,113 @@
+{
+  "id": "low-rank-approximation",
+  "title": {
+    "ja": "低ランク近似",
+    "en": "Low-Rank Approximation"
+  },
+  "summary": {
+    "ja": "SVDの特異値を大きい順に残す切断近似は、指定ランクの行列の中でフロベニウスノルム誤差を最小にする。",
+    "en": "SVDの特異値を大きい順に残す切断近似は、指定ランクの行列の中でフロベニウスノルム誤差を最小にする。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "圧縮・PCAの橋を作るを定義と例で説明できる",
+    "圧縮・PCAの橋を作るを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "low-rank-approximation-concept-lesson",
+      "title": "低ランク近似",
+      "summary": "圧縮・PCAの橋を作る",
+      "objectives": [
+        "圧縮・PCAの橋を作るを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "low-rank-approximation-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "SVDの特異値を大きい順に残す切断近似は、指定ランクの行列の中でフロベニウスノルム誤差を最小にする。 A=U diag(5,2,0.5)V^Tをランク1近似するとA1=5u1v1^T、二乗誤差は2²+0.5²。",
+          "claimRefs": [
+            "low-rank-approximation-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "low-rank-approximation-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "low-rank-approximation-claim-01",
+      "statement": "SVDの特異値を大きい順に残す切断近似は、指定ランクの行列の中でフロベニウスノルム誤差を最小にする。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "画像や表の細かな変動を捨て、主要な方向だけを残す。ランクは保存する独立なパターン数の上限になる。 SVDの特異値を大きい順に残す切断近似は、指定ランクの行列の中でフロベニウスノルム誤差を最小にする。 SVDを取り、上位k個のσと対応する特異ベクトルだけでA_kを作り、誤差が残した特異値で決まることを読む。"
+  },
+  "examples": [
+    {
+      "id": "low-rank-approximation-example",
+      "statement": "A=U diag(5,2,0.5)V^Tをランク1近似するとA1=5u1v1^T、二乗誤差は2²+0.5²。",
+      "explanation": "SVDを取り、上位k個のσと対応する特異ベクトルだけでA_kを作り、誤差が残した特異値で決まることを読む。 A1は最大の特異値方向だけを残し、Frobenius誤差の二乗は残りの特異値二乗和。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "圧縮・PCAの橋を作る",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "SVDを取り、上位k個のσと対応する特異ベクトルだけでA_kを作り、誤差が残した特異値で決まることを読む。",
+        "A1は最大の特異値方向だけを残し、Frobenius誤差の二乗は残りの特異値二乗和。"
+      ],
+      "finalConclusion": "A1は最大の特異値方向だけを残し、Frobenius誤差の二乗は残りの特異値二乗和。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "近似は元の行列と同じではない。特異値の切断が最良という主張にはノルムとランク条件を添える。",
+      "conceptsUsed": [
+        "low-rank-approximation"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "low-rank-approximation-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "圧縮・PCAの橋を作るの小さな例を計算せよ。",
+      "answer": "A1は最大の特異値方向だけを残し、Frobenius誤差の二乗は残りの特異値二乗和。",
+      "explanation": "SVDを取り、上位k個のσと対応する特異ベクトルだけでA_kを作り、誤差が残した特異値で決まることを読む。 近似は元の行列と同じではない。特異値の切断が最良という主張にはノルムとランク条件を添える。",
+      "lessonId": "low-rank-approximation-concept-lesson",
+      "testsClaims": [
+        "low-rank-approximation-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "近似は元の行列と同じではない。特異値の切断が最良という主張にはノルムとランク条件を添える。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

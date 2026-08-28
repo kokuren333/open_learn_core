@@ -1,0 +1,113 @@
+{
+  "id": "positive-definite-matrices",
+  "title": {
+    "ja": "正定値行列",
+    "en": "Positive-Definite Matrices"
+  },
+  "summary": {
+    "ja": "実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。",
+    "en": "実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "二次形式・最適化・数値計算へ接続するを定義と例で説明できる",
+    "二次形式・最適化・数値計算へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "positive-definite-matrices-concept-lesson",
+      "title": "正定値行列",
+      "summary": "二次形式・最適化・数値計算へ接続する",
+      "objectives": [
+        "二次形式・最適化・数値計算へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "positive-definite-matrices-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。 A=diag(2,3)ならx^TAx=2x1²+3x2²>0（x≠0）なので正定値。",
+          "claimRefs": [
+            "positive-definite-matrices-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "positive-definite-matrices-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "positive-definite-matrices-claim-01",
+      "statement": "実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "x^TAxは方向xに沿った二次的なエネルギーや曲率を測る。全方向で正なら、原点が谷の底のように安定している。 実対称行列Aが正定値であるとは、任意の非零xに対してx^TAx>0であることをいう。 対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。"
+  },
+  "examples": [
+    {
+      "id": "positive-definite-matrices-example",
+      "statement": "A=diag(2,3)ならx^TAx=2x1²+3x2²>0（x≠0）なので正定値。",
+      "explanation": "対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。 非零xでは2x1²+3x2²>0。よってAは正定値。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "二次形式・最適化・数値計算へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。",
+        "非零xでは2x1²+3x2²>0。よってAは正定値。"
+      ],
+      "finalConclusion": "非零xでは2x1²+3x2²>0。よってAは正定値。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。",
+      "conceptsUsed": [
+        "positive-definite-matrices"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "positive-definite-matrices-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "二次形式・最適化・数値計算へ接続するの小さな例を計算せよ。",
+      "answer": "非零xでは2x1²+3x2²>0。よってAは正定値。",
+      "explanation": "対称性を確認し、固有値がすべて正か、2×2なら主座小行列式が正かを使い分ける。 対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。",
+      "lessonId": "positive-definite-matrices-concept-lesson",
+      "testsClaims": [
+        "positive-definite-matrices-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "対称性なしでは固有値の符号だけで同じ判定をしてはいけない。半正定値は0を許す別概念。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

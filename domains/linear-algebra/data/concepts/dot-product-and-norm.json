@@ -1,0 +1,115 @@
+{
+  "id": "dot-product-and-norm",
+  "title": {
+    "ja": "内積・ノルム・距離",
+    "en": "Dot Product, Norm, and Distance"
+  },
+  "summary": {
+    "ja": "R^nの内積はu·v=Σu_iv_i、ノルムは||u||=√(u·u)、距離は||u-v||で定義される。",
+    "en": "R^nの内積はu·v=Σu_iv_i、ノルムは||u||=√(u·u)、距離は||u-v||で定義される。"
+  },
+  "prerequisites": [
+    "scalar-multiplication"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "直交と距離の計算へつなぐを定義と例で説明できる",
+    "直交と距離の計算へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "dot-product-and-norm-concept-lesson",
+      "title": "内積・ノルム・距離",
+      "summary": "直交と距離の計算へつなぐ",
+      "objectives": [
+        "直交と距離の計算へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "dot-product-and-norm-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "R^nの内積はu·v=Σu_iv_i、ノルムは||u||=√(u·u)、距離は||u-v||で定義される。 u=(3,4), v=(1,0)ならu·v=3、||u||=5、||u-v||=√((2)^2+4^2)=√20。",
+          "claimRefs": [
+            "dot-product-and-norm-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "dot-product-and-norm-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "dot-product-and-norm-claim-01",
+      "statement": "R^nの内積はu·v=Σu_iv_i、ノルムは||u||=√(u·u)、距離は||u-v||で定義される。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "内積は二つの方向のそろい具合を一つの数に圧縮する。自分自身との内積から長さが生まれ、差のノルムから二点間の距離が生まれる。 R^nの内積はu·v=Σu_iv_i、ノルムは||u||=√(u·u)、距離は||u-v||で定義される。 内積を成分積の和として計算し、u·uからノルム、u-vから距離を順に求める。"
+  },
+  "examples": [
+    {
+      "id": "dot-product-and-norm-example",
+      "statement": "u=(3,4), v=(1,0)ならu·v=3、||u||=5、||u-v||=√((2)^2+4^2)=√20。",
+      "explanation": "内積を成分積の和として計算し、u·uからノルム、u-vから距離を順に求める。 u·v=3、||u||=5、||u-v||=2√5。内積・長さ・距離を区別する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "直交と距離の計算へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "内積を成分積の和として計算し、u·uからノルム、u-vから距離を順に求める。",
+        "u·v=3、||u||=5、||u-v||=2√5。内積・長さ・距離を区別する。"
+      ],
+      "finalConclusion": "u·v=3、||u||=5、||u-v||=2√5。内積・長さ・距離を区別する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "内積が0なら、標準内積のR^nでは直交を意味するが、内積の定義を変えれば判定も変わる。",
+      "conceptsUsed": [
+        "dot-product-and-norm"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "dot-product-and-norm-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "直交と距離の計算へつなぐの小さな例を計算せよ。",
+      "answer": "u·v=3、||u||=5、||u-v||=2√5。内積・長さ・距離を区別する。",
+      "explanation": "内積を成分積の和として計算し、u·uからノルム、u-vから距離を順に求める。 内積が0なら、標準内積のR^nでは直交を意味するが、内積の定義を変えれば判定も変わる。",
+      "lessonId": "dot-product-and-norm-concept-lesson",
+      "testsClaims": [
+        "dot-product-and-norm-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "内積が0なら、標準内積のR^nでは直交を意味するが、内積の定義を変えれば判定も変わる。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

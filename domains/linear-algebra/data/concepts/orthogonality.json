@@ -1,0 +1,113 @@
+{
+  "id": "orthogonality",
+  "title": {
+    "ja": "直交性",
+    "en": "Orthogonality"
+  },
+  "summary": {
+    "ja": "標準内積に関してu·v=0ならuとvは直交し、非零直交ベクトルは線形独立である。",
+    "en": "標準内積に関してu·v=0ならuとvは直交し、非零直交ベクトルは線形独立である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "射影・直交補空間の基礎を作るを定義と例で説明できる",
+    "射影・直交補空間の基礎を作るを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "orthogonality-concept-lesson",
+      "title": "直交性",
+      "summary": "射影・直交補空間の基礎を作る",
+      "objectives": [
+        "射影・直交補空間の基礎を作るを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "orthogonality-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "標準内積に関してu·v=0ならuとvは直交し、非零直交ベクトルは線形独立である。 u=(1,2), v=(2,-1)ならu·v=2-2=0。二本とも非零なので線形独立でもある。",
+          "claimRefs": [
+            "orthogonality-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "orthogonality-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "orthogonality-claim-01",
+      "statement": "標準内積に関してu·v=0ならuとvは直交し、非零直交ベクトルは線形独立である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "直交は『互いの方向成分を測ると0』という関係で、直角という図形だけでなく関数空間などにも広がる。 標準内積に関してu·v=0ならuとvは直交し、非零直交ベクトルは線形独立である。 内積を計算して0かを確認し、必要ならピタゴラス型の長さ関係や独立性へ解釈を進める。"
+  },
+  "examples": [
+    {
+      "id": "orthogonality-example",
+      "statement": "u=(1,2), v=(2,-1)ならu·v=2-2=0。二本とも非零なので線形独立でもある。",
+      "explanation": "内積を計算して0かを確認し、必要ならピタゴラス型の長さ関係や独立性へ解釈を進める。 u·v=0なので直交。長さは別に計算して関係を説明する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "射影・直交補空間の基礎を作る",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "内積を計算して0かを確認し、必要ならピタゴラス型の長さ関係や独立性へ解釈を進める。",
+        "u·v=0なので直交。長さは別に計算して関係を説明する。"
+      ],
+      "finalConclusion": "u·v=0なので直交。長さは別に計算して関係を説明する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "直交でない独立なベクトルも多い。内積の種類が変われば『直交』の意味も変わる。",
+      "conceptsUsed": [
+        "orthogonality"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "orthogonality-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "射影・直交補空間の基礎を作るの小さな例を計算せよ。",
+      "answer": "u·v=0なので直交。長さは別に計算して関係を説明する。",
+      "explanation": "内積を計算して0かを確認し、必要ならピタゴラス型の長さ関係や独立性へ解釈を進める。 直交でない独立なベクトルも多い。内積の種類が変われば『直交』の意味も変わる。",
+      "lessonId": "orthogonality-concept-lesson",
+      "testsClaims": [
+        "orthogonality-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "直交でない独立なベクトルも多い。内積の種類が変われば『直交』の意味も変わる。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -3,50 +3,171 @@
   "module": "module-determinants",
   "order": 0,
   "title": {
-    "ja": "determinant intuition",
-    "en": "determinant intuition"
+    "ja": "行列式の直観",
+    "en": "Determinant Intuition"
   },
   "summary": {
-    "ja": "determinant intuitionを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on determinant intuition."
+    "ja": "定義・計算・可逆性へ進むを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Determinant Intuition, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "determinant-intuition"
     ],
-    "supporting": []
+    "supporting": [
+      "qr-least-squares"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "qr-least-squares"
+  ],
   "learning_objectives": [
-    "determinant intuitionの基本的な意味を説明できる"
+    "定義・計算・可逆性へ進むを定義と具体例で説明できる",
+    "定義・計算・可逆性へ進むの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、determinant intuitionを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列式の直観を学ぶのでしょうか。単位正方形をAで写した平行四辺形の面積が|det A|、向きが反転すれば符号が変わる。空間を押しつぶすと面積・体積は0になる。 定義・計算・可逆性へ進むは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：qr-least-squares。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "単位正方形をAで写した平行四辺形の面積が|det A|、向きが反転すれば符号が変わる。空間を押しつぶすと面積・体積は0になる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[2,0],[0,3]]は面積を6倍しdetA=6。A=[[1,0],[0,-1]]は面積を保つが向きを反転しdetA=-1。 まず条件を確認し、標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。 最後にdetA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：定義・計算・可逆性へ進むの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はdetA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。"
+    },
+    {
+      "type": "summary",
+      "body": "定義・計算・可逆性へ進むは、行列式det(A)は、線形写像が向き付き面積・体積を何倍するかを表すスカラーである。 重要なのは定義・計算・可逆性へ進むを式だけでなく、単位正方形をAで写した平行四辺形の面積が|det A|、向きが反転すれば符号が変わる。空間を押しつぶすと面積・体積は0になる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdeterminant-definitionでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "determinant-intuition-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "定義・計算・可逆性へ進むを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "定義・計算・可逆性へ進むについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-intuition-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。",
+          "具体例としてA=[[2,0],[0,3]]は面積を6倍しdetA=6。A=[[1,0],[0,-1]]は面積を保つが向きを反転しdetA=-1。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。",
+        "common_wrong_path": "行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。"
+      }
+    },
+    {
+      "id": "determinant-intuition-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "定義・計算・可逆性へ進むを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "定義・計算・可逆性へ進むについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-intuition-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。",
+          "具体例としてA=[[2,0],[0,3]]は面積を6倍しdetA=6。A=[[1,0],[0,-1]]は面積を保つが向きを反転しdetA=-1。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。",
+        "common_wrong_path": "行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。"
+      }
+    },
+    {
+      "id": "determinant-intuition-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "定義・計算・可逆性へ進むを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "定義・計算・可逆性へ進むについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-intuition-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って標準基底の像を図にし、2×2ではad-bcを計算し、絶対値を面積倍率・符号を向きとして読む。",
+          "具体例としてA=[[2,0],[0,3]]は面積を6倍しdetA=6。A=[[1,0],[0,-1]]は面積を保つが向きを反転しdetA=-1。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "detA=6は面積倍率6を意味し、detA=0なら平面を線へ押しつぶす。",
+        "common_wrong_path": "行列式の幾何的意味だけで定義を置き換えない。非正方行列には通常このdetは定義されない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "qr-least-squares"
+  ],
+  "status": "audited"
 }

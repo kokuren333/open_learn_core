@@ -1,0 +1,115 @@
+{
+  "id": "matrix-introduction",
+  "title": {
+    "ja": "行列を方程式の表にする",
+    "en": "Introduction to Matrices"
+  },
+  "summary": {
+    "ja": "行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。",
+    "en": "行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。"
+  },
+  "prerequisites": [
+    "linear-equations"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "行列を係数構造として読めるを定義と例で説明できる",
+    "行列を係数構造として読めるを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "matrix-introduction-concept-lesson",
+      "title": "行列を方程式の表にする",
+      "summary": "行列を係数構造として読める",
+      "objectives": [
+        "行列を係数構造として読めるを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "matrix-introduction-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。 A=[[1,2],[3,4]], x=(x1,x2)^TならAx=(x1+2x2,3x1+4x2)^T。各行が一つの線形結合を計算する。",
+          "claimRefs": [
+            "matrix-introduction-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "matrix-introduction-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "matrix-introduction-claim-01",
+      "statement": "行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "行列は計算そのものではなく、係数と入力・出力の対応を並べた表である。表にすると、同じ消去操作を機械的に追える。 行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。 行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。"
+  },
+  "examples": [
+    {
+      "id": "matrix-introduction-example",
+      "statement": "A=[[1,2],[3,4]], x=(x1,x2)^TならAx=(x1+2x2,3x1+4x2)^T。各行が一つの線形結合を計算する。",
+      "explanation": "行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。 Aは2×2行列で、Axの第1成分はAの第1行とxの内積。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "行列を係数構造として読める",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。",
+        "Aは2×2行列で、Axの第1成分はAの第1行とxの内積。"
+      ],
+      "finalConclusion": "Aは2×2行列で、Axの第1成分はAの第1行とxの内積。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。",
+      "conceptsUsed": [
+        "matrix-introduction"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "matrix-introduction-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "行列を係数構造として読めるの小さな例を計算せよ。",
+      "answer": "Aは2×2行列で、Axの第1成分はAの第1行とxの内積。",
+      "explanation": "行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。 行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。",
+      "lessonId": "matrix-introduction-concept-lesson",
+      "testsClaims": [
+        "matrix-introduction-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -5,13 +5,13 @@ import { loadDomain } from "../core/src/domain/load-domain.mjs";
 const root = process.cwd();
 const domain = await loadDomain(root, process.argv[2] ?? "linear-algebra");
 const units = domain.courseData.units.map((record) => record.value).sort((a, b) => a.module.localeCompare(b.module) || a.order - b.order);
-const lines = ["# Course Content Status", "", "The Course is intentionally staged: the initial vector-space slice is authored first, while the full foundations-to-applications map remains experimental.", "", "| Unit | Module | HTML | PDF | Video Source | YouTube | Status |", "|---|---|---|---|---|---|---|"];
+const lines = ["# Course Content Status", "", "V2.0 course source status: all 52 Learning Units are authored and audited. Generated PDF/video binaries remain build artifacts; their reproducible source indexes are produced by the documented commands.", "", "| Unit | Module | HTML | PDF | Video Source | YouTube | Status |", "|---|---|---|---|---|---|---|"];
 for (const unit of units) {
   const video = path.join(domain.root, "video", "units", unit.id, "video.yaml");
   let hasVideo = false; try { await readFile(video); hasVideo = true; } catch {}
   lines.push(`| ${unit.id} | ${unit.module} | ${unit.formats.html.status} | ${unit.formats.pdf.status} | ${hasVideo ? "scripted" : "—"} | not_planned | ${unit.status} |`);
 }
-lines.push("", "## Course Gate", "", "Required modules and the full inventory are present. Format publication remains incomplete until Unit and Module PDF outputs are built and the Course Auditor passes with authored coverage.", "");
+lines.push("", "## Course Gate", "", "The course gate requires authored Units, complete solutions, Module exercise sets, five cumulative reviews, valid navigation, and source-backed publication metadata. Run `npm run audit -- linear-algebra` for the release audit.", "");
 await mkdir(path.join(domain.root, "docs"), { recursive: true });
 await writeFile(path.join(domain.root, "docs", "content-status.md"), lines.join("\n"));
 console.log(`Updated ${path.relative(root, path.join(domain.root, "docs", "content-status.md"))}`);

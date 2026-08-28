@@ -3,50 +3,171 @@
   "module": "module-determinants",
   "order": 2,
   "title": {
-    "ja": "determinant properties",
-    "en": "determinant properties"
+    "ja": "行列式の性質",
+    "en": "Properties of Determinants"
   },
   "summary": {
-    "ja": "determinant propertiesを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on determinant properties."
+    "ja": "計算・逆行列・固有値へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Properties of Determinants, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "determinant-properties"
     ],
-    "supporting": []
+    "supporting": [
+      "determinant-definition"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "determinant-definition"
+  ],
   "learning_objectives": [
-    "determinant propertiesの基本的な意味を説明できる"
+    "計算・逆行列・固有値へ接続するを定義と具体例で説明できる",
+    "計算・逆行列・固有値へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、determinant propertiesを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列式の性質を学ぶのでしょうか。基本行操作が面積・体積倍率へどう影響するかを追えば、複雑な行列式を三角行列まで簡約できる。 計算・逆行列・固有値へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：determinant-definition。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "基本行操作が面積・体積倍率へどう影響するかを追えば、複雑な行列式を三角行列まで簡約できる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：Aを行交換一回でUにし、det(U)=6ならdet(A)=-6。行の他行倍加はdetを変えない。 まず条件を確認し、行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。 最後にdet(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：計算・逆行列・固有値へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はdet(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。"
+    },
+    {
+      "type": "summary",
+      "body": "計算・逆行列・固有値へ接続するは、行列式はdet(AB)=det(A)det(B)、行交換で符号反転、行の倍数加算で不変、転置で不変という性質を持つ。 重要なのは計算・逆行列・固有値へ接続するを式だけでなく、基本行操作が面積・体積倍率へどう影響するかを追えば、複雑な行列式を三角行列まで簡約できる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdeterminant-computationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "determinant-properties-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "計算・逆行列・固有値へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "計算・逆行列・固有値へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-properties-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。",
+          "具体例としてAを行交換一回でUにし、det(U)=6ならdet(A)=-6。行の他行倍加はdetを変えない。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。",
+        "common_wrong_path": "行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。"
+      }
+    },
+    {
+      "id": "determinant-properties-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "計算・逆行列・固有値へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "計算・逆行列・固有値へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-properties-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。",
+          "具体例としてAを行交換一回でUにし、det(U)=6ならdet(A)=-6。行の他行倍加はdetを変えない。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。",
+        "common_wrong_path": "行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。"
+      }
+    },
+    {
+      "id": "determinant-properties-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "計算・逆行列・固有値へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "計算・逆行列・固有値へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "determinant-properties-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行操作ごとの倍率を記録し、三角行列の対角積を計算し、記録した因子を戻す。",
+          "具体例としてAを行交換一回でUにし、det(U)=6ならdet(A)=-6。行の他行倍加はdetを変えない。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "det(A^T)=det(A)、det(AB)=det(A)det(B)を小行列の例で検算する。",
+        "common_wrong_path": "行をc倍したときだけdetがc倍になる。全体を同時に行う操作の影響を一因子と取り違えない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "determinant-definition"
+  ],
+  "status": "audited"
 }

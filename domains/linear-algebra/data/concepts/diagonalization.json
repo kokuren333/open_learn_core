@@ -1,0 +1,113 @@
+{
+  "id": "diagonalization",
+  "title": {
+    "ja": "対角化",
+    "en": "Diagonalization"
+  },
+  "summary": {
+    "ja": "Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。",
+    "en": "Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "相似・対角化・スペクトル定理へ接続するを定義と例で説明できる",
+    "相似・対角化・スペクトル定理へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "diagonalization-concept-lesson",
+      "title": "対角化",
+      "summary": "相似・対角化・スペクトル定理へ接続する",
+      "objectives": [
+        "相似・対角化・スペクトル定理へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "diagonalization-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。 A=diag(2,3)はP=I,D=Aで既に対角化。一般にA^k=PD^kP^{-1}と計算できる。",
+          "claimRefs": [
+            "diagonalization-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "diagonalization-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "diagonalization-claim-01",
+      "statement": "Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "適切な固有ベクトルを座標軸に選び直すと、複雑な作用が各軸の独立な伸縮に分解される。 Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。 固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。"
+  },
+  "examples": [
+    {
+      "id": "diagonalization-example",
+      "statement": "A=diag(2,3)はP=I,D=Aで既に対角化。一般にA^k=PD^kP^{-1}と計算できる。",
+      "explanation": "固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。 Pの列が独立でAP=PDならA=PDP^{-1}。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "相似・対角化・スペクトル定理へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。",
+        "Pの列が独立でAP=PDならA=PDP^{-1}。"
+      ],
+      "finalConclusion": "Pの列が独立でAP=PDならA=PDP^{-1}。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。",
+      "conceptsUsed": [
+        "diagonalization"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "diagonalization-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "相似・対角化・スペクトル定理へ接続するの小さな例を計算せよ。",
+      "answer": "Pの列が独立でAP=PDならA=PDP^{-1}。",
+      "explanation": "固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。 固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。",
+      "lessonId": "diagonalization-concept-lesson",
+      "testsClaims": [
+        "diagonalization-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

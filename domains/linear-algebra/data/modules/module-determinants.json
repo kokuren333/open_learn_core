@@ -27,5 +27,30 @@
     "determinant-computation",
     "determinant-invertibility",
     "determinant-volume"
-  ]
+  ],
+  "exercise_ids": [
+    "module-determinants-exercise-basic",
+    "module-determinants-exercise-conceptual",
+    "module-determinants-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "行列式と可逆性を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Determinants."
+  },
+  "entry_prerequisites": [
+    "module-orthogonality"
+  ],
+  "learning_objectives": [
+    "determinant-intuitionの定義・例・基本計算を説明できる",
+    "determinant-definitionの定義・例・基本計算を説明できる",
+    "determinant-propertiesの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "determinant intuitionからorientationまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-orthogonality",
+    "next": "module-eigenvalues"
+  }
 }

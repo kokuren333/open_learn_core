@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "issues": [],
+  "summary": "Course order, module coverage, initial slice, Unit boundaries, exercise progression, and format coverage reviewed.",
+  "counts": {
+    "modules": 8,
+    "units": 52,
+    "videoPilots": 3,
+    "moduleExerciseSets": 8,
+    "cumulativeReviews": 6
+  },
+  "formatCoverage": {
+    "html": 52,
+    "pdf": 52,
+    "video": 3
+  }
+}

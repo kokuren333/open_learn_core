@@ -27,5 +27,30 @@
     "orthonormal-bases",
     "gram-schmidt",
     "qr-least-squares"
-  ]
+  ],
+  "exercise_ids": [
+    "module-orthogonality-exercise-basic",
+    "module-orthogonality-exercise-conceptual",
+    "module-orthogonality-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "直交性と最小二乗を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Orthogonality."
+  },
+  "entry_prerequisites": [
+    "module-linear-transformations"
+  ],
+  "learning_objectives": [
+    "orthogonalityの定義・例・基本計算を説明できる",
+    "orthogonal-complementの定義・例・基本計算を説明できる",
+    "projectionの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "orthogonalityからpseudoinverseまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-linear-transformations",
+    "next": "module-determinants"
+  }
 }

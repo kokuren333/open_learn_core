@@ -1,0 +1,57 @@
+name: publish-open-learn-core
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*.*.*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:all
+      - run: npm test
+      - run: npm run build -- linear-algebra
+      - run: npm run build:video -- linear-algebra
+      - name: Install PDF toolchain for tagged releases
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: sudo apt-get update && sudo apt-get install -y pandoc texlive-luatex texlive-lang-japanese
+      - name: Build tagged PDF edition
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: npm run build:pdf -- linear-algebra
+      - run: npm run publish:manifest -- linear-algebra
+      - run: npm run package:offline -- linear-algebra
+      - run: npm run package:release -- linear-algebra
+      - name: Deploy Pages
+        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+        run: npm run deploy:cloudflare -- linear-algebra
+      - name: Upload large artifacts to R2
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+          RELEASE_VERSION: ${{ github.ref_name }}
+        run: npm run publish:r2 -- linear-algebra
+      - name: Attach tagged release artifacts
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/release/*

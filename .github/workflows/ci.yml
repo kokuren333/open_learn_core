@@ -1,0 +1,23 @@
+name: open-learn-core
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run validate:all
+      - run: npm run course:audit -- linear-algebra
+      - run: npm run build -- linear-algebra
+      - run: npm run build:video -- linear-algebra
+      - run: npm run publish:manifest -- linear-algebra
+      - run: npm run publication:audit -- linear-algebra

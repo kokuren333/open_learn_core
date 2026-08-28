@@ -1,0 +1,23 @@
+{
+  "id": "review-02-vector-spaces",
+  "title": {
+    "ja": "構造横断レビュー：ベクトル空間・基底・変換",
+    "en": "Review 2: Vector Spaces, Basis, and Transformations"
+  },
+  "module_ids": [
+    "module-systems-matrices",
+    "module-vector-spaces",
+    "module-linear-transformations"
+  ],
+  "exercise_ids": [
+    "module-systems-matrices-exercise-basic",
+    "module-systems-matrices-exercise-conceptual",
+    "module-systems-matrices-exercise-synthesis",
+    "module-vector-spaces-exercise-basic",
+    "module-vector-spaces-exercise-conceptual",
+    "module-vector-spaces-exercise-synthesis",
+    "module-linear-transformations-exercise-basic",
+    "module-linear-transformations-exercise-conceptual",
+    "module-linear-transformations-exercise-synthesis"
+  ]
+}

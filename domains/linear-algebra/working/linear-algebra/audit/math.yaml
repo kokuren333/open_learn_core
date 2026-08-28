@@ -1,0 +1,15 @@
+status: fail
+auditor: openlearn-math-auditor
+independent_review: true
+artifact_hash: sha256:2825616f095ac7f5940811a99bd966dd6d2627d3fe21d7584b338835416c5b62
+evaluated_at: 2026-08-28T15:56:44.720Z
+summary: Definitions, examples, counterexamples, and worked reasoning reviewed semantically.
+issues:
+  - severity: major
+    problem: the primary mathematical claim is empty
+    rationale: A concept needs a precise claim before examples can be reviewed.
+    suggested_fix: Add the concept's definition or central claim.
+  - severity: major
+    problem: the primary claim is too vague to review
+    rationale: A publishable claim needs enough structure to distinguish it from a slogan.
+    suggested_fix: State the objects, conditions, and relationship precisely.

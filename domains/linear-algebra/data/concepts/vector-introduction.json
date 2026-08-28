@@ -1,0 +1,115 @@
+{
+  "id": "vector-introduction",
+  "title": {
+    "ja": "ベクトルを対象として見る",
+    "en": "What Is a Vector?"
+  },
+  "summary": {
+    "ja": "ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。",
+    "en": "ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。"
+  },
+  "prerequisites": [
+    "scalar-introduction"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "成分と演算を使ってベクトルを説明するを定義と例で説明できる",
+    "成分と演算を使ってベクトルを説明するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "vector-introduction-concept-lesson",
+      "title": "ベクトルを対象として見る",
+      "summary": "成分と演算を使ってベクトルを説明する",
+      "objectives": [
+        "成分と演算を使ってベクトルを説明するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "vector-introduction-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。 u=(1,2), v=(-2,3)ならu+v=(-1,5)。第1成分と第2成分を同じ位置どうしで組み合わせる。",
+          "claimRefs": [
+            "vector-introduction-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "vector-introduction-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "vector-introduction-claim-01",
+      "statement": "ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "矢印はベクトルの一つの見え方にすぎない。始点を動かしても成分の差が同じなら同じ自由ベクトルとして扱える。 ベクトルは、加法とスカラー倍を行える対象であり、R^nでは順序を持つn個の数の組で表す。 成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。"
+  },
+  "examples": [
+    {
+      "id": "vector-introduction-example",
+      "statement": "u=(1,2), v=(-2,3)ならu+v=(-1,5)。第1成分と第2成分を同じ位置どうしで組み合わせる。",
+      "explanation": "成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。 u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "成分と演算を使ってベクトルを説明する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。",
+        "u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。"
+      ],
+      "finalConclusion": "u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。",
+      "conceptsUsed": [
+        "vector-introduction"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "vector-introduction-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "成分と演算を使ってベクトルを説明するの小さな例を計算せよ。",
+      "answer": "u+v=(-1,5)。ベクトルの等しさは対応する全成分の一致で決まる。",
+      "explanation": "成分数と順序を確認し、同じ次元のベクトルだけを加え、成分ごとの演算を行う。 ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。",
+      "lessonId": "vector-introduction-concept-lesson",
+      "testsClaims": [
+        "vector-introduction-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "ベクトルを点と同一視しない。点は位置、ベクトルは変位や演算対象であり、同じ成分の組でも文脈が異なる。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

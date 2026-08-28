@@ -1,55 +1,55 @@
 # Course Content Status
 
-The Course is intentionally staged: the initial vector-space slice is authored first, while the full foundations-to-applications map remains experimental.
+V2.0 course source status: all 52 Learning Units are authored and audited. Generated PDF/video binaries remain build artifacts; their reproducible source indexes are produced by the documented commands.
 
 | Unit | Module | HTML | PDF | Video Source | YouTube | Status |
 |---|---|---|---|---|---|---|
-| quadratic-forms | module-applications | planned | planned | — | not_planned | planned |
-| svd-intuition | module-applications | planned | planned | — | not_planned | planned |
-| low-rank-approximation | module-applications | planned | planned | — | not_planned | planned |
-| pca-connection | module-applications | planned | planned | — | not_planned | planned |
-| markov-matrices | module-applications | planned | planned | — | not_planned | planned |
-| graph-network-matrices | module-applications | planned | planned | — | not_planned | planned |
-| differential-and-fourier | module-applications | planned | planned | — | not_planned | planned |
-| numerical-stability | module-applications | planned | planned | — | not_planned | planned |
-| determinant-intuition | module-determinants | planned | planned | — | not_planned | planned |
-| determinant-definition | module-determinants | planned | planned | — | not_planned | planned |
-| determinant-properties | module-determinants | planned | planned | — | not_planned | planned |
-| determinant-computation | module-determinants | planned | planned | — | not_planned | planned |
-| determinant-invertibility | module-determinants | planned | planned | — | not_planned | planned |
-| determinant-volume | module-determinants | planned | planned | — | not_planned | planned |
-| eigenvalue-eigenvector | module-eigenvalues | planned | planned | — | not_planned | planned |
-| characteristic-polynomial | module-eigenvalues | planned | planned | — | not_planned | planned |
-| eigenspace-and-multiplicity | module-eigenvalues | planned | planned | — | not_planned | planned |
-| diagonalization | module-eigenvalues | planned | planned | — | not_planned | planned |
-| symmetric-spectral-theorem | module-eigenvalues | planned | planned | — | not_planned | planned |
-| positive-definite-matrices | module-eigenvalues | planned | planned | — | not_planned | planned |
-| linear-transformations | module-linear-transformations | planned | planned | — | not_planned | planned |
-| kernel-and-image | module-linear-transformations | planned | planned | — | not_planned | planned |
-| matrix-representation | module-linear-transformations | planned | planned | — | not_planned | planned |
-| coordinate-maps | module-linear-transformations | planned | planned | — | not_planned | planned |
-| change-of-basis | module-linear-transformations | planned | planned | — | not_planned | planned |
-| composition-and-similarity | module-linear-transformations | planned | planned | — | not_planned | planned |
-| orthogonality | module-orthogonality | planned | planned | — | not_planned | planned |
-| orthogonal-complement | module-orthogonality | planned | planned | — | not_planned | planned |
-| projection | module-orthogonality | planned | planned | — | not_planned | planned |
-| orthonormal-bases | module-orthogonality | planned | planned | — | not_planned | planned |
-| gram-schmidt | module-orthogonality | planned | planned | — | not_planned | planned |
-| qr-least-squares | module-orthogonality | planned | planned | — | not_planned | planned |
-| scalar-introduction | module-prerequisites-vectors | planned | planned | — | not_planned | planned |
-| vector-introduction | module-prerequisites-vectors | planned | planned | — | not_planned | planned |
-| vector-notation | module-prerequisites-vectors | planned | planned | — | not_planned | planned |
-| vector-addition | module-prerequisites-vectors | planned | planned | — | not_planned | planned |
-| scalar-multiplication | module-prerequisites-vectors | planned | planned | — | not_planned | planned |
-| dot-product-and-norm | module-prerequisites-vectors | planned | planned | — | not_planned | planned |
-| linear-equations | module-systems-matrices | planned | planned | — | not_planned | planned |
-| matrix-introduction | module-systems-matrices | planned | planned | — | not_planned | planned |
-| matrix-operations | module-systems-matrices | planned | planned | — | not_planned | planned |
-| gaussian-elimination | module-systems-matrices | planned | planned | — | not_planned | planned |
-| rref-and-pivots | module-systems-matrices | planned | planned | — | not_planned | planned |
-| inverse-and-lu | module-systems-matrices | planned | planned | — | not_planned | planned |
-| vector-spaces | module-vector-spaces | planned | planned | — | not_planned | planned |
-| subspaces | module-vector-spaces | planned | planned | — | not_planned | planned |
+| quadratic-forms | module-applications | authored | source_ready | — | not_planned | audited |
+| svd-intuition | module-applications | authored | source_ready | — | not_planned | audited |
+| low-rank-approximation | module-applications | authored | source_ready | — | not_planned | audited |
+| pca-connection | module-applications | authored | source_ready | — | not_planned | audited |
+| markov-matrices | module-applications | authored | source_ready | — | not_planned | audited |
+| graph-network-matrices | module-applications | authored | source_ready | — | not_planned | audited |
+| differential-and-fourier | module-applications | authored | source_ready | — | not_planned | audited |
+| numerical-stability | module-applications | authored | source_ready | — | not_planned | audited |
+| determinant-intuition | module-determinants | authored | source_ready | — | not_planned | audited |
+| determinant-definition | module-determinants | authored | source_ready | — | not_planned | audited |
+| determinant-properties | module-determinants | authored | source_ready | — | not_planned | audited |
+| determinant-computation | module-determinants | authored | source_ready | — | not_planned | audited |
+| determinant-invertibility | module-determinants | authored | source_ready | — | not_planned | audited |
+| determinant-volume | module-determinants | authored | source_ready | — | not_planned | audited |
+| eigenvalue-eigenvector | module-eigenvalues | authored | source_ready | — | not_planned | audited |
+| characteristic-polynomial | module-eigenvalues | authored | source_ready | — | not_planned | audited |
+| eigenspace-and-multiplicity | module-eigenvalues | authored | source_ready | — | not_planned | audited |
+| diagonalization | module-eigenvalues | authored | source_ready | — | not_planned | audited |
+| symmetric-spectral-theorem | module-eigenvalues | authored | source_ready | — | not_planned | audited |
+| positive-definite-matrices | module-eigenvalues | authored | source_ready | — | not_planned | audited |
+| linear-transformations | module-linear-transformations | authored | source_ready | — | not_planned | audited |
+| kernel-and-image | module-linear-transformations | authored | source_ready | — | not_planned | audited |
+| matrix-representation | module-linear-transformations | authored | source_ready | — | not_planned | audited |
+| coordinate-maps | module-linear-transformations | authored | source_ready | — | not_planned | audited |
+| change-of-basis | module-linear-transformations | authored | source_ready | — | not_planned | audited |
+| composition-and-similarity | module-linear-transformations | authored | source_ready | — | not_planned | audited |
+| orthogonality | module-orthogonality | authored | source_ready | — | not_planned | audited |
+| orthogonal-complement | module-orthogonality | authored | source_ready | — | not_planned | audited |
+| projection | module-orthogonality | authored | source_ready | — | not_planned | audited |
+| orthonormal-bases | module-orthogonality | authored | source_ready | — | not_planned | audited |
+| gram-schmidt | module-orthogonality | authored | source_ready | — | not_planned | audited |
+| qr-least-squares | module-orthogonality | authored | source_ready | — | not_planned | audited |
+| scalar-introduction | module-prerequisites-vectors | authored | source_ready | — | not_planned | audited |
+| vector-introduction | module-prerequisites-vectors | authored | source_ready | — | not_planned | audited |
+| vector-notation | module-prerequisites-vectors | authored | source_ready | — | not_planned | audited |
+| vector-addition | module-prerequisites-vectors | authored | source_ready | — | not_planned | audited |
+| scalar-multiplication | module-prerequisites-vectors | authored | source_ready | — | not_planned | audited |
+| dot-product-and-norm | module-prerequisites-vectors | authored | source_ready | — | not_planned | audited |
+| linear-equations | module-systems-matrices | authored | source_ready | — | not_planned | audited |
+| matrix-introduction | module-systems-matrices | authored | source_ready | — | not_planned | audited |
+| matrix-operations | module-systems-matrices | authored | source_ready | — | not_planned | audited |
+| gaussian-elimination | module-systems-matrices | authored | source_ready | — | not_planned | audited |
+| rref-and-pivots | module-systems-matrices | authored | source_ready | — | not_planned | audited |
+| inverse-and-lu | module-systems-matrices | authored | source_ready | — | not_planned | audited |
+| vector-spaces | module-vector-spaces | authored | source_ready | — | not_planned | audited |
+| subspaces | module-vector-spaces | authored | source_ready | — | not_planned | audited |
 | linear-combination | module-vector-spaces | authored | source_ready | — | not_planned | authored |
 | span | module-vector-spaces | authored | source_ready | scripted | not_planned | authored |
 | linear-independence | module-vector-spaces | authored | source_ready | scripted | not_planned | authored |
@@ -59,4 +59,4 @@ The Course is intentionally staged: the initial vector-space slice is authored f
 
 ## Course Gate
 
-Required modules and the full inventory are present. Format publication remains incomplete until Unit and Module PDF outputs are built and the Course Auditor passes with authored coverage.
+The course gate requires authored Units, complete solutions, Module exercise sets, five cumulative reviews, valid navigation, and source-backed publication metadata. Run `npm run audit -- linear-algebra` for the release audit.

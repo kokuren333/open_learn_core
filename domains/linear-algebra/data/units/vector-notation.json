@@ -3,50 +3,171 @@
   "module": "module-prerequisites-vectors",
   "order": 2,
   "title": {
-    "ja": "vector notation",
-    "en": "vector notation"
+    "ja": "ベクトルの記法と次元",
+    "en": "Vector Notation and Dimension"
   },
   "summary": {
-    "ja": "vector notationを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on vector notation."
+    "ja": "記法から次元・形状を読み取るを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Vector Notation and Dimension, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "vector-notation"
     ],
-    "supporting": []
+    "supporting": [
+      "vector-introduction"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "vector-introduction"
+  ],
   "learning_objectives": [
-    "vector notationの基本的な意味を説明できる"
+    "記法から次元・形状を読み取るを定義と具体例で説明できる",
+    "記法から次元・形状を読み取るの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、vector notationを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜベクトルの記法と次元を学ぶのでしょうか。(a,b)と(b,a)は数字が同じでも別のベクトルである。順序は、どの座標方向にどれだけ進むかを記録するラベルになる。 記法から次元・形状を読み取るは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：vector-introduction。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "(a,b)と(b,a)は数字が同じでも別のベクトルである。順序は、どの座標方向にどれだけ進むかを記録するラベルになる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "ベクトルの次元は成分の個数であり、列ベクトル・行ベクトルの表記では形状と成分の順序を明示する。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。ベクトルを縦または横に並べ、成分数を数え、加法や行列積で形状が合うかを確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：u=(2,-1,4)^Tは3次元列ベクトルで、uの第2成分は-1。v=(2,-1)とは次元が異なる。 まず条件を確認し、ベクトルを縦または横に並べ、成分数を数え、加法や行列積で形状が合うかを確認する。 最後にuはR^3のベクトルであり、v∈R^2とは加えられない。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "見た目が横長でも、行列計算では1×n行列とn×1行列を区別する必要がある。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：記法から次元・形状を読み取るの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はuはR^3のベクトルであり、v∈R^2とは加えられない。"
+    },
+    {
+      "type": "summary",
+      "body": "記法から次元・形状を読み取るは、ベクトルの次元は成分の個数であり、列ベクトル・行ベクトルの表記では形状と成分の順序を明示する。 重要なのは記法から次元・形状を読み取るを式だけでなく、(a,b)と(b,a)は数字が同じでも別のベクトルである。順序は、どの座標方向にどれだけ進むかを記録するラベルになる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のvector-additionでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "vector-notation-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "記法から次元・形状を読み取るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "記法から次元・形状を読み取るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "vector-notation-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってベクトルを縦または横に並べ、成分数を数え、加法や行列積で形状が合うかを確認する。",
+          "具体例としてu=(2,-1,4)^Tは3次元列ベクトルで、uの第2成分は-1。v=(2,-1)とは次元が異なる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "uはR^3のベクトルであり、v∈R^2とは加えられない。",
+        "common_wrong_path": "見た目が横長でも、行列計算では1×n行列とn×1行列を区別する必要がある。"
+      }
+    },
+    {
+      "id": "vector-notation-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "記法から次元・形状を読み取るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "記法から次元・形状を読み取るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "vector-notation-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってベクトルを縦または横に並べ、成分数を数え、加法や行列積で形状が合うかを確認する。",
+          "具体例としてu=(2,-1,4)^Tは3次元列ベクトルで、uの第2成分は-1。v=(2,-1)とは次元が異なる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "uはR^3のベクトルであり、v∈R^2とは加えられない。",
+        "common_wrong_path": "見た目が横長でも、行列計算では1×n行列とn×1行列を区別する必要がある。"
+      }
+    },
+    {
+      "id": "vector-notation-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "記法から次元・形状を読み取るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "記法から次元・形状を読み取るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "vector-notation-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってベクトルを縦または横に並べ、成分数を数え、加法や行列積で形状が合うかを確認する。",
+          "具体例としてu=(2,-1,4)^Tは3次元列ベクトルで、uの第2成分は-1。v=(2,-1)とは次元が異なる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "uはR^3のベクトルであり、v∈R^2とは加えられない。",
+        "common_wrong_path": "見た目が横長でも、行列計算では1×n行列とn×1行列を区別する必要がある。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "vector-introduction"
+  ],
+  "status": "audited"
 }

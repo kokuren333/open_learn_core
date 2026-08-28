@@ -1,0 +1,19 @@
+{
+  "id": "review-03-determinants-eigenvalues",
+  "title": {
+    "ja": "構造横断レビュー：行列式と固有値",
+    "en": "Review 3: Determinants and Eigenvalues"
+  },
+  "module_ids": [
+    "module-determinants",
+    "module-eigenvalues"
+  ],
+  "exercise_ids": [
+    "module-determinants-exercise-basic",
+    "module-determinants-exercise-conceptual",
+    "module-determinants-exercise-synthesis",
+    "module-eigenvalues-exercise-basic",
+    "module-eigenvalues-exercise-conceptual",
+    "module-eigenvalues-exercise-synthesis"
+  ]
+}

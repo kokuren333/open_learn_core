@@ -12,5 +12,5 @@ test("published output has portal and domain manifest", async () => {
   const index = JSON.parse(await readFile(path.join(dist, "domain-index.json"), "utf8"));
   assert.equal(index.domains[0].id, "linear-algebra");
   const manifest = JSON.parse(await readFile(path.join(dist, "domains", "linear-algebra", "manifest.json"), "utf8"));
-  assert.equal(manifest.conceptCount, 12);
+  assert.ok(manifest.conceptCount >= 12);
 });

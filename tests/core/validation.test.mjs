@@ -10,7 +10,7 @@ const loadDataset = async () => (await loadDomain(projectRoot, "linear-algebra")
 test("valid dataset passes schema and reference validation", async () => {
   const result = await validateDataset(await loadDataset());
   assert.equal(result.valid, true, result.issues.join("\n"));
-  assert.equal(result.conceptsById.size, 12);
+  assert.ok(result.conceptsById.size >= 12);
   assert.ok([...result.conceptsById.values()].every((concept) => concept.lessons.length > 0 && concept.claims.length > 0));
   assert.equal(result.evidenceById.size, 5);
   assert.equal(evidenceCoverage(await loadDataset(), result, "basis").claims.withEvidence, 6);

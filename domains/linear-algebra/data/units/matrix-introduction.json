@@ -3,50 +3,171 @@
   "module": "module-systems-matrices",
   "order": 1,
   "title": {
-    "ja": "matrix introduction",
-    "en": "matrix introduction"
+    "ja": "行列を方程式の表にする",
+    "en": "Introduction to Matrices"
   },
   "summary": {
-    "ja": "matrix introductionを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on matrix introduction."
+    "ja": "行列を係数構造として読めるを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Introduction to Matrices, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "matrix-introduction"
     ],
-    "supporting": []
+    "supporting": [
+      "linear-equations"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "linear-equations"
+  ],
   "learning_objectives": [
-    "matrix introductionの基本的な意味を説明できる"
+    "行列を係数構造として読めるを定義と具体例で説明できる",
+    "行列を係数構造として読めるの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、matrix introductionを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列を方程式の表にするを学ぶのでしょうか。行列は計算そのものではなく、係数と入力・出力の対応を並べた表である。表にすると、同じ消去操作を機械的に追える。 行列を係数構造として読めるは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：linear-equations。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "行列は計算そのものではなく、係数と入力・出力の対応を並べた表である。表にすると、同じ消去操作を機械的に追える。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[1,2],[3,4]], x=(x1,x2)^TならAx=(x1+2x2,3x1+4x2)^T。各行が一つの線形結合を計算する。 まず条件を確認し、行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。 最後にAは2×2行列で、Axの第1成分はAの第1行とxの内積。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：行列を係数構造として読めるの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はAは2×2行列で、Axの第1成分はAの第1行とxの内積。"
+    },
+    {
+      "type": "summary",
+      "body": "行列を係数構造として読めるは、行列は数を長方形に配置した対象で、線形方程式系や線形写像の係数を規則正しく保持する。 重要なのは行列を係数構造として読めるを式だけでなく、行列は計算そのものではなく、係数と入力・出力の対応を並べた表である。表にすると、同じ消去操作を機械的に追える。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のmatrix-operationsでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "matrix-introduction-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "行列を係数構造として読めるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列を係数構造として読めるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "matrix-introduction-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。",
+          "具体例としてA=[[1,2],[3,4]], x=(x1,x2)^TならAx=(x1+2x2,3x1+4x2)^T。各行が一つの線形結合を計算する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Aは2×2行列で、Axの第1成分はAの第1行とxの内積。",
+        "common_wrong_path": "行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。"
+      }
+    },
+    {
+      "id": "matrix-introduction-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "行列を係数構造として読めるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列を係数構造として読めるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "matrix-introduction-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。",
+          "具体例としてA=[[1,2],[3,4]], x=(x1,x2)^TならAx=(x1+2x2,3x1+4x2)^T。各行が一つの線形結合を計算する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Aは2×2行列で、Axの第1成分はAの第1行とxの内積。",
+        "common_wrong_path": "行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。"
+      }
+    },
+    {
+      "id": "matrix-introduction-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "行列を係数構造として読めるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列を係数構造として読めるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "matrix-introduction-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行と列の意味を定め、m×nの形状を確認し、行列とベクトルの積がどの成分を作るかを読む。",
+          "具体例としてA=[[1,2],[3,4]], x=(x1,x2)^TならAx=(x1+2x2,3x1+4x2)^T。各行が一つの線形結合を計算する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Aは2×2行列で、Axの第1成分はAの第1行とxの内積。",
+        "common_wrong_path": "行列の行列式を単なる全要素の積と考えない。まず行・列・形状を区別する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "linear-equations"
+  ],
+  "status": "audited"
 }

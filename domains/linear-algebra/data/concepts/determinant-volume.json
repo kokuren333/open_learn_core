@@ -1,0 +1,113 @@
+{
+  "id": "determinant-volume",
+  "title": {
+    "ja": "行列式と面積・体積",
+    "en": "Determinants and Volume Scaling"
+  },
+  "summary": {
+    "ja": "n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。",
+    "en": "n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "固有値の積・応用幾何へ接続するを定義と例で説明できる",
+    "固有値の積・応用幾何へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "determinant-volume-concept-lesson",
+      "title": "行列式と面積・体積",
+      "summary": "固有値の積・応用幾何へ接続する",
+      "objectives": [
+        "固有値の積・応用幾何へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "determinant-volume-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。 diag(2,3,4)は体積を24倍する。せん断[[1,1],[0,1]]は面積を保ちdet=1。",
+          "claimRefs": [
+            "determinant-volume-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "determinant-volume-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "determinant-volume-claim-01",
+      "statement": "n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "単位立方体を押す・伸ばす・せん断する操作を分解すると、体積倍率が各操作の積として見える。 n次元の線形写像Aは、測度を|det A|倍し、det Aの符号は基底の向きの反転を示す。 標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。"
+  },
+  "examples": [
+    {
+      "id": "determinant-volume-example",
+      "statement": "diag(2,3,4)は体積を24倍する。せん断[[1,1],[0,1]]は面積を保ちdet=1。",
+      "explanation": "標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。 det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "固有値の積・応用幾何へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。",
+        "det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。"
+      ],
+      "finalConclusion": "det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。",
+      "conceptsUsed": [
+        "determinant-volume"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "determinant-volume-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値の積・応用幾何へ接続するの小さな例を計算せよ。",
+      "answer": "det diag(2,3,4)=24。せん断が形を変えても面積を保つことを説明する。",
+      "explanation": "標準立方体の像を考え、対角伸縮・せん断・交換の倍率を掛け合わせてdetの意味を解釈する。 面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。",
+      "lessonId": "determinant-volume-concept-lesson",
+      "testsClaims": [
+        "determinant-volume-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "面積や体積の倍率は絶対値で、向きの情報は符号に残る。非線形写像へそのまま一般化しない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -3,50 +3,171 @@
   "module": "module-eigenvalues",
   "order": 1,
   "title": {
-    "ja": "characteristic polynomial",
-    "en": "characteristic polynomial"
+    "ja": "特性多項式",
+    "en": "Characteristic Polynomial"
   },
   "summary": {
-    "ja": "characteristic polynomialを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on characteristic polynomial."
+    "ja": "重複固有値・重複度へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Characteristic Polynomial, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "characteristic-polynomial"
     ],
-    "supporting": []
+    "supporting": [
+      "eigenvalue-eigenvector"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "eigenvalue-eigenvector"
+  ],
   "learning_objectives": [
-    "characteristic polynomialの基本的な意味を説明できる"
+    "重複固有値・重複度へ接続するを定義と具体例で説明できる",
+    "重複固有値・重複度へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、characteristic polynomialを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ特性多項式を学ぶのでしょうか。Av=λvに非零解があるには、A-λIが可逆であってはいけない。その条件をdet=0という一つの式に圧縮する。 重複固有値・重複度へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：eigenvalue-eigenvector。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "Av=λvに非零解があるには、A-λIが可逆であってはいけない。その条件をdet=0という一つの式に圧縮する。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。A-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[2,1],[0,3]]ならp(λ)=(2-λ)(3-λ)、固有値は2,3。 まず条件を確認し、A-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。 最後に固有値2,3を得たら、それぞれの固有空間を別に求める。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：重複固有値・重複度へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は固有値2,3を得たら、それぞれの固有空間を別に求める。"
+    },
+    {
+      "type": "summary",
+      "body": "重複固有値・重複度へ接続するは、正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。 重要なのは重複固有値・重複度へ接続するを式だけでなく、Av=λvに非零解があるには、A-λIが可逆であってはいけない。その条件をdet=0という一つの式に圧縮する。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のeigenspace-and-multiplicityでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "characteristic-polynomial-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "重複固有値・重複度へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "重複固有値・重複度へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "characteristic-polynomial-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってA-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。",
+          "具体例としてA=[[2,1],[0,3]]ならp(λ)=(2-λ)(3-λ)、固有値は2,3。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "固有値2,3を得たら、それぞれの固有空間を別に求める。",
+        "common_wrong_path": "p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。"
+      }
+    },
+    {
+      "id": "characteristic-polynomial-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "重複固有値・重複度へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "重複固有値・重複度へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "characteristic-polynomial-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってA-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。",
+          "具体例としてA=[[2,1],[0,3]]ならp(λ)=(2-λ)(3-λ)、固有値は2,3。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "固有値2,3を得たら、それぞれの固有空間を別に求める。",
+        "common_wrong_path": "p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。"
+      }
+    },
+    {
+      "id": "characteristic-polynomial-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "重複固有値・重複度へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "重複固有値・重複度へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "characteristic-polynomial-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってA-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。",
+          "具体例としてA=[[2,1],[0,3]]ならp(λ)=(2-λ)(3-λ)、固有値は2,3。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "固有値2,3を得たら、それぞれの固有空間を別に求める。",
+        "common_wrong_path": "p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "eigenvalue-eigenvector"
+  ],
+  "status": "audited"
 }

@@ -1,0 +1,113 @@
+{
+  "id": "characteristic-polynomial",
+  "title": {
+    "ja": "特性多項式",
+    "en": "Characteristic Polynomial"
+  },
+  "summary": {
+    "ja": "正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。",
+    "en": "正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "重複固有値・重複度へ接続するを定義と例で説明できる",
+    "重複固有値・重複度へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "characteristic-polynomial-concept-lesson",
+      "title": "特性多項式",
+      "summary": "重複固有値・重複度へ接続する",
+      "objectives": [
+        "重複固有値・重複度へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "characteristic-polynomial-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。 A=[[2,1],[0,3]]ならp(λ)=(2-λ)(3-λ)、固有値は2,3。",
+          "claimRefs": [
+            "characteristic-polynomial-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "characteristic-polynomial-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "characteristic-polynomial-claim-01",
+      "statement": "正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "Av=λvに非零解があるには、A-λIが可逆であってはいけない。その条件をdet=0という一つの式に圧縮する。 正方行列Aの特性多項式p(λ)=det(A-λI)の根がAの固有値である。 A-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。"
+  },
+  "examples": [
+    {
+      "id": "characteristic-polynomial-example",
+      "statement": "A=[[2,1],[0,3]]ならp(λ)=(2-λ)(3-λ)、固有値は2,3。",
+      "explanation": "A-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。 固有値2,3を得たら、それぞれの固有空間を別に求める。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "重複固有値・重複度へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "A-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。",
+        "固有値2,3を得たら、それぞれの固有空間を別に求める。"
+      ],
+      "finalConclusion": "固有値2,3を得たら、それぞれの固有空間を別に求める。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。",
+      "conceptsUsed": [
+        "characteristic-polynomial"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "characteristic-polynomial-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "重複固有値・重複度へ接続するの小さな例を計算せよ。",
+      "answer": "固有値2,3を得たら、それぞれの固有空間を別に求める。",
+      "explanation": "A-λIを作り、行列式を計算し、根を求め、各根ごとに(A-λI)v=0を解く。 p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。",
+      "lessonId": "characteristic-polynomial-concept-lesson",
+      "testsClaims": [
+        "characteristic-polynomial-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "p(λ)の符号規約はdet(A-λI)とdet(λI-A)で変わるが、根は同じ。多項式の根と固有ベクトルを混同しない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

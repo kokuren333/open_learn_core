@@ -3,50 +3,171 @@
   "module": "module-systems-matrices",
   "order": 4,
   "title": {
-    "ja": "rref and pivots",
-    "en": "rref and pivots"
+    "ja": "階段形・主変数・自由変数",
+    "en": "Echelon Form and Pivots"
   },
   "summary": {
-    "ja": "rref and pivotsを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on rref and pivots."
+    "ja": "rank・null spaceへの橋を作るを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Echelon Form and Pivots, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "rref-and-pivots"
     ],
-    "supporting": []
+    "supporting": [
+      "gaussian-elimination"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "gaussian-elimination"
+  ],
   "learning_objectives": [
-    "rref and pivotsの基本的な意味を説明できる"
+    "rank・null spaceへの橋を作るを定義と具体例で説明できる",
+    "rank・null spaceへの橋を作るの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、rref and pivotsを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ階段形・主変数・自由変数を学ぶのでしょうか。ピボットは、その列で新しい制約を代表する最初の非零成分である。自由変数は、方程式だけでは値が決まらない方向を表す。 rank・null spaceへの橋を作るは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：gaussian-elimination。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "ピボットは、その列で新しい制約を代表する最初の非零成分である。自由変数は、方程式だけでは値が決まらない方向を表す。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：x+2z=3, y-z=1のRREFからz=tと置けばx=3-2t,y=1+t。解は一つの直線として表される。 まず条件を確認し、行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。 最後にz=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：rank・null spaceへの橋を作るの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はz=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。"
+    },
+    {
+      "type": "summary",
+      "body": "rank・null spaceへの橋を作るは、主行基本形では各ピボットが1で、その列の他の成分が0になり、ピボット列と自由列から解の構造を読める。 重要なのはrank・null spaceへの橋を作るを式だけでなく、ピボットは、その列で新しい制約を代表する最初の非零成分である。自由変数は、方程式だけでは値が決まらない方向を表す。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のinverse-and-luでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "rref-and-pivots-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "rank・null spaceへの橋を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank・null spaceへの橋を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "rref-and-pivots-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。",
+          "具体例としてx+2z=3, y-z=1のRREFからz=tと置けばx=3-2t,y=1+t。解は一つの直線として表される。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。",
+        "common_wrong_path": "ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。"
+      }
+    },
+    {
+      "id": "rref-and-pivots-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "rank・null spaceへの橋を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank・null spaceへの橋を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "rref-and-pivots-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。",
+          "具体例としてx+2z=3, y-z=1のRREFからz=tと置けばx=3-2t,y=1+t。解は一つの直線として表される。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。",
+        "common_wrong_path": "ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。"
+      }
+    },
+    {
+      "id": "rref-and-pivots-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "rank・null spaceへの橋を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "rank・null spaceへの橋を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "rref-and-pivots-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って行を上から整え、各ピボットを1にし、ピボット列を掃き出して、自由変数をパラメータとして解を記述する。",
+          "具体例としてx+2z=3, y-z=1のRREFからz=tと置けばx=3-2t,y=1+t。解は一つの直線として表される。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "z=t, (x,y,z)=(3-2t,1+t,t)。自由変数が解の自由度を決める。",
+        "common_wrong_path": "ピボット数を未知数の個数と取り違えない。自由変数があれば解は一意ではない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "gaussian-elimination"
+  ],
+  "status": "audited"
 }

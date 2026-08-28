@@ -1,0 +1,113 @@
+{
+  "id": "quadratic-forms",
+  "title": {
+    "ja": "二次形式",
+    "en": "Quadratic Forms"
+  },
+  "summary": {
+    "ja": "二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。",
+    "en": "二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "SVD・PCA・最適化の幾何へつなぐを定義と例で説明できる",
+    "SVD・PCA・最適化の幾何へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "quadratic-forms-concept-lesson",
+      "title": "二次形式",
+      "summary": "SVD・PCA・最適化の幾何へつなぐ",
+      "objectives": [
+        "SVD・PCA・最適化の幾何へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "quadratic-forms-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。 q(x,y)=2x²+4xy+5y²はA=[[2,2],[2,5]]で表せ、対称行列なので固有値の符号から正定値性を調べられる。",
+          "claimRefs": [
+            "quadratic-forms-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "quadratic-forms-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "quadratic-forms-claim-01",
+      "statement": "二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "円・楕円・双曲線などの形は、方向ごとの二次的な伸び縮みの組合せとして現れる。 二次形式はq(x)=x^TAxで表され、対称部分だけが値に影響し、行列の固有方向で曲率を解釈できる。 Aを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。"
+  },
+  "examples": [
+    {
+      "id": "quadratic-forms-example",
+      "statement": "q(x,y)=2x²+4xy+5y²はA=[[2,2],[2,5]]で表せ、対称行列なので固有値の符号から正定値性を調べられる。",
+      "explanation": "Aを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。 q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "SVD・PCA・最適化の幾何へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "Aを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。",
+        "q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。"
+      ],
+      "finalConclusion": "q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。",
+      "conceptsUsed": [
+        "quadratic-forms"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "quadratic-forms-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "SVD・PCA・最適化の幾何へつなぐの小さな例を計算せよ。",
+      "answer": "q=x^TAxを展開して元の式へ戻ることで係数配置を検算する。",
+      "explanation": "Aを対称部分(A+A^T)/2へ置き換え、固有基底でqを対角形にし、固有値の符号で形を読む。 交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。",
+      "lessonId": "quadratic-forms-concept-lesson",
+      "testsClaims": [
+        "quadratic-forms-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "交差項の係数を行列へ写すときは2a12がxy係数になる。図形の判定を係数の見た目だけで行わない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

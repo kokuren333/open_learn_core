@@ -1,0 +1,113 @@
+{
+  "id": "determinant-invertibility",
+  "title": {
+    "ja": "行列式と可逆性",
+    "en": "Determinants and Invertibility"
+  },
+  "summary": {
+    "ja": "正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。",
+    "en": "正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "rank・線形方程式・数値安定性をつなぐを定義と例で説明できる",
+    "rank・線形方程式・数値安定性をつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "determinant-invertibility-concept-lesson",
+      "title": "行列式と可逆性",
+      "summary": "rank・線形方程式・数値安定性をつなぐ",
+      "objectives": [
+        "rank・線形方程式・数値安定性をつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "determinant-invertibility-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。 A=[[1,2],[2,4]]はdet=0。2列目=2×1列目なのでA(−2,1)^T=0、逆行列はない。",
+          "claimRefs": [
+            "determinant-invertibility-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "determinant-invertibility-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "determinant-invertibility-claim-01",
+      "statement": "正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "det=0は空間を低い次元へ押しつぶした状態で、情報が失われるため元に戻せない。 正方行列Aはdet(A)≠0のとき、かつそのときに限り可逆であり、det(A)=0なら零でないベクトルを零へ送る方向がある。 detを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。"
+  },
+  "examples": [
+    {
+      "id": "determinant-invertibility-example",
+      "statement": "A=[[1,2],[2,4]]はdet=0。2列目=2×1列目なのでA(−2,1)^T=0、逆行列はない。",
+      "explanation": "detを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。 detA=0なので非可逆。従属な列が情報を重複させている。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "rank・線形方程式・数値安定性をつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "detを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。",
+        "detA=0なので非可逆。従属な列が情報を重複させている。"
+      ],
+      "finalConclusion": "detA=0なので非可逆。従属な列が情報を重複させている。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。",
+      "conceptsUsed": [
+        "determinant-invertibility"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "determinant-invertibility-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "rank・線形方程式・数値安定性をつなぐの小さな例を計算せよ。",
+      "answer": "detA=0なので非可逆。従属な列が情報を重複させている。",
+      "explanation": "detを計算し、0かどうかから可逆性を判断し、必要ならAx=0の非自明解や逆行列の存在で裏付ける。 det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。",
+      "lessonId": "determinant-invertibility-concept-lesson",
+      "testsClaims": [
+        "determinant-invertibility-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "det≠0は数値計算で『安全』を意味しない。非常に小さいdetや条件数の問題は別に扱う。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

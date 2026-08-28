@@ -1,0 +1,113 @@
+{
+  "id": "orthonormal-bases",
+  "title": {
+    "ja": "正規直交系と正規直交基底",
+    "en": "Orthonormal Sets and Bases"
+  },
+  "summary": {
+    "ja": "ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。",
+    "en": "ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "Gram-SchmidtとQRの準備をするを定義と例で説明できる",
+    "Gram-SchmidtとQRの準備をするを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "orthonormal-bases-concept-lesson",
+      "title": "正規直交系と正規直交基底",
+      "summary": "Gram-SchmidtとQRの準備をする",
+      "objectives": [
+        "Gram-SchmidtとQRの準備をするを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "orthonormal-bases-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。 q1=(1,0), q2=(0,1)はR²の正規直交基底。v=(3,4)の係数はv·q1=3,v·q2=4。",
+          "claimRefs": [
+            "orthonormal-bases-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "orthonormal-bases-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "orthonormal-bases-claim-01",
+      "statement": "ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "互いに干渉しない単位方向をそろえると、座標係数が内積を一回計算するだけで読める。 ベクトル集合が正規直交系であるとは、各ベクトルのノルムが1で、異なる二本の内積が0であることをいう。 各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。"
+  },
+  "examples": [
+    {
+      "id": "orthonormal-bases-example",
+      "statement": "q1=(1,0), q2=(0,1)はR²の正規直交基底。v=(3,4)の係数はv·q1=3,v·q2=4。",
+      "explanation": "各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。 {q1,q2}は正規直交基底で、[v]_Q=(3,4)。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "Gram-SchmidtとQRの準備をする",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。",
+        "{q1,q2}は正規直交基底で、[v]_Q=(3,4)。"
+      ],
+      "finalConclusion": "{q1,q2}は正規直交基底で、[v]_Q=(3,4)。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。",
+      "conceptsUsed": [
+        "orthonormal-bases"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "orthonormal-bases-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "Gram-SchmidtとQRの準備をするの小さな例を計算せよ。",
+      "answer": "{q1,q2}は正規直交基底で、[v]_Q=(3,4)。",
+      "explanation": "各ノルムを1にし、相互内積を0と確認し、基底本数が空間の次元と一致するかを確認する。 直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。",
+      "lessonId": "orthonormal-bases-concept-lesson",
+      "testsClaims": [
+        "orthonormal-bases-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "直交しているだけでは単位長とは限らず、単位長だけでも互いに直交するとは限らない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

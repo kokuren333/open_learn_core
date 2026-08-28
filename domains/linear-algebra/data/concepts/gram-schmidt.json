@@ -1,0 +1,113 @@
+{
+  "id": "gram-schmidt",
+  "title": {
+    "ja": "Gram–Schmidt法",
+    "en": "The Gram–Schmidt Process"
+  },
+  "summary": {
+    "ja": "Gram–Schmidt法は、線形独立なベクトル列から同じspanを持つ正規直交基底を逐次的な射影除去で作る方法である。",
+    "en": "Gram–Schmidt法は、線形独立なベクトル列から同じspanを持つ正規直交基底を逐次的な射影除去で作る方法である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "QR分解と数値計算へ接続するを定義と例で説明できる",
+    "QR分解と数値計算へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "gram-schmidt-concept-lesson",
+      "title": "Gram–Schmidt法",
+      "summary": "QR分解と数値計算へ接続する",
+      "objectives": [
+        "QR分解と数値計算へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "gram-schmidt-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "Gram–Schmidt法は、線形独立なベクトル列から同じspanを持つ正規直交基底を逐次的な射影除去で作る方法である。 v1=(1,1), v2=(1,0)。q1=(1,1)/√2、v2-(v2·q1)q1=(1/2,-1/2)、q2=(1,-1)/√2。",
+          "claimRefs": [
+            "gram-schmidt-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "gram-schmidt-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "gram-schmidt-claim-01",
+      "statement": "Gram–Schmidt法は、線形独立なベクトル列から同じspanを持つ正規直交基底を逐次的な射影除去で作る方法である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "新しいベクトルから、すでに選んだ方向の影を引く。残った成分は既知の方向と直交し、最後に長さ1へ正規化する。 Gram–Schmidt法は、線形独立なベクトル列から同じspanを持つ正規直交基底を逐次的な射影除去で作る方法である。 u1を正規化し、u2からu1方向への射影を引き、得られたベクトルを正規化する。高次元ではこの手順を繰り返す。"
+  },
+  "examples": [
+    {
+      "id": "gram-schmidt-example",
+      "statement": "v1=(1,1), v2=(1,0)。q1=(1,1)/√2、v2-(v2·q1)q1=(1/2,-1/2)、q2=(1,-1)/√2。",
+      "explanation": "u1を正規化し、u2からu1方向への射影を引き、得られたベクトルを正規化する。高次元ではこの手順を繰り返す。 q1=(1,1)/√2,q2=(1,-1)/√2で、元の二本と同じ平面をspanする。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "QR分解と数値計算へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "u1を正規化し、u2からu1方向への射影を引き、得られたベクトルを正規化する。高次元ではこの手順を繰り返す。",
+        "q1=(1,1)/√2,q2=(1,-1)/√2で、元の二本と同じ平面をspanする。"
+      ],
+      "finalConclusion": "q1=(1,1)/√2,q2=(1,-1)/√2で、元の二本と同じ平面をspanする。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "入力が線形従属だと残差が零になり正規化できない。丸め誤差が大きい場合は改良版が必要になることがある。",
+      "conceptsUsed": [
+        "gram-schmidt"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "gram-schmidt-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "QR分解と数値計算へ接続するの小さな例を計算せよ。",
+      "answer": "q1=(1,1)/√2,q2=(1,-1)/√2で、元の二本と同じ平面をspanする。",
+      "explanation": "u1を正規化し、u2からu1方向への射影を引き、得られたベクトルを正規化する。高次元ではこの手順を繰り返す。 入力が線形従属だと残差が零になり正規化できない。丸め誤差が大きい場合は改良版が必要になることがある。",
+      "lessonId": "gram-schmidt-concept-lesson",
+      "testsClaims": [
+        "gram-schmidt-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "入力が線形従属だと残差が零になり正規化できない。丸め誤差が大きい場合は改良版が必要になることがある。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

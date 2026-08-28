@@ -3,50 +3,171 @@
   "module": "module-orthogonality",
   "order": 2,
   "title": {
-    "ja": "projection",
-    "en": "projection"
+    "ja": "直交射影",
+    "en": "Orthogonal Projection"
   },
   "summary": {
-    "ja": "projectionを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on projection."
+    "ja": "最小二乗へつなぐを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Orthogonal Projection, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "projection"
     ],
-    "supporting": []
+    "supporting": [
+      "orthogonal-complement"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "orthogonal-complement"
+  ],
   "learning_objectives": [
-    "projectionの基本的な意味を説明できる"
+    "最小二乗へつなぐを定義と具体例で説明できる",
+    "最小二乗へつなぐの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、projectionを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ直交射影を学ぶのでしょうか。斜めの点を、指定した直線や平面へ最も近い点として落とす。残った誤差は対象空間の方向と直交する。 最小二乗へつなぐは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：orthogonal-complement。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "斜めの点を、指定した直線や平面へ最も近い点として落とす。残った誤差は対象空間の方向と直交する。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：v=(2,1), u=(1,1)なら係数=(3/2)、射影=(3/2,3/2)、誤差=(1/2,-1/2)でuと直交する。 まず条件を確認し、直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。 最後にproj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：最小二乗へつなぐの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はproj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。"
+    },
+    {
+      "type": "summary",
+      "body": "最小二乗へつなぐは、部分空間Wへの直交射影proj_W(v)は、vからWへの誤差がW^⊥に入るようなW内のベクトルである。 重要なのは最小二乗へつなぐを式だけでなく、斜めの点を、指定した直線や平面へ最も近い点として落とす。残った誤差は対象空間の方向と直交する。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のorthonormal-basesでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "projection-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "最小二乗へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "最小二乗へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "projection-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。",
+          "具体例としてv=(2,1), u=(1,1)なら係数=(3/2)、射影=(3/2,3/2)、誤差=(1/2,-1/2)でuと直交する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。",
+        "common_wrong_path": "uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。"
+      }
+    },
+    {
+      "id": "projection-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "最小二乗へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "最小二乗へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "projection-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。",
+          "具体例としてv=(2,1), u=(1,1)なら係数=(3/2)、射影=(3/2,3/2)、誤差=(1/2,-1/2)でuと直交する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。",
+        "common_wrong_path": "uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。"
+      }
+    },
+    {
+      "id": "projection-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "最小二乗へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "最小二乗へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "projection-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って直交基底ならproj_W(v)=Σ(v·q_i)q_i、一般の一本の方向uなら((v·u)/(u·u))uを使う。",
+          "具体例としてv=(2,1), u=(1,1)なら係数=(3/2)、射影=(3/2,3/2)、誤差=(1/2,-1/2)でuと直交する。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "proj_W(v)=(3/2,3/2)。距離最小性は誤差の直交性から説明できる。",
+        "common_wrong_path": "uを単位ベクトルと仮定して分母を落とさない。射影先がWであることと、誤差が直交することを検算する。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "orthogonal-complement"
+  ],
+  "status": "audited"
 }

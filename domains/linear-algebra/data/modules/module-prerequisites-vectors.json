@@ -27,5 +27,30 @@
     "vector-addition",
     "scalar-multiplication",
     "dot-product-and-norm"
-  ]
+  ],
+  "exercise_ids": [
+    "module-prerequisites-vectors-exercise-basic",
+    "module-prerequisites-vectors-exercise-conceptual",
+    "module-prerequisites-vectors-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "ベクトルの言葉と計算を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Prerequisites and Vectors."
+  },
+  "entry_prerequisites": [
+    "secondary-school algebra fluency"
+  ],
+  "learning_objectives": [
+    "scalar-introductionの定義・例・基本計算を説明できる",
+    "vector-introductionの定義・例・基本計算を説明できる",
+    "vector-notationの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "scalarsからdistanceまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "none",
+    "next": "module-systems-matrices"
+  }
 }

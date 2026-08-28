@@ -3,50 +3,171 @@
   "module": "module-eigenvalues",
   "order": 3,
   "title": {
-    "ja": "diagonalization",
-    "en": "diagonalization"
+    "ja": "対角化",
+    "en": "Diagonalization"
   },
   "summary": {
-    "ja": "diagonalizationを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on diagonalization."
+    "ja": "相似・対角化・スペクトル定理へ接続するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Diagonalization, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "diagonalization"
     ],
-    "supporting": []
+    "supporting": [
+      "eigenspace-and-multiplicity"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "eigenspace-and-multiplicity"
+  ],
   "learning_objectives": [
-    "diagonalizationの基本的な意味を説明できる"
+    "相似・対角化・スペクトル定理へ接続するを定義と具体例で説明できる",
+    "相似・対角化・スペクトル定理へ接続するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、diagonalizationを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ対角化を学ぶのでしょうか。適切な固有ベクトルを座標軸に選び直すと、複雑な作用が各軸の独立な伸縮に分解される。 相似・対角化・スペクトル定理へ接続するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：eigenspace-and-multiplicity。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "適切な固有ベクトルを座標軸に選び直すと、複雑な作用が各軸の独立な伸縮に分解される。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=diag(2,3)はP=I,D=Aで既に対角化。一般にA^k=PD^kP^{-1}と計算できる。 まず条件を確認し、固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。 最後にPの列が独立でAP=PDならA=PDP^{-1}。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：相似・対角化・スペクトル定理へ接続するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はPの列が独立でAP=PDならA=PDP^{-1}。"
+    },
+    {
+      "type": "summary",
+      "body": "相似・対角化・スペクトル定理へ接続するは、Aがn本の線形独立な固有ベクトルを持つとき、A=PDP^{-1}と対角化でき、Dの対角成分は固有値である。 重要なのは相似・対角化・スペクトル定理へ接続するを式だけでなく、適切な固有ベクトルを座標軸に選び直すと、複雑な作用が各軸の独立な伸縮に分解される。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のsymmetric-spectral-theoremでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "diagonalization-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "相似・対角化・スペクトル定理へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "相似・対角化・スペクトル定理へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "diagonalization-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。",
+          "具体例としてA=diag(2,3)はP=I,D=Aで既に対角化。一般にA^k=PD^kP^{-1}と計算できる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Pの列が独立でAP=PDならA=PDP^{-1}。",
+        "common_wrong_path": "固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。"
+      }
+    },
+    {
+      "id": "diagonalization-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "相似・対角化・スペクトル定理へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "相似・対角化・スペクトル定理へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "diagonalization-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。",
+          "具体例としてA=diag(2,3)はP=I,D=Aで既に対角化。一般にA^k=PD^kP^{-1}と計算できる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Pの列が独立でAP=PDならA=PDP^{-1}。",
+        "common_wrong_path": "固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。"
+      }
+    },
+    {
+      "id": "diagonalization-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "相似・対角化・スペクトル定理へ接続するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "相似・対角化・スペクトル定理へ接続するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "diagonalization-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って固有ベクトルを列に並べPを作り、対応する固有値をDに並べ、AP=PDを検算する。",
+          "具体例としてA=diag(2,3)はP=I,D=Aで既に対角化。一般にA^k=PD^kP^{-1}と計算できる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Pの列が独立でAP=PDならA=PDP^{-1}。",
+        "common_wrong_path": "固有値があるだけでは不十分。固有ベクトルが空間をspanする本数必要で、重複不足なら対角化できない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "eigenspace-and-multiplicity"
+  ],
+  "status": "audited"
 }

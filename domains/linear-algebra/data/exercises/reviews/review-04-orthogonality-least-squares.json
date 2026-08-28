@@ -1,0 +1,19 @@
+{
+  "id": "review-04-orthogonality-least-squares",
+  "title": {
+    "ja": "計算横断レビュー：直交性・最小二乗・近似",
+    "en": "Review 4: Orthogonality, Least Squares, and Approximation"
+  },
+  "module_ids": [
+    "module-orthogonality",
+    "module-applications"
+  ],
+  "exercise_ids": [
+    "module-orthogonality-exercise-basic",
+    "module-orthogonality-exercise-conceptual",
+    "module-orthogonality-exercise-synthesis",
+    "module-applications-exercise-basic",
+    "module-applications-exercise-conceptual",
+    "module-applications-exercise-synthesis"
+  ]
+}

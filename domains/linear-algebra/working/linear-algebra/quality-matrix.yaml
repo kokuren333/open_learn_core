@@ -1,0 +1,23 @@
+motivation:
+  exists: false
+  substantial: false
+  problem_driven: true
+intuition:
+  exists: false
+  concrete_example: true
+  formal_bridge: false
+definition:
+  exact: true
+  unpacked: false
+  conditions_explained: true
+examples:
+  progressive: true
+  positive: 0
+  counterexample: 0
+worked_examples:
+  stepwise: 0
+  count: 0
+assessment:
+  objective_coverage: complete
+visuals:
+  conceptually_correct: true

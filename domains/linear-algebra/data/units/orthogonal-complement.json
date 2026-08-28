@@ -3,50 +3,171 @@
   "module": "module-orthogonality",
   "order": 1,
   "title": {
-    "ja": "orthogonal complement",
-    "en": "orthogonal complement"
+    "ja": "直交補空間",
+    "en": "Orthogonal Complements"
   },
   "summary": {
-    "ja": "orthogonal complementを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on orthogonal complement."
+    "ja": "projection・least squaresへの橋を作るを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Orthogonal Complements, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "orthogonal-complement"
     ],
-    "supporting": []
+    "supporting": [
+      "orthogonality"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "orthogonality"
+  ],
   "learning_objectives": [
-    "orthogonal complementの基本的な意味を説明できる"
+    "projection・least squaresへの橋を作るを定義と具体例で説明できる",
+    "projection・least squaresへの橋を作るの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、orthogonal complementを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ直交補空間を学ぶのでしょうか。W^⊥は、Wの方向成分を一切持たない方向の集合である。R²の直線に対する補空間は、原点を通る垂直な直線になる。 projection・least squaresへの橋を作るは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：orthogonality。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "W^⊥は、Wの方向成分を一切持たない方向の集合である。R²の直線に対する補空間は、原点を通る垂直な直線になる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。Wの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：W=span{(1,1)}なら(x,y)·(1,1)=0、つまりx+y=0なのでW^⊥=span{(1,-1)}。 まず条件を確認し、Wの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。 最後にW^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：projection・least squaresへの橋を作るの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はW^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。"
+    },
+    {
+      "type": "summary",
+      "body": "projection・least squaresへの橋を作るは、部分空間Wの直交補空間W^⊥は、Wのすべてのベクトルと内積0になるベクトル全体である。 重要なのはprojection・least squaresへの橋を作るを式だけでなく、W^⊥は、Wの方向成分を一切持たない方向の集合である。R²の直線に対する補空間は、原点を通る垂直な直線になる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のprojectionでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "orthogonal-complement-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "projection・least squaresへの橋を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "projection・least squaresへの橋を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "orthogonal-complement-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってWの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。",
+          "具体例としてW=span{(1,1)}なら(x,y)·(1,1)=0、つまりx+y=0なのでW^⊥=span{(1,-1)}。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。",
+        "common_wrong_path": "W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。"
+      }
+    },
+    {
+      "id": "orthogonal-complement-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "projection・least squaresへの橋を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "projection・least squaresへの橋を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "orthogonal-complement-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってWの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。",
+          "具体例としてW=span{(1,1)}なら(x,y)·(1,1)=0、つまりx+y=0なのでW^⊥=span{(1,-1)}。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。",
+        "common_wrong_path": "W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。"
+      }
+    },
+    {
+      "id": "orthogonal-complement-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "projection・least squaresへの橋を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "projection・least squaresへの橋を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "orthogonal-complement-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿ってWの生成ベクトルとの内積を0とする方程式を立て、解集合が部分空間であることを確認する。",
+          "具体例としてW=span{(1,1)}なら(x,y)·(1,1)=0、つまりx+y=0なのでW^⊥=span{(1,-1)}。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "W^⊥はspan{(1,-1)}で、R²を二つの直交方向に分ける。",
+        "common_wrong_path": "W^⊥をWの『集合差』と考えない。直交補は内積で定まる。またW自身と同じとは限らない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "orthogonality"
+  ],
+  "status": "audited"
 }

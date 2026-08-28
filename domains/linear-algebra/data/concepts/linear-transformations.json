@@ -1,0 +1,113 @@
+{
+  "id": "linear-transformations",
+  "title": {
+    "ja": "線形写像",
+    "en": "Linear Transformations"
+  },
+  "summary": {
+    "ja": "線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。",
+    "en": "線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "kernel・imageと行列表現へ接続するを定義と例で説明できる",
+    "kernel・imageと行列表現へ接続するを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "linear-transformations-concept-lesson",
+      "title": "線形写像",
+      "summary": "kernel・imageと行列表現へ接続する",
+      "objectives": [
+        "kernel・imageと行列表現へ接続するを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "linear-transformations-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。 T(x,y)=(2x-y,x)ではT(u+v)=T(u)+T(v)、T(3u)=3T(u)が成分計算で確かめられる。",
+          "claimRefs": [
+            "linear-transformations-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "linear-transformations-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "linear-transformations-claim-01",
+      "statement": "線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "線形写像は、原点を保ちながら空間を伸ばす・回す・つぶす規則である。入力を分解して処理した結果が、先に足してから処理した結果と一致する。 線形写像T:V→WはT(u+v)=T(u)+T(v)、T(cv)=cT(v)を満たし、加法とスカラー倍の構造を保つ写像である。 零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。"
+  },
+  "examples": [
+    {
+      "id": "linear-transformations-example",
+      "statement": "T(x,y)=(2x-y,x)ではT(u+v)=T(u)+T(v)、T(3u)=3T(u)が成分計算で確かめられる。",
+      "explanation": "零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。 T(0)=0で、和とスカラー倍を保つのでTは線形。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "kernel・imageと行列表現へ接続する",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。",
+        "T(0)=0で、和とスカラー倍を保つのでTは線形。"
+      ],
+      "finalConclusion": "T(0)=0で、和とスカラー倍を保つのでTは線形。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。",
+      "conceptsUsed": [
+        "linear-transformations"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "linear-transformations-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "kernel・imageと行列表現へ接続するの小さな例を計算せよ。",
+      "answer": "T(0)=0で、和とスカラー倍を保つのでTは線形。",
+      "explanation": "零ベクトルの像を確認し、加法性と斉次性を一般のu,v,cで確認してから、標準基底の像を行列へ並べる。 平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。",
+      "lessonId": "linear-transformations-concept-lesson",
+      "testsClaims": [
+        "linear-transformations-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "平行移動T(x)=x+b（b≠0）は原点を保たず線形でない。線形写像と一般の関数を区別する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

@@ -30,5 +30,30 @@
     "graph-network-matrices",
     "differential-and-fourier",
     "numerical-stability"
-  ]
+  ],
+  "exercise_ids": [
+    "module-applications-exercise-basic",
+    "module-applications-exercise-conceptual",
+    "module-applications-exercise-synthesis"
+  ],
+  "purpose": {
+    "ja": "応用と発展を、前提関係と学習活動に沿って構成する。",
+    "en": "A coherent module on Applications and Advanced Topics."
+  },
+  "entry_prerequisites": [
+    "module-eigenvalues"
+  ],
+  "learning_objectives": [
+    "quadratic-formsの定義・例・基本計算を説明できる",
+    "svd-intuitionの定義・例・基本計算を説明できる",
+    "low-rank-approximationの定義・例・基本計算を説明できる"
+  ],
+  "exit_competencies": [
+    "quadratic formsからnumerical stabilityまでの主要な関係を説明できる",
+    "Module演習をbasic・standard・challengeの三役割で解ける"
+  ],
+  "adjacent_modules": {
+    "previous": "module-eigenvalues",
+    "next": "none"
+  }
 }

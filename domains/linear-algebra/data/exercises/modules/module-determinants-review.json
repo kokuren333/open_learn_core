@@ -1,0 +1,82 @@
+{
+  "id": "module-determinants-review",
+  "module": "module-determinants",
+  "title": {
+    "ja": "行列式と可逆性 Module演習",
+    "en": "Determinants Module Review"
+  },
+  "exercises": [
+    {
+      "id": "module-determinants-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "determinant intuitionについて、このModuleで使う基本的な定義または計算規則を一つ書き、小さな例で確認せよ。",
+      "solution": {
+        "what_is_asked": "行列式と可逆性のdeterminant intuitionについて、calculationを行う。",
+        "concepts": [
+          "determinant intuition"
+        ],
+        "strategy": "determinant intuitionの定義を式にし、例へ代入する。",
+        "steps": [
+          "対象の次元・条件・記号を確認する。",
+          "determinant intuitionの定義を式にし、例へ代入する。",
+          "小さな例または定義へ戻って結果を検算する。"
+        ],
+        "why": [
+          "条件を先に固定すると、似た記号や異なる規約を混同しにくい。",
+          "最後に意味へ戻ることで、答えが単なる数値で終わらない。"
+        ],
+        "conclusion": "determinant intuitionの定義を明示し、例の各ステップを計算できる。",
+        "common_wrong_path": "用語だけを答え、対象や条件を示さない。"
+      }
+    },
+    {
+      "id": "module-determinants-exercise-conceptual",
+      "type": "explanation",
+      "difficulty": "standard",
+      "question": "determinant intuitionとdefinitionの関係を、計算・幾何・構造のうち二つの観点で説明せよ。",
+      "solution": {
+        "what_is_asked": "行列式と可逆性のdeterminant intuition・definitionについて、explanationを行う。",
+        "concepts": [
+          "determinant intuition・definition"
+        ],
+        "strategy": "二つの語を別々に定義してから、共通する例の中で接続する。",
+        "steps": [
+          "対象の次元・条件・記号を確認する。",
+          "二つの語を別々に定義してから、共通する例の中で接続する。",
+          "小さな例または定義へ戻って結果を検算する。"
+        ],
+        "why": [
+          "条件を先に固定すると、似た記号や異なる規約を混同しにくい。",
+          "最後に意味へ戻ることで、答えが単なる数値で終わらない。"
+        ],
+        "conclusion": "determinant intuitionを定義し、definitionがその結果をどう利用するかを、式または具体例付きで説明する。",
+        "common_wrong_path": "似た言葉を同義語として扱い、条件の違いを消す。"
+      }
+    },
+    {
+      "id": "module-determinants-exercise-synthesis",
+      "type": "synthesis",
+      "difficulty": "challenge",
+      "question": "determinant intuitionからorientationまでの学習内容を使う、小さな総合問題を設計し、解法と検算を示せ。",
+      "solution": {
+        "what_is_asked": "行列式と可逆性のdeterminant intuition・orientationについて、synthesisを行う。",
+        "concepts": [
+          "determinant intuition・orientation"
+        ],
+        "strategy": "出発条件→中間表現→最終計算→解釈の順に分解する。",
+        "steps": [
+          "対象の次元・条件・記号を確認する。",
+          "出発条件→中間表現→最終計算→解釈の順に分解する。",
+          "小さな例または定義へ戻って結果を検算する。"
+        ],
+        "why": [
+          "条件を先に固定すると、似た記号や異なる規約を混同しにくい。",
+          "最後に意味へ戻ることで、答えが単なる数値で終わらない。"
+        ],
+        "conclusion": "determinant intuitionの条件を出発点に、orientationへ至る三段階以上の推論を示し、最後に元の条件へ戻って検算する。",
+        "common_wrong_path": "最後の公式だけを適用し、前提条件や中間結果を省略する。"
+      }
+    }
+  ]
+}

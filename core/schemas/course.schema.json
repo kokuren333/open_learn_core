@@ -13,6 +13,12 @@
     "modules": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
     "units": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
     "status": { "type": "string", "enum": ["experimental", "course_ready", "published"] },
+    "version": { "type": "string" },
+    "target_learner": { "$ref": "concept.schema.json#/$defs/localized" },
+    "prerequisites": { "type": "array", "items": { "type": "string" } },
+    "reviews": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "license": { "type": "object" },
+    "repository": { "type": "string" },
     "requirements": { "type": "object" },
     "evidence_review": { "type": "string" }
   }

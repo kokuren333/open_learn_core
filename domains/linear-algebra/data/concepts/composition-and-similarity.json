@@ -1,0 +1,113 @@
+{
+  "id": "composition-and-similarity",
+  "title": {
+    "ja": "写像の合成と相似",
+    "en": "Composition and Similarity"
+  },
+  "summary": {
+    "ja": "線形写像Sの後にTを適用する合成T∘Sは線形で、基底を変えた同じ線形写像の行列はP^{-1}APで相似である。",
+    "en": "線形写像Sの後にTを適用する合成T∘Sは線形で、基底を変えた同じ線形写像の行列はP^{-1}APで相似である。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "固有値・対角化への準備をするを定義と例で説明できる",
+    "固有値・対角化への準備をするを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "composition-and-similarity-concept-lesson",
+      "title": "写像の合成と相似",
+      "summary": "固有値・対角化への準備をする",
+      "objectives": [
+        "固有値・対角化への準備をするを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "composition-and-similarity-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "線形写像Sの後にTを適用する合成T∘Sは線形で、基底を変えた同じ線形写像の行列はP^{-1}APで相似である。 S(x,y)=(x+y,y), T(x,y)=(x,2y)ならT∘S(x,y)=(x+y,2y)。順序を逆にすると一般に異なる。",
+          "claimRefs": [
+            "composition-and-similarity-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "composition-and-similarity-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "composition-and-similarity-claim-01",
+      "statement": "線形写像Sの後にTを適用する合成T∘Sは線形で、基底を変えた同じ線形写像の行列はP^{-1}APで相似である。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "処理を二つ続けて行うと、一つの処理にまとめられる。相似行列は同じ作用を別の座標言語で記録したものである。 線形写像Sの後にTを適用する合成T∘Sは線形で、基底を変えた同じ線形写像の行列はP^{-1}APで相似である。 合成の順序を右から左へ適用し、基底行列Pの向きを確認して表現行列を変換する。"
+  },
+  "examples": [
+    {
+      "id": "composition-and-similarity-example",
+      "statement": "S(x,y)=(x+y,y), T(x,y)=(x,2y)ならT∘S(x,y)=(x+y,2y)。順序を逆にすると一般に異なる。",
+      "explanation": "合成の順序を右から左へ適用し、基底行列Pの向きを確認して表現行列を変換する。 合成は線形で、行列表現は積TS。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "固有値・対角化への準備をする",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "合成の順序を右から左へ適用し、基底行列Pの向きを確認して表現行列を変換する。",
+        "合成は線形で、行列表現は積TS。"
+      ],
+      "finalConclusion": "合成は線形で、行列表現は積TS。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "ABとBAを同一視しない。相似は行列要素が同じという意味ではなく、同じ線形作用の座標表現が変わったという意味。",
+      "conceptsUsed": [
+        "composition-and-similarity"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "composition-and-similarity-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値・対角化への準備をするの小さな例を計算せよ。",
+      "answer": "合成は線形で、行列表現は積TS。",
+      "explanation": "合成の順序を右から左へ適用し、基底行列Pの向きを確認して表現行列を変換する。 ABとBAを同一視しない。相似は行列要素が同じという意味ではなく、同じ線形作用の座標表現が変わったという意味。",
+      "lessonId": "composition-and-similarity-concept-lesson",
+      "testsClaims": [
+        "composition-and-similarity-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "ABとBAを同一視しない。相似は行列要素が同じという意味ではなく、同じ線形作用の座標表現が変わったという意味。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

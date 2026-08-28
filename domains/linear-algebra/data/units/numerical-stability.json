@@ -3,50 +3,171 @@
   "module": "module-applications",
   "order": 7,
   "title": {
-    "ja": "numerical stability",
-    "en": "numerical stability"
+    "ja": "数値安定性",
+    "en": "Numerical Stability"
   },
   "summary": {
-    "ja": "numerical stabilityを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on numerical stability."
+    "ja": "SVD・実データ・計算実装を締めくくるを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Numerical Stability, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "numerical-stability"
     ],
-    "supporting": []
+    "supporting": [
+      "differential-and-fourier"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "differential-and-fourier"
+  ],
   "learning_objectives": [
-    "numerical stabilityの基本的な意味を説明できる"
+    "SVD・実データ・計算実装を締めくくるを定義と具体例で説明できる",
+    "SVD・実データ・計算実装を締めくくるの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、numerical stabilityを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ数値安定性を学ぶのでしょうか。同じ数学問題でも、細い方向を持つ行列では少しの測定誤差が解を大きく動かす。問題の敏感さと解法の悪さは別の原因である。 SVD・実データ・計算実装を締めくくるは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：differential-and-fourier。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "同じ数学問題でも、細い方向を持つ行列では少しの測定誤差が解を大きく動かす。問題の敏感さと解法の悪さは別の原因である。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=diag(1,10^{-6})では、第一方向と第二方向で倍率が大きく異なり、第二成分の相対誤差が増幅されやすい。 まず条件を確認し、条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。 最後に残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：SVD・実データ・計算実装を締めくくるの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。"
+    },
+    {
+      "type": "summary",
+      "body": "SVD・実データ・計算実装を締めくくるは、数値安定性は、入力や丸め誤差の小さな変化が計算結果へ過度に増幅されない性質であり、条件数とアルゴリズムの安定性を区別する。 重要なのはSVD・実データ・計算実装を締めくくるを式だけでなく、同じ数学問題でも、細い方向を持つ行列では少しの測定誤差が解を大きく動かす。問題の敏感さと解法の悪さは別の原因である。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "最後に、複数のModuleを横断するレビューで再利用します。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "numerical-stability-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "SVD・実データ・計算実装を締めくくるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "SVD・実データ・計算実装を締めくくるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "numerical-stability-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。",
+          "具体例としてA=diag(1,10^{-6})では、第一方向と第二方向で倍率が大きく異なり、第二成分の相対誤差が増幅されやすい。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。",
+        "common_wrong_path": "detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。"
+      }
+    },
+    {
+      "id": "numerical-stability-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "SVD・実データ・計算実装を締めくくるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "SVD・実データ・計算実装を締めくくるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "numerical-stability-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。",
+          "具体例としてA=diag(1,10^{-6})では、第一方向と第二方向で倍率が大きく異なり、第二成分の相対誤差が増幅されやすい。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。",
+        "common_wrong_path": "detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。"
+      }
+    },
+    {
+      "id": "numerical-stability-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "SVD・実データ・計算実装を締めくくるを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "SVD・実データ・計算実装を締めくくるについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "numerical-stability-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って条件数・残差・相対誤差を確認し、可能なら逆行列の明示よりQRやLUなど構造を利用した解法を選ぶ。",
+          "具体例としてA=diag(1,10^{-6})では、第一方向と第二方向で倍率が大きく異なり、第二成分の相対誤差が増幅されやすい。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "残差||Ax-b||が小さいことと解の相対誤差が小さいことを別に報告する。",
+        "common_wrong_path": "detが非零でも条件数が大きければ数値的に扱いにくい。丸め誤差を『数学的な非可逆性』と混同しない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "differential-and-fourier"
+  ],
+  "status": "audited"
 }

@@ -1,0 +1,113 @@
+{
+  "id": "change-of-basis",
+  "title": {
+    "ja": "基底変換",
+    "en": "Change of Basis"
+  },
+  "summary": {
+    "ja": "同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。",
+    "en": "同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "行列表示・相似へつなぐを定義と例で説明できる",
+    "行列表示・相似へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "change-of-basis-concept-lesson",
+      "title": "基底変換",
+      "summary": "行列表示・相似へつなぐ",
+      "objectives": [
+        "行列表示・相似へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "change-of-basis-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。 B={(1,0),(0,1)}, C={(1,1),(1,-1)}で[v]_B=(3,1)ならv=(3,1)=2(1,1)+1(1,-1)、よって[v]_C=(2,1)。",
+          "claimRefs": [
+            "change-of-basis-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "change-of-basis-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "change-of-basis-claim-01",
+      "statement": "同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "物体を変えずに、ものさしだけを取り替える。数字は変わるが、基底ベクトルの線形結合として再構成した結果は同じベクトルになる。 同じベクトルの座標を基底Bから基底Cへ変換するには、基底行列を用いて[v]_C=P_{C←B}[v]_Bと表す。 基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。"
+  },
+  "examples": [
+    {
+      "id": "change-of-basis-example",
+      "statement": "B={(1,0),(0,1)}, C={(1,1),(1,-1)}で[v]_B=(3,1)ならv=(3,1)=2(1,1)+1(1,-1)、よって[v]_C=(2,1)。",
+      "explanation": "基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。 P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "行列表示・相似へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。",
+        "P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。"
+      ],
+      "finalConclusion": "P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。",
+      "conceptsUsed": [
+        "change-of-basis"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "change-of-basis-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "行列表示・相似へつなぐの小さな例を計算せよ。",
+      "answer": "P_{C←B}[[3],[1]]=[[2],[1]]。変換後にCの基底で再構成して検算する。",
+      "explanation": "基底行列を列ベクトルで作り、B座標から実ベクトルへ戻し、Cの係数を未知数として連立方程式を解く。 座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。",
+      "lessonId": "change-of-basis-concept-lesson",
+      "testsClaims": [
+        "change-of-basis-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "座標変換行列の向きを逆にしない。P_{C←B}はB座標を入力し、C座標を出力する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

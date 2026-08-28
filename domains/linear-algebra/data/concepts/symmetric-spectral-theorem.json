@@ -1,0 +1,113 @@
+{
+  "id": "symmetric-spectral-theorem",
+  "title": {
+    "ja": "対称行列とスペクトル定理",
+    "en": "Symmetric Matrices and the Spectral Theorem"
+  },
+  "summary": {
+    "ja": "実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。",
+    "en": "実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "二次形式・正定値性へつなぐを定義と例で説明できる",
+    "二次形式・正定値性へつなぐを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "symmetric-spectral-theorem-concept-lesson",
+      "title": "対称行列とスペクトル定理",
+      "summary": "二次形式・正定値性へつなぐ",
+      "objectives": [
+        "二次形式・正定値性へつなぐを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "symmetric-spectral-theorem-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。 A=[[2,1],[1,2]]の固有値3,1に対し、q1=(1,1)/√2,q2=(1,-1)/√2が直交正規基底を作る。",
+          "claimRefs": [
+            "symmetric-spectral-theorem-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "symmetric-spectral-theorem-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "symmetric-spectral-theorem-claim-01",
+      "statement": "実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "対称性は、異なる固有値の方向が直交するという強い秩序を生む。斜めの変換を、直交座標で独立な伸縮として読む。 実対称行列は、互いに直交する固有ベクトルからなる正規直交基底を持ち、A=QΛQ^Tと直交対角化できる。 固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。"
+  },
+  "examples": [
+    {
+      "id": "symmetric-spectral-theorem-example",
+      "statement": "A=[[2,1],[1,2]]の固有値3,1に対し、q1=(1,1)/√2,q2=(1,-1)/√2が直交正規基底を作る。",
+      "explanation": "固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。 Q^TQ=Iで、A=Q diag(3,1) Q^T。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "二次形式・正定値性へつなぐ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。",
+        "Q^TQ=Iで、A=Q diag(3,1) Q^T。"
+      ],
+      "finalConclusion": "Q^TQ=Iで、A=Q diag(3,1) Q^T。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。",
+      "conceptsUsed": [
+        "symmetric-spectral-theorem"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "symmetric-spectral-theorem-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "二次形式・正定値性へつなぐの小さな例を計算せよ。",
+      "answer": "Q^TQ=Iで、A=Q diag(3,1) Q^T。",
+      "explanation": "固有値・固有ベクトルを求め、各固有空間で正規化し、Q^TQ=IとQΛQ^T=Aを確認する。 任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。",
+      "lessonId": "symmetric-spectral-theorem-concept-lesson",
+      "testsClaims": [
+        "symmetric-spectral-theorem-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "任意の行列が直交対角化できるわけではない。実対称性という仮定を明示する。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

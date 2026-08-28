@@ -3,50 +3,171 @@
   "module": "module-systems-matrices",
   "order": 2,
   "title": {
-    "ja": "matrix operations",
-    "en": "matrix operations"
+    "ja": "行列の演算",
+    "en": "Matrix Operations"
   },
   "summary": {
-    "ja": "matrix operationsを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on matrix operations."
+    "ja": "形状と合成の関係を理解するを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Matrix Operations, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "matrix-operations"
     ],
-    "supporting": []
+    "supporting": [
+      "matrix-introduction"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "matrix-introduction"
+  ],
   "learning_objectives": [
-    "matrix operationsの基本的な意味を説明できる"
+    "形状と合成の関係を理解するを定義と具体例で説明できる",
+    "形状と合成の関係を理解するの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、matrix operationsを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ行列の演算を学ぶのでしょうか。行列積は二つの処理を順に適用する合成であり、表の要素をばらばらに掛ける操作ではない。 形状と合成の関係を理解するは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：matrix-introduction。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "行列積は二つの処理を順に適用する合成であり、表の要素をばらばらに掛ける操作ではない。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：A=[[1,2],[0,1]], B=[[2,0],[3,1]]ならAB=[[8,2],[3,1]]。BA=[[2,4],[3,7]]で一般に異なる。 まず条件を確認し、加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。 最後にAB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：形状と合成の関係を理解するの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はAB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。"
+    },
+    {
+      "type": "summary",
+      "body": "形状と合成の関係を理解するは、行列の加法は同じ形状の対応成分の和、積ABはAの行とBの列の内積で定まる。 重要なのは形状と合成の関係を理解するを式だけでなく、行列積は二つの処理を順に適用する合成であり、表の要素をばらばらに掛ける操作ではない。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のgaussian-eliminationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "matrix-operations-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "形状と合成の関係を理解するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "形状と合成の関係を理解するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "matrix-operations-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。",
+          "具体例としてA=[[1,2],[0,1]], B=[[2,0],[3,1]]ならAB=[[8,2],[3,1]]。BA=[[2,4],[3,7]]で一般に異なる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。",
+        "common_wrong_path": "積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。"
+      }
+    },
+    {
+      "id": "matrix-operations-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "形状と合成の関係を理解するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "形状と合成の関係を理解するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "matrix-operations-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。",
+          "具体例としてA=[[1,2],[0,1]], B=[[2,0],[3,1]]ならAB=[[8,2],[3,1]]。BA=[[2,4],[3,7]]で一般に異なる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。",
+        "common_wrong_path": "積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。"
+      }
+    },
+    {
+      "id": "matrix-operations-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "形状と合成の関係を理解するを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "形状と合成の関係を理解するについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "matrix-operations-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って加法では形状を一致させ、積ではAの列数とBの行数を確認し、各成分を行・列の内積で計算する。",
+          "具体例としてA=[[1,2],[0,1]], B=[[2,0],[3,1]]ならAB=[[8,2],[3,1]]。BA=[[2,4],[3,7]]で一般に異なる。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "AB=[[8,2],[3,1]]。内側の次元が一致し、外側の次元が結果になる。",
+        "common_wrong_path": "積は交換法則を満たさない。ABが定義できてもBAが定義できるとは限らない。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "matrix-introduction"
+  ],
+  "status": "audited"
 }

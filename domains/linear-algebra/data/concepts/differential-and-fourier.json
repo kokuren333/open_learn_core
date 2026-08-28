@@ -1,0 +1,113 @@
+{
+  "id": "differential-and-fourier",
+  "title": {
+    "ja": "微分方程式・Fourierとの接続",
+    "en": "Differential Equations and Fourier Connections"
+  },
+  "summary": {
+    "ja": "線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。",
+    "en": "線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。"
+  },
+  "prerequisites": [],
+  "related": [],
+  "learningObjectives": [
+    "線形代数を応用へ運ぶを定義と例で説明できる",
+    "線形代数を応用へ運ぶを小さな計算へ適用できる"
+  ],
+  "teachingSequence": [
+    "motivation",
+    "intuition",
+    "formal_definition",
+    "worked_example",
+    "counterexample",
+    "checkpoint",
+    "connection"
+  ],
+  "designRationale": [
+    "具体例から形式定義へ進み、最後に計算と境界条件へ戻る。",
+    "前後のUnitとの接続を明示して、単独カード化を避ける。"
+  ],
+  "lessons": [
+    {
+      "id": "differential-and-fourier-concept-lesson",
+      "title": "微分方程式・Fourierとの接続",
+      "summary": "線形代数を応用へ運ぶ",
+      "objectives": [
+        "線形代数を応用へ運ぶを説明できる"
+      ],
+      "sections": [
+        {
+          "id": "differential-and-fourier-concept-section",
+          "title": "定義と例",
+          "kind": "definition",
+          "body": "線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。 x'(t)=Ax(t)でAの固有対(A v=λv)があれば、x(t)=e^{λt}vは一つのモードになる。",
+          "claimRefs": [
+            "differential-and-fourier-claim-01"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "differential-and-fourier-concept-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "differential-and-fourier-claim-01",
+      "statement": "線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。",
+      "sourceRefs": [
+        {
+          "source": "openstax-linear-algebra",
+          "locator": "course-wide definitions and examples"
+        }
+      ],
+      "claimType": "definition",
+      "status": "supported"
+    }
+  ],
+  "content": {
+    "explanation": "複雑な信号や運動を、単純な振動モードの重ね合わせとして見る。各モードは固有値に応じて増減・振動する。 線形微分方程式では、微分作用を行列や線形作用素として扱い、固有関数・固有ベクトルによるモード分解が時間発展を簡約する。 線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。"
+  },
+  "examples": [
+    {
+      "id": "differential-and-fourier-example",
+      "statement": "x'(t)=Ax(t)でAの固有対(A v=λv)があれば、x(t)=e^{λt}vは一つのモードになる。",
+      "explanation": "線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。 固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。",
+      "type": "worked",
+      "difficulty": "basic",
+      "goal": "線形代数を応用へ運ぶ",
+      "plan": "定義を確認して小さな例を計算する。",
+      "steps": [
+        "対象と条件を確認する。",
+        "線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。",
+        "固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。"
+      ],
+      "finalConclusion": "固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。",
+      "whyThisWorks": "定義に沿った操作なので、結果を別表現で検算できる。",
+      "commonWrongPath": "固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。",
+      "conceptsUsed": [
+        "differential-and-fourier"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "differential-and-fourier-concept-exercise",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "線形代数を応用へ運ぶの小さな例を計算せよ。",
+      "answer": "固有モードごとに時間変化e^{λt}が分離されることを代入で確認する。",
+      "explanation": "線形性を確認し、簡単な固有モードを代入して時間因子を求め、重ね合わせの原理で一般解を組み立てる。 固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。",
+      "lessonId": "differential-and-fourier-concept-lesson",
+      "testsClaims": [
+        "differential-and-fourier-claim-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "固有ベクトルが足りない場合や非線形項がある場合は、単純な対角化だけでは解けない。"
+  ],
+  "sources": [
+    "openstax-linear-algebra"
+  ]
+}

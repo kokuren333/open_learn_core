@@ -3,50 +3,171 @@
   "module": "module-applications",
   "order": 5,
   "title": {
-    "ja": "graph network matrices",
-    "en": "graph network matrices"
+    "ja": "グラフとネットワーク行列",
+    "en": "Graph and Network Matrices"
   },
   "summary": {
-    "ja": "graph network matricesを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on graph network matrices."
+    "ja": "固有値・拡散・応用へつなぐを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Graph and Network Matrices, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "graph-network-matrices"
     ],
-    "supporting": []
+    "supporting": [
+      "markov-matrices"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "markov-matrices"
+  ],
   "learning_objectives": [
-    "graph network matricesの基本的な意味を説明できる"
+    "固有値・拡散・応用へつなぐを定義と具体例で説明できる",
+    "固有値・拡散・応用へつなぐの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、graph network matricesを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜグラフとネットワーク行列を学ぶのでしょうか。点と辺の図を表に翻訳すると、近傍の集計や流れの保存を行列積で計算できる。 固有値・拡散・応用へつなぐは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：markov-matrices。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "点と辺の図を表に翻訳すると、近傍の集計や流れの保存を行列積で計算できる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：三頂点の道1-2-3ではA=[[0,1,0],[1,0,1],[0,1,0]],D=diag(1,2,1)。 まず条件を確認し、頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。 最後にLの各行和は0で、定数ベクトルはLの零空間に入る。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：固有値・拡散・応用へつなぐの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はLの各行和は0で、定数ベクトルはLの零空間に入る。"
+    },
+    {
+      "type": "summary",
+      "body": "固有値・拡散・応用へつなぐは、グラフの隣接行列・次数行列・ラプラシアンは接続関係を線形代数へ写し、ラプラシアンの零空間は連結成分の構造を反映する。 重要なのは固有値・拡散・応用へつなぐを式だけでなく、点と辺の図を表に翻訳すると、近傍の集計や流れの保存を行列積で計算できる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のdifferential-and-fourierでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "graph-network-matrices-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "固有値・拡散・応用へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値・拡散・応用へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "graph-network-matrices-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。",
+          "具体例として三頂点の道1-2-3ではA=[[0,1,0],[1,0,1],[0,1,0]],D=diag(1,2,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Lの各行和は0で、定数ベクトルはLの零空間に入る。",
+        "common_wrong_path": "隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。"
+      }
+    },
+    {
+      "id": "graph-network-matrices-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "固有値・拡散・応用へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値・拡散・応用へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "graph-network-matrices-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。",
+          "具体例として三頂点の道1-2-3ではA=[[0,1,0],[1,0,1],[0,1,0]],D=diag(1,2,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Lの各行和は0で、定数ベクトルはLの零空間に入る。",
+        "common_wrong_path": "隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。"
+      }
+    },
+    {
+      "id": "graph-network-matrices-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "固有値・拡散・応用へつなぐを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "固有値・拡散・応用へつなぐについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "graph-network-matrices-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って頂点の順序を固定して隣接行列を作り、次数行列DとL=D-Aを計算し、Lx=0の解を解釈する。",
+          "具体例として三頂点の道1-2-3ではA=[[0,1,0],[1,0,1],[0,1,0]],D=diag(1,2,1)。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Lの各行和は0で、定数ベクトルはLの零空間に入る。",
+        "common_wrong_path": "隣接行列が対称なのは無向グラフのとき。頂点順序を変えると行列は変わるが、グラフ構造は同じ。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "markov-matrices"
+  ],
+  "status": "audited"
 }

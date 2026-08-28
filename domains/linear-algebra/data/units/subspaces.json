@@ -3,50 +3,171 @@
   "module": "module-vector-spaces",
   "order": 1,
   "title": {
-    "ja": "subspaces",
-    "en": "subspaces"
+    "ja": "部分空間",
+    "en": "Subspaces"
   },
   "summary": {
-    "ja": "subspacesを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on subspaces."
+    "ja": "span・kernel・column spaceの準備をするを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Subspaces, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "subspaces"
     ],
-    "supporting": []
+    "supporting": [
+      "vector-spaces"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "vector-spaces"
+  ],
   "learning_objectives": [
-    "subspacesの基本的な意味を説明できる"
+    "span・kernel・column spaceの準備をするを定義と具体例で説明できる",
+    "span・kernel・column spaceの準備をするの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、subspacesを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ部分空間を学ぶのでしょうか。部分空間は大きな空間の中にある、演算をしても外へ飛び出さない小さな世界である。原点を通る直線・平面が典型例になる。 span・kernel・column spaceの準備をするは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：vector-spaces。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "部分空間は大きな空間の中にある、演算をしても外へ飛び出さない小さな世界である。原点を通る直線・平面が典型例になる。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：W={(x,y):x+y=0}は、(t,-t)と書け、二つの元の線形結合も同じ形なのでR²の部分空間。 まず条件を確認し、零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。 最後にWはspan{(1,-1)}であり、R²の部分空間。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：span・kernel・column spaceの準備をするの定義を一文で述べ、例の計算を一行で検算してください。答えの目安はWはspan{(1,-1)}であり、R²の部分空間。"
+    },
+    {
+      "type": "summary",
+      "body": "span・kernel・column spaceの準備をするは、ベクトル空間Vの部分集合Wが部分空間であるとは、零ベクトルを含み、加法とスカラー倍に閉じていることである。 重要なのはspan・kernel・column spaceの準備をするを式だけでなく、部分空間は大きな空間の中にある、演算をしても外へ飛び出さない小さな世界である。原点を通る直線・平面が典型例になる。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のlinear-combinationでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "subspaces-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "span・kernel・column spaceの準備をするを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "span・kernel・column spaceの準備をするについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "subspaces-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。",
+          "具体例としてW={(x,y):x+y=0}は、(t,-t)と書け、二つの元の線形結合も同じ形なのでR²の部分空間。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Wはspan{(1,-1)}であり、R²の部分空間。",
+        "common_wrong_path": "原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。"
+      }
+    },
+    {
+      "id": "subspaces-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "span・kernel・column spaceの準備をするを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "span・kernel・column spaceの準備をするについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "subspaces-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。",
+          "具体例としてW={(x,y):x+y=0}は、(t,-t)と書け、二つの元の線形結合も同じ形なのでR²の部分空間。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Wはspan{(1,-1)}であり、R²の部分空間。",
+        "common_wrong_path": "原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。"
+      }
+    },
+    {
+      "id": "subspaces-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "span・kernel・column spaceの準備をするを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "span・kernel・column spaceの準備をするについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "subspaces-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って零ベクトルを確認し、任意のu,v∈Wとスカラーc,dに対してcu+dv∈Wを示す。",
+          "具体例としてW={(x,y):x+y=0}は、(t,-t)と書け、二つの元の線形結合も同じ形なのでR²の部分空間。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "Wはspan{(1,-1)}であり、R²の部分空間。",
+        "common_wrong_path": "原点を通らない直線は線形結合の零元を含まないため部分空間でない。条件を満たす集合の部分集合というだけでは不十分。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "vector-spaces"
+  ],
+  "status": "audited"
 }

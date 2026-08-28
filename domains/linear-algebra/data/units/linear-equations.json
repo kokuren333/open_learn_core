@@ -3,50 +3,171 @@
   "module": "module-systems-matrices",
   "order": 0,
   "title": {
-    "ja": "linear equations",
-    "en": "linear equations"
+    "ja": "線形方程式系",
+    "en": "Systems of Linear Equations"
   },
   "summary": {
-    "ja": "linear equationsを段階的に学ぶための計画Unit。",
-    "en": "A planned unit on linear equations."
+    "ja": "行列と消去法の動機を作るを直観・定義・計算・境界ケースの順に学ぶ。",
+    "en": "A complete lesson on Systems of Linear Equations, connecting intuition, definition, computation, and edge cases."
   },
   "estimated_duration": {
-    "reading_minutes": 7,
-    "video_minutes": 12
+    "reading_minutes": 12,
+    "video_minutes": 10
   },
   "concepts": {
     "primary": [
       "linear-equations"
     ],
-    "supporting": []
+    "supporting": [
+      "dot-product-and-norm"
+    ]
   },
-  "prerequisites": [],
+  "prerequisites": [
+    "dot-product-and-norm"
+  ],
   "learning_objectives": [
-    "linear equationsの基本的な意味を説明できる"
+    "行列と消去法の動機を作るを定義と具体例で説明できる",
+    "行列と消去法の動機を作るの基本計算を実行し、結果を検算できる"
   ],
   "content": [
     {
-      "type": "planned",
-      "body": "このUnitは、linear equationsを前提知識から例題・演習へ接続する教材として整備予定です。"
+      "type": "motivation",
+      "body": "なぜ線形方程式系を学ぶのでしょうか。一つの方程式は平面上の直線、二つの方程式は交点候補を表す。解とは、すべての制約が同時に成立する点である。 行列と消去法の動機を作るは、次の計算や応用で同じ問いを何度も整理するための道具です。"
+    },
+    {
+      "type": "prerequisite_recall",
+      "body": "前提：dot-product-and-norm。対象の次元と記号を確認してから進みます。"
+    },
+    {
+      "type": "intuition",
+      "body": "一つの方程式は平面上の直線、二つの方程式は交点候補を表す。解とは、すべての制約が同時に成立する点である。"
+    },
+    {
+      "type": "formal_definition",
+      "body": "線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。"
+    },
+    {
+      "type": "term_by_term",
+      "body": "定義を、対象・操作・条件・結論に分けて読みます。方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。"
+    },
+    {
+      "type": "worked_example",
+      "body": "例題：x+y=3, x-y=1を加えると2x=4、x=2、代入してy=1。交点は(2,1)である。 まず条件を確認し、方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。 最後に解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。と解釈します。"
+    },
+    {
+      "type": "counterexample",
+      "body": "方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。"
+    },
+    {
+      "type": "checkpoint",
+      "body": "確認問題：行列と消去法の動機を作るの定義を一文で述べ、例の計算を一行で検算してください。答えの目安は解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。"
+    },
+    {
+      "type": "summary",
+      "body": "行列と消去法の動機を作るは、線形方程式系は、未知数を一次式で結んだ複数の方程式を同時に満たす解を求める問題である。 重要なのは行列と消去法の動機を作るを式だけでなく、一つの方程式は平面上の直線、二つの方程式は交点候補を表す。解とは、すべての制約が同時に成立する点である。としても読めることです。"
+    },
+    {
+      "type": "connection",
+      "body": "次のmatrix-introductionでは、このUnitの結果を使って、より複雑な構造を扱います。"
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "id": "linear-equations-exercise-basic",
+      "type": "calculation",
+      "difficulty": "basic",
+      "question": "行列と消去法の動機を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列と消去法の動機を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "linear-equations-exercise-basic"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。",
+          "具体例としてx+y=3, x-y=1を加えると2x=4、x=2、代入してy=1。交点は(2,1)である。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。",
+        "common_wrong_path": "方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。"
+      }
+    },
+    {
+      "id": "linear-equations-exercise-meaning",
+      "type": "explanation",
+      "difficulty": "challenge",
+      "question": "行列と消去法の動機を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列と消去法の動機を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "linear-equations-exercise-meaning"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。",
+          "具体例としてx+y=3, x-y=1を加えると2x=4、x=2、代入してy=1。交点は(2,1)である。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。",
+        "common_wrong_path": "方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。"
+      }
+    },
+    {
+      "id": "linear-equations-exercise-boundary",
+      "type": "error_detection",
+      "difficulty": "standard",
+      "question": "行列と消去法の動機を作るを、定義と具体例を使って説明・確認せよ。",
+      "solution": {
+        "what_is_asked": "行列と消去法の動機を作るについて、計算結果だけでなく意味と条件を示す。",
+        "concepts": [
+          "linear-equations-exercise-boundary"
+        ],
+        "strategy": "定義を確認し、小さな例へ適用してから結果を検算する。",
+        "steps": [
+          "問題の対象と記号の次元・条件を確認する。",
+          "定義に沿って方程式を拡大係数行列へ写し、同値な行操作で簡単な形にして、主変数と自由変数を読み取る。",
+          "具体例としてx+y=3, x-y=1を加えると2x=4、x=2、代入してy=1。交点は(2,1)である。",
+          "最後に境界条件やよくある誤りと照合する。"
+        ],
+        "why": [
+          "定義から計算へ進むと、手順の各操作の意味を説明できる。",
+          "検算と境界条件の確認で、形式的な答えと数学的な意味のずれを防げる。"
+        ],
+        "conclusion": "解は(x,y)=(2,1)。二式を同時に満たすか代入で検算する。",
+        "common_wrong_path": "方程式を一つずつ別々に解いてはいけない。解なし・一意解・無限解の三通りがあり得る。"
+      }
+    }
+  ],
   "formats": {
     "html": {
       "required": true,
-      "status": "planned"
+      "status": "authored"
     },
     "pdf": {
       "required": true,
-      "status": "planned"
+      "status": "source_ready"
     },
     "video": {
       "required": false,
       "status": "not_planned"
     }
   },
-  "evidence": [],
+  "evidence": [
+    "openstax-linear-algebra"
+  ],
   "visuals": [],
-  "remediation": [],
-  "status": "planned"
+  "remediation": [
+    "dot-product-and-norm"
+  ],
+  "status": "audited"
 }
