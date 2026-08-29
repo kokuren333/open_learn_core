@@ -10,7 +10,7 @@ test("linear algebra domain manifest and content load through the core loader", 
   const result = await validateDomain(domain);
   assert.equal(result.valid, true, result.issues.join("\n"));
   assert.equal(domain.manifest.id, "linear-algebra");
-  assert.equal(domain.dataset.concepts.length, 12);
+  assert.equal(domain.dataset.concepts.length, 57);
   assert.ok(domain.dataset.visuals.length >= 3);
 });
 

@@ -8,7 +8,7 @@
         "ja": "ベクトル",
         "en": "Vector"
       },
-      "central_mental_model": "ベクトルは、成分や矢印の見た目に依存せず、加法とスカラー倍によって方向・変化・状態を運ぶ対象である。",
+      "central_mental_model": "ベクトルは、始点や見た目ではなく、加法とスカラー倍で組み合わせられる変化の単位である。矢印・成分組・変位・関数やデータ列を同じ構造として読み替えることで、方向と大きさを計算し、線形結合へ進める。",
       "cognitive_types": [
         "concrete_object"
       ],
@@ -55,13 +55,13 @@
         }
       },
       "instructional_budget": {
-        "minimum_concrete_scenarios": 1,
+        "minimum_concrete_scenarios": 2,
         "minimum_worked_examples": 2,
         "minimum_counterexamples": 2,
         "minimum_guided_questions": 3,
         "minimum_independent_questions": 2,
         "minimum_misconception_challenges": 1,
-        "minimum_representation_switches": 1,
+        "minimum_representation_switches": 2,
         "minimum_transfer_tasks": 1
       },
       "facets": [
@@ -94,8 +94,10 @@
         }
       ],
       "properties": [
-        "加法とスカラー倍が閉じている",
-        "同じ対象に複数の表現がある"
+        "同じ次元のベクトルでは加法が定義でき、結果も同じ空間に残る",
+        "スカラー倍は大きさを変え、負のスカラーは向きを反転する",
+        "矢印の平行移動は自由ベクトルとして同じ変位を表す",
+        "同じベクトルを矢印・成分組・変位など複数の表現で記述できる"
       ],
       "representations": [
         {
@@ -117,11 +119,15 @@
       "misconceptions": [
         "ベクトルは始点に固定される",
         "大きさだけでベクトルは決まる",
-        "矢印で描けないものはベクトルでない"
+        "矢印で描けないものはベクトルでない",
+        "ベクトルの成分を入れ替えても同じである",
+        "異なる次元のベクトルも成分を足せば加えられる",
+        "スカラー倍は長さだけを変え、負号は向きを変えない"
       ],
       "applications": [
-        "力と変位",
-        "データ特徴量"
+        "力と変位の合成",
+        "速度・位置の変化の記録",
+        "関数やデータ特徴量の線形結合"
       ],
       "external_relations": [],
       "learning_contract": {
@@ -131,9 +137,9 @@
           "vector-transfer"
         ],
         "learner_should_be_able_to": [
-          "ベクトルを自分の言葉と式で説明する。",
-          "ベクトルを二つ以上の表現で判定・計算する。",
-          "ベクトルを未知の問題へ転移し、結果を検算する。"
+          "ベクトルを、始点に依存しない変位と加法・スカラー倍の規則として説明する。",
+          "矢印・成分組・式を行き来し、等しさ・和・スカラー倍を正確に判定する。",
+          "次元の不一致や大きさだけの比較を退け、関数やデータ列にも構造を転移する。"
         ],
         "must_not_leave_with_misconceptions": [
           "ベクトルは始点に固定される",
@@ -143,7 +149,8 @@
         "required_representations": [
           "矢印",
           "成分組",
-          "変位"
+          "変位",
+          "関数・データ列"
         ],
         "required_examples": [
           "矢印",
@@ -153,15 +160,15 @@
           "motivating_problem": 1,
           "intuition": 1,
           "formalization": 1,
-          "positive_examples": 2,
-          "contrasting_nonexamples": 2,
-          "worked_examples": 2,
-          "learner_predictions": 2,
-          "misconceptions": 3,
+            "positive_examples": 3,
+            "contrasting_nonexamples": 3,
+            "worked_examples": 3,
+            "learner_predictions": 3,
+            "misconceptions": 5,
           "practice": {
-            "basic": 2,
-            "conceptual": 2,
-            "transfer": 1
+            "basic": 3,
+            "conceptual": 3,
+            "transfer": 2
           },
           "synthesis": 1
         }
@@ -170,19 +177,20 @@
         "pattern": "concrete_object",
         "reason": "ベクトルの認知的な難所を、観察・形式化・対比・転移へ段階的に分解する。",
         "stages": [
-          "encounter",
-          "manipulate examples",
-          "compare cases",
-          "name the object",
-          "formalize",
-          "transfer"
+          "encounter a displacement",
+          "manipulate arrows and components",
+          "compare equal and unequal cases",
+          "name the invariant structure",
+          "formalize operations",
+          "switch representations",
+          "transfer to functions and data"
         ],
         "profile_driven_requirements": [
           "抽象度2/5に応じて具体例と形式化を往復する。",
           "誤解リスク3/5と表現切替3/5に応じて対比・翻訳課題を置く。"
         ]
       },
-      "editorial_status": "scaffold",
+      "editorial_status": "gold",
       "source_concept_ids": [
         "vector",
         "vector-introduction",

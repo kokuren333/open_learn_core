@@ -1,0 +1,18 @@
+{
+  "id": "visual-vector-operations",
+  "concept": "vector",
+  "type": "step-flow",
+  "learning_goal": { "ja": "加法とスカラー倍を、成分計算と幾何操作の両方で確認する。", "en": "Relate vector addition and scalar multiplication to component and geometric operations." },
+  "target_claim": "vector-claim-01",
+  "learner_question": { "ja": "係数 -2 は、矢印と成分のそれぞれをどう変えるか。", "en": "How does the scalar -2 change both the arrow and its components?" },
+  "layout": { "type": "step_flow", "panels": [{ "title": "成分", "meaning": "componentwise_rule" }, { "title": "幾何", "meaning": "scale_and_reverse" }, { "title": "検算", "meaning": "compare_representations" }] },
+  "labels": ["u=(1,2)", "v=(3,-1)", "u+v=(4,1)", "-2u=(-2,-4)"],
+  "visual_encoding": "Addition combines corresponding horizontal and vertical changes; a negative scalar reverses direction while scaling every component by the same factor.",
+  "misconception_risk": ["長さだけを足す", "負のスカラーは長さだけを変える", "成分を別々の倍率で変える"],
+  "source_claims": ["vector-claim-01"],
+  "placement": { "lesson": "vector-lesson-01", "position": "after-worked-addition" },
+  "alt_text": { "ja": "u=(1,2)とv=(3,-1)を対応成分ごとに足して(4,1)を得る流れと、uを-2倍して向きを反転した(-2,-4)を並べる図。", "en": "A flow adds u=(1,2) and v=(3,-1) componentwise to obtain (4,1), and shows -2u=(-2,-4) as a reversed, doubled arrow." },
+  "status": "published",
+  "output_path": "diagrams/vector-operations.svg",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 300\" role=\"img\" aria-label=\"Vector operations\"><rect width=\"900\" height=\"300\" rx=\"20\" fill=\"#f7faf3\"/><g font-family=\"sans-serif\" fill=\"#18321f\" text-anchor=\"middle\"><text x=\"150\" y=\"45\" font-size=\"20\" font-weight=\"700\">成分で計算</text><text x=\"450\" y=\"45\" font-size=\"20\" font-weight=\"700\">幾何的に操作</text><text x=\"750\" y=\"45\" font-size=\"20\" font-weight=\"700\">対応を検算</text><text x=\"150\" y=\"110\" font-size=\"22\">u=(1,2), v=(3,-1)</text><text x=\"450\" y=\"110\" font-size=\"22\">u+v=(4,1)</text><text x=\"750\" y=\"110\" font-size=\"22\">-2u=(-2,-4)</text><text x=\"150\" y=\"245\" font-size=\"17\">(1+3, 2-1)</text><text x=\"450\" y=\"245\" font-size=\"17\">同じ倍率で全成分を変える</text><text x=\"750\" y=\"245\" font-size=\"17\">負号は向きを反転</text></g><path d=\"M260 145H340M560 145H640\" stroke=\"#71a287\" stroke-width=\"5\"/><path d=\"M340 145l-16-10v20zM640 145l-16-10v20z\" fill=\"#71a287\"/></svg>"
+}

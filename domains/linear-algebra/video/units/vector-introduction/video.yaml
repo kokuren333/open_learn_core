@@ -1,0 +1,9 @@
+{
+  "unit": "vector-introduction",
+  "tts": { "backend": "voicevox", "speaker": { "name": "ずんだもん", "style": "ノーマル" }, "synthesis": { "speed_scale": 1.25 } },
+  "slides": [
+    { "id": 1, "script": "ベクトルは変位を記録します。始点が違っても同じ移動なら同じベクトルです。", "spoken_script": "ベクトルは、へんいをきろくします。してんがちがっても、おなじいどうなら、おなじベクトルです。", "note_top": "ベクトルは変位", "note_bottom": "見た目の位置ではなく、方向ごとの変化に注目します。" },
+    { "id": 2, "script": "加法とスカラー倍で操作できます。多項式やデータ列も同じ構造ならベクトルです。", "spoken_script": "かほうとスカラーばいでそうさできます。たこうしきやデータれつも、おなじこうぞうならベクトルです。", "note_top": "矢印の外へ", "note_bottom": "共通する演算の構造を見つけます。" }
+  ],
+  "status": "scripted"
+}

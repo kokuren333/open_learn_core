@@ -1,0 +1,9 @@
+{
+  "id": "vector-definition-mit",
+  "source": "mit-ocw-linear-algebra",
+  "locator": { "type": "course-page", "value": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/", "section": "The geometry of linear equations" },
+  "evidence_role": "definition",
+  "supports": ["vector-claim-01"],
+  "extracted_meaning": { "ja": "MITの線形代数講義は、ベクトルを幾何的な矢印と成分表示の両方で扱い、加法・スカラー倍を後続の線形結合へつなげている。" },
+  "confidence": "high"
+}

@@ -16,8 +16,8 @@
   "content": {
     "concepts": 30,
     "legacyConcepts": 57,
-    "learningExperiences": 1,
-    "lessonContentBlocks": 21,
+    "learningExperiences": 2,
+    "lessonContentBlocks": 42,
     "modules": 8,
     "units": 52,
     "lessons": 6,
@@ -43,7 +43,7 @@
   },
   "counts": {
     "claims": 6,
-    "evidenceItems": 5,
+    "evidenceItems": 7,
     "examples": 16,
     "exercises": 25,
     "diagnostics": 6,

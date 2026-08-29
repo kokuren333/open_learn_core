@@ -121,6 +121,13 @@
   ],
   "learningExperiences": [
     {
+      "id": "vector-learning-experience",
+      "concept_id": "vector",
+      "status": "gold",
+      "block_count": 21,
+      "assessment_count": 8
+    },
+    {
       "id": "basis-learning-experience",
       "concept_id": "basis",
       "status": "gold",
@@ -218,10 +225,104 @@
           }
         }
       ]
+    },
+    {
+      "concept_id": "vector",
+      "outputs": {
+        "html": "published",
+        "pdf": "validated",
+        "video": "validated",
+        "pdf_purpose": "full_concept_handout",
+        "video_purpose": "visualization"
+      },
+      "representations": [
+        {
+          "id": "vector-arrow-figure",
+          "type": "diagram",
+          "role": "intuition",
+          "visual_id": "visual-vector-arrow-components",
+          "after_block_id": "vector-concrete-displacement",
+          "title": "同じ変位を表す矢印",
+          "caption": "始点が違っても、変位が同じなら同じ自由ベクトルです。",
+          "purpose": "始点と変位を区別する。",
+          "supports_claims": [
+            "vector-definition",
+            "vector-equality"
+          ],
+          "targets_misconceptions": [
+            "ベクトルは始点に固定される"
+          ],
+          "status": "missing"
+        },
+        {
+          "id": "vector-operation-figure",
+          "type": "diagram",
+          "role": "example",
+          "visual_id": "visual-vector-operations",
+          "after_block_id": "vector-worked-addition",
+          "title": "加法とスカラー倍",
+          "caption": "成分の規則と幾何操作を対応づけます。",
+          "purpose": "演算を二つの表現で検算する。",
+          "supports_claims": [
+            "vector-addition",
+            "vector-scalar-multiplication"
+          ],
+          "status": "missing"
+        },
+        {
+          "id": "vector-transfer-figure",
+          "type": "diagram",
+          "role": "explanation",
+          "visual_id": "visual-vector-transfer",
+          "after_block_id": "vector-transfer-function",
+          "title": "矢印以外のベクトル",
+          "caption": "演算の構造が共通なら、対象の見た目が変わっても同じ議論が使えます。",
+          "purpose": "抽象化と転移を支える。",
+          "supports_claims": [
+            "vector-transfer"
+          ],
+          "targets_misconceptions": [
+            "矢印で描けないものはベクトルでない"
+          ],
+          "status": "missing"
+        },
+        {
+          "id": "vector-video",
+          "type": "video",
+          "role": "supplementary",
+          "source_id": "mit-ocw-linear-algebra",
+          "title": "ベクトルを図と式で復習する",
+          "purpose": "visualization",
+          "supports_claims": [
+            "vector-definition",
+            "vector-addition"
+          ],
+          "status": "validated",
+          "artifact": {
+            "path": "video/vector-introduction/vector-introduction.mp4",
+            "source_path": "domains/linear-algebra/video/generated/rendered/vector-introduction/vector-introduction.mp4",
+            "mime_type": "video/mp4"
+          }
+        },
+        {
+          "id": "vector-pdf",
+          "type": "pdf",
+          "role": "printable",
+          "href": "pdf/vector.pdf",
+          "title": "このConceptをPDFで読む",
+          "purpose": "full_concept_handout",
+          "status": "validated",
+          "artifact": {
+            "path": "pdf/vector.pdf",
+            "source_path": "dist/domains/linear-algebra/pdf/vector.pdf",
+            "mime_type": "application/pdf"
+          }
+        }
+      ]
     }
   ],
   "courseVersion": "2.0.0",
-  "source_commit": "06df4648aa47b7c3033cae326b47980eebc5495b",
+  "source_commit": "6335535210135dadd38043e12e9abf9baa964267",
   "license": {
     "code": "MIT",
     "content": "CC BY-SA 4.0",

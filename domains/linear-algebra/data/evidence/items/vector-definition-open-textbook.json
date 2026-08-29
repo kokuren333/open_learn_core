@@ -1,0 +1,9 @@
+{
+  "id": "vector-definition-open-textbook",
+  "source": "openstax-linear-algebra",
+  "locator": { "type": "book-record", "value": "https://open.umn.edu/opentextbooks/textbooks/188", "section": "Vectors and Vector Arithmetic" },
+  "evidence_role": "definition",
+  "supports": ["vector-claim-01"],
+  "extracted_meaning": { "ja": "開放教科書は、ベクトルを順序付き成分組として定義し、対応成分ごとの演算、幾何的な解釈、関数・多項式などへの一般化を段階的に扱う。" },
+  "confidence": "high"
+}

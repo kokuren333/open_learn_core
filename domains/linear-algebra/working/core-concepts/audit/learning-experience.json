@@ -5,11 +5,33 @@
   "independent_review": false,
   "status": "pass",
   "summary": {
-    "experiences": 1,
-    "gold_experiences": 1,
-    "scaffold_concepts_without_experience": 29
+    "experiences": 2,
+    "gold_experiences": 2,
+    "scaffold_concepts_without_experience": 28
   },
   "experiences": [
+    {
+      "id": "vector-learning-experience",
+      "concept_id": "vector",
+      "editorial_status": "gold",
+      "learner_section_count": 6,
+      "block_count": 21,
+      "content_block_count": 21,
+      "assessment_count": 8,
+      "content_prose_characters": 3030,
+      "counts": {
+        "concrete_scenarios": 2,
+        "worked_examples": 3,
+        "counterexamples": 4,
+        "guided_questions": 18,
+        "independent_questions": 3,
+        "misconception_challenges": 2,
+        "representation_switches": 4,
+        "transfer_tasks": 2
+      },
+      "status": "pass",
+      "issues": []
+    },
     {
       "id": "basis-learning-experience",
       "concept_id": "basis",
@@ -18,7 +40,7 @@
       "block_count": 21,
       "content_block_count": 21,
       "assessment_count": 8,
-      "content_prose_characters": 3585,
+      "content_prose_characters": 3800,
       "counts": {
         "concrete_scenarios": 2,
         "worked_examples": 3,
@@ -35,7 +57,6 @@
   ],
   "issues": [],
   "warnings": [
-    "scaffold concept 'vector' has no Learning Experience yet",
     "scaffold concept 'linear-combination' has no Learning Experience yet",
     "scaffold concept 'linear-system' has no Learning Experience yet",
     "scaffold concept 'matrix' has no Learning Experience yet",

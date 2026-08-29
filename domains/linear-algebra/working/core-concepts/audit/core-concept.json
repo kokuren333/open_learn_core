@@ -6,8 +6,8 @@
   "status": "pass",
   "summary": {
     "core_concepts": 30,
-    "gold": 1,
-    "scaffold": 29,
+    "gold": 2,
+    "scaffold": 28,
     "basis_sections": 18,
     "legacy_concepts": 57
   },

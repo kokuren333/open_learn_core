@@ -74,5 +74,74 @@
       "status": "scripted"
     },
     "outputs": { "html": "planned", "pdf": "scripted", "video": "scripted", "pdf_purpose": "full_concept_handout", "video_purpose": "visualization" }
+  },
+  {
+    "concept_id": "vector",
+    "sources": [
+      { "source_id": "mit-ocw-linear-algebra", "roles": ["evidence", "supplementary_learning"], "locator": "The geometry of linear equations" },
+      { "source_id": "openstax-linear-algebra", "roles": ["evidence", "supplementary_learning"], "locator": "Vectors and Vector Arithmetic" },
+      { "source_id": "hefferon-linear-algebra", "roles": ["supplementary_learning"], "locator": "Vector spaces and linear combinations" }
+    ],
+    "claims": [
+      {
+        "id": "vector-definition",
+        "statement": "ベクトルは、矢印の始点ではなく、加法とスカラー倍が定義された構造を持つ対象である。",
+        "evidence_ids": ["vector-definition-mit", "vector-definition-open-textbook"],
+        "source_refs": [{ "source_id": "mit-ocw-linear-algebra", "locator": "The geometry of linear equations" }, { "source_id": "openstax-linear-algebra", "locator": "Vectors and Vector Arithmetic" }]
+      },
+      {
+        "id": "vector-equality",
+        "statement": "R^nの二つのベクトルは、対応するすべての成分が一致するとき、また矢印なら同じ変位を表すときに等しい。",
+        "evidence_ids": ["vector-definition-open-textbook"],
+        "source_refs": [{ "source_id": "openstax-linear-algebra", "locator": "Vectors and Vector Arithmetic" }]
+      },
+      {
+        "id": "vector-addition",
+        "statement": "ベクトルの加法は対応する成分を足す演算であり、幾何的には変位を合成する。",
+        "evidence_ids": ["vector-definition-mit"],
+        "source_refs": [{ "source_id": "mit-ocw-linear-algebra", "locator": "The geometry of linear equations" }]
+      },
+      {
+        "id": "vector-scalar-multiplication",
+        "statement": "スカラー倍はすべての成分を同じ数倍する演算で、負のスカラーは向きを反転させる。",
+        "evidence_ids": ["vector-definition-mit"],
+        "source_refs": [{ "source_id": "mit-ocw-linear-algebra", "locator": "The geometry of linear equations" }]
+      },
+      {
+        "id": "vector-transfer",
+        "statement": "関数・多項式・データ列も、加法とスカラー倍を同じ規則で定義できればベクトルとして扱える。",
+        "evidence_ids": ["vector-definition-open-textbook"],
+        "source_refs": [{ "source_id": "openstax-linear-algebra", "locator": "Vectors and Vector Arithmetic" }]
+      }
+    ],
+    "further_learning": [
+      { "source_id": "mit-ocw-linear-algebra", "role": "supplementary_learning", "description": "幾何と連立方程式のつながりを大学講義で復習する。" },
+      { "source_id": "openstax-linear-algebra", "role": "supplementary_learning", "description": "成分演算とベクトル空間への一般化を教科書で確認する。" },
+      { "source_id": "hefferon-linear-algebra", "role": "supplementary_learning", "description": "ベクトル空間・関数・多項式の例へ進み、見た目と構造を分けて読む。" }
+    ],
+    "representations": [
+      { "id": "vector-arrow-figure", "type": "diagram", "role": "intuition", "visual_id": "visual-vector-arrow-components", "after_block_id": "vector-concrete-displacement", "title": "同じ変位を表す矢印", "caption": "始点が違っても、変位が同じなら同じ自由ベクトルです。", "purpose": "始点と変位を区別する。", "supports_claims": ["vector-definition", "vector-equality"], "targets_misconceptions": ["ベクトルは始点に固定される"] },
+      { "id": "vector-operation-figure", "type": "diagram", "role": "example", "visual_id": "visual-vector-operations", "after_block_id": "vector-worked-addition", "title": "加法とスカラー倍", "caption": "成分の規則と幾何操作を対応づけます。", "purpose": "演算を二つの表現で検算する。", "supports_claims": ["vector-addition", "vector-scalar-multiplication"] },
+      { "id": "vector-transfer-figure", "type": "diagram", "role": "explanation", "visual_id": "visual-vector-transfer", "after_block_id": "vector-transfer-function", "title": "矢印以外のベクトル", "caption": "演算の構造が共通なら、対象の見た目が変わっても同じ議論が使えます。", "purpose": "抽象化と転移を支える。", "supports_claims": ["vector-transfer"], "targets_misconceptions": ["矢印で描けないものはベクトルでない"] },
+      { "id": "vector-video", "type": "video", "role": "supplementary", "source_id": "mit-ocw-linear-algebra", "title": "ベクトルを図と式で復習する", "purpose": "visualization", "supports_claims": ["vector-definition", "vector-addition"], "status": "scripted", "artifact": { "path": "video/vector-introduction/vector-introduction.mp4", "source_path": "domains/linear-algebra/video/generated/rendered/vector-introduction/vector-introduction.mp4", "mime_type": "video/mp4" } },
+      { "id": "vector-pdf", "type": "pdf", "role": "printable", "href": "pdf/vector.pdf", "title": "このConceptをPDFで読む", "purpose": "full_concept_handout", "status": "scripted", "artifact": { "path": "pdf/vector.pdf", "source_path": "dist/domains/linear-algebra/pdf/vector.pdf", "mime_type": "application/pdf" } }
+    ],
+    "visual_plan": {
+      "needed": true,
+      "type": "mixed",
+      "assets": ["visual-vector-arrow-components", "visual-vector-operations", "visual-vector-transfer"],
+      "cognitive_goal": "ベクトルを始点付きの点や単なる矢印としてではなく、変位と線形演算の構造として理解する。",
+      "learner_difficulties": ["始点と変位の混同", "大きさだけでの比較", "矢印以外への転移"],
+      "preferred_representation": { "type": "mixed", "reason": "自由ベクトルの不変性は正確な図で、演算と転移は成分・式・比較図で対応づける。" },
+      "success_conditions": ["始点が違う同じ変位を同じベクトルと説明できる", "和とスカラー倍を成分と図の両方で検算できる", "関数やデータ列にも加法とスカラー倍の構造を見つけられる"]
+    },
+    "video_plan": {
+      "unit_id": "vector-introduction",
+      "purpose": "visualization",
+      "sequence": ["変位と始点", "成分表示", "ベクトルの等しさ", "加法", "スカラー倍", "関数とデータへの転移"],
+      "learner_outcomes": ["矢印と成分を往復できる", "演算の意味を説明できる", "見た目の異なる対象へ構造を転移できる"],
+      "status": "scripted"
+    },
+    "outputs": { "html": "planned", "pdf": "scripted", "video": "scripted", "pdf_purpose": "full_concept_handout", "video_purpose": "visualization" }
   }
 ]

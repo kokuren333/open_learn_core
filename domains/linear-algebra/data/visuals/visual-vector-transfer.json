@@ -1,0 +1,18 @@
+{
+  "id": "visual-vector-transfer",
+  "concept": "vector",
+  "type": "comparison",
+  "learning_goal": { "ja": "矢印でなくても、同じ加法・スカラー倍の構造があればベクトルとして扱えると理解する。", "en": "Recognize vector structure in functions and data even without arrows." },
+  "target_claim": "vector-claim-01",
+  "learner_question": { "ja": "多項式やデータ列の何が、矢印と同じ『ベクトルらしさ』なのか。", "en": "What makes a polynomial or data row vector-like?" },
+  "layout": { "type": "three_panel_comparison", "panels": [{ "title": "矢印", "meaning": "displacement" }, { "title": "多項式", "meaning": "coefficient_list" }, { "title": "データ列", "meaning": "feature_vector" }] },
+  "labels": ["(2,3)", "2+3x", "(身長,体重,年齢)", "+", "× scalar"],
+  "visual_encoding": "Three objects look different, but each supports addition and scalar multiplication; the shared operations are highlighted rather than the visual shape.",
+  "misconception_risk": ["矢印で描けないものはベクトルでない", "ベクトルの次元は空間の見た目で決まる"],
+  "source_claims": ["vector-claim-01"],
+  "placement": { "lesson": "vector-lesson-01", "position": "after-transfer-function" },
+  "alt_text": { "ja": "矢印、2+3xの多項式、三つの特徴量からなるデータ列を並べ、いずれも加法とスカラー倍を定義できるため同じベクトル構造を持つと示す比較図。", "en": "A comparison shows an arrow, the polynomial 2+3x, and a three-feature data row; all support addition and scalar multiplication, sharing vector structure." },
+  "status": "published",
+  "output_path": "diagrams/vector-transfer.svg",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 300\" role=\"img\" aria-label=\"Vector structure beyond arrows\"><rect width=\"900\" height=\"300\" rx=\"20\" fill=\"#f7faf3\"/><g font-family=\"sans-serif\" fill=\"#18321f\" text-anchor=\"middle\"><text x=\"150\" y=\"52\" font-size=\"20\" font-weight=\"700\">矢印</text><text x=\"450\" y=\"52\" font-size=\"20\" font-weight=\"700\">多項式</text><text x=\"750\" y=\"52\" font-size=\"20\" font-weight=\"700\">データ列</text><text x=\"150\" y=\"125\" font-size=\"24\">(2,3)</text><text x=\"450\" y=\"125\" font-size=\"24\">2+3x</text><text x=\"750\" y=\"125\" font-size=\"22\">(170,65,20)</text><text x=\"150\" y=\"215\" font-size=\"17\">u+v, cu</text><text x=\"450\" y=\"215\" font-size=\"17\">p+q, cp</text><text x=\"750\" y=\"215\" font-size=\"17\">d+e, cd</text><text x=\"450\" y=\"270\" font-size=\"19\">見た目ではなく演算の構造が共通</text></g><path d=\"M255 132H345M555 132H645\" stroke=\"#71a287\" stroke-width=\"5\"/><path d=\"M345 132l-16-10v20zM645 132l-16-10v20z\" fill=\"#71a287\"/></svg>"
+}

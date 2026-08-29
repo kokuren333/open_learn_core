@@ -5,13 +5,13 @@
   "counts": {
     "modules": 8,
     "units": 52,
-    "videoPilots": 3,
+    "videoPilots": 4,
     "moduleExerciseSets": 8,
     "cumulativeReviews": 6
   },
   "formatCoverage": {
     "html": 52,
     "pdf": 52,
-    "video": 3
+    "video": 4
   }
 }
