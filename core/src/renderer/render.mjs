@@ -153,7 +153,8 @@ function renderCoreConcept({ concept, conceptsById, experience = null, resources
       const subtitlePath = localArtifact.replace(/\.mp4$/i, ".srt");
       return `<div class="learner-video"><p class="resource-label">${escapeHtml(item.title ?? "動画")}</p><video controls preload="metadata"><source src="${escapeHtml(href)}" type="${escapeHtml(item.artifact?.mime_type ?? "video/mp4")}"><track kind="subtitles" srclang="ja" label="日本語" src="${escapeHtml(subtitlePath)}"></video><p class="video-fallback"><a href="${escapeHtml(href)}">動画ファイルを開く</a></p></div>`;
     }
-    return `<a class="resource-chip resource-${escapeHtml(item.type)}" href="${escapeHtml(href)}"${source?.url === href ? ` target="_blank" rel="noreferrer"` : ""}>${escapeHtml(item.title ?? item.type)} <span aria-hidden="true">↗</span></a>`;
+    const openInNewTab = item.type === "pdf" || source?.url === href;
+    return `<a class="resource-chip resource-${escapeHtml(item.type)}" href="${escapeHtml(href)}"${openInNewTab ? ` target="_blank" rel="noreferrer"` : ""}>${escapeHtml(item.title ?? item.type)} <span aria-hidden="true">↗</span></a>`;
   }).join("");
   const mediaLinks = resourceLinks ? `<div class="learner-resource-links" aria-label="追加の学習形式">${resourceLinks}</div>` : "";
   const assessmentNumber = learnerSections.length + 1;

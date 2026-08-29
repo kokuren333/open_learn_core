@@ -34,7 +34,7 @@ test("Basis learner page renders citations, inline figures and optional resource
   assert.equal((html.match(/class="learner-figure"/g) ?? []).length, 4);
   assert.match(html, /id="learner-further"/);
   assert.match(html, /id="learner-references"/);
-  assert.match(html, /pdf\/basis\.pdf/);
+  assert.match(html, /pdf\/basis\.pdf" target="_blank" rel="noreferrer"/);
   assert.match(html, /<video controls/);
   assert.match(html, /track kind="subtitles"/);
   assert.doesNotMatch(html, /learner_state_before|generated_from|internal_block_dependencies/);
