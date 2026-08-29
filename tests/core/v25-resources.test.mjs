@@ -87,7 +87,14 @@ test("Basis concept PDF is generated from the learner content adapter", { timeou
   assert.equal(pdf.subarray(0, 5).toString("ascii"), "%PDF-");
 });
 
-test("Basis video is rendered with audio, subtitles and a positive duration", { timeout: 180000 }, async () => {
+test("Basis video is rendered with audio, subtitles and a positive duration", { timeout: 180000 }, async (t) => {
+  try {
+    const response = await fetch(process.env.VOICEVOX_URL ?? "http://127.0.0.1:50021/speakers");
+    if (!response.ok) throw new Error(`VOICEVOX responded with ${response.status}`);
+  } catch {
+    t.skip("VOICEVOX is not available; video rendering is an optional local integration test");
+    return;
+  }
   await exec(process.execPath, ["scripts/build-video-artifact.mjs", "linear-algebra", "basis-definition"], { cwd: root });
   const manifest = JSON.parse(await readFile(`${root}/domains/linear-algebra/video/generated/rendered/basis-definition/video-manifest.json`, "utf8"));
   await access(`${root}/domains/linear-algebra/video/generated/rendered/basis-definition/basis-definition.mp4`);
