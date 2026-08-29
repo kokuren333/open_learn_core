@@ -1,0 +1,13 @@
+{
+  "unit": "vector-introduction",
+  "artifact": "video/generated/rendered/vector-introduction/vector-introduction.mp4",
+  "subtitles": "video/generated/rendered/vector-introduction/vector-introduction.srt",
+  "duration_seconds": 14.602333,
+  "streams": {
+    "video": true,
+    "audio": true,
+    "subtitles": true
+  },
+  "status": "validated",
+  "source_audit": "pass"
+}
