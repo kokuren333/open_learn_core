@@ -1,0 +1,91 @@
+{
+  "id": "distribution",
+  "title": {
+    "ja": "分布",
+    "en": "Distribution"
+  },
+  "summary": {
+    "ja": "値の現れ方を確率または頻度の構造として捉える。",
+    "en": "Represent how values occur as a structure of probability or frequency."
+  },
+  "prerequisites": [
+    "descriptive-statistics",
+    "data-visualization"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "分布の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "distribution-lesson",
+      "title": "分布",
+      "summary": "分布の入口。",
+      "objectives": [
+        "分布を説明する"
+      ],
+      "sections": [
+        {
+          "id": "distribution-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "分布は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "distribution-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "distribution-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "distribution-claim",
+      "statement": "分布は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-distribution"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "distribution-example",
+      "statement": "分布を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、分布がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "distribution-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "分布が必要になる問いを一つ説明せよ。",
+      "answer": "分布を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "分布の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "distribution-lesson",
+      "testsClaims": [
+        "distribution-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "分布を別の概念と同一視する",
+    "分布の値だけで結論を出す",
+    "分布の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

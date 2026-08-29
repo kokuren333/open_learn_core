@@ -1,0 +1,90 @@
+{
+  "id": "standard-error",
+  "title": {
+    "ja": "標準誤差",
+    "en": "Standard Error"
+  },
+  "summary": {
+    "ja": "統計量が標本を取り直すとどれほど揺れるかを測る。",
+    "en": "Measure how much a statistic would vary across repeated samples."
+  },
+  "prerequisites": [
+    "central-limit-theorem"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "標準誤差の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "standard-error-lesson",
+      "title": "標準誤差",
+      "summary": "標準誤差の入口。",
+      "objectives": [
+        "標準誤差を説明する"
+      ],
+      "sections": [
+        {
+          "id": "standard-error-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "標準誤差は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "standard-error-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "standard-error-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "standard-error-claim",
+      "statement": "標準誤差は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-standard-error"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "standard-error-example",
+      "statement": "標準誤差を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、標準誤差がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "standard-error-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "標準誤差が必要になる問いを一つ説明せよ。",
+      "answer": "標準誤差を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "標準誤差の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "standard-error-lesson",
+      "testsClaims": [
+        "standard-error-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "標準誤差を別の概念と同一視する",
+    "標準誤差の値だけで結論を出す",
+    "標準誤差の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

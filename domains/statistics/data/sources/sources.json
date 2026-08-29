@@ -1,0 +1,88 @@
+[
+  {
+    "id": "openintro-statistics",
+    "title": "OpenIntro Statistics",
+    "provider": "OpenIntro",
+    "type": "open_textbook",
+    "url": "https://www.openintro.org/book/os/",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://www.openintro.org/license/",
+    "language": "en",
+    "accessed_at": "2026-08-29",
+    "locator": "textbook overview and table of contents",
+    "roles": [
+      "evidence",
+      "supplementary_learning"
+    ],
+    "quality": {
+      "authority": "high",
+      "accessibility": "high",
+      "pedagogical_value": "high"
+    },
+    "reuse": "link_only"
+  },
+  {
+    "id": "nist-statistical-handbook",
+    "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+    "provider": "National Institute of Standards and Technology",
+    "type": "official_curriculum",
+    "url": "https://www.itl.nist.gov/div898/handbook/",
+    "license": "US Government work / public access terms",
+    "language": "en",
+    "accessed_at": "2026-08-29",
+    "locator": "handbook index and statistical methods chapters",
+    "roles": [
+      "evidence",
+      "supplementary_learning"
+    ],
+    "quality": {
+      "authority": "high",
+      "accessibility": "high",
+      "pedagogical_value": "high"
+    },
+    "reuse": "link_only"
+  },
+  {
+    "id": "penn-state-statistics",
+    "title": "Penn State Online Statistics Courses",
+    "provider": "Penn State Eberly College of Science",
+    "type": "university_oer",
+    "url": "https://online.stat.psu.edu/stat500/",
+    "license": "Educational resource; link-only reuse",
+    "language": "en",
+    "accessed_at": "2026-08-29",
+    "locator": "STAT 500 course sequence",
+    "roles": [
+      "evidence",
+      "supplementary_learning"
+    ],
+    "quality": {
+      "authority": "high",
+      "accessibility": "high",
+      "pedagogical_value": "high"
+    },
+    "reuse": "link_only"
+  },
+  {
+    "id": "openstax-statistics",
+    "title": "Introductory Statistics",
+    "provider": "OpenStax",
+    "type": "open_textbook",
+    "url": "https://openstax.org/details/books/introductory-statistics-2e",
+    "license": "CC BY 4.0",
+    "license_url": "https://openstax.org/cc",
+    "language": "en",
+    "accessed_at": "2026-08-29",
+    "locator": "chapters on sampling, probability, inference, and regression",
+    "roles": [
+      "evidence",
+      "supplementary_learning"
+    ],
+    "quality": {
+      "authority": "high",
+      "accessibility": "high",
+      "pedagogical_value": "high"
+    },
+    "reuse": "link_only"
+  }
+]

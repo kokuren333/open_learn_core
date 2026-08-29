@@ -1,0 +1,18 @@
+{
+  "id": "evidence-population-and-sample",
+  "source": "openintro-statistics",
+  "locator": {
+    "type": "section",
+    "value": "textbook overview and table of contents",
+    "section": "curriculum comparison"
+  },
+  "evidence_role": "curriculum",
+  "supports": [
+    "population-and-sample-claim"
+  ],
+  "extracted_meaning": {
+    "ja": "母集団と標本は、統計学の導入から応用へ進むための共通要素として整理した。",
+    "en": "Population and Sample is included as a shared element in the path from introductory ideas to application in Statistics."
+  },
+  "confidence": "high"
+}

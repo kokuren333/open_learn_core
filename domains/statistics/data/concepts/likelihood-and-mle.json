@@ -1,0 +1,91 @@
+{
+  "id": "likelihood-and-mle",
+  "title": {
+    "ja": "尤度と最尤推定",
+    "en": "Likelihood and Maximum Likelihood"
+  },
+  "summary": {
+    "ja": "観測データが母数の各候補のもとでどれほど整合的かを比較する。",
+    "en": "Compare how compatible observed data are with candidate parameter values."
+  },
+  "prerequisites": [
+    "point-estimation",
+    "common-distributions"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "尤度と最尤推定の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "likelihood-and-mle-lesson",
+      "title": "尤度と最尤推定",
+      "summary": "尤度と最尤推定の入口。",
+      "objectives": [
+        "尤度と最尤推定を説明する"
+      ],
+      "sections": [
+        {
+          "id": "likelihood-and-mle-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "尤度と最尤推定は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "likelihood-and-mle-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "likelihood-and-mle-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "likelihood-and-mle-claim",
+      "statement": "尤度と最尤推定は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-likelihood-and-mle"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "likelihood-and-mle-example",
+      "statement": "尤度と最尤推定を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、尤度と最尤推定がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "likelihood-and-mle-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "尤度と最尤推定が必要になる問いを一つ説明せよ。",
+      "answer": "尤度と最尤推定を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "尤度と最尤推定の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "likelihood-and-mle-lesson",
+      "testsClaims": [
+        "likelihood-and-mle-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "尤度と最尤推定を別の概念と同一視する",
+    "尤度と最尤推定の値だけで結論を出す",
+    "尤度と最尤推定の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

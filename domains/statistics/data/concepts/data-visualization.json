@@ -1,0 +1,90 @@
+{
+  "id": "data-visualization",
+  "title": {
+    "ja": "データ可視化",
+    "en": "Data Visualization"
+  },
+  "summary": {
+    "ja": "図の形と軸を通して分布・外れ値・関係を観察する。",
+    "en": "Use plots and axes to inspect distributions, outliers, and relationships."
+  },
+  "prerequisites": [
+    "descriptive-statistics"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "データ可視化の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "data-visualization-lesson",
+      "title": "データ可視化",
+      "summary": "データ可視化の入口。",
+      "objectives": [
+        "データ可視化を説明する"
+      ],
+      "sections": [
+        {
+          "id": "data-visualization-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "データ可視化は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "data-visualization-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "data-visualization-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "data-visualization-claim",
+      "statement": "データ可視化は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-data-visualization"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "data-visualization-example",
+      "statement": "データ可視化を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、データ可視化がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "data-visualization-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "データ可視化が必要になる問いを一つ説明せよ。",
+      "answer": "データ可視化を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "データ可視化の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "data-visualization-lesson",
+      "testsClaims": [
+        "data-visualization-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "データ可視化を別の概念と同一視する",
+    "データ可視化の値だけで結論を出す",
+    "データ可視化の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

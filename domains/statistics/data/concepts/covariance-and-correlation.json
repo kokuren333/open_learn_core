@@ -1,0 +1,91 @@
+{
+  "id": "covariance-and-correlation",
+  "title": {
+    "ja": "共分散と相関",
+    "en": "Covariance and Correlation"
+  },
+  "summary": {
+    "ja": "二変数が一緒に変動する向きと強さを標準化して読む。",
+    "en": "Measure the direction and standardized strength of joint variation."
+  },
+  "prerequisites": [
+    "descriptive-statistics",
+    "expectation-and-variance"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "共分散と相関の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "covariance-and-correlation-lesson",
+      "title": "共分散と相関",
+      "summary": "共分散と相関の入口。",
+      "objectives": [
+        "共分散と相関を説明する"
+      ],
+      "sections": [
+        {
+          "id": "covariance-and-correlation-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "共分散と相関は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "covariance-and-correlation-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "covariance-and-correlation-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "covariance-and-correlation-claim",
+      "statement": "共分散と相関は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-covariance-and-correlation"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "covariance-and-correlation-example",
+      "statement": "共分散と相関を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、共分散と相関がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "covariance-and-correlation-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "共分散と相関が必要になる問いを一つ説明せよ。",
+      "answer": "共分散と相関を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "共分散と相関の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "covariance-and-correlation-lesson",
+      "testsClaims": [
+        "covariance-and-correlation-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "共分散と相関を別の概念と同一視する",
+    "共分散と相関の値だけで結論を出す",
+    "共分散と相関の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "evidence-simple-linear-regression",
+  "source": "openintro-statistics",
+  "locator": {
+    "type": "section",
+    "value": "textbook overview and table of contents",
+    "section": "curriculum comparison"
+  },
+  "evidence_role": "curriculum",
+  "supports": [
+    "simple-linear-regression-claim"
+  ],
+  "extracted_meaning": {
+    "ja": "単回帰は、統計学の導入から応用へ進むための共通要素として整理した。",
+    "en": "Simple Linear Regression is included as a shared element in the path from introductory ideas to application in Statistics."
+  },
+  "confidence": "high"
+}

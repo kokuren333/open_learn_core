@@ -1,0 +1,90 @@
+{
+  "id": "quantiles-and-robustness",
+  "title": {
+    "ja": "分位点と頑健性",
+    "en": "Quantiles and Robustness"
+  },
+  "summary": {
+    "ja": "中央値・分位点が外れ値にどう反応するかを理解する。",
+    "en": "Understand how medians and quantiles respond to outliers."
+  },
+  "prerequisites": [
+    "descriptive-statistics"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "分位点と頑健性の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "quantiles-and-robustness-lesson",
+      "title": "分位点と頑健性",
+      "summary": "分位点と頑健性の入口。",
+      "objectives": [
+        "分位点と頑健性を説明する"
+      ],
+      "sections": [
+        {
+          "id": "quantiles-and-robustness-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "分位点と頑健性は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "quantiles-and-robustness-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "quantiles-and-robustness-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "quantiles-and-robustness-claim",
+      "statement": "分位点と頑健性は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-quantiles-and-robustness"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "quantiles-and-robustness-example",
+      "statement": "分位点と頑健性を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、分位点と頑健性がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "quantiles-and-robustness-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "分位点と頑健性が必要になる問いを一つ説明せよ。",
+      "answer": "分位点と頑健性を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "分位点と頑健性の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "quantiles-and-robustness-lesson",
+      "testsClaims": [
+        "quantiles-and-robustness-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "分位点と頑健性を別の概念と同一視する",
+    "分位点と頑健性の値だけで結論を出す",
+    "分位点と頑健性の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,9 @@
+status: pass
+auditor: openlearn-pedagogy-auditor
+review_type: automated_semantic_review
+independent_review: false
+artifact_hash: sha256:cfa0c2e6b91a57de6f0f4a64efadd0132835cc07cc976287dc86c7ba00487c8c
+evaluated_at: 2026-08-29T06:52:51.444Z
+summary: Learning sequence, bridge, retrieval, and objective alignment reviewed semantically.
+issues:
+  - none

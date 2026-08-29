@@ -1,0 +1,90 @@
+{
+  "id": "conditional-probability",
+  "title": {
+    "ja": "条件付き確率",
+    "en": "Conditional Probability"
+  },
+  "summary": {
+    "ja": "既に得た情報のもとで確率を更新する。",
+    "en": "Update probabilities after conditioning on available information."
+  },
+  "prerequisites": [
+    "probability"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "条件付き確率の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "conditional-probability-lesson",
+      "title": "条件付き確率",
+      "summary": "条件付き確率の入口。",
+      "objectives": [
+        "条件付き確率を説明する"
+      ],
+      "sections": [
+        {
+          "id": "conditional-probability-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "条件付き確率は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "conditional-probability-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "conditional-probability-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "conditional-probability-claim",
+      "statement": "条件付き確率は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-conditional-probability"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "conditional-probability-example",
+      "statement": "条件付き確率を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、条件付き確率がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "conditional-probability-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "条件付き確率が必要になる問いを一つ説明せよ。",
+      "answer": "条件付き確率を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "条件付き確率の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "conditional-probability-lesson",
+      "testsClaims": [
+        "conditional-probability-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "条件付き確率を別の概念と同一視する",
+    "条件付き確率の値だけで結論を出す",
+    "条件付き確率の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

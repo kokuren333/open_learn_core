@@ -1,0 +1,290 @@
+{
+  "domain": "statistics",
+  "count": 30,
+  "gold_candidates": [
+    "central-limit-theorem",
+    "confidence-interval",
+    "p-value"
+  ],
+  "gold_concepts": [],
+  "concepts": [
+    {
+      "order": 1,
+      "id": "population-and-sample",
+      "title": "母集団と標本",
+      "prerequisites": [],
+      "status": "scaffold"
+    },
+    {
+      "order": 2,
+      "id": "variables-and-measurement",
+      "title": "変数と測定",
+      "prerequisites": [
+        "population-and-sample"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 3,
+      "id": "data-generating-process",
+      "title": "データ生成過程",
+      "prerequisites": [
+        "variables-and-measurement"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 4,
+      "id": "descriptive-statistics",
+      "title": "記述統計",
+      "prerequisites": [
+        "variables-and-measurement"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 5,
+      "id": "data-visualization",
+      "title": "データ可視化",
+      "prerequisites": [
+        "descriptive-statistics"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 6,
+      "id": "distribution",
+      "title": "分布",
+      "prerequisites": [
+        "descriptive-statistics",
+        "data-visualization"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 7,
+      "id": "quantiles-and-robustness",
+      "title": "分位点と頑健性",
+      "prerequisites": [
+        "descriptive-statistics"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 8,
+      "id": "probability",
+      "title": "確率",
+      "prerequisites": [
+        "distribution"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 9,
+      "id": "conditional-probability",
+      "title": "条件付き確率",
+      "prerequisites": [
+        "probability"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 10,
+      "id": "random-variables",
+      "title": "確率変数",
+      "prerequisites": [
+        "conditional-probability"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 11,
+      "id": "expectation-and-variance",
+      "title": "期待値と分散",
+      "prerequisites": [
+        "random-variables"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 12,
+      "id": "common-distributions",
+      "title": "代表的な確率分布",
+      "prerequisites": [
+        "expectation-and-variance"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 13,
+      "id": "independence",
+      "title": "独立性",
+      "prerequisites": [
+        "conditional-probability"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 14,
+      "id": "sampling-and-bias",
+      "title": "標本抽出とバイアス",
+      "prerequisites": [
+        "data-generating-process",
+        "independence"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 15,
+      "id": "sampling-distributions",
+      "title": "標本分布",
+      "prerequisites": [
+        "sampling-and-bias",
+        "expectation-and-variance"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 16,
+      "id": "law-of-large-numbers",
+      "title": "大数の法則",
+      "prerequisites": [
+        "sampling-distributions"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 17,
+      "id": "central-limit-theorem",
+      "title": "中心極限定理",
+      "prerequisites": [
+        "sampling-distributions",
+        "law-of-large-numbers"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 18,
+      "id": "standard-error",
+      "title": "標準誤差",
+      "prerequisites": [
+        "central-limit-theorem"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 19,
+      "id": "point-estimation",
+      "title": "点推定",
+      "prerequisites": [
+        "standard-error"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 20,
+      "id": "interval-estimation",
+      "title": "区間推定",
+      "prerequisites": [
+        "point-estimation",
+        "standard-error"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 21,
+      "id": "confidence-interval",
+      "title": "信頼区間",
+      "prerequisites": [
+        "interval-estimation",
+        "central-limit-theorem"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 22,
+      "id": "likelihood-and-mle",
+      "title": "尤度と最尤推定",
+      "prerequisites": [
+        "point-estimation",
+        "common-distributions"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 23,
+      "id": "hypothesis-testing",
+      "title": "仮説検定",
+      "prerequisites": [
+        "sampling-distributions",
+        "standard-error"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 24,
+      "id": "p-value",
+      "title": "p値",
+      "prerequisites": [
+        "hypothesis-testing"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 25,
+      "id": "type-errors-and-power",
+      "title": "第一種・第二種過誤と検出力",
+      "prerequisites": [
+        "p-value"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 26,
+      "id": "multiple-comparisons",
+      "title": "多重比較",
+      "prerequisites": [
+        "type-errors-and-power"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 27,
+      "id": "covariance-and-correlation",
+      "title": "共分散と相関",
+      "prerequisites": [
+        "descriptive-statistics",
+        "expectation-and-variance"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 28,
+      "id": "simple-linear-regression",
+      "title": "単回帰",
+      "prerequisites": [
+        "covariance-and-correlation"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 29,
+      "id": "multiple-regression-and-glm",
+      "title": "重回帰と一般化線形モデル",
+      "prerequisites": [
+        "simple-linear-regression",
+        "common-distributions"
+      ],
+      "status": "scaffold"
+    },
+    {
+      "order": 30,
+      "id": "model-evaluation-and-generalization",
+      "title": "モデル評価と一般化",
+      "prerequisites": [
+        "multiple-regression-and-glm"
+      ],
+      "status": "scaffold"
+    }
+  ]
+}

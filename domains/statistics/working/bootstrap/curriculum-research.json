@@ -1,0 +1,114 @@
+{
+  "method": "四つの公開・大学・公的統計資料を比較し、共通する導入順序、推論の前提、scope boundaryを抽出した。本文は転載せず、curriculum判断とclaimの根拠だけを記録する。",
+  "sources": [
+    {
+      "id": "openintro-statistics",
+      "title": "OpenIntro Statistics",
+      "provider": "OpenIntro",
+      "type": "open_textbook",
+      "url": "https://www.openintro.org/book/os/",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://www.openintro.org/license/",
+      "language": "en",
+      "accessed_at": "2026-08-29",
+      "locator": "textbook overview and table of contents"
+    },
+    {
+      "id": "nist-statistical-handbook",
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "provider": "National Institute of Standards and Technology",
+      "type": "official_curriculum",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "license": "US Government work / public access terms",
+      "language": "en",
+      "accessed_at": "2026-08-29",
+      "locator": "handbook index and statistical methods chapters"
+    },
+    {
+      "id": "penn-state-statistics",
+      "title": "Penn State Online Statistics Courses",
+      "provider": "Penn State Eberly College of Science",
+      "type": "university_oer",
+      "url": "https://online.stat.psu.edu/stat500/",
+      "license": "Educational resource; link-only reuse",
+      "language": "en",
+      "accessed_at": "2026-08-29",
+      "locator": "STAT 500 course sequence"
+    },
+    {
+      "id": "openstax-statistics",
+      "title": "Introductory Statistics",
+      "provider": "OpenStax",
+      "type": "open_textbook",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e",
+      "license": "CC BY 4.0",
+      "license_url": "https://openstax.org/cc",
+      "language": "en",
+      "accessed_at": "2026-08-29",
+      "locator": "chapters on sampling, probability, inference, and regression"
+    }
+  ],
+  "comparisons": [
+    {
+      "source_id": "openintro-statistics",
+      "shared_topics": [
+        "data basics",
+        "probability",
+        "sampling",
+        "inference",
+        "regression"
+      ],
+      "ordering_signal": "data and probability before inference; applied examples throughout"
+    },
+    {
+      "source_id": "nist-statistical-handbook",
+      "shared_topics": [
+        "distributions",
+        "estimation",
+        "hypothesis tests",
+        "regression",
+        "model diagnostics"
+      ],
+      "ordering_signal": "methods are tied to assumptions, diagnostics, and uncertainty"
+    },
+    {
+      "source_id": "penn-state-statistics",
+      "shared_topics": [
+        "probability",
+        "random variables",
+        "sampling distributions",
+        "confidence intervals",
+        "tests",
+        "regression"
+      ],
+      "ordering_signal": "probability and sampling distributions bridge descriptive and inferential statistics"
+    },
+    {
+      "source_id": "openstax-statistics",
+      "shared_topics": [
+        "descriptive statistics",
+        "probability",
+        "discrete and continuous distributions",
+        "central limit theorem",
+        "confidence intervals",
+        "p-values",
+        "regression"
+      ],
+      "ordering_signal": "introductory concepts are revisited through concrete data examples"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Place sampling distributions before central limit theorem and standard error.",
+      "reason": "The theorem is a statement about a distribution of statistics, not about raw observations alone."
+    },
+    {
+      "decision": "Keep p-value after hypothesis testing and sampling distributions.",
+      "reason": "A p-value needs a null reference distribution and a clearly stated test statistic."
+    },
+    {
+      "decision": "Combine multiple regression and GLM as one scaffold node.",
+      "reason": "Both extend model-based explanation while keeping the first domain map at exactly 30 meaningful nodes."
+    }
+  ]
+}

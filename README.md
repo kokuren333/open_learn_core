@@ -54,6 +54,18 @@ Source code is MIT licensed in [LICENSE](LICENSE). Original educational content 
 
 Create `domains/<domain>/domain.yaml`, place the domain data and assets below that directory, and run the domain validation, tests, and build commands. See [docs/domain-system.md](docs/domain-system.md), [docs/repository-layout.md](docs/repository-layout.md), and [docs/asset-policy.md](docs/asset-policy.md).
 
+## Create a learning domain with Codex
+
+Describe the learner's need in ordinary language; a full settings file is not required. The Domain Bootstrap workflow preserves the learner problem, compares curriculum sources, fixes an exact-30 Core Concept map, and generates a domain scaffold. For example:
+
+```text
+大学初頭〜中級レベルの統計学を学び直したい。
+平均や標準偏差、p値、回帰は見たことがあるが、確率から推定・検定・回帰までの全体像がつながっていない。
+信頼できるソースを調査して30 Core Conceptsへ設計し、まず中心極限定理だけをGold候補として教材化して。
+```
+
+The checked-in `statistics` Domain is the first dogfooding result of this workflow. Its request, scope, source comparison, and 30-node map are under `domains/statistics/working/bootstrap/`. Generate the same scaffold with `npm run bootstrap:domain -- domains/statistics/working/bootstrap-request.json`.
+
 ## Roadmap
 
 The v2.2 follow-up work is to author Gold Learning Experiences for the remaining 29 Core Concepts and then connect learner accounts, adaptive grading, multilingual expansion, additional domains, and hosted analytics. The basic course remains static, inspectable, and usable without a proprietary service.

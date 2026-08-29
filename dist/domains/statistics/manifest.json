@@ -1,0 +1,129 @@
+{
+  "id": "statistics",
+  "title": {
+    "ja": "統計学",
+    "en": "Statistics"
+  },
+  "description": {
+    "ja": "データを確率的な揺れとモデルの観点から読み、記述・推定・検定・回帰へつなぐ大学初頭〜中級向け教材。",
+    "en": "An introductory-to-intermediate path from data description through probability, inference, testing, and regression."
+  },
+  "version": "0.1.0",
+  "status": "in_progress",
+  "language": {
+    "default": "ja",
+    "supported": [
+      "ja",
+      "en"
+    ]
+  },
+  "level": {
+    "min": "university_introductory",
+    "max": "university_intermediate"
+  },
+  "entry_curriculum": [
+    "statistics-foundations"
+  ],
+  "entry_concepts": [
+    "population-and-sample"
+  ],
+  "quality_gate_concepts": [
+    "population-and-sample"
+  ],
+  "core_compatibility": {
+    "min_version": "2.5"
+  },
+  "content_root": "./data",
+  "asset_root": "./assets",
+  "core_concepts_file": "./data/core-concepts/core-concepts.json",
+  "learning_experiences_file": "./data/learning-experiences/learning-experiences.json",
+  "core_concepts": [
+    "population-and-sample",
+    "variables-and-measurement",
+    "data-generating-process",
+    "descriptive-statistics",
+    "data-visualization",
+    "distribution",
+    "quantiles-and-robustness",
+    "probability",
+    "conditional-probability",
+    "random-variables",
+    "expectation-and-variance",
+    "common-distributions",
+    "independence",
+    "sampling-and-bias",
+    "sampling-distributions",
+    "law-of-large-numbers",
+    "central-limit-theorem",
+    "standard-error",
+    "point-estimation",
+    "interval-estimation",
+    "confidence-interval",
+    "likelihood-and-mle",
+    "hypothesis-testing",
+    "p-value",
+    "type-errors-and-power",
+    "multiple-comparisons",
+    "covariance-and-correlation",
+    "simple-linear-regression",
+    "multiple-regression-and-glm",
+    "model-evaluation-and-generalization"
+  ],
+  "publish": {
+    "enabled": true,
+    "path": "statistics"
+  },
+  "url": "/domains/statistics/",
+  "curricula": [
+    {
+      "id": "statistics-foundations",
+      "title": {
+        "ja": "統計学の基礎",
+        "en": "Statistics Foundations"
+      }
+    }
+  ],
+  "conceptCount": 30,
+  "legacyConceptCount": 30,
+  "coreConcepts": [
+    "population-and-sample",
+    "variables-and-measurement",
+    "data-generating-process",
+    "descriptive-statistics",
+    "data-visualization",
+    "distribution",
+    "quantiles-and-robustness",
+    "probability",
+    "conditional-probability",
+    "random-variables",
+    "expectation-and-variance",
+    "common-distributions",
+    "independence",
+    "sampling-and-bias",
+    "sampling-distributions",
+    "law-of-large-numbers",
+    "central-limit-theorem",
+    "standard-error",
+    "point-estimation",
+    "interval-estimation",
+    "confidence-interval",
+    "likelihood-and-mle",
+    "hypothesis-testing",
+    "p-value",
+    "type-errors-and-power",
+    "multiple-comparisons",
+    "covariance-and-correlation",
+    "simple-linear-regression",
+    "multiple-regression-and-glm",
+    "model-evaluation-and-generalization"
+  ],
+  "learningExperiences": [],
+  "conceptResources": [],
+  "courseVersion": "2.2.0",
+  "source_commit": "06df4648aa47b7c3033cae326b47980eebc5495b",
+  "license": {
+    "code": "MIT",
+    "content": "CC BY-SA 4.0"
+  },
+  "asset_base_url": ""
+}

@@ -1,0 +1,90 @@
+{
+  "id": "point-estimation",
+  "title": {
+    "ja": "点推定",
+    "en": "Point Estimation"
+  },
+  "summary": {
+    "ja": "標本から母数を一つの値で推定し、推定量の性質を考える。",
+    "en": "Estimate a population parameter with one value and study estimator properties."
+  },
+  "prerequisites": [
+    "standard-error"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "点推定の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "point-estimation-lesson",
+      "title": "点推定",
+      "summary": "点推定の入口。",
+      "objectives": [
+        "点推定を説明する"
+      ],
+      "sections": [
+        {
+          "id": "point-estimation-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "点推定は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "point-estimation-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "point-estimation-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "point-estimation-claim",
+      "statement": "点推定は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-point-estimation"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "point-estimation-example",
+      "statement": "点推定を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、点推定がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "point-estimation-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "点推定が必要になる問いを一つ説明せよ。",
+      "answer": "点推定を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "点推定の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "point-estimation-lesson",
+      "testsClaims": [
+        "point-estimation-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "点推定を別の概念と同一視する",
+    "点推定の値だけで結論を出す",
+    "点推定の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

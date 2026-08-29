@@ -1,0 +1,53 @@
+{
+  "release_version": "2.5.0",
+  "concept": "population-and-sample",
+  "domain": "statistics",
+  "version": "2.5.0",
+  "status": "published",
+  "course_status": "unknown",
+  "semanticAudits": {
+    "math": "pass",
+    "evidence": "pass",
+    "pedagogy": "pass",
+    "explanation": "pass",
+    "visual": "pass",
+    "completeness": "pass"
+  },
+  "content": {
+    "concepts": 30,
+    "legacyConcepts": 30,
+    "learningExperiences": 0,
+    "lessonContentBlocks": 0,
+    "modules": 0,
+    "units": 0,
+    "lessons": 6,
+    "workedExamples": 6,
+    "counterexamples": 4,
+    "exercises": 20,
+    "solutions": 0,
+    "cumulativeReviews": 0,
+    "diagnostics": 5,
+    "visuals": 3
+  },
+  "audits": {
+    "structure": "pass",
+    "deterministic": "pass",
+    "evidence": "pass",
+    "mathematics": "pass",
+    "pedagogy": "pass",
+    "explanation": "pass",
+    "visual": "pass",
+    "completeness": "pass",
+    "freshness": "pass",
+    "assessment": "pass"
+  },
+  "counts": {
+    "claims": 1,
+    "evidenceItems": 30,
+    "examples": 16,
+    "exercises": 20,
+    "diagnostics": 5,
+    "misconceptions": 6,
+    "visuals": 3
+  }
+}

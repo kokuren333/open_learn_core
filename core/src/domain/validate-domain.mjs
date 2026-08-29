@@ -120,7 +120,39 @@ export async function validateDomain(domain, { schema } = {}) {
   }
   for (const core of coreConcepts) {
     const experience = learningExperiences.find((item) => item.concept_id === core.id);
-    if (core.editorial_status === "gold" && (!experience || experience.editorial_status !== "gold")) issues.push(`Gold Core Concept '${core.id}' must have a Gold Learning Experience`);
+    if (core.editorial_status === "gold") {
+      if (!experience || experience.editorial_status !== "gold") issues.push(`Gold Core Concept '${core.id}' must have a Gold Learning Experience`);
+      const resources = resourcesByConcept.get(core.id);
+      if (!resources) {
+        issues.push(`Gold Core Concept '${core.id}' must have complete Concept resources`);
+      } else {
+        const representations = resources.representations ?? [];
+        const hasVisual = representations.some((item) => ["diagram", "image"].includes(item.type)) && (resources.visual_plan?.assets?.length ?? 0) > 0;
+        const hasFurtherLearning = (resources.further_learning?.length ?? 0) > 0;
+        const hasTraceability = (resources.sources?.length ?? 0) > 0 && (resources.claims?.length ?? 0) > 0;
+        const artifactExists = async (type) => {
+          const representation = representations.find((item) => item.type === type);
+          const sourcePath = representation?.artifact?.source_path;
+          if (!sourcePath) return false;
+          try {
+            const resolved = path.resolve(domain.dataset.root ?? domain.root, sourcePath);
+            const artifactStat = await stat(resolved);
+            if (!artifactStat.isFile() || artifactStat.size === 0) return false;
+            if (type === "pdf") return (await readFile(resolved)).subarray(0, 5).toString("ascii") === "%PDF-";
+            if (type === "video") {
+              const publication = JSON.parse(await readFile(path.join(path.dirname(resolved), "video-manifest.json"), "utf8"));
+              return Number(publication.duration_seconds) > 0 && publication.streams?.audio === true && publication.streams?.video === true && publication.streams?.subtitles === true;
+            }
+            return true;
+          } catch { return false; }
+        };
+        if (!hasVisual) issues.push(`Gold Core Concept '${core.id}' must include a diagram or image linked to a visual plan`);
+        if (!hasFurtherLearning) issues.push(`Gold Core Concept '${core.id}' must include further-learning references`);
+        if (!hasTraceability) issues.push(`Gold Core Concept '${core.id}' must include source and claim traceability`);
+        if (!(await artifactExists("pdf"))) issues.push(`Gold Core Concept '${core.id}' must include a readable PDF artifact`);
+        if (!(await artifactExists("video"))) issues.push(`Gold Core Concept '${core.id}' must include a playable video artifact`);
+      }
+    }
   }
   if (domain.manifest.id !== path.basename(domain.root)) issues.push("domain manifest id must match directory name");
   const datasetValidation = await (await import("../validation/index.mjs")).validateDataset(domain.dataset);

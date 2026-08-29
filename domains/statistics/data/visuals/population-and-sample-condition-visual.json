@@ -1,0 +1,40 @@
+{
+  "id": "population-and-sample-condition-visual",
+  "concept": "population-and-sample",
+  "type": "summary-infographic",
+  "learning_goal": {
+    "ja": "近似の条件",
+    "en": "近似の条件"
+  },
+  "source_claims": [
+    "population-and-sample-claim"
+  ],
+  "target_claim": "population-and-sample-claim",
+  "learner_question": {
+    "ja": "何が繰り返し変わるのか？",
+    "en": "What changes across repeated samples?"
+  },
+  "layout": {
+    "type": "single-curve"
+  },
+  "labels": [
+    "標本",
+    "分布",
+    "不確実性"
+  ],
+  "visual_encoding": "横軸を統計量、曲線の高さを相対的な頻度として表す。",
+  "misconception_risk": [
+    "元データの分布と標本平均の分布を混同する"
+  ],
+  "placement": {
+    "lesson": "population-and-sample-lesson-03",
+    "position": "after_explanation"
+  },
+  "alt_text": {
+    "ja": "近似の条件を示す曲線図。",
+    "en": "A curve diagram showing 近似の条件."
+  },
+  "status": "published",
+  "output_path": "diagrams/population-and-sample-condition-visual.svg",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 360\" role=\"img\" aria-label=\"近似の条件\"><rect width=\"900\" height=\"360\" fill=\"#f7faf3\"/><text x=\"450\" y=\"48\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"28\" font-weight=\"700\" fill=\"#18321f\">近似の条件</text><path d=\"M100 285H820M150 300V80\" stroke=\"#9eb6a5\" stroke-width=\"2\"/><path d=\"M160 270 C230 170 310 150 390 205 S550 280 650 180 S760 140 810 235\" fill=\"none\" stroke=\"#397b5a\" stroke-width=\"6\"/><text x=\"450\" y=\"335\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"18\" fill=\"#435047\">独立性・標本サイズ・分散を確認する</text></svg>\n"
+}

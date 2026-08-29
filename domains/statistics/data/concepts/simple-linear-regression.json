@@ -1,0 +1,90 @@
+{
+  "id": "simple-linear-regression",
+  "title": {
+    "ja": "単回帰",
+    "en": "Simple Linear Regression"
+  },
+  "summary": {
+    "ja": "一つの説明変数から応答を予測する直線モデルを解釈する。",
+    "en": "Interpret a line model that predicts a response from one explanatory variable."
+  },
+  "prerequisites": [
+    "covariance-and-correlation"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "単回帰の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "simple-linear-regression-lesson",
+      "title": "単回帰",
+      "summary": "単回帰の入口。",
+      "objectives": [
+        "単回帰を説明する"
+      ],
+      "sections": [
+        {
+          "id": "simple-linear-regression-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "単回帰は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "simple-linear-regression-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "simple-linear-regression-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "simple-linear-regression-claim",
+      "statement": "単回帰は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-simple-linear-regression"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "simple-linear-regression-example",
+      "statement": "単回帰を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、単回帰がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "simple-linear-regression-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "単回帰が必要になる問いを一つ説明せよ。",
+      "answer": "単回帰を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "単回帰の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "simple-linear-regression-lesson",
+      "testsClaims": [
+        "simple-linear-regression-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "単回帰を別の概念と同一視する",
+    "単回帰の値だけで結論を出す",
+    "単回帰の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

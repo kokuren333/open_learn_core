@@ -1,0 +1,90 @@
+{
+  "id": "law-of-large-numbers",
+  "title": {
+    "ja": "大数の法則",
+    "en": "Law of Large Numbers"
+  },
+  "summary": {
+    "ja": "繰り返しや標本サイズの増加で平均が安定する仕組みを理解する。",
+    "en": "Understand why averages stabilize with repeated observations or larger samples."
+  },
+  "prerequisites": [
+    "sampling-distributions"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "大数の法則の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "law-of-large-numbers-lesson",
+      "title": "大数の法則",
+      "summary": "大数の法則の入口。",
+      "objectives": [
+        "大数の法則を説明する"
+      ],
+      "sections": [
+        {
+          "id": "law-of-large-numbers-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "大数の法則は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "law-of-large-numbers-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "law-of-large-numbers-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "law-of-large-numbers-claim",
+      "statement": "大数の法則は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-law-of-large-numbers"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "law-of-large-numbers-example",
+      "statement": "大数の法則を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、大数の法則がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "law-of-large-numbers-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "大数の法則が必要になる問いを一つ説明せよ。",
+      "answer": "大数の法則を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "大数の法則の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "law-of-large-numbers-lesson",
+      "testsClaims": [
+        "law-of-large-numbers-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "大数の法則を別の概念と同一視する",
+    "大数の法則の値だけで結論を出す",
+    "大数の法則の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

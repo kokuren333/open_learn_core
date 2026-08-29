@@ -1,0 +1,40 @@
+{
+  "id": "statistics-foundations",
+  "title": {
+    "ja": "統計学の基礎",
+    "en": "Statistics Foundations"
+  },
+  "description": "統計学の主要概念を、前提関係に沿って学ぶ30 Core Concepts。",
+  "sequence": [
+    "population-and-sample",
+    "variables-and-measurement",
+    "data-generating-process",
+    "descriptive-statistics",
+    "data-visualization",
+    "distribution",
+    "quantiles-and-robustness",
+    "probability",
+    "conditional-probability",
+    "random-variables",
+    "expectation-and-variance",
+    "common-distributions",
+    "independence",
+    "sampling-and-bias",
+    "sampling-distributions",
+    "law-of-large-numbers",
+    "central-limit-theorem",
+    "standard-error",
+    "point-estimation",
+    "interval-estimation",
+    "confidence-interval",
+    "likelihood-and-mle",
+    "hypothesis-testing",
+    "p-value",
+    "type-errors-and-power",
+    "multiple-comparisons",
+    "covariance-and-correlation",
+    "simple-linear-regression",
+    "multiple-regression-and-glm",
+    "model-evaluation-and-generalization"
+  ]
+}

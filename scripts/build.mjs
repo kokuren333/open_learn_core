@@ -22,13 +22,22 @@ async function readVideoPublication(domainRoot, unitId) {
   try { return JSON.parse(await readFile(path.join(domainRoot, "video", "units", unitId, "youtube.yaml"), "utf8")); } catch { return null; }
 }
 const domains = requested && requested !== "all" ? [await loadDomain(root, requested)] : await loadAllDomains(root);
+const preflightValidation = new Map();
+for (const domain of domains) {
+  const check = await validateDomain(domain);
+  if (!check.valid) {
+    console.error(`Cannot build domain '${domain.id}':\n${check.issues.map((issue) => `- ${issue}`).join("\n")}`);
+    process.exit(1);
+  }
+  preflightValidation.set(domain.id, check);
+}
 const dist = path.join(root, "dist");
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 
 const portalEntries = [];
 for (const domain of domains) {
-  const domainCheck = await validateDomain(domain);
+  const domainCheck = preflightValidation.get(domain.id);
   if (!domainCheck.valid) {
     console.error(`Cannot build domain '${domain.id}':\n${domainCheck.issues.map((issue) => `- ${issue}`).join("\n")}`);
     process.exit(1);
@@ -55,7 +64,7 @@ for (const domain of domains) {
   const visualsById = validation.visualsById;
   const courseData = domain.courseData;
   const learningExperienceByConcept = new Map((domain.learningExperiences ?? []).map((experience) => [experience.concept_id, experience]));
-  const coreCurriculum = dataset.curricula[0]?.value ? { ...dataset.curricula[0].value, sequence: coreConcepts.map((concept) => concept.id), title: { ja: "線形代数 Core Concept 30", en: "Linear Algebra Core Concepts 30" }, description: "学習者向けに30件へ圧縮した線形代数の中心概念マップ。" } : null;
+  const coreCurriculum = dataset.curricula[0]?.value ? { ...dataset.curricula[0].value, sequence: coreConcepts.map((concept) => concept.id) } : null;
   await writeFile(path.join(output, "index.html"), renderIndex({ concepts, coreConcepts, conceptsById: coreConceptsById, curricula: coreCurriculum ? [{ value: coreCurriculum }] : [], domainTitle: domain.manifest.title, course: dataset.courses?.[0]?.value, courseUnits: courseData.units.map((record) => record.value) }), "utf8");
   await writeFile(path.join(output, "graph.html"), renderGraph({ concepts: coreConcepts, conceptsById: coreConceptsById, curricula: coreCurriculum ? [{ value: coreCurriculum }] : [] }), "utf8");
   const resourcesByConcept = new Map((domain.conceptResources ?? []).map((resources) => [resources.concept_id, resources]));

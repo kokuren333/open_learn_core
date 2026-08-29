@@ -1,0 +1,90 @@
+{
+  "id": "probability",
+  "title": {
+    "ja": "確率",
+    "en": "Probability"
+  },
+  "summary": {
+    "ja": "不確実な結果を事象と確率で表現する。",
+    "en": "Represent uncertain outcomes with events and probabilities."
+  },
+  "prerequisites": [
+    "distribution"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "確率の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "probability-lesson",
+      "title": "確率",
+      "summary": "確率の入口。",
+      "objectives": [
+        "確率を説明する"
+      ],
+      "sections": [
+        {
+          "id": "probability-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "確率は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "probability-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "probability-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "probability-claim",
+      "statement": "確率は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-probability"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "probability-example",
+      "statement": "確率を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、確率がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "probability-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "確率が必要になる問いを一つ説明せよ。",
+      "answer": "確率を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "確率の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "probability-lesson",
+      "testsClaims": [
+        "probability-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "確率を別の概念と同一視する",
+    "確率の値だけで結論を出す",
+    "確率の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

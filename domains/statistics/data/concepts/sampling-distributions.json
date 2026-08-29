@@ -1,0 +1,91 @@
+{
+  "id": "sampling-distributions",
+  "title": {
+    "ja": "標本分布",
+    "en": "Sampling Distributions"
+  },
+  "summary": {
+    "ja": "統計量を標本ごとに計算したときの分布を考える。",
+    "en": "Study the distribution of a statistic across repeated samples."
+  },
+  "prerequisites": [
+    "sampling-and-bias",
+    "expectation-and-variance"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "標本分布の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "sampling-distributions-lesson",
+      "title": "標本分布",
+      "summary": "標本分布の入口。",
+      "objectives": [
+        "標本分布を説明する"
+      ],
+      "sections": [
+        {
+          "id": "sampling-distributions-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "標本分布は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "sampling-distributions-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "sampling-distributions-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "sampling-distributions-claim",
+      "statement": "標本分布は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-sampling-distributions"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "sampling-distributions-example",
+      "statement": "標本分布を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、標本分布がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "sampling-distributions-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "標本分布が必要になる問いを一つ説明せよ。",
+      "answer": "標本分布を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "標本分布の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "sampling-distributions-lesson",
+      "testsClaims": [
+        "sampling-distributions-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "標本分布を別の概念と同一視する",
+    "標本分布の値だけで結論を出す",
+    "標本分布の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "independence",
+  "title": {
+    "ja": "独立性",
+    "en": "Independence"
+  },
+  "summary": {
+    "ja": "情報を知っても別の事象の確率が変わらない関係を捉える。",
+    "en": "Describe when knowing one event does not change another event's probability."
+  },
+  "prerequisites": [
+    "conditional-probability"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "独立性の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "independence-lesson",
+      "title": "独立性",
+      "summary": "独立性の入口。",
+      "objectives": [
+        "独立性を説明する"
+      ],
+      "sections": [
+        {
+          "id": "independence-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "独立性は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "independence-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "independence-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "independence-claim",
+      "statement": "独立性は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-independence"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "independence-example",
+      "statement": "独立性を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、独立性がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "independence-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "独立性が必要になる問いを一つ説明せよ。",
+      "answer": "独立性を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "独立性の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "independence-lesson",
+      "testsClaims": [
+        "independence-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "独立性を別の概念と同一視する",
+    "独立性の値だけで結論を出す",
+    "独立性の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

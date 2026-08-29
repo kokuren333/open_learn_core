@@ -1,0 +1,90 @@
+{
+  "id": "random-variables",
+  "title": {
+    "ja": "確率変数",
+    "en": "Random Variables"
+  },
+  "summary": {
+    "ja": "結果を数値へ写像し、分布・期待値・分散を定義する。",
+    "en": "Map outcomes to numbers and define their distributions and moments."
+  },
+  "prerequisites": [
+    "conditional-probability"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "確率変数の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "random-variables-lesson",
+      "title": "確率変数",
+      "summary": "確率変数の入口。",
+      "objectives": [
+        "確率変数を説明する"
+      ],
+      "sections": [
+        {
+          "id": "random-variables-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "確率変数は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "random-variables-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "random-variables-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "random-variables-claim",
+      "statement": "確率変数は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-random-variables"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "random-variables-example",
+      "statement": "確率変数を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、確率変数がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "random-variables-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "確率変数が必要になる問いを一つ説明せよ。",
+      "answer": "確率変数を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "確率変数の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "random-variables-lesson",
+      "testsClaims": [
+        "random-variables-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "確率変数を別の概念と同一視する",
+    "確率変数の値だけで結論を出す",
+    "確率変数の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

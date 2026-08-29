@@ -1,0 +1,91 @@
+{
+  "id": "hypothesis-testing",
+  "title": {
+    "ja": "仮説検定",
+    "en": "Hypothesis Testing"
+  },
+  "summary": {
+    "ja": "帰無仮説とデータの整合性を基準化して判断する手続きを理解する。",
+    "en": "Use a reference hypothesis and data-based evidence in a decision procedure."
+  },
+  "prerequisites": [
+    "sampling-distributions",
+    "standard-error"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "仮説検定の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "hypothesis-testing-lesson",
+      "title": "仮説検定",
+      "summary": "仮説検定の入口。",
+      "objectives": [
+        "仮説検定を説明する"
+      ],
+      "sections": [
+        {
+          "id": "hypothesis-testing-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "仮説検定は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "hypothesis-testing-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "hypothesis-testing-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "hypothesis-testing-claim",
+      "statement": "仮説検定は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-hypothesis-testing"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "hypothesis-testing-example",
+      "statement": "仮説検定を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、仮説検定がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "hypothesis-testing-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "仮説検定が必要になる問いを一つ説明せよ。",
+      "answer": "仮説検定を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "仮説検定の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "hypothesis-testing-lesson",
+      "testsClaims": [
+        "hypothesis-testing-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "仮説検定を別の概念と同一視する",
+    "仮説検定の値だけで結論を出す",
+    "仮説検定の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "model-evaluation-and-generalization",
+  "title": {
+    "ja": "モデル評価と一般化",
+    "en": "Model Evaluation and Generalization"
+  },
+  "summary": {
+    "ja": "訓練データへの適合と未知データでの性能を区別する。",
+    "en": "Separate fit on training data from performance on unseen data."
+  },
+  "prerequisites": [
+    "multiple-regression-and-glm"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "モデル評価と一般化の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "model-evaluation-and-generalization-lesson",
+      "title": "モデル評価と一般化",
+      "summary": "モデル評価と一般化の入口。",
+      "objectives": [
+        "モデル評価と一般化を説明する"
+      ],
+      "sections": [
+        {
+          "id": "model-evaluation-and-generalization-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "モデル評価と一般化は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "model-evaluation-and-generalization-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "model-evaluation-and-generalization-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "model-evaluation-and-generalization-claim",
+      "statement": "モデル評価と一般化は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-model-evaluation-and-generalization"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "model-evaluation-and-generalization-example",
+      "statement": "モデル評価と一般化を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、モデル評価と一般化がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "model-evaluation-and-generalization-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "モデル評価と一般化が必要になる問いを一つ説明せよ。",
+      "answer": "モデル評価と一般化を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "モデル評価と一般化の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "model-evaluation-and-generalization-lesson",
+      "testsClaims": [
+        "model-evaluation-and-generalization-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "モデル評価と一般化を別の概念と同一視する",
+    "モデル評価と一般化の値だけで結論を出す",
+    "モデル評価と一般化の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "evidence-likelihood-and-mle",
+  "source": "openintro-statistics",
+  "locator": {
+    "type": "section",
+    "value": "textbook overview and table of contents",
+    "section": "curriculum comparison"
+  },
+  "evidence_role": "curriculum",
+  "supports": [
+    "likelihood-and-mle-claim"
+  ],
+  "extracted_meaning": {
+    "ja": "尤度と最尤推定は、統計学の導入から応用へ進むための共通要素として整理した。",
+    "en": "Likelihood and Maximum Likelihood is included as a shared element in the path from introductory ideas to application in Statistics."
+  },
+  "confidence": "high"
+}

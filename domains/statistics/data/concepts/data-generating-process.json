@@ -1,0 +1,90 @@
+{
+  "id": "data-generating-process",
+  "title": {
+    "ja": "データ生成過程",
+    "en": "Data-Generating Process"
+  },
+  "summary": {
+    "ja": "データがどのような選択・測定・偶然から生じたかを考える。",
+    "en": "Reason about selection, measurement, and chance behind observed data."
+  },
+  "prerequisites": [
+    "variables-and-measurement"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "データ生成過程の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "data-generating-process-lesson",
+      "title": "データ生成過程",
+      "summary": "データ生成過程の入口。",
+      "objectives": [
+        "データ生成過程を説明する"
+      ],
+      "sections": [
+        {
+          "id": "data-generating-process-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "データ生成過程は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "data-generating-process-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "data-generating-process-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "data-generating-process-claim",
+      "statement": "データ生成過程は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-data-generating-process"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "data-generating-process-example",
+      "statement": "データ生成過程を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、データ生成過程がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "data-generating-process-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "データ生成過程が必要になる問いを一つ説明せよ。",
+      "answer": "データ生成過程を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "データ生成過程の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "data-generating-process-lesson",
+      "testsClaims": [
+        "data-generating-process-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "データ生成過程を別の概念と同一視する",
+    "データ生成過程の値だけで結論を出す",
+    "データ生成過程の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

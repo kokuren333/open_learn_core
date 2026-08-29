@@ -1,0 +1,91 @@
+{
+  "id": "sampling-and-bias",
+  "title": {
+    "ja": "標本抽出とバイアス",
+    "en": "Sampling and Bias"
+  },
+  "summary": {
+    "ja": "標本の選ばれ方が推論をどの方向へ偏らせるかを分析する。",
+    "en": "Analyze how selection can systematically distort inference."
+  },
+  "prerequisites": [
+    "data-generating-process",
+    "independence"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "標本抽出とバイアスの意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "sampling-and-bias-lesson",
+      "title": "標本抽出とバイアス",
+      "summary": "標本抽出とバイアスの入口。",
+      "objectives": [
+        "標本抽出とバイアスを説明する"
+      ],
+      "sections": [
+        {
+          "id": "sampling-and-bias-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "標本抽出とバイアスは、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "sampling-and-bias-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "sampling-and-bias-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "sampling-and-bias-claim",
+      "statement": "標本抽出とバイアスは、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-sampling-and-bias"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "sampling-and-bias-example",
+      "statement": "標本抽出とバイアスを含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、標本抽出とバイアスがどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "sampling-and-bias-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "標本抽出とバイアスが必要になる問いを一つ説明せよ。",
+      "answer": "標本抽出とバイアスを用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "標本抽出とバイアスの役割を、データの場面と結び付けて説明する。",
+      "lessonId": "sampling-and-bias-lesson",
+      "testsClaims": [
+        "sampling-and-bias-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "標本抽出とバイアスを別の概念と同一視する",
+    "標本抽出とバイアスの値だけで結論を出す",
+    "標本抽出とバイアスの前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

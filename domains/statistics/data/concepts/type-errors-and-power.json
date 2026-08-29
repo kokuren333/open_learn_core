@@ -1,0 +1,90 @@
+{
+  "id": "type-errors-and-power",
+  "title": {
+    "ja": "第一種・第二種過誤と検出力",
+    "en": "Type I, Type II Errors, and Power"
+  },
+  "summary": {
+    "ja": "誤った棄却と見逃しを確率として分け、検出力を設計する。",
+    "en": "Separate false rejections from misses and use power for design."
+  },
+  "prerequisites": [
+    "p-value"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "第一種・第二種過誤と検出力の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "type-errors-and-power-lesson",
+      "title": "第一種・第二種過誤と検出力",
+      "summary": "第一種・第二種過誤と検出力の入口。",
+      "objectives": [
+        "第一種・第二種過誤と検出力を説明する"
+      ],
+      "sections": [
+        {
+          "id": "type-errors-and-power-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "第一種・第二種過誤と検出力は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "type-errors-and-power-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "type-errors-and-power-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "type-errors-and-power-claim",
+      "statement": "第一種・第二種過誤と検出力は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-type-errors-and-power"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "type-errors-and-power-example",
+      "statement": "第一種・第二種過誤と検出力を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、第一種・第二種過誤と検出力がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "type-errors-and-power-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "第一種・第二種過誤と検出力が必要になる問いを一つ説明せよ。",
+      "answer": "第一種・第二種過誤と検出力を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "第一種・第二種過誤と検出力の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "type-errors-and-power-lesson",
+      "testsClaims": [
+        "type-errors-and-power-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "第一種・第二種過誤と検出力を別の概念と同一視する",
+    "第一種・第二種過誤と検出力の値だけで結論を出す",
+    "第一種・第二種過誤と検出力の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

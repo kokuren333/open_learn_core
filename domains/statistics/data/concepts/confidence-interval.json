@@ -1,0 +1,91 @@
+{
+  "id": "confidence-interval",
+  "title": {
+    "ja": "信頼区間",
+    "en": "Confidence Interval"
+  },
+  "summary": {
+    "ja": "信頼水準と区間構成手続きを正しく解釈する。",
+    "en": "Interpret confidence levels and the procedures that construct intervals."
+  },
+  "prerequisites": [
+    "interval-estimation",
+    "central-limit-theorem"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "信頼区間の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "confidence-interval-lesson",
+      "title": "信頼区間",
+      "summary": "信頼区間の入口。",
+      "objectives": [
+        "信頼区間を説明する"
+      ],
+      "sections": [
+        {
+          "id": "confidence-interval-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "信頼区間は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "confidence-interval-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "confidence-interval-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "confidence-interval-claim",
+      "statement": "信頼区間は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-confidence-interval"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "confidence-interval-example",
+      "statement": "信頼区間を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、信頼区間がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "confidence-interval-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "信頼区間が必要になる問いを一つ説明せよ。",
+      "answer": "信頼区間を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "信頼区間の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "confidence-interval-lesson",
+      "testsClaims": [
+        "confidence-interval-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "信頼区間を別の概念と同一視する",
+    "信頼区間の値だけで結論を出す",
+    "信頼区間の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

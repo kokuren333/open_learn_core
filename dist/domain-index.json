@@ -17,8 +17,31 @@
         {
           "id": "linear-algebra-basic",
           "title": {
-            "ja": "線形代数 Core Concept 30",
-            "en": "Linear Algebra Core Concepts 30"
+            "ja": "線形代数入門",
+            "en": "Linear Algebra Basics"
+          }
+        }
+      ],
+      "conceptCount": 30,
+      "status": "in_progress"
+    },
+    {
+      "id": "statistics",
+      "title": {
+        "ja": "統計学",
+        "en": "Statistics"
+      },
+      "description": {
+        "ja": "データを確率的な揺れとモデルの観点から読み、記述・推定・検定・回帰へつなぐ大学初頭〜中級向け教材。",
+        "en": "An introductory-to-intermediate path from data description through probability, inference, testing, and regression."
+      },
+      "url": "/domains/statistics/",
+      "curricula": [
+        {
+          "id": "statistics-foundations",
+          "title": {
+            "ja": "統計学の基礎",
+            "en": "Statistics Foundations"
           }
         }
       ],

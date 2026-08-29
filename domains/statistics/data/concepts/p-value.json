@@ -1,0 +1,90 @@
+{
+  "id": "p-value",
+  "title": {
+    "ja": "p値",
+    "en": "p-value"
+  },
+  "summary": {
+    "ja": "帰無仮説のもとで観測値以上に極端な結果の確率を解釈する。",
+    "en": "Interpret the probability of results at least as extreme under a null hypothesis."
+  },
+  "prerequisites": [
+    "hypothesis-testing"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "p値の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "p-value-lesson",
+      "title": "p値",
+      "summary": "p値の入口。",
+      "objectives": [
+        "p値を説明する"
+      ],
+      "sections": [
+        {
+          "id": "p-value-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "p値は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "p-value-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "p-value-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "p-value-claim",
+      "statement": "p値は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-p-value"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "p-value-example",
+      "statement": "p値を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、p値がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p-value-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "p値が必要になる問いを一つ説明せよ。",
+      "answer": "p値を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "p値の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "p-value-lesson",
+      "testsClaims": [
+        "p-value-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "p値を別の概念と同一視する",
+    "p値の値だけで結論を出す",
+    "p値の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

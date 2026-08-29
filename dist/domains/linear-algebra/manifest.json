@@ -80,8 +80,8 @@
     {
       "id": "linear-algebra-basic",
       "title": {
-        "ja": "線形代数 Core Concept 30",
-        "en": "Linear Algebra Core Concepts 30"
+        "ja": "線形代数入門",
+        "en": "Linear Algebra Basics"
       }
     }
   ],
@@ -221,7 +221,7 @@
     }
   ],
   "courseVersion": "2.0.0",
-  "source_commit": "31da6205acb2e4fd0341d49095adc5f53488d0ec",
+  "source_commit": "06df4648aa47b7c3033cae326b47980eebc5495b",
   "license": {
     "code": "MIT",
     "content": "CC BY-SA 4.0",

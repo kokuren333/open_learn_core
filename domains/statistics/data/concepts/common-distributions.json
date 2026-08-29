@@ -1,0 +1,90 @@
+{
+  "id": "common-distributions",
+  "title": {
+    "ja": "代表的な確率分布",
+    "en": "Common Probability Distributions"
+  },
+  "summary": {
+    "ja": "二項・正規などの分布を条件と用途で使い分ける。",
+    "en": "Choose distributions such as binomial and normal models by conditions and use."
+  },
+  "prerequisites": [
+    "expectation-and-variance"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "代表的な確率分布の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "common-distributions-lesson",
+      "title": "代表的な確率分布",
+      "summary": "代表的な確率分布の入口。",
+      "objectives": [
+        "代表的な確率分布を説明する"
+      ],
+      "sections": [
+        {
+          "id": "common-distributions-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "代表的な確率分布は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "common-distributions-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "common-distributions-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "common-distributions-claim",
+      "statement": "代表的な確率分布は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-common-distributions"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "common-distributions-example",
+      "statement": "代表的な確率分布を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、代表的な確率分布がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "common-distributions-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "代表的な確率分布が必要になる問いを一つ説明せよ。",
+      "answer": "代表的な確率分布を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "代表的な確率分布の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "common-distributions-lesson",
+      "testsClaims": [
+        "common-distributions-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "代表的な確率分布を別の概念と同一視する",
+    "代表的な確率分布の値だけで結論を出す",
+    "代表的な確率分布の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

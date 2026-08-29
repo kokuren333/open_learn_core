@@ -25,6 +25,15 @@ test("Basis resources expose claim mapping, further learning, media and output s
   assert.equal((await validateDomain(domain)).valid, true);
 });
 
+test("Gold Concepts require complete learner resources", async () => {
+  const domain = await loadDomain(root, "linear-algebra");
+  const broken = structuredClone(domain);
+  broken.conceptResources = broken.conceptResources.filter((item) => item.concept_id !== "basis");
+  const validation = await validateDomain(broken);
+  assert.equal(validation.valid, false);
+  assert.ok(validation.issues.some((issue) => issue.includes("Gold Core Concept 'basis' must have complete Concept resources")));
+});
+
 test("Basis learner page renders citations, inline figures and optional resource links", async () => {
   const domain = await loadDomain(root, "linear-algebra");
   const concept = domain.coreConcepts.find((item) => item.id === "basis");

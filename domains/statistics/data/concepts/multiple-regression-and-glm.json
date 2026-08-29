@@ -1,0 +1,91 @@
+{
+  "id": "multiple-regression-and-glm",
+  "title": {
+    "ja": "重回帰と一般化線形モデル",
+    "en": "Multiple Regression and Generalized Linear Models"
+  },
+  "summary": {
+    "ja": "複数の説明変数や非正規応答へモデルを拡張する。",
+    "en": "Extend regression to multiple predictors and non-normal responses."
+  },
+  "prerequisites": [
+    "simple-linear-regression",
+    "common-distributions"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "重回帰と一般化線形モデルの意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "multiple-regression-and-glm-lesson",
+      "title": "重回帰と一般化線形モデル",
+      "summary": "重回帰と一般化線形モデルの入口。",
+      "objectives": [
+        "重回帰と一般化線形モデルを説明する"
+      ],
+      "sections": [
+        {
+          "id": "multiple-regression-and-glm-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "重回帰と一般化線形モデルは、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "multiple-regression-and-glm-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "multiple-regression-and-glm-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "multiple-regression-and-glm-claim",
+      "statement": "重回帰と一般化線形モデルは、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-multiple-regression-and-glm"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "multiple-regression-and-glm-example",
+      "statement": "重回帰と一般化線形モデルを含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、重回帰と一般化線形モデルがどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "multiple-regression-and-glm-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "重回帰と一般化線形モデルが必要になる問いを一つ説明せよ。",
+      "answer": "重回帰と一般化線形モデルを用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "重回帰と一般化線形モデルの役割を、データの場面と結び付けて説明する。",
+      "lessonId": "multiple-regression-and-glm-lesson",
+      "testsClaims": [
+        "multiple-regression-and-glm-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "重回帰と一般化線形モデルを別の概念と同一視する",
+    "重回帰と一般化線形モデルの値だけで結論を出す",
+    "重回帰と一般化線形モデルの前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "variables-and-measurement",
+  "title": {
+    "ja": "変数と測定",
+    "en": "Variables and Measurement"
+  },
+  "summary": {
+    "ja": "データの値が何を測り、どの尺度に属するかを整理する。",
+    "en": "Identify what a variable measures and which scale it uses."
+  },
+  "prerequisites": [
+    "population-and-sample"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "変数と測定の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "variables-and-measurement-lesson",
+      "title": "変数と測定",
+      "summary": "変数と測定の入口。",
+      "objectives": [
+        "変数と測定を説明する"
+      ],
+      "sections": [
+        {
+          "id": "variables-and-measurement-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "変数と測定は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "variables-and-measurement-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "variables-and-measurement-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "variables-and-measurement-claim",
+      "statement": "変数と測定は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-variables-and-measurement"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "variables-and-measurement-example",
+      "statement": "変数と測定を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、変数と測定がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "variables-and-measurement-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "変数と測定が必要になる問いを一つ説明せよ。",
+      "answer": "変数と測定を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "変数と測定の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "variables-and-measurement-lesson",
+      "testsClaims": [
+        "variables-and-measurement-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "変数と測定を別の概念と同一視する",
+    "変数と測定の値だけで結論を出す",
+    "変数と測定の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "interval-estimation",
+  "title": {
+    "ja": "区間推定",
+    "en": "Interval Estimation"
+  },
+  "summary": {
+    "ja": "推定値の周囲に不確実性の幅を構成する。",
+    "en": "Construct a range that expresses uncertainty around an estimate."
+  },
+  "prerequisites": [
+    "point-estimation",
+    "standard-error"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "区間推定の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "interval-estimation-lesson",
+      "title": "区間推定",
+      "summary": "区間推定の入口。",
+      "objectives": [
+        "区間推定を説明する"
+      ],
+      "sections": [
+        {
+          "id": "interval-estimation-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "区間推定は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "interval-estimation-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "interval-estimation-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "interval-estimation-claim",
+      "statement": "区間推定は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-interval-estimation"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "interval-estimation-example",
+      "statement": "区間推定を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、区間推定がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "interval-estimation-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "区間推定が必要になる問いを一つ説明せよ。",
+      "answer": "区間推定を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "区間推定の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "interval-estimation-lesson",
+      "testsClaims": [
+        "interval-estimation-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "区間推定を別の概念と同一視する",
+    "区間推定の値だけで結論を出す",
+    "区間推定の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

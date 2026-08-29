@@ -1,0 +1,91 @@
+{
+  "id": "central-limit-theorem",
+  "title": {
+    "ja": "中心極限定理",
+    "en": "Central Limit Theorem"
+  },
+  "summary": {
+    "ja": "条件のもとで標本平均の標準化分布が正規分布へ近づく理由を理解する。",
+    "en": "Understand why standardized sample means approach a normal distribution under conditions."
+  },
+  "prerequisites": [
+    "sampling-distributions",
+    "law-of-large-numbers"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "中心極限定理の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "central-limit-theorem-lesson",
+      "title": "中心極限定理",
+      "summary": "中心極限定理の入口。",
+      "objectives": [
+        "中心極限定理を説明する"
+      ],
+      "sections": [
+        {
+          "id": "central-limit-theorem-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "中心極限定理は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "central-limit-theorem-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "central-limit-theorem-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "central-limit-theorem-claim",
+      "statement": "中心極限定理は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-central-limit-theorem"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "central-limit-theorem-example",
+      "statement": "中心極限定理を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、中心極限定理がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "central-limit-theorem-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "中心極限定理が必要になる問いを一つ説明せよ。",
+      "answer": "中心極限定理を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "中心極限定理の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "central-limit-theorem-lesson",
+      "testsClaims": [
+        "central-limit-theorem-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "中心極限定理を別の概念と同一視する",
+    "中心極限定理の値だけで結論を出す",
+    "中心極限定理の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

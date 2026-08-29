@@ -1,0 +1,90 @@
+{
+  "id": "descriptive-statistics",
+  "title": {
+    "ja": "記述統計",
+    "en": "Descriptive Statistics"
+  },
+  "summary": {
+    "ja": "中心と散らばりを要約してデータの構造を読む。",
+    "en": "Summarize center and spread to read the structure of data."
+  },
+  "prerequisites": [
+    "variables-and-measurement"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "記述統計の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "descriptive-statistics-lesson",
+      "title": "記述統計",
+      "summary": "記述統計の入口。",
+      "objectives": [
+        "記述統計を説明する"
+      ],
+      "sections": [
+        {
+          "id": "descriptive-statistics-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "記述統計は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "descriptive-statistics-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "descriptive-statistics-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "descriptive-statistics-claim",
+      "statement": "記述統計は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-descriptive-statistics"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "descriptive-statistics-example",
+      "statement": "記述統計を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、記述統計がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "descriptive-statistics-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "記述統計が必要になる問いを一つ説明せよ。",
+      "answer": "記述統計を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "記述統計の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "descriptive-statistics-lesson",
+      "testsClaims": [
+        "descriptive-statistics-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "記述統計を別の概念と同一視する",
+    "記述統計の値だけで結論を出す",
+    "記述統計の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

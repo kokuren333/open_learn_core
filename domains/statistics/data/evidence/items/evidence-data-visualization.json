@@ -1,0 +1,18 @@
+{
+  "id": "evidence-data-visualization",
+  "source": "openintro-statistics",
+  "locator": {
+    "type": "section",
+    "value": "textbook overview and table of contents",
+    "section": "curriculum comparison"
+  },
+  "evidence_role": "curriculum",
+  "supports": [
+    "data-visualization-claim"
+  ],
+  "extracted_meaning": {
+    "ja": "データ可視化は、統計学の導入から応用へ進むための共通要素として整理した。",
+    "en": "Data Visualization is included as a shared element in the path from introductory ideas to application in Statistics."
+  },
+  "confidence": "high"
+}

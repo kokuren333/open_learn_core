@@ -1,0 +1,4994 @@
+{
+  "schema_version": "2.4",
+  "domain": "statistics",
+  "core_concepts": [
+    {
+      "id": "population-and-sample",
+      "title": {
+        "ja": "母集団と標本",
+        "en": "Population and Sample"
+      },
+      "central_mental_model": "統計推論は、限られた標本から母集団について不確実性付きで語る翻訳である。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "母集団と標本ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "母集団と標本ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "母集団と標本ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "母集団と標本ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "母集団と標本ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "母集団と標本ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "母集団と標本ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "population-and-sample-facet",
+          "title": "観測対象と推論対象",
+          "description": "母集団と標本を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "population-and-sample-procedure",
+          "title": "母集団と標本を使う",
+          "description": "母集団と標本をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "母集団と標本は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "population-and-sample-representation-example",
+          "title": "具体例",
+          "description": "母集団と標本を身近なデータの場面で読む。"
+        },
+        {
+          "id": "population-and-sample-representation-formal",
+          "title": "数式と図",
+          "description": "母集団と標本を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "母集団と標本を別の概念と同じだと思う",
+        "母集団と標本の数値だけで結論を出してしまう",
+        "母集団と標本の前提条件を確認しない"
+      ],
+      "applications": [
+        "調査設計",
+        "実験結果の解釈"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "population-and-sample-explain",
+          "population-and-sample-apply",
+          "population-and-sample-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "母集団と標本を自分の言葉で説明する",
+          "母集団と標本を具体的なデータへ適用する",
+          "母集団と標本の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "母集団と標本の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "母集団と標本は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "population-and-sample"
+      ],
+      "prerequisites": [],
+      "related": []
+    },
+    {
+      "id": "variables-and-measurement",
+      "title": {
+        "ja": "変数と測定",
+        "en": "Variables and Measurement"
+      },
+      "central_mental_model": "分析の結論は、変数の定義と測定方法が決める問いの形に依存する。",
+      "cognitive_types": [
+        "concrete_object"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "concrete_object",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "変数と測定ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "変数と測定ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "変数と測定ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "変数と測定ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "変数と測定ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "変数と測定ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "変数と測定ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "variables-and-measurement-facet",
+          "title": "変数と測定",
+          "description": "変数と測定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "variables-and-measurement-procedure",
+          "title": "変数と測定を使う",
+          "description": "変数と測定をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "変数と測定は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "variables-and-measurement-representation-example",
+          "title": "具体例",
+          "description": "変数と測定を身近なデータの場面で読む。"
+        },
+        {
+          "id": "variables-and-measurement-representation-formal",
+          "title": "数式と図",
+          "description": "変数と測定を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "変数と測定を別の概念と同じだと思う",
+        "変数と測定の数値だけで結論を出してしまう",
+        "変数と測定の前提条件を確認しない"
+      ],
+      "applications": [
+        "アンケート設計",
+        "実験変数の定義"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "variables-and-measurement-explain",
+          "variables-and-measurement-apply",
+          "variables-and-measurement-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "変数と測定を自分の言葉で説明する",
+          "変数と測定を具体的なデータへ適用する",
+          "変数と測定の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "変数と測定の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "concrete_object",
+        "reason": "変数と測定は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "variables-and-measurement"
+      ],
+      "prerequisites": [
+        "population-and-sample"
+      ],
+      "related": []
+    },
+    {
+      "id": "data-generating-process",
+      "title": {
+        "ja": "データ生成過程",
+        "en": "Data-Generating Process"
+      },
+      "central_mental_model": "データは自然に現れる数字ではなく、対象・測定・抽出の過程が残した観測である。",
+      "cognitive_types": [
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "transformation_process",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "データ生成過程ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "データ生成過程ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "データ生成過程ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "データ生成過程ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "データ生成過程ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "データ生成過程ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "データ生成過程ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "data-generating-process-facet",
+          "title": "データ生成過程",
+          "description": "データ生成過程を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "data-generating-process-procedure",
+          "title": "データ生成過程を使う",
+          "description": "データ生成過程をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "データ生成過程は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "data-generating-process-representation-example",
+          "title": "具体例",
+          "description": "データ生成過程を身近なデータの場面で読む。"
+        },
+        {
+          "id": "data-generating-process-representation-formal",
+          "title": "数式と図",
+          "description": "データ生成過程を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "データ生成過程を別の概念と同じだと思う",
+        "データ生成過程の数値だけで結論を出してしまう",
+        "データ生成過程の前提条件を確認しない"
+      ],
+      "applications": [
+        "調査バイアスの検討",
+        "実験計画"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "data-generating-process-explain",
+          "data-generating-process-apply",
+          "data-generating-process-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "データ生成過程を自分の言葉で説明する",
+          "データ生成過程を具体的なデータへ適用する",
+          "データ生成過程の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "データ生成過程の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "transformation_process",
+        "reason": "データ生成過程は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "data-generating-process"
+      ],
+      "prerequisites": [
+        "variables-and-measurement"
+      ],
+      "related": []
+    },
+    {
+      "id": "descriptive-statistics",
+      "title": {
+        "ja": "記述統計",
+        "en": "Descriptive Statistics"
+      },
+      "central_mental_model": "要約統計量はデータを捨てる圧縮であり、何を残し何を隠すかを意識して使う。",
+      "cognitive_types": [
+        "representation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "記述統計ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "記述統計ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "記述統計ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "記述統計ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "記述統計ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "記述統計ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "記述統計ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "descriptive-statistics-facet",
+          "title": "記述統計",
+          "description": "記述統計を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "descriptive-statistics-procedure",
+          "title": "記述統計を使う",
+          "description": "記述統計をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "記述統計は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "descriptive-statistics-representation-example",
+          "title": "具体例",
+          "description": "記述統計を身近なデータの場面で読む。"
+        },
+        {
+          "id": "descriptive-statistics-representation-formal",
+          "title": "数式と図",
+          "description": "記述統計を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "記述統計を別の概念と同じだと思う",
+        "記述統計の数値だけで結論を出してしまう",
+        "記述統計の前提条件を確認しない"
+      ],
+      "applications": [
+        "データ要約",
+        "探索的分析"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "descriptive-statistics-explain",
+          "descriptive-statistics-apply",
+          "descriptive-statistics-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "記述統計を自分の言葉で説明する",
+          "記述統計を具体的なデータへ適用する",
+          "記述統計の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "記述統計の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "記述統計は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "descriptive-statistics"
+      ],
+      "prerequisites": [
+        "variables-and-measurement"
+      ],
+      "related": []
+    },
+    {
+      "id": "data-visualization",
+      "title": {
+        "ja": "データ可視化",
+        "en": "Data Visualization"
+      },
+      "central_mental_model": "可視化は結論そのものではなく、次に確かめるべき構造を見つける観察装置である。",
+      "cognitive_types": [
+        "representation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "データ可視化ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "データ可視化ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "データ可視化ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "データ可視化ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "データ可視化ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "データ可視化ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "データ可視化ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "data-visualization-facet",
+          "title": "データ可視化",
+          "description": "データ可視化を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "data-visualization-procedure",
+          "title": "データ可視化を使う",
+          "description": "データ可視化をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "データ可視化は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "data-visualization-representation-example",
+          "title": "具体例",
+          "description": "データ可視化を身近なデータの場面で読む。"
+        },
+        {
+          "id": "data-visualization-representation-formal",
+          "title": "数式と図",
+          "description": "データ可視化を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "データ可視化を別の概念と同じだと思う",
+        "データ可視化の数値だけで結論を出してしまう",
+        "データ可視化の前提条件を確認しない"
+      ],
+      "applications": [
+        "探索的データ分析",
+        "報告資料"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "data-visualization-explain",
+          "data-visualization-apply",
+          "data-visualization-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "データ可視化を自分の言葉で説明する",
+          "データ可視化を具体的なデータへ適用する",
+          "データ可視化の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "データ可視化の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "データ可視化は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "data-visualization"
+      ],
+      "prerequisites": [
+        "descriptive-statistics"
+      ],
+      "related": []
+    },
+    {
+      "id": "distribution",
+      "title": {
+        "ja": "分布",
+        "en": "Distribution"
+      },
+      "central_mental_model": "分布は一つの値ではなく、どの値がどれほど現れうるかを表す地図である。",
+      "cognitive_types": [
+        "abstraction"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "abstraction",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "分布ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "分布ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "分布ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "分布ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "分布ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "分布ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "分布ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "distribution-facet",
+          "title": "分布",
+          "description": "分布を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "distribution-procedure",
+          "title": "分布を使う",
+          "description": "分布をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "分布は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "distribution-representation-example",
+          "title": "具体例",
+          "description": "分布を身近なデータの場面で読む。"
+        },
+        {
+          "id": "distribution-representation-formal",
+          "title": "数式と図",
+          "description": "分布を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "分布を別の概念と同じだと思う",
+        "分布の数値だけで結論を出してしまう",
+        "分布の前提条件を確認しない"
+      ],
+      "applications": [
+        "確率モデル",
+        "不確実性の説明"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "distribution-explain",
+          "distribution-apply",
+          "distribution-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "分布を自分の言葉で説明する",
+          "分布を具体的なデータへ適用する",
+          "分布の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "分布の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "abstraction",
+        "reason": "分布は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "distribution"
+      ],
+      "prerequisites": [
+        "descriptive-statistics",
+        "data-visualization"
+      ],
+      "related": []
+    },
+    {
+      "id": "quantiles-and-robustness",
+      "title": {
+        "ja": "分位点と頑健性",
+        "en": "Quantiles and Robustness"
+      },
+      "central_mental_model": "頑健な要約は、極端な値に引きずられず典型的な位置を表す設計である。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "分位点と頑健性ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "分位点と頑健性ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "分位点と頑健性ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "分位点と頑健性ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "分位点と頑健性ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "分位点と頑健性ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "分位点と頑健性ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "quantiles-and-robustness-facet",
+          "title": "分位点と頑健性",
+          "description": "分位点と頑健性を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "quantiles-and-robustness-procedure",
+          "title": "分位点と頑健性を使う",
+          "description": "分位点と頑健性をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "分位点と頑健性は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "quantiles-and-robustness-representation-example",
+          "title": "具体例",
+          "description": "分位点と頑健性を身近なデータの場面で読む。"
+        },
+        {
+          "id": "quantiles-and-robustness-representation-formal",
+          "title": "数式と図",
+          "description": "分位点と頑健性を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "分位点と頑健性を別の概念と同じだと思う",
+        "分位点と頑健性の数値だけで結論を出してしまう",
+        "分位点と頑健性の前提条件を確認しない"
+      ],
+      "applications": [
+        "所得分布",
+        "外れ値を含む測定"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "quantiles-and-robustness-explain",
+          "quantiles-and-robustness-apply",
+          "quantiles-and-robustness-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "分位点と頑健性を自分の言葉で説明する",
+          "分位点と頑健性を具体的なデータへ適用する",
+          "分位点と頑健性の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "分位点と頑健性の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "分位点と頑健性は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "quantiles-and-robustness"
+      ],
+      "prerequisites": [
+        "descriptive-statistics"
+      ],
+      "related": []
+    },
+    {
+      "id": "probability",
+      "title": {
+        "ja": "確率",
+        "en": "Probability"
+      },
+      "central_mental_model": "確率は起きた結果の頻度だけでなく、起こりうる結果の構造を数で表す。",
+      "cognitive_types": [
+        "abstraction"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "abstraction",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "確率ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "確率ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "確率ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "確率ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "確率ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "確率ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "確率ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "probability-facet",
+          "title": "確率",
+          "description": "確率を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "probability-procedure",
+          "title": "確率を使う",
+          "description": "確率をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "確率は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "probability-representation-example",
+          "title": "具体例",
+          "description": "確率を身近なデータの場面で読む。"
+        },
+        {
+          "id": "probability-representation-formal",
+          "title": "数式と図",
+          "description": "確率を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "確率を別の概念と同じだと思う",
+        "確率の数値だけで結論を出してしまう",
+        "確率の前提条件を確認しない"
+      ],
+      "applications": [
+        "リスク評価",
+        "確率モデル"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "probability-explain",
+          "probability-apply",
+          "probability-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "確率を自分の言葉で説明する",
+          "確率を具体的なデータへ適用する",
+          "確率の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "確率の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "abstraction",
+        "reason": "確率は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "probability"
+      ],
+      "prerequisites": [
+        "distribution"
+      ],
+      "related": []
+    },
+    {
+      "id": "conditional-probability",
+      "title": {
+        "ja": "条件付き確率",
+        "en": "Conditional Probability"
+      },
+      "central_mental_model": "条件付き確率は、情報を得た後で標本空間を狭めて見直す操作である。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "条件付き確率ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "条件付き確率ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "条件付き確率ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "条件付き確率ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "条件付き確率ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "条件付き確率ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "条件付き確率ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "conditional-probability-facet",
+          "title": "条件付き確率",
+          "description": "条件付き確率を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "conditional-probability-procedure",
+          "title": "条件付き確率を使う",
+          "description": "条件付き確率をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "条件付き確率は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "conditional-probability-representation-example",
+          "title": "具体例",
+          "description": "条件付き確率を身近なデータの場面で読む。"
+        },
+        {
+          "id": "conditional-probability-representation-formal",
+          "title": "数式と図",
+          "description": "条件付き確率を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "条件付き確率を別の概念と同じだと思う",
+        "条件付き確率の数値だけで結論を出してしまう",
+        "条件付き確率の前提条件を確認しない"
+      ],
+      "applications": [
+        "診断検査",
+        "ベイズ推論の準備"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "conditional-probability-explain",
+          "conditional-probability-apply",
+          "conditional-probability-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "条件付き確率を自分の言葉で説明する",
+          "条件付き確率を具体的なデータへ適用する",
+          "条件付き確率の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "条件付き確率の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "条件付き確率は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "conditional-probability"
+      ],
+      "prerequisites": [
+        "probability"
+      ],
+      "related": []
+    },
+    {
+      "id": "random-variables",
+      "title": {
+        "ja": "確率変数",
+        "en": "Random Variables"
+      },
+      "central_mental_model": "確率変数は結果の名前ではなく、ランダムな結果を計算可能な数へ翻訳する規則である。",
+      "cognitive_types": [
+        "representation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "確率変数ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "確率変数ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "確率変数ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "確率変数ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "確率変数ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "確率変数ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "確率変数ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "random-variables-facet",
+          "title": "確率変数",
+          "description": "確率変数を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "random-variables-procedure",
+          "title": "確率変数を使う",
+          "description": "確率変数をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "確率変数は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "random-variables-representation-example",
+          "title": "具体例",
+          "description": "確率変数を身近なデータの場面で読む。"
+        },
+        {
+          "id": "random-variables-representation-formal",
+          "title": "数式と図",
+          "description": "確率変数を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "確率変数を別の概念と同じだと思う",
+        "確率変数の数値だけで結論を出してしまう",
+        "確率変数の前提条件を確認しない"
+      ],
+      "applications": [
+        "測定モデル",
+        "確率的シミュレーション"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "random-variables-explain",
+          "random-variables-apply",
+          "random-variables-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "確率変数を自分の言葉で説明する",
+          "確率変数を具体的なデータへ適用する",
+          "確率変数の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "確率変数の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "確率変数は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "random-variables"
+      ],
+      "prerequisites": [
+        "conditional-probability"
+      ],
+      "related": []
+    },
+    {
+      "id": "expectation-and-variance",
+      "title": {
+        "ja": "期待値と分散",
+        "en": "Expectation and Variance"
+      },
+      "central_mental_model": "期待値は長期的な中心、分散はその中心からの揺れを表す分布の要約である。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "期待値と分散ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "期待値と分散ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "期待値と分散ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "期待値と分散ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "期待値と分散ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "期待値と分散ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "期待値と分散ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "expectation-and-variance-facet",
+          "title": "期待値と分散",
+          "description": "期待値と分散を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "expectation-and-variance-procedure",
+          "title": "期待値と分散を使う",
+          "description": "期待値と分散をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "期待値と分散は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "expectation-and-variance-representation-example",
+          "title": "具体例",
+          "description": "期待値と分散を身近なデータの場面で読む。"
+        },
+        {
+          "id": "expectation-and-variance-representation-formal",
+          "title": "数式と図",
+          "description": "期待値と分散を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "期待値と分散を別の概念と同じだと思う",
+        "期待値と分散の数値だけで結論を出してしまう",
+        "期待値と分散の前提条件を確認しない"
+      ],
+      "applications": [
+        "損失の期待値",
+        "リスクの定量化"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "expectation-and-variance-explain",
+          "expectation-and-variance-apply",
+          "expectation-and-variance-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "期待値と分散を自分の言葉で説明する",
+          "期待値と分散を具体的なデータへ適用する",
+          "期待値と分散の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "期待値と分散の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "期待値と分散は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "expectation-and-variance"
+      ],
+      "prerequisites": [
+        "random-variables"
+      ],
+      "related": []
+    },
+    {
+      "id": "common-distributions",
+      "title": {
+        "ja": "代表的な確率分布",
+        "en": "Common Probability Distributions"
+      },
+      "central_mental_model": "確率分布は現象を完全に写す名前ではなく、問いに必要な揺れを近似するモデルである。",
+      "cognitive_types": [
+        "structural_definition"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "structural_definition",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "代表的な確率分布ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "代表的な確率分布ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "代表的な確率分布ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "代表的な確率分布ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "代表的な確率分布ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "代表的な確率分布ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "代表的な確率分布ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "common-distributions-facet",
+          "title": "代表的な確率分布",
+          "description": "代表的な確率分布を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "common-distributions-procedure",
+          "title": "代表的な確率分布を使う",
+          "description": "代表的な確率分布をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "代表的な確率分布は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "common-distributions-representation-example",
+          "title": "具体例",
+          "description": "代表的な確率分布を身近なデータの場面で読む。"
+        },
+        {
+          "id": "common-distributions-representation-formal",
+          "title": "数式と図",
+          "description": "代表的な確率分布を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "代表的な確率分布を別の概念と同じだと思う",
+        "代表的な確率分布の数値だけで結論を出してしまう",
+        "代表的な確率分布の前提条件を確認しない"
+      ],
+      "applications": [
+        "二値データ",
+        "連続測定値"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "common-distributions-explain",
+          "common-distributions-apply",
+          "common-distributions-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "代表的な確率分布を自分の言葉で説明する",
+          "代表的な確率分布を具体的なデータへ適用する",
+          "代表的な確率分布の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "代表的な確率分布の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "structural_definition",
+        "reason": "代表的な確率分布は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "common-distributions"
+      ],
+      "prerequisites": [
+        "expectation-and-variance"
+      ],
+      "related": []
+    },
+    {
+      "id": "independence",
+      "title": {
+        "ja": "独立性",
+        "en": "Independence"
+      },
+      "central_mental_model": "独立とは無関係という印象ではなく、条件を付けても確率が変わらないという関係である。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "独立性ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "独立性ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "独立性ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "独立性ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "独立性ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "独立性ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "独立性ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "independence-facet",
+          "title": "独立性",
+          "description": "独立性を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "independence-procedure",
+          "title": "独立性を使う",
+          "description": "独立性をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "独立性は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "independence-representation-example",
+          "title": "具体例",
+          "description": "独立性を身近なデータの場面で読む。"
+        },
+        {
+          "id": "independence-representation-formal",
+          "title": "数式と図",
+          "description": "独立性を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "独立性を別の概念と同じだと思う",
+        "独立性の数値だけで結論を出してしまう",
+        "独立性の前提条件を確認しない"
+      ],
+      "applications": [
+        "標本抽出",
+        "試行のモデル化"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "independence-explain",
+          "independence-apply",
+          "independence-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "独立性を自分の言葉で説明する",
+          "独立性を具体的なデータへ適用する",
+          "独立性の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "独立性の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "独立性は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "independence"
+      ],
+      "prerequisites": [
+        "conditional-probability"
+      ],
+      "related": []
+    },
+    {
+      "id": "sampling-and-bias",
+      "title": {
+        "ja": "標本抽出とバイアス",
+        "en": "Sampling and Bias"
+      },
+      "central_mental_model": "標本サイズを増やす前に、標本が母集団を代表する仕組みになっているかを問う。",
+      "cognitive_types": [
+        "transformation_process"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "transformation_process",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "標本抽出とバイアスではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "標本抽出とバイアスではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "標本抽出とバイアスではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "標本抽出とバイアスではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "標本抽出とバイアスではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "標本抽出とバイアスではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "標本抽出とバイアスではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "sampling-and-bias-facet",
+          "title": "標本抽出とバイアス",
+          "description": "標本抽出とバイアスを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "sampling-and-bias-procedure",
+          "title": "標本抽出とバイアスを使う",
+          "description": "標本抽出とバイアスをデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "標本抽出とバイアスは、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "sampling-and-bias-representation-example",
+          "title": "具体例",
+          "description": "標本抽出とバイアスを身近なデータの場面で読む。"
+        },
+        {
+          "id": "sampling-and-bias-representation-formal",
+          "title": "数式と図",
+          "description": "標本抽出とバイアスを式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "標本抽出とバイアスを別の概念と同じだと思う",
+        "標本抽出とバイアスの数値だけで結論を出してしまう",
+        "標本抽出とバイアスの前提条件を確認しない"
+      ],
+      "applications": [
+        "世論調査",
+        "観察研究"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "sampling-and-bias-explain",
+          "sampling-and-bias-apply",
+          "sampling-and-bias-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "標本抽出とバイアスを自分の言葉で説明する",
+          "標本抽出とバイアスを具体的なデータへ適用する",
+          "標本抽出とバイアスの限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "標本抽出とバイアスの値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "transformation_process",
+        "reason": "標本抽出とバイアスは、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "sampling-and-bias"
+      ],
+      "prerequisites": [
+        "data-generating-process",
+        "independence"
+      ],
+      "related": []
+    },
+    {
+      "id": "sampling-distributions",
+      "title": {
+        "ja": "標本分布",
+        "en": "Sampling Distributions"
+      },
+      "central_mental_model": "推論で必要なのは観測値の分布だけでなく、標本を取り直したときの統計量の分布である。",
+      "cognitive_types": [
+        "abstraction"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "abstraction",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "標本分布ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "標本分布ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "標本分布ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "標本分布ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "標本分布ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "標本分布ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "標本分布ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "sampling-distributions-facet",
+          "title": "標本分布",
+          "description": "標本分布を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "sampling-distributions-procedure",
+          "title": "標本分布を使う",
+          "description": "標本分布をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "標本分布は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "sampling-distributions-representation-example",
+          "title": "具体例",
+          "description": "標本分布を身近なデータの場面で読む。"
+        },
+        {
+          "id": "sampling-distributions-representation-formal",
+          "title": "数式と図",
+          "description": "標本分布を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "標本分布を別の概念と同じだと思う",
+        "標本分布の数値だけで結論を出してしまう",
+        "標本分布の前提条件を確認しない"
+      ],
+      "applications": [
+        "標準誤差",
+        "信頼区間"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "sampling-distributions-explain",
+          "sampling-distributions-apply",
+          "sampling-distributions-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "標本分布を自分の言葉で説明する",
+          "標本分布を具体的なデータへ適用する",
+          "標本分布の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "標本分布の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "abstraction",
+        "reason": "標本分布は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "sampling-distributions"
+      ],
+      "prerequisites": [
+        "sampling-and-bias",
+        "expectation-and-variance"
+      ],
+      "related": []
+    },
+    {
+      "id": "law-of-large-numbers",
+      "title": {
+        "ja": "大数の法則",
+        "en": "Law of Large Numbers"
+      },
+      "central_mental_model": "長期平均が期待値へ近づくことは、一回の結果が予測できることとは違う。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "大数の法則ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "大数の法則ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "大数の法則ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "大数の法則ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "大数の法則ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "大数の法則ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "大数の法則ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "law-of-large-numbers-facet",
+          "title": "大数の法則",
+          "description": "大数の法則を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "law-of-large-numbers-procedure",
+          "title": "大数の法則を使う",
+          "description": "大数の法則をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "大数の法則は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "law-of-large-numbers-representation-example",
+          "title": "具体例",
+          "description": "大数の法則を身近なデータの場面で読む。"
+        },
+        {
+          "id": "law-of-large-numbers-representation-formal",
+          "title": "数式と図",
+          "description": "大数の法則を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "大数の法則を別の概念と同じだと思う",
+        "大数の法則の数値だけで結論を出してしまう",
+        "大数の法則の前提条件を確認しない"
+      ],
+      "applications": [
+        "反復実験",
+        "シミュレーション"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "law-of-large-numbers-explain",
+          "law-of-large-numbers-apply",
+          "law-of-large-numbers-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "大数の法則を自分の言葉で説明する",
+          "大数の法則を具体的なデータへ適用する",
+          "大数の法則の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "大数の法則の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "大数の法則は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "law-of-large-numbers"
+      ],
+      "prerequisites": [
+        "sampling-distributions"
+      ],
+      "related": []
+    },
+    {
+      "id": "central-limit-theorem",
+      "title": {
+        "ja": "中心極限定理",
+        "en": "Central Limit Theorem"
+      },
+      "central_mental_model": "元データの形ではなく、繰り返し標本から作る平均の分布が正規近似へ近づく。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "中心極限定理ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "中心極限定理ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "中心極限定理ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "中心極限定理ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "中心極限定理ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "中心極限定理ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "中心極限定理ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "central-limit-theorem-facet",
+          "title": "中心極限定理",
+          "description": "中心極限定理を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "central-limit-theorem-procedure",
+          "title": "中心極限定理を使う",
+          "description": "中心極限定理をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "中心極限定理は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "central-limit-theorem-representation-example",
+          "title": "具体例",
+          "description": "中心極限定理を身近なデータの場面で読む。"
+        },
+        {
+          "id": "central-limit-theorem-representation-formal",
+          "title": "数式と図",
+          "description": "中心極限定理を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "中心極限定理を別の概念と同じだと思う",
+        "中心極限定理の数値だけで結論を出してしまう",
+        "中心極限定理の前提条件を確認しない"
+      ],
+      "applications": [
+        "平均の近似",
+        "推定と検定"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "central-limit-theorem-explain",
+          "central-limit-theorem-apply",
+          "central-limit-theorem-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "中心極限定理を自分の言葉で説明する",
+          "中心極限定理を具体的なデータへ適用する",
+          "中心極限定理の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "中心極限定理の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "中心極限定理は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "central-limit-theorem"
+      ],
+      "prerequisites": [
+        "sampling-distributions",
+        "law-of-large-numbers"
+      ],
+      "related": []
+    },
+    {
+      "id": "standard-error",
+      "title": {
+        "ja": "標準誤差",
+        "en": "Standard Error"
+      },
+      "central_mental_model": "標準誤差はデータそのものの散らばりではなく、推定量の揺れを表す尺度である。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "標準誤差ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "標準誤差ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "標準誤差ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "標準誤差ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "標準誤差ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "標準誤差ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "標準誤差ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "standard-error-facet",
+          "title": "標準誤差",
+          "description": "標準誤差を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "standard-error-procedure",
+          "title": "標準誤差を使う",
+          "description": "標準誤差をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "標準誤差は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "standard-error-representation-example",
+          "title": "具体例",
+          "description": "標準誤差を身近なデータの場面で読む。"
+        },
+        {
+          "id": "standard-error-representation-formal",
+          "title": "数式と図",
+          "description": "標準誤差を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "標準誤差を別の概念と同じだと思う",
+        "標準誤差の数値だけで結論を出してしまう",
+        "標準誤差の前提条件を確認しない"
+      ],
+      "applications": [
+        "信頼区間",
+        "検定統計量"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "standard-error-explain",
+          "standard-error-apply",
+          "standard-error-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "標準誤差を自分の言葉で説明する",
+          "標準誤差を具体的なデータへ適用する",
+          "標準誤差の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "標準誤差の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "標準誤差は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "standard-error"
+      ],
+      "prerequisites": [
+        "central-limit-theorem"
+      ],
+      "related": []
+    },
+    {
+      "id": "point-estimation",
+      "title": {
+        "ja": "点推定",
+        "en": "Point Estimation"
+      },
+      "central_mental_model": "点推定は答えを一つに圧縮するが、その値の揺れと偏りを併記して初めて意味を持つ。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "点推定ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "点推定ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "点推定ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "点推定ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "点推定ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "点推定ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "点推定ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "point-estimation-facet",
+          "title": "点推定",
+          "description": "点推定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "point-estimation-procedure",
+          "title": "点推定を使う",
+          "description": "点推定をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "点推定は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "point-estimation-representation-example",
+          "title": "具体例",
+          "description": "点推定を身近なデータの場面で読む。"
+        },
+        {
+          "id": "point-estimation-representation-formal",
+          "title": "数式と図",
+          "description": "点推定を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "点推定を別の概念と同じだと思う",
+        "点推定の数値だけで結論を出してしまう",
+        "点推定の前提条件を確認しない"
+      ],
+      "applications": [
+        "平均の推定",
+        "割合の推定"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "point-estimation-explain",
+          "point-estimation-apply",
+          "point-estimation-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "点推定を自分の言葉で説明する",
+          "点推定を具体的なデータへ適用する",
+          "点推定の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "点推定の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "点推定は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "point-estimation"
+      ],
+      "prerequisites": [
+        "standard-error"
+      ],
+      "related": []
+    },
+    {
+      "id": "interval-estimation",
+      "title": {
+        "ja": "区間推定",
+        "en": "Interval Estimation"
+      },
+      "central_mental_model": "区間は母数が動く範囲ではなく、手続きが長期的にどの割合で母数を含むかを表す。",
+      "cognitive_types": [
+        "procedure"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "procedure",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "区間推定ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "区間推定ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "区間推定ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "区間推定ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "区間推定ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "区間推定ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "区間推定ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "interval-estimation-facet",
+          "title": "区間推定",
+          "description": "区間推定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "interval-estimation-procedure",
+          "title": "区間推定を使う",
+          "description": "区間推定をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "区間推定は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "interval-estimation-representation-example",
+          "title": "具体例",
+          "description": "区間推定を身近なデータの場面で読む。"
+        },
+        {
+          "id": "interval-estimation-representation-formal",
+          "title": "数式と図",
+          "description": "区間推定を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "区間推定を別の概念と同じだと思う",
+        "区間推定の数値だけで結論を出してしまう",
+        "区間推定の前提条件を確認しない"
+      ],
+      "applications": [
+        "推定結果の報告",
+        "科学的測定"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "interval-estimation-explain",
+          "interval-estimation-apply",
+          "interval-estimation-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "区間推定を自分の言葉で説明する",
+          "区間推定を具体的なデータへ適用する",
+          "区間推定の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "区間推定の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "procedure",
+        "reason": "区間推定は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "interval-estimation"
+      ],
+      "prerequisites": [
+        "point-estimation",
+        "standard-error"
+      ],
+      "related": []
+    },
+    {
+      "id": "confidence-interval",
+      "title": {
+        "ja": "信頼区間",
+        "en": "Confidence Interval"
+      },
+      "central_mental_model": "信頼区間の信頼度は、同じ手続きを繰り返したときの被覆率に関する性質である。",
+      "cognitive_types": [
+        "procedure"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "procedure",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "信頼区間ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "信頼区間ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "信頼区間ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "信頼区間ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "信頼区間ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "信頼区間ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "信頼区間ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "confidence-interval-facet",
+          "title": "信頼区間",
+          "description": "信頼区間を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "confidence-interval-procedure",
+          "title": "信頼区間を使う",
+          "description": "信頼区間をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "信頼区間は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "confidence-interval-representation-example",
+          "title": "具体例",
+          "description": "信頼区間を身近なデータの場面で読む。"
+        },
+        {
+          "id": "confidence-interval-representation-formal",
+          "title": "数式と図",
+          "description": "信頼区間を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "信頼区間を別の概念と同じだと思う",
+        "信頼区間の数値だけで結論を出してしまう",
+        "信頼区間の前提条件を確認しない"
+      ],
+      "applications": [
+        "効果量の報告",
+        "不確実性の比較"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "confidence-interval-explain",
+          "confidence-interval-apply",
+          "confidence-interval-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "信頼区間を自分の言葉で説明する",
+          "信頼区間を具体的なデータへ適用する",
+          "信頼区間の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "信頼区間の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "procedure",
+        "reason": "信頼区間は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "confidence-interval"
+      ],
+      "prerequisites": [
+        "interval-estimation",
+        "central-limit-theorem"
+      ],
+      "related": []
+    },
+    {
+      "id": "likelihood-and-mle",
+      "title": {
+        "ja": "尤度と最尤推定",
+        "en": "Likelihood and Maximum Likelihood"
+      },
+      "central_mental_model": "尤度はデータを固定して、どの母数がそのデータを説明しやすいかを比較する向きの関数である。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "尤度と最尤推定ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "尤度と最尤推定ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "尤度と最尤推定ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "尤度と最尤推定ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "尤度と最尤推定ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "尤度と最尤推定ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "尤度と最尤推定ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "likelihood-and-mle-facet",
+          "title": "尤度と最尤推定",
+          "description": "尤度と最尤推定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "likelihood-and-mle-procedure",
+          "title": "尤度と最尤推定を使う",
+          "description": "尤度と最尤推定をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "尤度と最尤推定は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "likelihood-and-mle-representation-example",
+          "title": "具体例",
+          "description": "尤度と最尤推定を身近なデータの場面で読む。"
+        },
+        {
+          "id": "likelihood-and-mle-representation-formal",
+          "title": "数式と図",
+          "description": "尤度と最尤推定を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "尤度と最尤推定を別の概念と同じだと思う",
+        "尤度と最尤推定の数値だけで結論を出してしまう",
+        "尤度と最尤推定の前提条件を確認しない"
+      ],
+      "applications": [
+        "モデル推定",
+        "ロジスティック回帰の準備"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "likelihood-and-mle-explain",
+          "likelihood-and-mle-apply",
+          "likelihood-and-mle-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "尤度と最尤推定を自分の言葉で説明する",
+          "尤度と最尤推定を具体的なデータへ適用する",
+          "尤度と最尤推定の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "尤度と最尤推定の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "尤度と最尤推定は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "likelihood-and-mle"
+      ],
+      "prerequisites": [
+        "point-estimation",
+        "common-distributions"
+      ],
+      "related": []
+    },
+    {
+      "id": "hypothesis-testing",
+      "title": {
+        "ja": "仮説検定",
+        "en": "Hypothesis Testing"
+      },
+      "central_mental_model": "検定は仮説を真偽判定する機械ではなく、帰無モデルのもとで観測結果の極端さを評価する手続きである。",
+      "cognitive_types": [
+        "procedure"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "procedure",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "仮説検定ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "仮説検定ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "仮説検定ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "仮説検定ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "仮説検定ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "仮説検定ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "仮説検定ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "hypothesis-testing-facet",
+          "title": "仮説検定",
+          "description": "仮説検定を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "hypothesis-testing-procedure",
+          "title": "仮説検定を使う",
+          "description": "仮説検定をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "仮説検定は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "hypothesis-testing-representation-example",
+          "title": "具体例",
+          "description": "仮説検定を身近なデータの場面で読む。"
+        },
+        {
+          "id": "hypothesis-testing-representation-formal",
+          "title": "数式と図",
+          "description": "仮説検定を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "仮説検定を別の概念と同じだと思う",
+        "仮説検定の数値だけで結論を出してしまう",
+        "仮説検定の前提条件を確認しない"
+      ],
+      "applications": [
+        "実験比較",
+        "品質管理"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "hypothesis-testing-explain",
+          "hypothesis-testing-apply",
+          "hypothesis-testing-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "仮説検定を自分の言葉で説明する",
+          "仮説検定を具体的なデータへ適用する",
+          "仮説検定の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "仮説検定の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "procedure",
+        "reason": "仮説検定は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "hypothesis-testing"
+      ],
+      "prerequisites": [
+        "sampling-distributions",
+        "standard-error"
+      ],
+      "related": []
+    },
+    {
+      "id": "p-value",
+      "title": {
+        "ja": "p値",
+        "en": "p-value"
+      },
+      "central_mental_model": "p値は帰無仮説が正しい確率ではなく、帰無モデルとデータの整合性を測る尾確率である。",
+      "cognitive_types": [
+        "representation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "representation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "p値ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "p値ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "p値ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "p値ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "p値ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "p値ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "p値ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "p-value-facet",
+          "title": "p値",
+          "description": "p値を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "p-value-procedure",
+          "title": "p値を使う",
+          "description": "p値をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "p値は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "p-value-representation-example",
+          "title": "具体例",
+          "description": "p値を身近なデータの場面で読む。"
+        },
+        {
+          "id": "p-value-representation-formal",
+          "title": "数式と図",
+          "description": "p値を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "p値を別の概念と同じだと思う",
+        "p値の数値だけで結論を出してしまう",
+        "p値の前提条件を確認しない"
+      ],
+      "applications": [
+        "統計的報告",
+        "研究結果の解釈"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "p-value-explain",
+          "p-value-apply",
+          "p-value-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "p値を自分の言葉で説明する",
+          "p値を具体的なデータへ適用する",
+          "p値の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "p値の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "representation",
+        "reason": "p値は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "p-value"
+      ],
+      "prerequisites": [
+        "hypothesis-testing"
+      ],
+      "related": []
+    },
+    {
+      "id": "type-errors-and-power",
+      "title": {
+        "ja": "第一種・第二種過誤と検出力",
+        "en": "Type I, Type II Errors, and Power"
+      },
+      "central_mental_model": "検定の判断には二種類の誤りがあり、標本サイズ・効果・有意水準の組合せで検出力が変わる。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "第一種・第二種過誤と検出力ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "第一種・第二種過誤と検出力ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "第一種・第二種過誤と検出力ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "第一種・第二種過誤と検出力ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "第一種・第二種過誤と検出力ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "第一種・第二種過誤と検出力ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "第一種・第二種過誤と検出力ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "type-errors-and-power-facet",
+          "title": "第一種・第二種過誤と検出力",
+          "description": "第一種・第二種過誤と検出力を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "type-errors-and-power-procedure",
+          "title": "第一種・第二種過誤と検出力を使う",
+          "description": "第一種・第二種過誤と検出力をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "第一種・第二種過誤と検出力は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "type-errors-and-power-representation-example",
+          "title": "具体例",
+          "description": "第一種・第二種過誤と検出力を身近なデータの場面で読む。"
+        },
+        {
+          "id": "type-errors-and-power-representation-formal",
+          "title": "数式と図",
+          "description": "第一種・第二種過誤と検出力を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "第一種・第二種過誤と検出力を別の概念と同じだと思う",
+        "第一種・第二種過誤と検出力の数値だけで結論を出してしまう",
+        "第一種・第二種過誤と検出力の前提条件を確認しない"
+      ],
+      "applications": [
+        "実験計画",
+        "サンプルサイズ設計"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "type-errors-and-power-explain",
+          "type-errors-and-power-apply",
+          "type-errors-and-power-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "第一種・第二種過誤と検出力を自分の言葉で説明する",
+          "第一種・第二種過誤と検出力を具体的なデータへ適用する",
+          "第一種・第二種過誤と検出力の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "第一種・第二種過誤と検出力の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "第一種・第二種過誤と検出力は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "type-errors-and-power"
+      ],
+      "prerequisites": [
+        "p-value"
+      ],
+      "related": []
+    },
+    {
+      "id": "multiple-comparisons",
+      "title": {
+        "ja": "多重比較",
+        "en": "Multiple Comparisons"
+      },
+      "central_mental_model": "一回ごとの判断基準をそのまま複数回使うと、少なくとも一つの誤検出の確率が増える。",
+      "cognitive_types": [
+        "relationship_theorem"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "relationship_theorem",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "多重比較ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "多重比較ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "多重比較ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "多重比較ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "多重比較ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "多重比較ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "多重比較ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "multiple-comparisons-facet",
+          "title": "多重比較",
+          "description": "多重比較を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "multiple-comparisons-procedure",
+          "title": "多重比較を使う",
+          "description": "多重比較をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "多重比較は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "multiple-comparisons-representation-example",
+          "title": "具体例",
+          "description": "多重比較を身近なデータの場面で読む。"
+        },
+        {
+          "id": "multiple-comparisons-representation-formal",
+          "title": "数式と図",
+          "description": "多重比較を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "多重比較を別の概念と同じだと思う",
+        "多重比較の数値だけで結論を出してしまう",
+        "多重比較の前提条件を確認しない"
+      ],
+      "applications": [
+        "多項目実験",
+        "探索的分析"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "multiple-comparisons-explain",
+          "multiple-comparisons-apply",
+          "multiple-comparisons-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "多重比較を自分の言葉で説明する",
+          "多重比較を具体的なデータへ適用する",
+          "多重比較の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "多重比較の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "relationship_theorem",
+        "reason": "多重比較は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "multiple-comparisons"
+      ],
+      "prerequisites": [
+        "type-errors-and-power"
+      ],
+      "related": []
+    },
+    {
+      "id": "covariance-and-correlation",
+      "title": {
+        "ja": "共分散と相関",
+        "en": "Covariance and Correlation"
+      },
+      "central_mental_model": "相関は直線的な共変動の要約であり、因果や非線形な関係を自動的に意味しない。",
+      "cognitive_types": [
+        "invariant_quantity"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "invariant_quantity",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "共分散と相関ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "共分散と相関ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "共分散と相関ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "共分散と相関ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "共分散と相関ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "共分散と相関ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "共分散と相関ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "covariance-and-correlation-facet",
+          "title": "共分散と相関",
+          "description": "共分散と相関を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "covariance-and-correlation-procedure",
+          "title": "共分散と相関を使う",
+          "description": "共分散と相関をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "共分散と相関は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "covariance-and-correlation-representation-example",
+          "title": "具体例",
+          "description": "共分散と相関を身近なデータの場面で読む。"
+        },
+        {
+          "id": "covariance-and-correlation-representation-formal",
+          "title": "数式と図",
+          "description": "共分散と相関を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "共分散と相関を別の概念と同じだと思う",
+        "共分散と相関の数値だけで結論を出してしまう",
+        "共分散と相関の前提条件を確認しない"
+      ],
+      "applications": [
+        "特徴量探索",
+        "関連性の要約"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "covariance-and-correlation-explain",
+          "covariance-and-correlation-apply",
+          "covariance-and-correlation-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "共分散と相関を自分の言葉で説明する",
+          "共分散と相関を具体的なデータへ適用する",
+          "共分散と相関の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "共分散と相関の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "invariant_quantity",
+        "reason": "共分散と相関は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "covariance-and-correlation"
+      ],
+      "prerequisites": [
+        "descriptive-statistics",
+        "expectation-and-variance"
+      ],
+      "related": []
+    },
+    {
+      "id": "simple-linear-regression",
+      "title": {
+        "ja": "単回帰",
+        "en": "Simple Linear Regression"
+      },
+      "central_mental_model": "回帰直線は条件付き平均を近似するモデルで、傾きは単なる相関係数ではない。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "単回帰ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "単回帰ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "単回帰ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "単回帰ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "単回帰ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "単回帰ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "単回帰ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "simple-linear-regression-facet",
+          "title": "単回帰",
+          "description": "単回帰を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "simple-linear-regression-procedure",
+          "title": "単回帰を使う",
+          "description": "単回帰をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "単回帰は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "simple-linear-regression-representation-example",
+          "title": "具体例",
+          "description": "単回帰を身近なデータの場面で読む。"
+        },
+        {
+          "id": "simple-linear-regression-representation-formal",
+          "title": "数式と図",
+          "description": "単回帰を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "単回帰を別の概念と同じだと思う",
+        "単回帰の数値だけで結論を出してしまう",
+        "単回帰の前提条件を確認しない"
+      ],
+      "applications": [
+        "予測",
+        "効果の記述"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "simple-linear-regression-explain",
+          "simple-linear-regression-apply",
+          "simple-linear-regression-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "単回帰を自分の言葉で説明する",
+          "単回帰を具体的なデータへ適用する",
+          "単回帰の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "単回帰の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "単回帰は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "simple-linear-regression"
+      ],
+      "prerequisites": [
+        "covariance-and-correlation"
+      ],
+      "related": []
+    },
+    {
+      "id": "multiple-regression-and-glm",
+      "title": {
+        "ja": "重回帰と一般化線形モデル",
+        "en": "Multiple Regression and Generalized Linear Models"
+      },
+      "central_mental_model": "モデルの拡張は変数を足すことではなく、応答の分布・リンク・解釈の前提を選び直すことである。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "重回帰と一般化線形モデルではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "重回帰と一般化線形モデルではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "重回帰と一般化線形モデルではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "重回帰と一般化線形モデルではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "重回帰と一般化線形モデルではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "重回帰と一般化線形モデルではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "重回帰と一般化線形モデルではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "multiple-regression-and-glm-facet",
+          "title": "重回帰と一般化線形モデル",
+          "description": "重回帰と一般化線形モデルを具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "multiple-regression-and-glm-procedure",
+          "title": "重回帰と一般化線形モデルを使う",
+          "description": "重回帰と一般化線形モデルをデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "重回帰と一般化線形モデルは、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "multiple-regression-and-glm-representation-example",
+          "title": "具体例",
+          "description": "重回帰と一般化線形モデルを身近なデータの場面で読む。"
+        },
+        {
+          "id": "multiple-regression-and-glm-representation-formal",
+          "title": "数式と図",
+          "description": "重回帰と一般化線形モデルを式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "重回帰と一般化線形モデルを別の概念と同じだと思う",
+        "重回帰と一般化線形モデルの数値だけで結論を出してしまう",
+        "重回帰と一般化線形モデルの前提条件を確認しない"
+      ],
+      "applications": [
+        "調整済み効果",
+        "分類モデル"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "multiple-regression-and-glm-explain",
+          "multiple-regression-and-glm-apply",
+          "multiple-regression-and-glm-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "重回帰と一般化線形モデルを自分の言葉で説明する",
+          "重回帰と一般化線形モデルを具体的なデータへ適用する",
+          "重回帰と一般化線形モデルの限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "重回帰と一般化線形モデルの値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "重回帰と一般化線形モデルは、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "multiple-regression-and-glm"
+      ],
+      "prerequisites": [
+        "simple-linear-regression",
+        "common-distributions"
+      ],
+      "related": []
+    },
+    {
+      "id": "model-evaluation-and-generalization",
+      "title": {
+        "ja": "モデル評価と一般化",
+        "en": "Model Evaluation and Generalization"
+      },
+      "central_mental_model": "良いモデルは手元のデータを覚えるだけでなく、生成過程の再現可能な構造を未知データへ運ぶ。",
+      "cognitive_types": [
+        "optimization_approximation"
+      ],
+      "cognitive_profile": {
+        "abstraction": 3,
+        "procedural": 3,
+        "visual": 4,
+        "prerequisite_load": 3,
+        "misconception_risk": 3,
+        "representation_switching": 4,
+        "symbolic_density": 3
+      },
+      "cognitive_analysis": {
+        "primary_type": "optimization_approximation",
+        "dimensions": {
+          "abstraction": {
+            "score": 3,
+            "rationale": "モデル評価と一般化ではabstractionの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "procedural": {
+            "score": 3,
+            "rationale": "モデル評価と一般化ではproceduralの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "visual": {
+            "score": 4,
+            "rationale": "モデル評価と一般化ではvisualの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "prerequisite_load": {
+            "score": 3,
+            "rationale": "モデル評価と一般化ではprerequisite_loadの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "misconception_risk": {
+            "score": 3,
+            "rationale": "モデル評価と一般化ではmisconception_riskの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "representation_switching": {
+            "score": 4,
+            "rationale": "モデル評価と一般化ではrepresentation_switchingの負荷を4/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          },
+          "symbolic_density": {
+            "score": 3,
+            "rationale": "モデル評価と一般化ではsymbolic_densityの負荷を3/5と見積もる。具体例・対比・形式化を段階的に接続する必要があるためである。"
+          }
+        }
+      },
+      "instructional_budget": {
+        "minimum_concrete_scenarios": 1,
+        "minimum_worked_examples": 1,
+        "minimum_counterexamples": 1,
+        "minimum_guided_questions": 1,
+        "minimum_independent_questions": 1,
+        "minimum_misconception_challenges": 1,
+        "minimum_representation_switches": 1,
+        "minimum_transfer_tasks": 1
+      },
+      "facets": [
+        {
+          "id": "model-evaluation-and-generalization-facet",
+          "title": "モデル評価と一般化",
+          "description": "モデル評価と一般化を具体例・形式化・転移課題で扱う。"
+        }
+      ],
+      "procedures": [
+        {
+          "id": "model-evaluation-and-generalization-procedure",
+          "title": "モデル評価と一般化を使う",
+          "description": "モデル評価と一般化をデータの問いへ適用する手順を確認する。"
+        }
+      ],
+      "properties": [
+        "モデル評価と一般化は、観測された事実と不確実性を分けて考えるための統計学の構造を与える。"
+      ],
+      "representations": [
+        {
+          "id": "model-evaluation-and-generalization-representation-example",
+          "title": "具体例",
+          "description": "モデル評価と一般化を身近なデータの場面で読む。"
+        },
+        {
+          "id": "model-evaluation-and-generalization-representation-formal",
+          "title": "数式と図",
+          "description": "モデル評価と一般化を式・図・言葉の間で変換する。"
+        }
+      ],
+      "misconceptions": [
+        "モデル評価と一般化を別の概念と同じだと思う",
+        "モデル評価と一般化の数値だけで結論を出してしまう",
+        "モデル評価と一般化の前提条件を確認しない"
+      ],
+      "applications": [
+        "交差検証",
+        "過学習の検出"
+      ],
+      "external_relations": [],
+      "learning_contract": {
+        "learning_outcome_ids": [
+          "model-evaluation-and-generalization-explain",
+          "model-evaluation-and-generalization-apply",
+          "model-evaluation-and-generalization-transfer"
+        ],
+        "learner_should_be_able_to": [
+          "モデル評価と一般化を自分の言葉で説明する",
+          "モデル評価と一般化を具体的なデータへ適用する",
+          "モデル評価と一般化の限界と前提を指摘する"
+        ],
+        "must_not_leave_with_misconceptions": [
+          "モデル評価と一般化の値を文脈なしに解釈しない",
+          "標本と母集団を混同しない",
+          "不確実性を確実性として扱わない"
+        ],
+        "required_representations": [
+          "concrete example",
+          "formal notation"
+        ],
+        "required_examples": [
+          "positive example",
+          "contrasting nonexample"
+        ],
+        "required_learning_elements": {
+          "motivating_problem": 1,
+          "intuition": 1,
+          "formalization": 1,
+          "positive_examples": 1,
+          "contrasting_nonexamples": 1,
+          "worked_examples": 1,
+          "learner_predictions": 1,
+          "misconceptions": 1,
+          "practice": {
+            "basic": 1,
+            "conceptual": 1,
+            "transfer": 1
+          },
+          "synthesis": 1
+        }
+      },
+      "pedagogical_plan": {
+        "pattern": "optimization_approximation",
+        "reason": "モデル評価と一般化は、具体的な場面から形式的な表現へ移り、最後に前提と限界を検討する順序が適している。",
+        "stages": [
+          "具体的な問い",
+          "観察",
+          "直観的な予測",
+          "形式化",
+          "反例と転移"
+        ],
+        "profile_driven_requirements": [
+          "具体例と形式表現を併用する",
+          "不確実性と前提を明示する"
+        ]
+      },
+      "editorial_status": "scaffold",
+      "source_concept_ids": [
+        "model-evaluation-and-generalization"
+      ],
+      "prerequisites": [
+        "multiple-regression-and-glm"
+      ],
+      "related": []
+    }
+  ]
+}

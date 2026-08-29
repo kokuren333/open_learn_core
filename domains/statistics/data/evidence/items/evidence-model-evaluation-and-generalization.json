@@ -1,0 +1,18 @@
+{
+  "id": "evidence-model-evaluation-and-generalization",
+  "source": "openintro-statistics",
+  "locator": {
+    "type": "section",
+    "value": "textbook overview and table of contents",
+    "section": "curriculum comparison"
+  },
+  "evidence_role": "curriculum",
+  "supports": [
+    "model-evaluation-and-generalization-claim"
+  ],
+  "extracted_meaning": {
+    "ja": "モデル評価と一般化は、統計学の導入から応用へ進むための共通要素として整理した。",
+    "en": "Model Evaluation and Generalization is included as a shared element in the path from introductory ideas to application in Statistics."
+  },
+  "confidence": "high"
+}

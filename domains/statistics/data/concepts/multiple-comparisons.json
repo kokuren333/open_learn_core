@@ -1,0 +1,90 @@
+{
+  "id": "multiple-comparisons",
+  "title": {
+    "ja": "多重比較",
+    "en": "Multiple Comparisons"
+  },
+  "summary": {
+    "ja": "複数の検定を同時に行うと誤検出率がどう変わるかを扱う。",
+    "en": "Understand how simultaneous tests change false-positive control."
+  },
+  "prerequisites": [
+    "type-errors-and-power"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "多重比較の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "multiple-comparisons-lesson",
+      "title": "多重比較",
+      "summary": "多重比較の入口。",
+      "objectives": [
+        "多重比較を説明する"
+      ],
+      "sections": [
+        {
+          "id": "multiple-comparisons-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "多重比較は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "multiple-comparisons-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "multiple-comparisons-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "multiple-comparisons-claim",
+      "statement": "多重比較は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-multiple-comparisons"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "multiple-comparisons-example",
+      "statement": "多重比較を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、多重比較がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "multiple-comparisons-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "多重比較が必要になる問いを一つ説明せよ。",
+      "answer": "多重比較を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "多重比較の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "multiple-comparisons-lesson",
+      "testsClaims": [
+        "multiple-comparisons-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "多重比較を別の概念と同一視する",
+    "多重比較の値だけで結論を出す",
+    "多重比較の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}

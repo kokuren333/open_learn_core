@@ -1,0 +1,90 @@
+{
+  "id": "expectation-and-variance",
+  "title": {
+    "ja": "期待値と分散",
+    "en": "Expectation and Variance"
+  },
+  "summary": {
+    "ja": "分布の中心と揺れを確率的な量として計算する。",
+    "en": "Compute center and spread as properties of a probability distribution."
+  },
+  "prerequisites": [
+    "random-variables"
+  ],
+  "related": [],
+  "learningObjectives": [
+    "期待値と分散の意味を説明する"
+  ],
+  "lessons": [
+    {
+      "id": "expectation-and-variance-lesson",
+      "title": "期待値と分散",
+      "summary": "期待値と分散の入口。",
+      "objectives": [
+        "期待値と分散を説明する"
+      ],
+      "sections": [
+        {
+          "id": "expectation-and-variance-lesson-section",
+          "title": "入口",
+          "kind": "explanation",
+          "body": "期待値と分散は、統計学の問いに答えるときに使う概念です。まず具体的な場面を思い浮かべ、何を知りたいのか、どの量が変動するのかを区別します。",
+          "claimRefs": [
+            "expectation-and-variance-claim"
+          ]
+        }
+      ],
+      "exerciseIds": [
+        "expectation-and-variance-exercise"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "expectation-and-variance-claim",
+      "statement": "期待値と分散は、観測された事実と問いを対応付けるための基本的な考え方である。",
+      "sourceRefs": [
+        {
+          "source": "openintro-statistics",
+          "locator": "textbook overview and table of contents"
+        }
+      ],
+      "claimType": "curriculum_claim",
+      "status": "supported",
+      "evidence": [
+        "evidence-expectation-and-variance"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "expectation-and-variance-example",
+      "statement": "期待値と分散を含むデータの場面",
+      "explanation": "観測対象と知りたい量を分けると、期待値と分散がどこで働くかを説明できる。",
+      "type": "positive",
+      "difficulty": "basic"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "expectation-and-variance-exercise",
+      "type": "short-answer",
+      "difficulty": "basic",
+      "question": "期待値と分散が必要になる問いを一つ説明せよ。",
+      "answer": "期待値と分散を用いて観測データと統計的な問いを対応付ける。",
+      "explanation": "期待値と分散の役割を、データの場面と結び付けて説明する。",
+      "lessonId": "expectation-and-variance-lesson",
+      "testsClaims": [
+        "expectation-and-variance-claim"
+      ]
+    }
+  ],
+  "misconceptions": [
+    "期待値と分散を別の概念と同一視する",
+    "期待値と分散の値だけで結論を出す",
+    "期待値と分散の前提を確認しない"
+  ],
+  "sources": [
+    "openintro-statistics"
+  ]
+}
