@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - run: npm install --no-audit --no-fund
+      - run: npm install --ignore-scripts --no-audit --no-fund
       - run: npm test
       - run: npm run validate:all
       - run: npm run course:audit -- linear-algebra
